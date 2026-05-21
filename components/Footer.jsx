@@ -16,7 +16,7 @@ function SocialIcon({ children, label, href }) {
     <a
       href={href}
       aria-label={label}
-      className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-antique-gold/40 text-parchment hover:text-dark-sepia hover:bg-antique-gold hover:border-antique-gold transition-all duration-300 hover:-translate-y-0.5"
+      className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gold/40 text-paper hover:text-ink hover:bg-gold hover:border-gold transition-all duration-300 hover:-translate-y-0.5"
     >
       {children}
     </a>
@@ -27,27 +27,27 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="bg-dark-sepia text-parchment py-16 md:py-20 border-t border-antique-gold/20"
+      className="bg-ink text-paper py-16 md:py-20 border-t border-gold/20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
           <div>
-            <h3 className="font-cinzel text-xl tracking-[0.18em] text-antique-gold mb-4">
+            <h3 className="font-cinzel text-xl tracking-[0.18em] text-gold mb-4">
               OnlyOneTruth
             </h3>
-            <p className="font-lato text-sm leading-relaxed text-parchment/80 max-w-sm">
+            <p className="font-cinzel text-sm leading-relaxed text-paper/80 max-w-sm">
               A scholarly archive dedicated to preserving and studying ancient
               manuscripts — guarding the textual integrity of the documents
               that shaped human civilization.
             </p>
-            <p className="font-amiri text-lg text-antique-gold/90 mt-4" dir="rtl" lang="ar">
+            <p className="text-lg text-gold/90 mt-4" dir="rtl" lang="ar">
               الحق واحد لا يتعدد
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <h4 className="font-cinzel text-sm tracking-[0.2em] text-antique-gold mb-4 uppercase">
+              <h4 className="font-cinzel text-sm tracking-[0.2em] text-gold mb-4 uppercase">
                 About
               </h4>
               <ul className="space-y-2">
@@ -55,7 +55,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="font-lato text-sm text-parchment/80 hover:text-antique-gold transition-colors"
+                      className="font-cinzel text-sm text-paper/80 hover:text-gold transition-colors"
                     >
                       {link.label}
                     </a>
@@ -64,7 +64,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-cinzel text-sm tracking-[0.2em] text-antique-gold mb-4 uppercase">
+              <h4 className="font-cinzel text-sm tracking-[0.2em] text-gold mb-4 uppercase">
                 Explore
               </h4>
               <ul className="space-y-2">
@@ -72,7 +72,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="font-lato text-sm text-parchment/80 hover:text-antique-gold transition-colors"
+                      className="font-cinzel text-sm text-paper/80 hover:text-gold transition-colors"
                     >
                       {link.label}
                     </a>
@@ -83,10 +83,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-cinzel text-sm tracking-[0.2em] text-antique-gold mb-4 uppercase">
+            <h4 className="font-cinzel text-sm tracking-[0.2em] text-gold mb-4 uppercase">
               Correspond
             </h4>
-            <p className="font-lato text-sm text-parchment/80 mb-5">
+            <p className="font-cinzel text-sm text-paper/80 mb-5">
               For inquiries, research collaboration, or access to the archive.
             </p>
             <div className="flex gap-3">
@@ -144,11 +144,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-antique-gold/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs md:text-sm text-parchment/70 font-lato tracking-wide">
+        <div className="border-t border-gold/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-xs md:text-sm text-paper/70 font-cinzel tracking-wide">
             © {new Date().getFullYear()} OnlyOneTruth. For scholarly purposes.
           </p>
-          <p className="text-xs md:text-sm text-parchment/60 font-cinzel tracking-[0.2em] uppercase">
+          <p className="text-xs md:text-sm text-paper/60 font-cinzel tracking-[0.2em] uppercase">
             Veritas · Antiquitas · Memoria
           </p>
         </div>

@@ -1,13 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const links = [
-  { href: "#home", label: "Home" },
-  { href: "#archive", label: "Archive" },
-  { href: "#textual-history", label: "Textual History" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+const menuItems = [
+  { en: "HOME", th: "หน้าแรก", href: "/" },
+  { en: "ARCHIVE", th: "คลังเอกสาร", href: "/archive" },
+  { en: "TEXTUAL HISTORY", th: "ประวัติศาสตร์", href: "/textual-history" },
+  { en: "ABOUT", th: "เกี่ยวกับ", href: "/about" },
+  { en: "CONTACT", th: "ติดต่อ", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -25,47 +26,59 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 backdrop-blur-md border-b transition-colors duration-300 ${
         scrolled
-          ? "bg-dark-sepia/95 border-antique-gold/30 shadow-lg shadow-black/20"
-          : "bg-dark-sepia/80 border-antique-gold/20"
+          ? "bg-ink/95 border-gold/30 shadow-lg shadow-black/20"
+          : "bg-ink/80 border-gold/20"
       }`}
     >
       <nav
         aria-label="Primary"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 md:h-24 flex items-center justify-between"
       >
-        <a
-          href="#home"
-          className="font-cinzel text-xl md:text-2xl tracking-[0.18em] text-antique-gold hover:text-warm-gold transition-colors"
-        >
-          OnlyOneTruth
+        {/* Logo */}
+        <a href="/" className="flex flex-col gap-0.5">
+          <span className="font-cinzel text-xl text-gold font-semibold tracking-widest">
+            ONLYONETRUTH
+          </span>
+          <span className="font-pridi text-xs text-gold/70 font-light tracking-wide">
+            เพราะสัจธรรมมีแค่หนึ่งเดียว
+          </span>
         </a>
 
+        {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center gap-8">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="font-lato text-sm uppercase tracking-[0.15em] text-parchment/85 hover:text-antique-gold transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-antique-gold hover:after:w-full after:transition-all"
+          {menuItems.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="group flex flex-col items-center gap-0.5 hover:opacity-80 transition-all duration-300"
               >
-                {link.label}
-              </a>
+                <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
+                  {item.en}
+                </span>
+                <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
+                  {item.th}
+                </span>
+              </Link>
             </li>
           ))}
         </ul>
 
-        <a
-          href="#archive"
-          className="hidden lg:inline-flex items-center bg-antique-gold hover:bg-warm-gold text-dark-sepia font-semibold px-5 py-2.5 rounded-md text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5"
+        {/* CTA Button */}
+        <Link
+          href="/archive"
+          className="hidden lg:inline-flex flex-col items-center bg-gold hover:bg-gold-light text-ink px-6 py-2 rounded-btn transition-all duration-300 shadow-card hover:shadow-card-hover hover:-translate-y-0.5"
         >
-          Explore Archive
-        </a>
+          <span className="font-cinzel text-sm tracking-wider font-semibold">EXPLORE</span>
+          <span className="font-pridi text-xs opacity-70">ค้นคว้า</span>
+        </Link>
 
+        {/* Hamburger */}
         <button
           type="button"
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden inline-flex items-center justify-center w-10 h-10 text-antique-gold focus:outline-none focus:ring-2 focus:ring-antique-gold/60 rounded-md"
+          className="lg:hidden inline-flex items-center justify-center w-10 h-10 text-gold focus:outline-none focus:ring-2 focus:ring-gold/60 rounded-btn"
         >
           <span className="sr-only">Menu</span>
           <div className="relative w-6 h-5">
@@ -88,31 +101,40 @@ export default function Navbar() {
         </button>
       </nav>
 
+      {/* Mobile Menu */}
       <div
-        className={`lg:hidden overflow-hidden border-t border-antique-gold/20 bg-dark-sepia/95 backdrop-blur-md transition-[max-height,opacity] duration-500 ease-out ${
+        className={`lg:hidden overflow-hidden border-t border-gold/20 bg-ink/95 backdrop-blur-md transition-[max-height,opacity] duration-500 ease-out ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="px-4 py-4 space-y-2">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
+        <ul className="px-4 py-3">
+          {menuItems.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
                 onClick={() => setOpen(false)}
-                className="block px-3 py-3 font-lato text-base tracking-wide text-parchment hover:text-antique-gold hover:bg-antique-gold/10 rounded-md transition-colors"
+                className="flex items-center gap-3 py-3 border-b border-gold/10 hover:bg-gold/5 px-2 rounded-btn transition-colors group"
               >
-                {link.label}
-              </a>
+                <div className="flex flex-col">
+                  <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
+                    {item.en}
+                  </span>
+                  <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
+                    {item.th}
+                  </span>
+                </div>
+              </Link>
             </li>
           ))}
-          <li className="pt-2">
-            <a
-              href="#archive"
+          <li className="pt-3">
+            <Link
+              href="/archive"
               onClick={() => setOpen(false)}
-              className="block text-center bg-antique-gold hover:bg-warm-gold text-dark-sepia font-semibold px-5 py-3 rounded-md transition-colors"
+              className="flex flex-col items-center bg-gold hover:bg-gold-light text-ink py-2.5 rounded-btn transition-all duration-300"
             >
-              Explore Archive
-            </a>
+              <span className="font-cinzel text-sm tracking-wider font-semibold">EXPLORE</span>
+              <span className="font-pridi text-xs opacity-70">ค้นคว้า</span>
+            </Link>
           </li>
         </ul>
       </div>

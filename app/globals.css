@@ -1,31 +1,25 @@
 @import "tailwindcss";
-
-@theme {
-  --color-deep-charcoal: #2B2520;
-  --color-dark-sepia: #3E2723;
-  --color-parchment: #F5E6D3;
-  --color-ivory: #FFFFF0;
-  --color-antique-gold: #C5A059;
-  --color-warm-gold: #D4AF37;
-  --color-bronze: #B8860B;
-  --color-leather-brown: #654321;
-
-  --font-playfair: var(--nf-playfair), Georgia, serif;
-  --font-cinzel: var(--nf-cinzel), Georgia, serif;
-  --font-lato: var(--nf-lato), system-ui, sans-serif;
-  --font-amiri: var(--nf-amiri), "Times New Roman", serif;
-}
+@config "../tailwind.config.js";
 
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  background-color: var(--color-parchment);
-  color: var(--color-deep-charcoal);
-  font-family: var(--font-lato);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body { @apply bg-paper text-ink font-pridi; }
+  h1, h2, h3, h4 { @apply font-pridi; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gold hover:bg-gold-light text-ink font-cinzel font-bold px-8 py-3 rounded-btn shadow-card hover:shadow-card-hover transition-all duration-300;
+  }
+  .btn-outline {
+    @apply border-2 border-gold text-gold bg-transparent hover:bg-gold/10 font-cinzel font-bold px-8 py-3 rounded-btn transition-all duration-300;
+  }
+  .card-glass {
+    @apply bg-ink/5 backdrop-blur-sm border border-gold/20 rounded-card p-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300;
+  }
 }
 
 @utility reveal {
@@ -49,20 +43,20 @@ body {
 }
 
 ::selection {
-  background: var(--color-antique-gold);
-  color: var(--color-dark-sepia);
+  background: #C5A059;
+  color: #3E2723;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-parchment);
+  background: #F5E6D3;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-antique-gold);
+  background: #C5A059;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-warm-gold);
+  background: #D4AF37;
 }
