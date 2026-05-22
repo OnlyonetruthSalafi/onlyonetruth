@@ -45,19 +45,19 @@ const collections = [
     glyph: "📜",
     title: "Qur'anic Manuscripts",
     blurb:
-      "Early codices and folios — from Hijazi script to illuminated Mamluk volumes — examined for orthography, variant readings, and provenance.",
+      "ต้นฉบับอัลกุรอานยุคแรก ตั้งแต่ฉบับอักษรฮิญาซีในศตวรรษที่ 1 ฮ.ศ. จนถึงฉบับมาตรฐานสมัยอุษมาน บันทึกความต่อเนื่องของพระวจนะที่ไม่เปลี่ยนแปลง",
   },
   {
     glyph: "🕮",
     title: "Biblical Codices",
     blurb:
-      "Septuagint, Masoretic, and patristic witnesses placed side by side, mapping the transmission of sacred text across two millennia.",
+      "ต้นฉบับไบเบิลสำคัญอย่าง Codex Sinaiticus และ Codex Vaticanus เปรียบเทียบฉบับ Septuagint, Masoretic และ Patristic เพื่อศึกษาความแตกต่างของข้อความ",
   },
   {
     glyph: "⚜",
-    title: "Patristic & Sirah",
+    title: "Other Writings Outside Canon",
     blurb:
-      "Commentaries, chronicles, and biographical traditions that shaped scholarly memory across Late Antiquity and the Medieval world.",
+      "งานเขียนคริสเตียนยุคแรกที่ไม่ได้รับการยอมรับเข้าในคัมภีร์ อาทิ พระวรสารนอกสารบบ จดหมายของบรรดา Church Fathers และข้อเขียน Gnostic ที่โบสถ์ปฏิเสธในภายหลัง",
   },
 ];
 
@@ -195,9 +195,12 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#collections" className="btn-primary font-pridi text-lg">
+            <button
+              onClick={() => document.getElementById('collections-section')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn-primary font-pridi text-lg"
+            >
               เริ่มต้นค้นคว้า
-            </a>
+            </button>
             <button
               className="btn-outline font-pridi text-lg"
               onClick={() => document.getElementById('timeline-section')?.scrollIntoView({ behavior: 'smooth' })}
@@ -422,7 +425,7 @@ export default function Home() {
       </section>
 
       {/* COLLECTIONS */}
-      <section id="collections" className="py-section md:py-28 bg-paper">
+      <section id="collections-section" className="py-section md:py-28 bg-paper">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
             <p
@@ -445,8 +448,7 @@ export default function Home() {
               data-reveal
               className="font-cinzel text-base md:text-lg text-ink/75 leading-relaxed"
             >
-              Curated holdings spanning three traditions of textual transmission —
-              each volume documented, compared, and contextualized.
+              คัดสรรคอลเลกชันจากสามสายธารแห่งการถ่ายทอดพระวจนะ — แต่ละเล่มถูกบันทึก เปรียบเทียบ และอธิบายบริบทอย่างเป็นระบบ
             </p>
           </div>
 

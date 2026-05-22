@@ -7,8 +7,8 @@ const menuItems = [
   { en: "HOME", th: "หน้าแรก", href: "/" },
   { en: "ARCHIVE", th: "คลังเอกสาร", href: "/archive" },
   { en: "TEXTUAL HISTORY", th: "ประวัติศาสตร์", href: "/textual-history" },
-  { en: "ABOUT", th: "เกี่ยวกับ", href: "/about" },
-  { en: "CONTACT", th: "ติดต่อ", href: "/contact" },
+  { en: "ARTICLE", th: "บทความ", href: "/article" },
+  { en: "ARGUMENT", th: "ข้อโต้แย้ง", href: "/argument" },
 ];
 
 export default function Navbar() {
