@@ -71,67 +71,255 @@ export default function Home() {
       {/* HERO */}
       <section
         id="home"
-        className="relative h-[80vh] min-h-[600px] max-md:h-[70vh] max-sm:h-[60vh] max-sm:min-h-[500px] flex items-center justify-center overflow-hidden"
+        className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
       >
+
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/header.png"
-            alt="Ancient library archive with stacks of scrolls revealing Arabic text"
+            alt="Ancient Library"
             fill
             className="object-cover object-center"
             priority
-            sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/50 to-ink/85" />
-          <div className="absolute inset-0 bg-radial-gradient pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/40 to-ink/70" />
         </div>
 
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl">
-          <h1 data-reveal>
-            <span className="block text-paper-white font-cinzel font-normal tracking-wide mb-3 text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.05]">
+        {/* แสงลอดหน้าต่างซ้าย - Beam 1 (หลัก) */}
+        <div
+          className="absolute z-10 pointer-events-none"
+          style={{
+            top: '-10%',
+            left: '-5%',
+            width: '45%',
+            height: '130%',
+            background: 'linear-gradient(105deg, transparent 0%, rgba(197,160,89,0.12) 30%, rgba(212,175,55,0.25) 50%, rgba(197,160,89,0.12) 70%, transparent 100%)',
+            animation: 'lightBeam 4s ease-in-out infinite',
+            transformOrigin: 'top left',
+          }}
+        />
+
+        {/* แสงลอดหน้าต่างซ้าย - Beam 2 */}
+        <div
+          className="absolute z-10 pointer-events-none"
+          style={{
+            top: '-10%',
+            left: '2%',
+            width: '35%',
+            height: '120%',
+            background: 'linear-gradient(110deg, transparent 0%, rgba(197,160,89,0.08) 40%, rgba(212,175,55,0.18) 55%, rgba(197,160,89,0.08) 70%, transparent 100%)',
+            animation: 'lightBeam2 5s ease-in-out infinite',
+            animationDelay: '1s',
+            transformOrigin: 'top left',
+          }}
+        />
+
+        {/* แสงลอดหน้าต่างซ้าย - Beam 3 (บาง) */}
+        <div
+          className="absolute z-10 pointer-events-none"
+          style={{
+            top: '-5%',
+            left: '-2%',
+            width: '25%',
+            height: '110%',
+            background: 'linear-gradient(100deg, transparent 0%, rgba(212,175,55,0.06) 45%, rgba(250,240,230,0.15) 55%, rgba(212,175,55,0.06) 65%, transparent 100%)',
+            animation: 'lightBeam3 3.5s ease-in-out infinite',
+            animationDelay: '0.5s',
+            transformOrigin: 'top left',
+          }}
+        />
+
+        {/* ฝุ่นล่องลอย - Particle 1 */}
+        <div className="absolute z-10 pointer-events-none" style={{ top: '40%', left: '15%' }}>
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={i}
+              style={{
+                position: 'absolute',
+                width: i % 3 === 0 ? '3px' : '2px',
+                height: i % 3 === 0 ? '3px' : '2px',
+                borderRadius: '50%',
+                backgroundColor: `rgba(212, 175, 55, ${0.4 + (i % 4) * 0.15})`,
+                top: `${(i * 37) % 100}px`,
+                left: `${(i * 53) % 200}px`,
+                animation: `dustFloat${(i % 3) + 1} ${3 + (i % 4)}s ease-in-out infinite`,
+                animationDelay: `${i * 0.4}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* ฝุ่นล่องลอย - Particle 2 (กลาง) */}
+        <div className="absolute z-10 pointer-events-none" style={{ top: '30%', left: '30%' }}>
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={i}
+              style={{
+                position: 'absolute',
+                width: '2px',
+                height: '2px',
+                borderRadius: '50%',
+                backgroundColor: `rgba(250, 240, 230, ${0.3 + (i % 3) * 0.2})`,
+                top: `${(i * 29) % 80}px`,
+                left: `${(i * 43) % 150}px`,
+                animation: `dustFloat${(i % 3) + 1} ${4 + (i % 3)}s ease-in-out infinite`,
+                animationDelay: `${i * 0.6}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-20 text-center px-gutter max-w-5xl mx-auto">
+
+          <h1 className="mb-6 leading-tight">
+            <span className="block font-cinzel font-normal tracking-wide mb-3 text-5xl md:text-7xl lg:text-8xl text-shimmer">
               A Comparative Study
             </span>
-            <span className="block text-gold font-cinzel font-medium tracking-wider italic text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-[1.1]" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
+            <span
+              className="block font-cinzel font-medium tracking-wider italic text-4xl md:text-6xl lg:text-7xl text-gold text-glow-pulse"
+              style={{ textShadow: '0 0 30px rgba(197,160,89,0.6)' }}
+            >
               of Ancient Texts
             </span>
           </h1>
+
           <p
-            data-reveal
             className="font-pridi text-xl md:text-2xl text-paper-white/90 mb-10 max-w-3xl mx-auto leading-relaxed font-light"
+            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}
           >
             การศึกษาเปรียบเทียบ สำเนาคัมภีร์โบราณ<br />
             การส่งต่อ การเก็บรักษา การถูกเปลี่ยนแปลง<br />
             อันนำไปสู่ความจริงเพียงหนึ่งเดียว
           </p>
-          <div
-            data-reveal
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
-          >
-            <a
-              href="#collections"
-              className="btn-primary text-base sm:text-lg hover:scale-105"
-            >
-              <span className="font-pridi">เริ่มต้นค้นคว้า</span>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#collections" className="btn-primary font-pridi text-lg">
+              เริ่มต้นค้นคว้า
             </a>
             <button
-              className="inline-flex items-center gap-2 text-paper border border-paper/30 hover:border-gold hover:text-gold font-cinzel px-8 py-3.5 rounded-btn text-base sm:text-lg transition-all duration-300 backdrop-blur-sm"
-              onClick={() => {
-                document.getElementById('timeline-section')?.scrollIntoView({ behavior: 'smooth' })
-              }}
+              className="btn-outline font-pridi text-lg"
+              onClick={() => document.getElementById('timeline-section')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <span className="font-pridi">เรียนรู้ประวัติศาสตร์</span>
-              <span className="ml-2">↓</span>
+              เรียนรู้ประวัติศาสตร์ ↓
             </button>
           </div>
+
         </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:block animate-float-soft">
-          <div className="flex flex-col items-center text-paper/60">
-            <span className="font-cinzel text-[10px] tracking-[0.4em] uppercase">
-              Scroll
-            </span>
-            <div className="mt-2 h-10 w-px bg-gradient-to-b from-gold to-transparent" />
+      </section>
+
+      {/* INTRO / FEATURED LECTURE */}
+      <section id="intro-section" className="relative py-20 bg-ink">
+        <div className="max-w-5xl mx-auto px-gutter text-center">
+
+          {/* อายะห์อัลกุรอาน */}
+          <div className="mb-12">
+            <p className="font-amiri text-4xl md:text-5xl text-gold leading-loose mb-6 tracking-wide" dir="rtl">
+              إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ
+            </p>
+            <p className="font-pridi text-lg md:text-xl text-paper/80 leading-relaxed">
+              "แท้จริง เราได้ประทานอัล-ซิกร์ (อัลกุรอาน) ลงมา<br />
+              และแท้จริง เราเป็นผู้พิทักษ์รักษามันไว้"
+            </p>
+            <p className="font-pridi text-sm text-gold/60 mt-2">
+              — อัลกุรอาน สูเราะฮ์ อัล-ฮิจร์ 15:9
+            </p>
           </div>
+
+          {/* เส้นแบ่ง */}
+          <div className="flex items-center gap-4 mb-12 max-w-xs mx-auto">
+            <div className="flex-1 h-px bg-gold/30"></div>
+            <span className="text-gold text-xl">◆</span>
+            <div className="flex-1 h-px bg-gold/30"></div>
+          </div>
+
+          {/* วีดีโอหลัก */}
+          <div className="mb-6">
+            <h2 className="font-cinzel text-2xl md:text-3xl text-gold tracking-wide mb-2">
+              FEATURED LECTURE
+            </h2>
+            <p className="font-pridi text-paper/70 mb-8">
+              วีดีโอแนะนำการศึกษาเปรียบเทียบคัมภีร์โบราณ
+            </p>
+
+            <div className="relative w-full max-w-3xl mx-auto rounded-card overflow-hidden shadow-[0_0_40px_rgba(197,160,89,0.2)] border border-gold/20">
+              <div className="relative pb-[56.25%] h-0">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/8aMU3Se2XdY?si=r4kKRsVnQhy--PxZ"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* เส้นแบ่ง */}
+          <div className="flex items-center gap-4 my-12 max-w-xs mx-auto">
+            <div className="flex-1 h-px bg-gold/30"></div>
+            <span className="text-gold text-xl">◆</span>
+            <div className="flex-1 h-px bg-gold/30"></div>
+          </div>
+
+          {/* ปุ่มวีดีโออื่นๆ */}
+          <div className="mb-4">
+            <h3 className="font-cinzel text-xl text-gold/80 tracking-wide mb-6">
+              RELATED LECTURES
+            </h3>
+            <p className="font-pridi text-paper/60 mb-8 text-sm">
+              วีดีโอพื้นฐานสำหรับการศึกษาเพิ่มเติม
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {[
+              {
+                title: "ประวัติอัลกุรอาน",
+                subtitle: "History of the Quran",
+                icon: "📜",
+                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
+              },
+              {
+                title: "ประวัติไบเบิล",
+                subtitle: "History of the Bible",
+                icon: "📖",
+                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
+              },
+              {
+                title: "การเปรียบเทียบ",
+                subtitle: "Comparative Study",
+                icon: "⚖️",
+                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
+              },
+            ].map((video, i) => (
+              <a
+                key={i}
+                href={video.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group card-glass flex flex-col items-center gap-3 text-center hover:border-gold/60 transition-all duration-300"
+              >
+                <span className="text-4xl">{video.icon}</span>
+                <div>
+                  <p className="font-pridi text-paper-white font-semibold text-base group-hover:text-gold transition-colors">
+                    {video.title}
+                  </p>
+                  <p className="font-cinzel text-xs text-paper-white/40 tracking-wide mt-1">
+                    {video.subtitle}
+                  </p>
+                </div>
+                <span className="font-pridi text-xs text-gold/60 group-hover:text-gold transition-colors mt-1">
+                  ▶ ดูวีดีโอ
+                </span>
+              </a>
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -289,119 +477,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* INTRO / FEATURED LECTURE */}
-      <section id="intro-section" className="relative py-20 bg-ink">
-        <div className="max-w-5xl mx-auto px-gutter text-center">
-
-          {/* อายะห์อัลกุรอาน */}
-          <div className="mb-12">
-            <p className="font-amiri text-4xl md:text-5xl text-gold leading-loose mb-6 tracking-wide" dir="rtl">
-              إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ
-            </p>
-            <p className="font-pridi text-lg md:text-xl text-paper/80 leading-relaxed">
-              "แท้จริง เราได้ประทานอัล-ซิกร์ (อัลกุรอาน) ลงมา<br />
-              และแท้จริง เราเป็นผู้พิทักษ์รักษามันไว้"
-            </p>
-            <p className="font-pridi text-sm text-gold/60 mt-2">
-              — อัลกุรอาน สูเราะฮ์ อัล-ฮิจร์ 15:9
-            </p>
-          </div>
-
-          {/* เส้นแบ่ง */}
-          <div className="flex items-center gap-4 mb-12 max-w-xs mx-auto">
-            <div className="flex-1 h-px bg-gold/30"></div>
-            <span className="text-gold text-xl">◆</span>
-            <div className="flex-1 h-px bg-gold/30"></div>
-          </div>
-
-          {/* วีดีโอหลัก */}
-          <div className="mb-6">
-            <h2 className="font-cinzel text-2xl md:text-3xl text-gold tracking-wide mb-2">
-              FEATURED LECTURE
-            </h2>
-            <p className="font-pridi text-paper/70 mb-8">
-              วีดีโอแนะนำการศึกษาเปรียบเทียบคัมภีร์โบราณ
-            </p>
-
-            <div className="relative w-full max-w-3xl mx-auto rounded-card overflow-hidden shadow-[0_0_40px_rgba(197,160,89,0.2)] border border-gold/20">
-              <div className="relative pb-[56.25%] h-0">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/8aMU3Se2XdY?si=r4kKRsVnQhy--PxZ"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* เส้นแบ่ง */}
-          <div className="flex items-center gap-4 my-12 max-w-xs mx-auto">
-            <div className="flex-1 h-px bg-gold/30"></div>
-            <span className="text-gold text-xl">◆</span>
-            <div className="flex-1 h-px bg-gold/30"></div>
-          </div>
-
-          {/* ปุ่มวีดีโออื่นๆ */}
-          <div className="mb-4">
-            <h3 className="font-cinzel text-xl text-gold/80 tracking-wide mb-6">
-              RELATED LECTURES
-            </h3>
-            <p className="font-pridi text-paper/60 mb-8 text-sm">
-              วีดีโอพื้นฐานสำหรับการศึกษาเพิ่มเติม
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {[
-              {
-                title: "ประวัติอัลกุรอาน",
-                subtitle: "History of the Quran",
-                icon: "📜",
-                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
-              },
-              {
-                title: "ประวัติไบเบิล",
-                subtitle: "History of the Bible",
-                icon: "📖",
-                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
-              },
-              {
-                title: "การเปรียบเทียบ",
-                subtitle: "Comparative Study",
-                icon: "⚖️",
-                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
-              },
-            ].map((video, i) => (
-              <a
-                key={i}
-                href={video.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group card-glass flex flex-col items-center gap-3 text-center hover:border-gold/60 transition-all duration-300"
-              >
-                <span className="text-4xl">{video.icon}</span>
-                <div>
-                  <p className="font-pridi text-paper-white font-semibold text-base group-hover:text-gold transition-colors">
-                    {video.title}
-                  </p>
-                  <p className="font-cinzel text-xs text-paper-white/40 tracking-wide mt-1">
-                    {video.subtitle}
-                  </p>
-                </div>
-                <span className="font-pridi text-xs text-gold/60 group-hover:text-gold transition-colors mt-1">
-                  ▶ ดูวีดีโอ
-                </span>
-              </a>
-            ))}
-          </div>
-
         </div>
       </section>
 
