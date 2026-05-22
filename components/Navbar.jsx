@@ -64,13 +64,13 @@ export default function Navbar() {
         </ul>
 
         {/* CTA Button */}
-        <Link
-          href="/archive"
+        <button
+          onClick={() => document.getElementById('intro-section')?.scrollIntoView({ behavior: 'smooth' })}
           className="hidden lg:inline-flex flex-col items-center bg-gold hover:bg-gold-light text-ink px-6 py-2 rounded-btn transition-all duration-300 shadow-card hover:shadow-card-hover hover:-translate-y-0.5"
         >
           <span className="font-cinzel text-sm tracking-wider font-semibold">EXPLORE</span>
           <span className="font-pridi text-xs opacity-70">ค้นคว้า</span>
-        </Link>
+        </button>
 
         {/* Hamburger */}
         <button
@@ -127,14 +127,13 @@ export default function Navbar() {
             </li>
           ))}
           <li className="pt-3">
-            <Link
-              href="/archive"
-              onClick={() => setOpen(false)}
-              className="flex flex-col items-center bg-gold hover:bg-gold-light text-ink py-2.5 rounded-btn transition-all duration-300"
+            <button
+              onClick={() => { setOpen(false); document.getElementById('intro-section')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="w-full flex flex-col items-center bg-gold hover:bg-gold-light text-ink py-2.5 rounded-btn transition-all duration-300"
             >
               <span className="font-cinzel text-sm tracking-wider font-semibold">EXPLORE</span>
               <span className="font-pridi text-xs opacity-70">ค้นคว้า</span>
-            </Link>
+            </button>
           </li>
         </ul>
       </div>

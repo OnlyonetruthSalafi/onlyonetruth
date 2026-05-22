@@ -87,27 +87,21 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl">
-          <p
-            data-reveal
-            className="font-cinzel text-xs sm:text-sm tracking-[0.4em] uppercase text-gold mb-5"
-          >
-            Est. for the Preservation of Sacred Texts
-          </p>
-          <h1
-            data-reveal
-            className="font-cinzel text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-paper-white mb-6 leading-[1.05] tracking-tight"
-          >
-            Preserving the Integrity
-            <span className="block italic text-gold/95 font-normal">
+          <h1 data-reveal>
+            <span className="block text-paper-white font-cinzel font-normal tracking-wide mb-3 text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.05]">
+              A Comparative Study
+            </span>
+            <span className="block text-gold font-cinzel font-medium tracking-wider italic text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-[1.1]" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3)'}}>
               of Ancient Texts
             </span>
           </h1>
           <p
             data-reveal
-            className="font-cinzel text-base sm:text-xl md:text-2xl text-paper/90 mb-9 max-w-2xl mx-auto leading-relaxed"
+            className="font-pridi text-xl md:text-2xl text-paper-white/90 mb-10 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Exploring the sacred manuscripts that shaped civilizations — examined,
-            compared, and preserved with scholarly care.
+            การศึกษาเปรียบเทียบ สำเนาคัมภีร์โบราณ<br />
+            การส่งต่อ การเก็บรักษา การถูกเปลี่ยนแปลง<br />
+            อันนำไปสู่ความจริงเพียงหนึ่งเดียว
           </p>
           <div
             data-reveal
@@ -117,15 +111,17 @@ export default function Home() {
               href="#collections"
               className="btn-primary text-base sm:text-lg hover:scale-105"
             >
-              Begin Your Journey
+              <span className="font-pridi">เริ่มต้นค้นคว้า</span>
             </a>
-            <a
-              href="#textual-history"
+            <button
               className="inline-flex items-center gap-2 text-paper border border-paper/30 hover:border-gold hover:text-gold font-cinzel px-8 py-3.5 rounded-btn text-base sm:text-lg transition-all duration-300 backdrop-blur-sm"
+              onClick={() => {
+                document.getElementById('timeline-section')?.scrollIntoView({ behavior: 'smooth' })
+              }}
             >
-              Learn the History
-              <span aria-hidden>→</span>
-            </a>
+              <span className="font-pridi">เรียนรู้ประวัติศาสตร์</span>
+              <span className="ml-2">↓</span>
+            </button>
           </div>
         </div>
 
@@ -140,7 +136,7 @@ export default function Home() {
       </section>
 
       {/* SCRIPTURE TIMELINE — condensed */}
-      <section id="scripture-timeline" className="py-section md:py-24 bg-paper-light border-t border-gold/15">
+      <section id="timeline-section" className="py-section md:py-24 bg-paper-light border-t border-gold/15">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
             <p
@@ -296,74 +292,116 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SCHOLARLY INTRODUCTION */}
-      <section
-        id="textual-history"
-        className="relative py-section md:py-28 bg-ink text-paper-white overflow-hidden"
-      >
-        <div className="absolute inset-0 pointer-events-none opacity-[0.07]">
-          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-gold-light blur-3xl" />
-        </div>
+      {/* INTRO / FEATURED LECTURE */}
+      <section id="intro-section" className="relative py-20 bg-ink">
+        <div className="max-w-5xl mx-auto px-gutter text-center">
 
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p
-            data-reveal
-            className="font-cinzel text-xs tracking-[0.4em] uppercase text-gold mb-4"
-          >
-            A Testament to History
-          </p>
-          <h2
-            data-reveal
-            className="font-cinzel text-3xl md:text-5xl mb-8 leading-tight"
-          >
-            The Word, Carried Across Centuries
-          </h2>
-          <div
-            data-reveal
-            className="mx-auto h-px w-24 bg-gold/70 mb-10"
-          />
+          {/* อายะห์อัลกุรอาน */}
+          <div className="mb-12">
+            <p className="font-amiri text-4xl md:text-5xl text-gold leading-loose mb-6 tracking-wide" dir="rtl">
+              إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ
+            </p>
+            <p className="font-pridi text-lg md:text-xl text-paper/80 leading-relaxed">
+              "แท้จริง เราได้ประทานอัล-ซิกร์ (อัลกุรอาน) ลงมา<br />
+              และแท้จริง เราเป็นผู้พิทักษ์รักษามันไว้"
+            </p>
+            <p className="font-pridi text-sm text-gold/60 mt-2">
+              — อัลกุรอาน สูเราะฮ์ อัล-ฮิจร์ 15:9
+            </p>
+          </div>
 
-          <p
-            data-reveal
-            className="text-xl md:text-2xl text-gold/95 mb-10 leading-loose"
-            dir="rtl"
-            lang="ar"
-          >
-            إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ
-          </p>
+          {/* เส้นแบ่ง */}
+          <div className="flex items-center gap-4 mb-12 max-w-xs mx-auto">
+            <div className="flex-1 h-px bg-gold/30"></div>
+            <span className="text-gold text-xl">◆</span>
+            <div className="flex-1 h-px bg-gold/30"></div>
+          </div>
 
-          <p
-            data-reveal
-            className="font-cinzel text-base md:text-lg leading-loose text-paper/85 max-w-3xl mx-auto"
-          >
-            For centuries, ancient manuscripts have carried the wisdom, beliefs,
-            and stories of humanity across generations. Each folio is a witness
-            — copied by trembling hands in lamplit scriptoria, guarded through
-            invasion and exile, recovered from desert caves and monastery
-            shelves. To study these texts is to listen to the long, patient
-            voice of memory itself.
-          </p>
+          {/* วีดีโอหลัก */}
+          <div className="mb-6">
+            <h2 className="font-cinzel text-2xl md:text-3xl text-gold tracking-wide mb-2">
+              FEATURED LECTURE
+            </h2>
+            <p className="font-pridi text-paper/70 mb-8">
+              วีดีโอแนะนำการศึกษาเปรียบเทียบคัมภีร์โบราณ
+            </p>
 
-          <div
-            data-reveal
-            className="mt-12 grid grid-cols-3 gap-6 md:gap-10 max-w-2xl mx-auto"
-          >
-            {[
-              { n: "1,400+", l: "Years Spanned" },
-              { n: "300+", l: "Manuscripts" },
-              { n: "12", l: "Traditions" },
-            ].map((s) => (
-              <div key={s.l}>
-                <div className="font-cinzel text-3xl md:text-4xl text-gold mb-1">
-                  {s.n}
-                </div>
-                <div className="font-cinzel text-[10px] md:text-xs tracking-[0.25em] uppercase text-paper/65">
-                  {s.l}
-                </div>
+            <div className="relative w-full max-w-3xl mx-auto rounded-card overflow-hidden shadow-[0_0_40px_rgba(197,160,89,0.2)] border border-gold/20">
+              <div className="relative pb-[56.25%] h-0">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/8aMU3Se2XdY?si=r4kKRsVnQhy--PxZ"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
               </div>
+            </div>
+          </div>
+
+          {/* เส้นแบ่ง */}
+          <div className="flex items-center gap-4 my-12 max-w-xs mx-auto">
+            <div className="flex-1 h-px bg-gold/30"></div>
+            <span className="text-gold text-xl">◆</span>
+            <div className="flex-1 h-px bg-gold/30"></div>
+          </div>
+
+          {/* ปุ่มวีดีโออื่นๆ */}
+          <div className="mb-4">
+            <h3 className="font-cinzel text-xl text-gold/80 tracking-wide mb-6">
+              RELATED LECTURES
+            </h3>
+            <p className="font-pridi text-paper/60 mb-8 text-sm">
+              วีดีโอพื้นฐานสำหรับการศึกษาเพิ่มเติม
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {[
+              {
+                title: "ประวัติอัลกุรอาน",
+                subtitle: "History of the Quran",
+                icon: "📜",
+                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
+              },
+              {
+                title: "ประวัติไบเบิล",
+                subtitle: "History of the Bible",
+                icon: "📖",
+                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
+              },
+              {
+                title: "การเปรียบเทียบ",
+                subtitle: "Comparative Study",
+                icon: "⚖️",
+                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
+              },
+            ].map((video, i) => (
+              <a
+                key={i}
+                href={video.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group card-glass flex flex-col items-center gap-3 text-center hover:border-gold/60 transition-all duration-300"
+              >
+                <span className="text-4xl">{video.icon}</span>
+                <div>
+                  <p className="font-pridi text-paper-white font-semibold text-base group-hover:text-gold transition-colors">
+                    {video.title}
+                  </p>
+                  <p className="font-cinzel text-xs text-paper-white/40 tracking-wide mt-1">
+                    {video.subtitle}
+                  </p>
+                </div>
+                <span className="font-pridi text-xs text-gold/60 group-hover:text-gold transition-colors mt-1">
+                  ▶ ดูวีดีโอ
+                </span>
+              </a>
             ))}
           </div>
+
         </div>
       </section>
 
