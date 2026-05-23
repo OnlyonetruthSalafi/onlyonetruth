@@ -46,18 +46,21 @@ const collections = [
     title: "Qur'anic Manuscripts",
     blurb:
       "ต้นฉบับอัลกุรอานยุคแรก ตั้งแต่ฉบับอักษรฮิญาซีในศตวรรษที่ 1 ฮ.ศ. จนถึงฉบับมาตรฐานสมัยอุษมาน บันทึกความต่อเนื่องของพระวจนะที่ไม่เปลี่ยนแปลง",
+    href: "/archive/quran-manuscripts",
   },
   {
     glyph: "🕮",
     title: "Biblical Codices",
     blurb:
       "ต้นฉบับไบเบิลสำคัญอย่าง Codex Sinaiticus และ Codex Vaticanus เปรียบเทียบฉบับ Septuagint, Masoretic และ Patristic เพื่อศึกษาความแตกต่างของข้อความ",
+    href: null,
   },
   {
     glyph: "⚜",
     title: "Other Writings Outside Canon",
     blurb:
       "งานเขียนคริสเตียนยุคแรกที่ไม่ได้รับการยอมรับเข้าในคัมภีร์ อาทิ พระวรสารนอกสารบบ จดหมายของบรรดา Church Fathers และข้อเขียน Gnostic ที่โบสถ์ปฏิเสธในภายหลัง",
+    href: null,
   },
 ];
 
@@ -471,10 +474,19 @@ export default function Home() {
                   <p className="font-cinzel text-[0.95rem] leading-relaxed text-ink/75">
                     {c.blurb}
                   </p>
-                  <div className="mt-6 inline-flex items-center gap-2 text-gold-dark font-cinzel text-xs tracking-[0.25em] uppercase opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-500">
-                    Browse Collection
-                    <span aria-hidden>→</span>
-                  </div>
+                  {c.href ? (
+                    <Link
+                      href={c.href}
+                      className="btn-primary font-pridi text-sm mt-4 inline-block"
+                    >
+                      Browse Collection →
+                    </Link>
+                  ) : (
+                    <div className="mt-6 inline-flex items-center gap-2 text-gold-dark font-cinzel text-xs tracking-[0.25em] uppercase opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-500">
+                      Browse Collection
+                      <span aria-hidden>→</span>
+                    </div>
+                  )}
                 </div>
               </article>
             ))}

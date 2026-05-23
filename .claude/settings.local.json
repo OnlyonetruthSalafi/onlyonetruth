@@ -5,7 +5,14 @@
       "Bash(npm install *)",
       "Bash(npx next *)",
       "Bash(curl *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(node *)",
+      "Bash(Remove-Item *)",
+      "Bash(New-Item -ItemType Directory -Force \"D:\\\\onlyonetruth\\\\public\\\\manuscripts\\\\quran\")",
+      "Bash(Out-Null)",
+      "Bash(New-Item -ItemType File -Force \"D:\\\\onlyonetruth\\\\public\\\\manuscripts\\\\quran\\\\.gitkeep\")",
+      "Bash(Write-Output \"done\")",
+      "PowerShell(New-Item *)"
     ]
   }
 }
