@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const menuItems = [
   { en: "HOME", th: "หน้าแรก", href: "/" },
-  { en: "ARCHIVE", th: "คลังเอกสาร", href: "/archive" },
+  { en: "ARCHIVE", th: "คลังเอกสาร", scrollId: "collections-section" },
   { en: "TEXTUAL HISTORY", th: "ประวัติศาสตร์", href: "/textual-history" },
   { en: "ARTICLE", th: "บทความ", href: "/article" },
   { en: "ARGUMENT", th: "ข้อโต้แย้ง", href: "/argument" },
@@ -47,18 +47,38 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center gap-8">
           {menuItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="group flex flex-col items-center gap-0.5 hover:opacity-80 transition-all duration-300"
-              >
-                <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
-                  {item.en}
-                </span>
-                <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
-                  {item.th}
-                </span>
-              </Link>
+            <li key={item.en}>
+              {item.scrollId ? (
+                <button
+                  onClick={() => {
+                    if (window.location.pathname !== "/") {
+                      window.location.href = `/#${item.scrollId}`;
+                    } else {
+                      document.getElementById(item.scrollId)?.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="group flex flex-col items-center gap-0.5 hover:opacity-80 transition-all duration-300"
+                >
+                  <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
+                    {item.en}
+                  </span>
+                  <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
+                    {item.th}
+                  </span>
+                </button>
+              ) : (
+                <Link
+                  href={item.href}
+                  className="group flex flex-col items-center gap-0.5 hover:opacity-80 transition-all duration-300"
+                >
+                  <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
+                    {item.en}
+                  </span>
+                  <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
+                    {item.th}
+                  </span>
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -109,21 +129,44 @@ export default function Navbar() {
       >
         <ul className="px-4 py-3">
           {menuItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 py-3 border-b border-gold/10 hover:bg-gold/5 px-2 rounded-btn transition-colors group"
-              >
-                <div className="flex flex-col">
-                  <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
-                    {item.en}
-                  </span>
-                  <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
-                    {item.th}
-                  </span>
-                </div>
-              </Link>
+            <li key={item.en}>
+              {item.scrollId ? (
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    if (window.location.pathname !== "/") {
+                      window.location.href = `/#${item.scrollId}`;
+                    } else {
+                      document.getElementById(item.scrollId)?.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="w-full flex items-center gap-3 py-3 border-b border-gold/10 hover:bg-gold/5 px-2 rounded-btn transition-colors group"
+                >
+                  <div className="flex flex-col">
+                    <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
+                      {item.en}
+                    </span>
+                    <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
+                      {item.th}
+                    </span>
+                  </div>
+                </button>
+              ) : (
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-3 py-3 border-b border-gold/10 hover:bg-gold/5 px-2 rounded-btn transition-colors group"
+                >
+                  <div className="flex flex-col">
+                    <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
+                      {item.en}
+                    </span>
+                    <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
+                      {item.th}
+                    </span>
+                  </div>
+                </Link>
+              )}
             </li>
           ))}
           <li className="pt-3">
