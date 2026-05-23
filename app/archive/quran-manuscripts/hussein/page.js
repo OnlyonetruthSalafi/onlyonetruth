@@ -313,24 +313,24 @@ export default function HusseinManuscript() {
                 สุลต่านองค์สุดท้ายของราชวงศ์มัมลูก และได้รับการบูรณะต่อเนื่องมาจนถึงปัจจุบัน
               </p>
               <div
-                className="mt-4 card-glass border-l-4 border-gold p-5"
-                style={{ background: "linear-gradient(135deg, rgba(197,160,89,0.08) 0%, rgba(62,39,35,0.3) 100%)" }}
+                className="mt-4 border-l-4 border-gold p-5 rounded-card"
+                style={{ background: "linear-gradient(135deg, rgba(197,160,89,0.12) 0%, rgba(197,160,89,0.05) 100%)" }}
               >
                 <p className="font-cinzel text-gold text-sm font-semibold mb-2 tracking-wide">
                   ** หมายเหตุสำคัญ
                 </p>
-                <p className="font-pridi text-paper-white/90 leading-relaxed">
+                <p className="font-pridi text-ink/90 leading-relaxed">
                   ข้อผิดพลาดในการคัดลอกที่พบในต้นฉบับนี้
-                  <strong className="text-gold"> ไม่ส่งผลให้อัลกุรอานถูกบิดเบือนแต่อย่างใด</strong>
+                  <strong className="text-ink"> ไม่ส่งผลให้อัลกุรอานถูกบิดเบือนแต่อย่างใด</strong>
                   เนื่องจากอัลกุรอานไม่ได้พึ่งพาการบันทึกเป็นลายลักษณ์อักษรเพียงอย่างเดียว
-                  แต่ถูกท่องจำ<strong className="text-gold"> ทุกอักษร ทุกคำ</strong>
+                  แต่ถูกท่องจำ<strong className="text-ink"> ทุกอักษร ทุกคำ</strong>
                   โดยบรรดาฮาฟิซ (ผู้ท่องจำอัลกุรอาน) อย่างต่อเนื่องในทุกยุคทุกสมัย
                   นับตั้งแต่สมัยท่านนบีมุฮัมมัด ซล. จวบจนปัจจุบัน
                   การท่องจำแบบปากต่อปากในระดับ Mutawātir
                   (ถ่ายทอดโดยคนจำนวนมากจนเป็นไปไม่ได้ที่จะมีการสมคบกันเปลี่ยนแปลง)
                   คือหลักประกันสูงสุดของความถูกต้องของอัลกุรอาน
                   ตามที่อัลลอฮ์ทรงสัญญาไว้ในอัลกุรอาน สูเราะฮ์ อัลฮิจร์ 15:9
-                  <span className="block mt-3 font-cinzel text-gold/70 text-xs tracking-widest">
+                  <span className="block mt-3 font-cinzel text-gold text-xs tracking-widest">
                     "แท้จริง เราได้ประทานอัล-ซิกร์ลงมา และแท้จริง เราเป็นผู้พิทักษ์รักษามันไว้"
                   </span>
                 </p>
