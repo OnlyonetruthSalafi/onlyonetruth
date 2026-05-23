@@ -60,7 +60,7 @@ export default function SanaaManuscript() {
             {/* รูป sana1 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20">
               <img
-                src="/manuscripts/quran/sana/sana1.jpg"
+                src="/manuscripts/quran/Sana/Sana1.jpg"
                 alt="Sanaa Quran Manuscript folio 1"
                 className="w-full object-cover"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent" }}
@@ -88,7 +88,7 @@ export default function SanaaManuscript() {
             {/* รูป sana2 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20">
               <img
-                src="/manuscripts/quran/sana/sana2.jpg"
+                src="/manuscripts/quran/Sana/sana2.jpg"
                 alt="Sanaa Quran Manuscript folio 2"
                 className="w-full object-cover"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent" }}
