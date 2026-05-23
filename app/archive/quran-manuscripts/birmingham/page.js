@@ -311,6 +311,31 @@ export default function BirminghamManuscript() {
             </p>
           </div>
 
+          {/* หมายเหตุสำคัญ */}
+          <div
+            className="mt-6 card-glass border-l-4 border-gold p-5"
+            style={{ background: "linear-gradient(135deg, rgba(197,160,89,0.08) 0%, rgba(62,39,35,0.3) 100%)" }}
+          >
+            <p className="font-cinzel text-gold text-sm font-semibold mb-2 tracking-wide">
+              ** หมายเหตุสำคัญ
+            </p>
+            <p className="font-pridi text-paper-white/90 leading-relaxed">
+              ความแตกต่างหรือข้อสังเกตใดๆ ที่พบในต้นฉบับนี้
+              <strong className="text-gold"> ไม่ส่งผลให้อัลกุรอานถูกบิดเบือนแต่อย่างใด</strong>
+              เนื่องจากอัลกุรอานไม่ได้พึ่งพาการบันทึกเป็นลายลักษณ์อักษรเพียงอย่างเดียว
+              แต่ถูกท่องจำ<strong className="text-gold"> ทุกอักษร ทุกคำ</strong>
+              โดยบรรดาฮาฟิซ (ผู้ท่องจำอัลกุรอาน) อย่างต่อเนื่องในทุกยุคทุกสมัย
+              นับตั้งแต่สมัยท่านนบีมุฮัมมัด (ซ.ล.) จวบจนปัจจุบัน
+              การท่องจำแบบปากต่อปากในระดับ Mutawātir
+              (ถ่ายทอดโดยคนจำนวนมากจนเป็นไปไม่ได้ที่จะมีการสมคบกันเปลี่ยนแปลง)
+              คือหลักประกันสูงสุดของความถูกต้องของอัลกุรอาน
+              ตามที่อัลลอฮ์ทรงสัญญาไว้ในอัลกุรอาน สูเราะฮ์ อัลฮิจร์ 15:9
+              <span className="block mt-3 font-cinzel text-gold/70 text-xs tracking-widest">
+                "แท้จริง เราได้ประทานอัล-ซิกร์ลงมา และแท้จริง เราเป็นผู้พิทักษ์รักษามันไว้"
+              </span>
+            </p>
+          </div>
+
           {/* ปุ่ม */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
