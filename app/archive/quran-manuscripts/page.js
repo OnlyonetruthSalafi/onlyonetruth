@@ -6,6 +6,24 @@ import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
 const manuscripts = [
+  // === หมวด: ต้นฉบับอุษมาน (ขนาดใหญ่) ===
+  {
+    id: "hussein",
+    title: "Al-Hussein Mosque Quran",
+    titleTh: "ต้นฉบับอัลกุรอานมัสยิดอัลฮุสเซน",
+    category: "uthman",
+    categoryLabel: "ยุคอุษมาน",
+    date: "ปลายศตวรรษที่ 1 — ต้นศตวรรษที่ 2 ฮ.ศ.",
+    script: "Kufic Script",
+    location: "Centre Library for Islamic Manuscripts, Masjid al-Sayyida Zaynab, Cairo",
+    locationTh: "ศูนย์ห้องสมุดต้นฉบับอิสลาม มัสยิดอัลซัยยิดะฮ์ ซัยนับ ไคโร อียิปต์",
+    description:
+      "ต้นฉบับอัลกุรอานขนาดมหึมา 1,087 หน้า ขนาด 57×68 ซม. หนัก 80 กก. ครอบคลุมมากกว่า 99% ของข้อความอัลกุรอาน เขียนด้วยอักษรคูฟิกบนหนังสัตว์ เป็นหนึ่งในสำเนาอัลกุรอานที่เก่าแก่ที่สุดในอียิปต์",
+    sourceUrl: "https://www.islamic-awareness.org/quran/text/mss/hussein",
+    image: "/manuscripts/quran/HusseinMos.jpg",
+    tags: ["Kufic", "Monumental", "Cairo", "1087 Folios", "Uthman"],
+  },
+
   // === หมวด: ต้นฉบับฮิญาซี (ศตวรรษที่ 1 ฮ.ศ.) ===
   {
     id: 1,
@@ -41,8 +59,8 @@ const manuscripts = [
   },
   {
     id: 3,
-    title: "Khalili Collection Quran (KFQ 60)",
-    titleTh: "ต้นฉบับอัลกุรอานคอลีลี",
+    title: "Khalili Collection Quran (KFQ 60) — Codex Parisino-Petropolitanus",
+    titleTh: "ต้นฉบับอัลกุรอานคอลีลี (Codex Parisino-Petropolitanus)",
     category: "hijazi",
     categoryLabel: "ศตวรรษที่ 1 ฮ.ศ.",
     date: "ปลายศตวรรษที่ 1 ฮ.ศ.",
@@ -51,7 +69,7 @@ const manuscripts = [
     locationTh: "คอลเลกชันนาศิร ดาวูด คอลีลี ลอนดอน",
     description:
       "ส่วนหนึ่งของคอลเลกชันศิลปะอิสลามที่ใหญ่ที่สุดในโลก เขียนด้วยอักษรฮิญาซีบนหนังสัตว์ ได้รับการศึกษาวิเคราะห์โดยนักวิชาการชั้นนำหลายท่าน",
-    sourceUrl: "https://www.islamic-awareness.org/quran/text/mss/",
+    sourceUrl: "https://www.islamic-awareness.org/quran/text/mss/arabe328a",
     image: "/manuscripts/quran/khalili-quran.jpg",
     tags: ["Hijazi", "1st Century", "London", "Private Collection"],
   },
@@ -263,7 +281,21 @@ export default function QuranManuscripts() {
               >
                 {/* รูปภาพ */}
                 <div className="relative h-56 overflow-hidden">
-                  {m.id === 1 ? (
+                  {m.id === "hussein" ? (
+                    <a href="/archive/quran-manuscripts/hussein">
+                      <img
+                        src={m.image}
+                        alt={m.title}
+                        className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "/manuscripts/quran/placeholder.jpg";
+                          e.target.className =
+                            "w-full h-full object-contain p-8 opacity-30";
+                        }}
+                      />
+                    </a>
+                  ) : m.id === 1 ? (
                     <a href="/archive/quran-manuscripts/sanaa">
                       <img
                         src={m.image}
@@ -279,6 +311,20 @@ export default function QuranManuscripts() {
                     </a>
                   ) : m.id === 2 ? (
                     <a href="/archive/quran-manuscripts/birmingham">
+                      <img
+                        src={m.image}
+                        alt={m.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer hover:opacity-90 transition-opacity"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "/manuscripts/quran/placeholder.jpg";
+                          e.target.className =
+                            "w-full h-full object-contain p-8 opacity-30";
+                        }}
+                      />
+                    </a>
+                  ) : m.id === 3 ? (
+                    <a href="/archive/quran-manuscripts/khalili">
                       <img
                         src={m.image}
                         alt={m.title}
@@ -313,7 +359,16 @@ export default function QuranManuscripts() {
 
                 {/* เนื้อหา */}
                 <div className="p-6">
-                  {m.id === 1 ? (
+                  {m.id === "hussein" ? (
+                    <a
+                      href="/archive/quran-manuscripts/hussein"
+                      className="hover:text-gold transition-colors"
+                    >
+                      <h3 className="font-cinzel text-xl text-ink font-semibold mb-1">
+                        {m.title}
+                      </h3>
+                    </a>
+                  ) : m.id === 1 ? (
                     <a
                       href="/archive/quran-manuscripts/sanaa"
                       className="hover:text-gold transition-colors"
@@ -325,6 +380,15 @@ export default function QuranManuscripts() {
                   ) : m.id === 2 ? (
                     <a
                       href="/archive/quran-manuscripts/birmingham"
+                      className="hover:text-gold transition-colors"
+                    >
+                      <h3 className="font-cinzel text-xl text-ink font-semibold mb-1">
+                        {m.title}
+                      </h3>
+                    </a>
+                  ) : m.id === 3 ? (
+                    <a
+                      href="/archive/quran-manuscripts/khalili"
                       className="hover:text-gold transition-colors"
                     >
                       <h3 className="font-cinzel text-xl text-ink font-semibold mb-1">
@@ -364,14 +428,39 @@ export default function QuranManuscripts() {
                   </div>
 
                   {/* ปุ่ม */}
-                  <a
-                    href={m.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block btn-outline text-center text-sm py-2 font-pridi"
-                  >
-                    แหล่งต้นฉบับ ↗
-                  </a>
+                  {(m.id === "hussein" || m.id === 1 || m.id === 2 || m.id === 3) ? (
+                    <div className="flex flex-col gap-2 mt-4">
+                      <Link
+                        href={`/archive/quran-manuscripts/${
+                          m.id === "hussein" ? "hussein"
+                          : m.id === 1 ? "sanaa"
+                          : m.id === 2 ? "birmingham"
+                          : "khalili"
+                        }`}
+                        className="w-full btn-primary font-pridi text-sm text-center py-2.5 flex items-center justify-center gap-2"
+                      >
+                        <span>คลิกดูรายละเอียด</span>
+                        <span>→</span>
+                      </Link>
+                      <a
+                        href={m.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full btn-outline font-pridi text-xs text-center py-2"
+                      >
+                        แหล่งต้นฉบับ ↗
+                      </a>
+                    </div>
+                  ) : (
+                    <a
+                      href={m.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block btn-outline text-center text-sm py-2 font-pridi"
+                    >
+                      แหล่งต้นฉบับ ↗
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
