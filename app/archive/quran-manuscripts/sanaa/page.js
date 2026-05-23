@@ -116,6 +116,247 @@ export default function SanaaManuscript() {
         </div>
       </section>
 
+      {/* ประเด็น Palimpsest */}
+      <section className="py-16 bg-ink">
+        <div className="max-w-4xl mx-auto px-gutter">
+
+          {/* หัวข้อหลัก */}
+          <div className="flex items-center gap-4 mb-8">
+            <div className="flex-1 h-px bg-gold/30"></div>
+            <h3 className="font-cinzel text-2xl text-gold text-center tracking-wide whitespace-nowrap">
+              ประเด็น Palimpsest — การโต้แย้งและการตอบโต้
+            </h3>
+            <div className="flex-1 h-px bg-gold/30"></div>
+          </div>
+
+          {/* คำอธิบาย Palimpsest */}
+          <div className="card-glass p-6 mb-8 border-l-4 border-gold/40">
+            <h4 className="font-cinzel text-gold text-base font-semibold mb-3 tracking-wide">
+              Palimpsest คืออะไร?
+            </h4>
+            <p className="font-pridi text-paper-white/80 leading-relaxed">
+              Palimpsest คือต้นฉบับที่นำหนังสัตว์เก่ามาล้างหรือขูดข้อความเดิมออก
+              แล้วเขียนข้อความใหม่ทับลงไป เนื่องจากวัสดุมีราคาแพง
+              ต้นฉบับซานาอา (DAM 01-27.1) มีลักษณะเช่นนี้
+              โดยมีข้อความ 2 ชั้น คือ
+              <strong className="text-gold"> Lower Text (ข้อความชั้นล่าง)</strong> ที่ถูกลบออก
+              และ <strong className="text-gold">Upper Text (ข้อความชั้นบน)</strong>
+              ที่เขียนทับในภายหลัง
+            </p>
+          </div>
+
+          {/* รูป sana3 */}
+          <div className="mb-10">
+            <h4 className="font-cinzel text-gold text-base font-semibold mb-4 tracking-wide text-center">
+              ภาพเปรียบเทียบ Upper Text และ Lower Text
+            </h4>
+            <div className="rounded-card overflow-hidden shadow-card border border-gold/20 max-w-2xl mx-auto bg-paper-light">
+              <img
+                src="/manuscripts/quran/Sana/sana3.jpg"
+                alt="Sanaa Palimpsest upper and lower text comparison"
+                className="w-full object-cover"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.nextSibling.style.display = "flex";
+                }}
+              />
+              <div
+                style={{ display: "none" }}
+                className="h-48 items-center justify-center bg-paper/5 border border-gold/20 rounded-card"
+              >
+                <p className="font-pridi text-paper-white/50 text-sm">รอการอัปโหลดภาพ sana3.jpg</p>
+              </div>
+              <div className="p-4 bg-paper/5 border-t border-gold/10">
+                <p className="font-cinzel text-xs text-gold text-center">
+                  ภาพ X-Ray Fluorescence แสดง Lower Text (สีอ่อน) และ Upper Text (สีเข้ม)
+                </p>
+                <p className="font-pridi text-xs text-paper-white/50 text-center mt-1">
+                  Stanford University X-Ray Fluorescence Imaging, 2007
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* ข้อโจมตี */}
+          <div className="mb-8">
+            <h4 className="font-cinzel text-lg text-paper-white font-semibold mb-6 tracking-wide">
+              ข้อโจมตีที่พบบ่อย
+            </h4>
+            <div className="space-y-4">
+
+              <div className="bg-red-950/30 border border-red-800/30 rounded-card p-5">
+                <p className="font-cinzel text-red-400 text-sm font-semibold mb-2">
+                  ข้อโจมตีที่ 1 — Lower Text แตกต่างจากอัลกุรอานปัจจุบัน
+                </p>
+                <p className="font-pridi text-paper-white/70 text-sm leading-relaxed">
+                  เช่น Gerd R. Puin (1940–) นักวิชาการชาวเยอรมัน สรุปว่าอัลกุรอาน
+                  คือ "cocktail of texts" และข้อความ Lower Text บ่งชี้ว่าอัลกุรอาน
+                  มีการเปลี่ยนแปลงในประวัติศาสตร์
+                  (Toby Lester, "What is the Koran?", The Atlantic, 1999)
+                </p>
+              </div>
+
+              <div className="bg-red-950/30 border border-red-800/30 rounded-card p-5">
+                <p className="font-cinzel text-red-400 text-sm font-semibold mb-2">
+                  ข้อโจมตีที่ 2 — ลำดับซูเราะฮ์ใน Lower Text ไม่ตรงกับฉบับมาตรฐาน
+                </p>
+                <p className="font-pridi text-paper-white/70 text-sm leading-relaxed">
+                  Behnam Sadeghi & Mohsen Goudarzi ระบุว่า Lower Text
+                  มีลำดับซูเราะฮ์ที่ไม่ตรงกับฉบับอุษมานิกใดๆ ที่รู้จัก
+                  บ่งชี้ว่าเป็นสำเนาก่อนยุคอุษมาน (pre-Uthmanic tradition)
+                  (Der Islam, 2012, Vol. 87)
+                </p>
+              </div>
+
+              <div className="bg-red-950/30 border border-red-800/30 rounded-card p-5">
+                <p className="font-cinzel text-red-400 text-sm font-semibold mb-2">
+                  ข้อโจมตีที่ 3 — การมีอยู่ของ Lower Text พิสูจน์ว่ามีการแก้ไขอัลกุรอาน
+                </p>
+                <p className="font-pridi text-paper-white/70 text-sm leading-relaxed">
+                  นักวิจารณ์บางกลุ่มโต้แย้งว่าการลบข้อความชั้นล่างและเขียนทับ
+                  บ่งชี้ถึงความพยายามปกปิดหรือแก้ไขข้อความอัลกุรอาน
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* การโต้แย้ง */}
+          <div className="mb-8">
+            <h4 className="font-cinzel text-lg text-gold font-semibold mb-6 tracking-wide">
+              การโต้แย้งโดยนักวิชาการ
+            </h4>
+            <div className="space-y-4">
+
+              <div className="bg-emerald-950/30 border border-emerald-700/30 rounded-card p-5">
+                <p className="font-cinzel text-emerald-400 text-sm font-semibold mb-2">
+                  การโต้แย้งที่ 1 — Upper Text ตรงกับอัลกุรอานปัจจุบัน 100%
+                </p>
+                <p className="font-pridi text-paper-white/80 text-sm leading-relaxed">
+                  สิ่งสำคัญที่สุดที่นักวิจารณ์มักมองข้ามคือ
+                  <strong className="text-gold"> Upper Text ของซานาอาสอดคล้องกับอัลกุรอานมาตรฐานทั้งหมด</strong>
+                  ทั้งในด้านข้อความและลำดับซูเราะฮ์อย่างสมบูรณ์
+                  นักวิชาการ Behnam Sadeghi เองยืนยันข้อนี้ในงานของเขา
+                  ซึ่งหมายความว่าต้นฉบับนี้ยืนยันความถูกต้องของอัลกุรอานปัจจุบัน
+                  ไม่ใช่โต้แย้ง
+                  (Sadeghi & Goudarzi, Der Islam, 2012)
+                </p>
+              </div>
+
+              <div className="bg-emerald-950/30 border border-emerald-700/30 rounded-card p-5">
+                <p className="font-cinzel text-emerald-400 text-sm font-semibold mb-2">
+                  การโต้แย้งที่ 2 — Lower Text คือสำเนาฝึกหัด ไม่ใช่ต้นฉบับทางการ
+                </p>
+                <p className="font-pridi text-paper-white/80 text-sm leading-relaxed">
+                  Dr. Asma Hilali นักวิชาการจาก Institute of Ismaili Studies
+                  เสนอจากการศึกษาฉบับเต็มในหนังสือ
+                  <em> The Sanaa Palimpsest: The Transmission of the Qur'an in the First Centuries AH</em>
+                  (Oxford University Press, 2017) ว่า Lower Text น่าจะเป็น
+                  <strong className="text-gold"> บันทึกส่วนตัวของซอฮาบะฮ์ (Personal Codex of a Companion)</strong>
+                  ไม่ใช่ต้นฉบับทางการ
+                  ซึ่งซอฮาบะฮ์บางท่านมีบันทึกส่วนตัวก่อนที่เคาะลีฟะฮ์อุษมานจะรวบรวมฉบับมาตรฐาน
+                  บันทึกเหล่านี้อาจมีลำดับซูเราะฮ์หรือสำเนียงที่แตกต่างกันตามที่แต่ละท่านได้รับการสอนมา
+                  และ Upper Text กับ Lower Text จึงไม่มีความเชื่อมโยงทางเนื้อหาโดยตรง
+                </p>
+              </div>
+
+              <div className="bg-emerald-950/30 border border-emerald-700/30 rounded-card p-5">
+                <p className="font-cinzel text-emerald-400 text-sm font-semibold mb-2">
+                  การโต้แย้งที่ 3 — ความแตกต่างของ Lower Text อธิบายได้ด้วยระบบ Qirāʾāt
+                </p>
+                <p className="font-pridi text-paper-white/80 text-sm leading-relaxed">
+                  ความแตกต่างที่พบใน Lower Text ไม่ใช่สิ่งแปลกใหม่สำหรับนักวิชาการอิสลาม
+                  ระบบ <strong className="text-gold">Qirāʾāt al-Sab'ah (การอ่านทั้งเจ็ด)</strong>
+                  ที่ท่านนบีอนุญาตให้อ่านอัลกุรอานได้หลายสำเนียง
+                  ถูกรวบรวมและรับรองโดย อิบน์ มุญาฮิด (Ibn Mujāhid, เสียชีวิต 324 ฮ.ศ.)
+                  ในหนังสือ <em>Kitāb al-Sabʿah fī al-Qirāʾāt</em>
+                  ความแตกต่างเล็กน้อยในตัวสะกดหรือสำเนียงจึงไม่ถือว่าเป็นการเปลี่ยนแปลงอัลกุรอาน
+                </p>
+              </div>
+
+              <div className="bg-emerald-950/30 border border-emerald-700/30 rounded-card p-5">
+                <p className="font-cinzel text-emerald-400 text-sm font-semibold mb-2">
+                  การโต้แย้งที่ 4 — การนำหนังสัตว์กลับมาใช้ใหม่เป็นเรื่องปกติในสมัยโบราณ
+                </p>
+                <p className="font-pridi text-paper-white/80 text-sm leading-relaxed">
+                  ดร.ซะอูด อัลซัรฮาน ผู้อำนวยการศูนย์วิจัยและการศึกษาอิสลามในริยาด
+                  ชี้แจงว่าการนำหนังสัตว์กลับมาใช้ใหม่
+                  <strong className="text-gold"> เป็นเรื่องปกติและพบเห็นทั่วไปในยุคโบราณ</strong>
+                  ทั้งในคัมภีร์คริสเตียนและยิวด้วย (มีพบที่อาราม St. Catherine, Sinai)
+                  ไม่ใช่สัญญาณของการปกปิดหรือแก้ไข
+                  (iqna.ir, "Cairo Mosque Copy Not Oldest Quran Manuscript", 2015)
+                </p>
+              </div>
+
+              <div className="bg-emerald-950/30 border border-emerald-700/30 rounded-card p-5">
+                <p className="font-cinzel text-emerald-400 text-sm font-semibold mb-2">
+                  การโต้แย้งที่ 5 — Gerd Puin เองไม่เคยอ้างว่าอัลกุรอานถูกเปลี่ยนแปลง
+                </p>
+                <p className="font-pridi text-paper-white/80 text-sm leading-relaxed">
+                  สิ่งที่ Puin กล่าวในบทสัมภาษณ์ The Atlantic (1999) คือ
+                  ต้นฉบับเหล่านี้ "ชวนให้ตั้งคำถาม" ไม่ใช่ข้อสรุปทางวิชาการ
+                  นักวิชาการมุสลิม Yasin Dutton และ Behnam Sadeghi
+                  ซึ่งศึกษาต้นฉบับเดียวกันสรุปตรงกันข้ามว่า
+                  ต้นฉบับซานาอายืนยันความมั่นคงของข้อความอัลกุรอาน
+                  ไม่ใช่โต้แย้ง
+                  (Answering Christianity, www.answering-christianity.com/karim/mosque_of_sanaa.htm)
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* สรุปจากอุลามะ */}
+          <div className="card-glass p-8 border-l-4 border-gold mb-8">
+            <h4 className="font-cinzel text-gold text-lg font-semibold mb-4 tracking-wide">
+              หลักการสำคัญของผู้รู้อิสลามในการนับว่าเป็นอัลกุรอาน
+            </h4>
+            <ul className="font-pridi text-paper-white/80 text-sm space-y-3 leading-relaxed">
+              <li>
+                <strong className="text-gold">1. อัลอิตกอน (الإتقان)</strong> —
+                อิหม่าม อัลซุยูฏี (849-911 ฮ.ศ.) อธิบายในหนังสือ
+                <em> al-Itqān fī ʿUlūm al-Qurʾān</em> ว่าอัลกุรอานได้รับการรักษา
+                ผ่านการท่องจำ (ḥifẓ) ควบคู่กับการบันทึกเป็นลายลักษณ์อักษร
+                ความแตกต่างเล็กน้อยในต้นฉบับเก่าจึงไม่ส่งผลต่อข้อความที่ถ่ายทอดผ่านการท่องจำ
+              </li>
+              <li>
+                <strong className="text-gold">2. มุตะวาติร (متواتر)</strong> —
+                อิหม่าม อันนะวะวี (631-676 ฮ.ศ.) อธิบายในหนังสือ
+                <em> al-Tibyān fī Ādāb Ḥamalat al-Qurʾān</em> ว่า
+                อัลกุรอานถูกส่งต่อในระดับ Mutawātir คือมีผู้ส่งต่อจำนวนมาก
+                จนเป็นไปไม่ได้ที่จะมีการสมคบกันเพื่อเปลี่ยนแปลงข้อความ
+              </li>
+              <li>
+                <strong className="text-gold">3. ฮิฟซุลกุรอาน (حفظ القرآن)</strong> —
+                ชัยคฺ มุฮัมมัด อิบน์ ศอลิฮ์ อัลอุษัยมีน (1929-2001)
+                ในหนังสือ <em>al-Uṣūl min ʿIlm al-Uṣūl</em> ย้ำว่า
+                อัลลอฮ์ทรงสัญญาในอัลกุรอาน (15:9) ว่าจะปกป้องอัลกุรอาน
+                ต้นฉบับที่มีความแตกต่างเล็กน้อยจึงไม่ขัดแย้งกับคำสัญญานี้
+                เพราะข้อความหลักได้รับการรักษาผ่านการท่องจำของเหล่าฮาฟิซ
+                ไม่ใช่จากการคัดลอกเพียงอย่างเดียว
+              </li>
+            </ul>
+          </div>
+
+          {/* แหล่งอ้างอิง */}
+          <div className="border-t border-gold/20 pt-6">
+            <p className="font-cinzel text-gold/60 text-xs mb-3 tracking-widest">แหล่งอ้างอิง</p>
+            <ul className="font-pridi text-paper-white/50 text-xs space-y-1 leading-relaxed">
+              <li>[1] B. Sadeghi & M. Goudarzi, "Ṣanʿāʾ 1 and the Origins of the Qurʾān", Der Islam, 2012, Vol. 87, No. 1-2.</li>
+              <li>[2] A. Hilali, <em>The Sanaa Palimpsest: The Transmission of the Qurʾan in the First Centuries AH</em>, Oxford University Press, 2017.</li>
+              <li>[3] T. Lester, "What is the Koran?", The Atlantic, January 1999.</li>
+              <li>[4] ดร.ซะอูด อัลซัรฮาน, iqna.ir, "Cairo Mosque Copy Not Oldest Quran Manuscript", 2015.</li>
+              <li>[5] Islamic Awareness, "Codex Sana'a I — A Qur'anic Manuscript From Mid-1st Century Of Hijra", www.islamic-awareness.org/quran/text/mss/soth</li>
+              <li>[6] อิหม่าม อัลซุยูฏี, <em>al-Itqān fī ʿUlūm al-Qurʾān</em>, ศตวรรษที่ 15 ค.ศ.</li>
+              <li>[7] อิหม่าม อันนะวะวี, <em>al-Tibyān fī Ādāb Ḥamalat al-Qurʾān</em>, ศตวรรษที่ 13 ค.ศ.</li>
+              <li>[8] ชัยคฺ อิบน์ อุษัยมีน, <em>al-Uṣūl min ʿIlm al-Uṣūl</em>, ค.ศ. 2001.</li>
+              <li>[9] Answering Christianity, "Was there something wrong with early Qur'anic fragments found in Sanaa?", www.answering-christianity.com/karim/mosque_of_sanaa.htm</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
       {/* ข้อมูลหลัก */}
       <section className="py-16 bg-paper-light">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
