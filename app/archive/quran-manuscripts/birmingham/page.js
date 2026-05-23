@@ -50,7 +50,7 @@ export default function BirminghamManuscript() {
       </section>
 
       {/* IMAGE GALLERY */}
-      <section className="py-16 bg-paper">
+      <section className="py-16 bg-paper overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-cinzel text-2xl text-ink text-center mb-4">
             ภาพต้นฉบับ
@@ -59,14 +59,14 @@ export default function BirminghamManuscript() {
             ภาพหน้าต้นฉบับจาก Mingana Islamic Arabic 1572a มหาวิทยาลัยเบอร์มิงแฮม
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* ber1 */}
-            <div className="rounded-card overflow-hidden shadow-card border border-gold/20">
+            <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
                 src="/manuscripts/quran/Birmingham/ber1.jpg"
                 alt="Birmingham Quran Manuscript Folio 1r"
-                className="w-full object-cover"
-                style={{ mixBlendMode: "multiply", backgroundColor: "transparent" }}
+                className="w-full h-auto object-cover block"
+                style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
                   e.target.style.display = "none";
                   e.target.nextSibling.style.display = "flex";
@@ -88,12 +88,12 @@ export default function BirminghamManuscript() {
             </div>
 
             {/* ber2 */}
-            <div className="rounded-card overflow-hidden shadow-card border border-gold/20">
+            <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
                 src="/manuscripts/quran/Birmingham/ber2.jpg"
                 alt="Birmingham Quran Manuscript Folio 1v"
-                className="w-full object-cover"
-                style={{ mixBlendMode: "multiply", backgroundColor: "transparent" }}
+                className="w-full h-auto object-cover block"
+                style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
                   e.target.style.display = "none";
                   e.target.nextSibling.style.display = "flex";
@@ -313,13 +313,13 @@ export default function BirminghamManuscript() {
 
           {/* หมายเหตุสำคัญ */}
           <div
-            className="mt-6 card-glass border-l-4 border-gold p-5"
-            style={{ background: "linear-gradient(135deg, rgba(197,160,89,0.08) 0%, rgba(62,39,35,0.3) 100%)" }}
+            className="mt-6 border-l-4 border-gold p-5 rounded-card"
+            style={{ background: '#3E2723' }}
           >
             <p className="font-cinzel text-gold text-sm font-semibold mb-2 tracking-wide">
               ** หมายเหตุสำคัญ
             </p>
-            <p className="font-pridi text-paper-white/90 leading-relaxed">
+            <p className="font-pridi text-paper-white leading-relaxed">
               ความแตกต่างหรือข้อสังเกตใดๆ ที่พบในต้นฉบับนี้
               <strong className="text-gold"> ไม่ส่งผลให้อัลกุรอานถูกบิดเบือนแต่อย่างใด</strong>
               เนื่องจากอัลกุรอานไม่ได้พึ่งพาการบันทึกเป็นลายลักษณ์อักษรเพียงอย่างเดียว
@@ -330,7 +330,7 @@ export default function BirminghamManuscript() {
               (ถ่ายทอดโดยคนจำนวนมากจนเป็นไปไม่ได้ที่จะมีการสมคบกันเปลี่ยนแปลง)
               คือหลักประกันสูงสุดของความถูกต้องของอัลกุรอาน
               ตามที่อัลลอฮ์ทรงสัญญาไว้ในอัลกุรอาน สูเราะฮ์ อัลฮิจร์ 15:9
-              <span className="block mt-3 font-cinzel text-gold/70 text-xs tracking-widest">
+              <span className="block mt-3 font-cinzel text-gold/80 text-xs tracking-widest">
                 "แท้จริง เราได้ประทานอัล-ซิกร์ลงมา และแท้จริง เราเป็นผู้พิทักษ์รักษามันไว้"
               </span>
             </p>
