@@ -53,14 +53,14 @@ const collections = [
     title: "Biblical Codices",
     blurb:
       "ต้นฉบับไบเบิลสำคัญอย่าง Codex Sinaiticus และ Codex Vaticanus เปรียบเทียบฉบับ Septuagint, Masoretic และ Patristic เพื่อศึกษาความแตกต่างของข้อความ",
-    href: null,
+    href: "/archive/biblical-codices",
   },
   {
     glyph: "⚜",
     title: "Other Writings Outside Canon",
     blurb:
       "งานเขียนคริสเตียนยุคแรกที่ไม่ได้รับการยอมรับเข้าในคัมภีร์ อาทิ พระวรสารนอกสารบบ จดหมายของบรรดา Church Fathers และข้อเขียน Gnostic ที่โบสถ์ปฏิเสธในภายหลัง",
-    href: null,
+    href: "/archive/other-writings",
   },
 ];
 
