@@ -15,7 +15,9 @@
       "PowerShell(New-Item *)",
       "Bash(New-Item -ItemType File -Path \"D:\\\\onlyonetruth\\\\public\\\\manuscripts\\\\bible\\\\.gitkeep\" -Force)",
       "Bash(New-Item -ItemType File -Path \"D:\\\\onlyonetruth\\\\public\\\\manuscripts\\\\other\\\\.gitkeep\" -Force)",
-      "Bash(Write-Host \"Done\")"
+      "Bash(Write-Host \"Done\")",
+      "Bash(New-Item -ItemType Directory -Force \"D:\\\\onlyonetruth\\\\public\\\\articles\\\\song-of-solomon\")",
+      "Bash(New-Item -ItemType File -Force \"D:\\\\onlyonetruth\\\\public\\\\articles\\\\song-of-solomon\\\\.gitkeep\")"
     ]
   }
 }

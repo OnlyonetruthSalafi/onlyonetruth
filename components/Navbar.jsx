@@ -7,7 +7,7 @@ const menuItems = [
   { en: "HOME", th: "หน้าแรก", href: "/" },
   { en: "ARCHIVE", th: "คลังเอกสาร", scrollId: "collections-section" },
   { en: "TEXTUAL HISTORY", th: "ประวัติศาสตร์", href: "/textual-history" },
-  { en: "ARTICLE", th: "บทความ", href: "/article" },
+  { en: "ARTICLE", th: "บทความ", scrollId: "about-project" },
   { en: "ARGUMENT", th: "ข้อโต้แย้ง", href: "/argument" },
 ];
 

@@ -520,7 +520,7 @@ export default function Home() {
                 </p>
               </div>
               <a
-                href="#about"
+                href="#about-project"
                 className="btn-primary text-base md:text-lg hover:scale-105 whitespace-nowrap"
               >
                 Enter the Archive →
@@ -530,56 +530,98 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="py-section md:py-28 bg-paper-light">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div data-reveal>
-            <p className="font-cinzel text-xs tracking-[0.4em] uppercase text-gold-dark mb-4">
-              About the Project
-            </p>
-            <h2 className="font-cinzel text-3xl md:text-4xl text-ink mb-6 leading-tight">
-              A Scholarly Refuge for the World's Oldest Voices
-            </h2>
-            <div className="h-px w-20 bg-gold mb-6" />
-            <p className="font-cinzel text-base md:text-lg text-ink/80 leading-relaxed mb-4">
-              OnlyOneTruth gathers, digitizes, and annotates manuscripts that
-              shaped religious and intellectual history. Our editors collaborate
-              with libraries, archives, and independent scholars to keep every
-              reading transparent and every provenance accountable.
-            </p>
-            <p className="font-cinzel text-base md:text-lg text-ink/80 leading-relaxed">
-              We believe truth, when carefully witnessed, can survive any
-              century.
-            </p>
-          </div>
+      {/* ARTICLES & RESEARCH */}
+      <section id="about-project" className="py-20 bg-paper">
+        <div className="max-w-7xl mx-auto px-gutter">
 
-          <div data-reveal className="space-y-5">
-            {[
-              {
-                t: "Provenance First",
-                d: "Every folio is traced to a verifiable origin before being added to the archive.",
-              },
-              {
-                t: "Open Scholarship",
-                d: "Variant readings, marginalia, and editorial decisions are documented and citable.",
-              },
-              {
-                t: "Preservation Standards",
-                d: "Imaging, encoding, and storage follow international archival best practice.",
-              },
-            ].map((v) => (
-              <div
-                key={v.t}
-                className="bg-paper/60 border border-gold/30 rounded-card p-5 hover:border-gold transition-colors"
-              >
-                <h4 className="font-cinzel text-xl text-ink mb-1">
-                  {v.t}
-                </h4>
-                <p className="font-cinzel text-sm text-ink/75 leading-relaxed">
-                  {v.d}
-                </p>
-              </div>
-            ))}
+          <p className="font-cinzel text-xs text-gold tracking-[0.3em] uppercase mb-4">
+            ARTICLES & RESEARCH
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+            {/* ฝั่งซ้าย */}
+            <div>
+              <h2 className="font-cinzel text-4xl md:text-5xl text-ink font-normal leading-tight mb-6">
+                Scholarly Articles on Ancient Texts
+              </h2>
+
+              <div className="w-12 h-0.5 bg-gold/50 mb-8"></div>
+
+              <p className="font-pridi text-ink/70 leading-relaxed mb-4">
+                บทความวิชาการที่ศึกษาและเปรียบเทียบต้นฉบับคัมภีร์โบราณ
+                โดยอ้างอิงจากงานของนักวิชาการชั้นนำทั้งฝ่ายมุสลิม คริสต์ และนักวิชาการอิสระ
+              </p>
+
+              <p className="font-pridi text-ink/70 leading-relaxed mb-10">
+                เราเชื่อว่าความจริง เมื่อได้รับการพิสูจน์อย่างรอบคอบ
+                จะสามารถผ่านพ้นทุกยุคสมัยได้
+              </p>
+
+              <a href="/articles" className="btn-outline font-pridi inline-flex items-center gap-2">
+                ดูบทความทั้งหมด
+                <span>→</span>
+              </a>
+            </div>
+
+            {/* ฝั่งขวา: 3 การ์ดบทความ */}
+            <div className="space-y-4">
+
+              <a href="/articles/uthmanic-mushafs-azami"
+                className="group block bg-paper-light border border-gold/20 rounded-card p-6 hover:border-gold/50 hover:shadow-card-hover transition-all duration-300">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <span className="font-cinzel text-xs text-gold tracking-widest uppercase mb-2 block">
+                      อัลกุรอาน · Al-Azami
+                    </span>
+                    <h3 className="font-cinzel text-lg text-ink font-semibold mb-2 group-hover:text-gold transition-colors leading-snug">
+                      การศึกษามุศฮัฟที่อ้างถึงอุษมาน
+                    </h3>
+                    <p className="font-pridi text-ink/60 text-sm leading-relaxed line-clamp-2">
+                      วิเคราะห์มุศฮัฟ 5 ฉบับที่เชื่อว่าสืบทอดจากสำเนาทางการของเคาะลีฟะฮ์อุษมาน อ้างอิงจากงานวิจัยของ Prof. M.M. Al-Azami
+                    </p>
+                  </div>
+                  <span className="text-gold/40 group-hover:text-gold transition-colors text-xl mt-1 shrink-0">→</span>
+                </div>
+              </a>
+
+              <a href="/articles/intentional-changes-metzger"
+                className="group block bg-paper-light border border-gold/20 rounded-card p-6 hover:border-gold/50 hover:shadow-card-hover transition-all duration-300">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <span className="font-cinzel text-xs text-gold tracking-widest uppercase mb-2 block">
+                      ไบเบิล · Metzger
+                    </span>
+                    <h3 className="font-cinzel text-lg text-ink font-semibold mb-2 group-hover:text-gold transition-colors leading-snug">
+                      การเปลี่ยนแปลงคัมภีร์โดยเจตนา
+                    </h3>
+                    <p className="font-pridi text-ink/60 text-sm leading-relaxed line-clamp-2">
+                      Bruce Metzger จำแนกการเปลี่ยนแปลงข้อความพันธสัญญาใหม่โดยเจตนา รวมถึงการแก้ไขเพื่อให้สอดคล้องกับหลักเทววิทยา
+                    </p>
+                  </div>
+                  <span className="text-gold/40 group-hover:text-gold transition-colors text-xl mt-1 shrink-0">→</span>
+                </div>
+              </a>
+
+              <a href="/articles/prophet-in-song-of-solomon"
+                className="group block bg-paper-light border border-gold/20 rounded-card p-6 hover:border-gold/50 hover:shadow-card-hover transition-all duration-300">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <span className="font-cinzel text-xs text-gold tracking-widest uppercase mb-2 block">
+                      เปรียบเทียบ · Song of Solomon
+                    </span>
+                    <h3 className="font-cinzel text-lg text-ink font-semibold mb-2 group-hover:text-gold transition-colors leading-snug">
+                      ศาสดามุฮัมมัดใน Song of Solomon
+                    </h3>
+                    <p className="font-pridi text-ink/60 text-sm leading-relaxed line-clamp-2">
+                      การตีความ Song of Solomon 5:16 และคำว่า Navi ในภาษาฮีบรู-อาราเมอิก ตามมุมมองของนักวิชาการมุสลิม
+                    </p>
+                  </div>
+                  <span className="text-gold/40 group-hover:text-gold transition-colors text-xl mt-1 shrink-0">→</span>
+                </div>
+              </a>
+
+            </div>
           </div>
         </div>
       </section>
