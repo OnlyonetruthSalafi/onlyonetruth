@@ -496,7 +496,7 @@ export default function Home() {
 
       {/* ARCHIVE CTA */}
       <section
-        id="archive"
+        id="archive-cta"
         className="py-section md:py-24 bg-paper border-t border-gold/20"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -512,18 +512,17 @@ export default function Home() {
             <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
               <div>
                 <h3 className="font-cinzel text-2xl md:text-4xl mb-3 leading-tight">
-                  Step into the Archive
+                  Explore Textual Criticism
                 </h3>
-                <p className="font-cinzel text-paper/80 max-w-xl leading-relaxed">
-                  Browse digitized folios, cross-reference variant readings, and
-                  trace the textual lineage of every document in our holdings.
+                <p className="font-pridi text-paper/80 max-w-xl leading-relaxed">
+                  ศึกษาความแตกต่างของต้นฉบับ เปรียบเทียบ Variant Readings และติดตามสายการส่งต่อของคัมภีร์โบราณ ด้วยข้อมูลที่อ้างอิงจากนักวิชาการชั้นนำ
                 </p>
               </div>
               <a
-                href="#about-project"
+                href="/textual-history"
                 className="btn-primary text-base md:text-lg hover:scale-105 whitespace-nowrap"
               >
-                Enter the Archive →
+                เริ่มศึกษา Textual Criticism →
               </a>
             </div>
           </div>

@@ -280,13 +280,14 @@ export default function QuranManuscripts() {
                 className="group bg-paper-light border border-gold/20 rounded-card overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-transform duration-300"
               >
                 {/* รูปภาพ */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-56 overflow-hidden bg-paper-light flex items-center justify-center">
                   {m.id === "hussein" ? (
                     <a href="/archive/quran-manuscripts/hussein">
                       <img
                         src={m.image}
                         alt={m.title}
-                        className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                        className="w-full h-full object-contain p-3 cursor-pointer hover:opacity-90 transition-opacity"
+                        style={{ maxHeight: '224px' }}
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.src = "/manuscripts/quran/placeholder.jpg";
@@ -300,7 +301,8 @@ export default function QuranManuscripts() {
                       <img
                         src={m.image}
                         alt={m.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer hover:opacity-90 transition-opacity"
+                        className="w-full h-full object-contain p-3 cursor-pointer hover:opacity-90 transition-opacity"
+                        style={{ maxHeight: '224px' }}
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.src = "/manuscripts/quran/placeholder.jpg";
@@ -314,7 +316,8 @@ export default function QuranManuscripts() {
                       <img
                         src={m.image}
                         alt={m.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer hover:opacity-90 transition-opacity"
+                        className="w-full h-full object-contain p-3 cursor-pointer hover:opacity-90 transition-opacity"
+                        style={{ maxHeight: '224px' }}
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.src = "/manuscripts/quran/placeholder.jpg";
@@ -328,7 +331,8 @@ export default function QuranManuscripts() {
                       <img
                         src={m.image}
                         alt={m.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer hover:opacity-90 transition-opacity"
+                        className="w-full h-full object-contain p-3 cursor-pointer hover:opacity-90 transition-opacity"
+                        style={{ maxHeight: '224px' }}
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.src = "/manuscripts/quran/placeholder.jpg";
@@ -341,7 +345,8 @@ export default function QuranManuscripts() {
                     <img
                       src={m.image}
                       alt={m.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-contain p-3"
+                      style={{ maxHeight: '224px' }}
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = "/manuscripts/quran/placeholder.jpg";
