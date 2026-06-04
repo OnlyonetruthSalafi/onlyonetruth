@@ -14,9 +14,39 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const article = getArticleBySlug(params.slug)
   if (!article) return {}
+
+  const url = `https://onlyonetruthislam.vercel.app/articles/${params.slug}`
+  const image = article.image
+    ? `https://onlyonetruthislam.vercel.app${article.image}`
+    : 'https://onlyonetruthislam.vercel.app/header.png'
+
   return {
     title: article.title + ' | OnlyOneTruth',
-    description: article.excerpt,
+    description: article.excerpt || article.title,
+    openGraph: {
+      title: article.title,
+      description: article.excerpt || article.title,
+      url: url,
+      siteName: 'OnlyOneTruth',
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        }
+      ],
+      locale: 'th_TH',
+      type: 'article',
+      publishedTime: article.date,
+      authors: [article.author],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.excerpt || article.title,
+      images: [image],
+    },
   }
 }
 
