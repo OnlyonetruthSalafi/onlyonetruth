@@ -1,3 +1,5 @@
+'use client'
+
 const resourceLinks = [
   { href: "/articles", label: "เกี่ยวกับโปรเจกต์" },
   { href: "#privacy", label: "นโยบายความเป็นส่วนตัว" },

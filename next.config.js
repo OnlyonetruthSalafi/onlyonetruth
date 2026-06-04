@@ -10,9 +10,7 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    serverComponentsExternalPackages: ['gray-matter'],
-  },
+  serverExternalPackages: ['gray-matter'],
 }
 
 module.exports = nextConfig
