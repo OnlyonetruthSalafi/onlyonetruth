@@ -1,130 +1,86 @@
-import Link from "next/link";
-import { marked } from "marked";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import ArticleImage from "../../../components/ArticleImage";
-import { getAllArticles, getArticleBySlug } from "../../../lib/articles";
+import { getAllArticles, getArticleBySlug } from '@/lib/articles'
+import { notFound } from 'next/navigation'
+import ArticleContent from './ArticleContent'
 
 export async function generateStaticParams() {
-  const articles = getAllArticles();
-  return articles.map((a) => ({ slug: a.slug }));
+  try {
+    const articles = getAllArticles()
+    return articles.map(a => ({ slug: a.slug }))
+  } catch (e) {
+    return []
+  }
 }
 
-const categoryLabel = {
-  quran: "อัลกุรอาน",
-  bible: "ไบเบิล",
-  comparative: "เปรียบเทียบ",
-};
+export async function generateMetadata({ params }) {
+  const article = getArticleBySlug(params.slug)
+  if (!article) return {}
+  return {
+    title: article.title + ' | OnlyOneTruth',
+    description: article.excerpt,
+  }
+}
 
-marked.setOptions({ breaks: true });
+function convertMarkdownToHtml(markdown) {
+  if (!markdown) return ''
+  let html = markdown
+  html = html.replace(/^#### (.*$)/gim, '<h4 class="font-cinzel text-lg text-ink mt-6 mb-2">$1</h4>')
+  html = html.replace(/^### (.*$)/gim, '<h3 class="font-cinzel text-xl text-ink mt-8 mb-3">$1</h3>')
+  html = html.replace(/^## (.*$)/gim, '<h2 class="font-cinzel text-2xl text-ink mt-10 mb-4 pb-2 border-b border-gold/20">$1</h2>')
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="text-ink font-semibold">$1</strong>')
+  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>')
+  html = html.replace(/^> (.*$)/gim, '<blockquote class="border-l-4 border-gold bg-gold/5 px-6 py-3 my-4 rounded-r-lg font-pridi text-ink/80 leading-relaxed">$1</blockquote>')
+  html = html.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1" class="w-full rounded-card my-6 object-contain" /><p class="text-center font-pridi text-xs text-ink/50 -mt-4 mb-6 italic">$1</p>')
+  html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-gold hover:underline" target="_blank" rel="noopener noreferrer">$1</a>')
+  html = html.replace(/^---$/gim, '<hr class="border-gold/20 my-10" />')
 
-export default async function ArticlePage({ params }) {
-  const { slug } = await params;
-  const article = getArticleBySlug(slug);
-  const htmlContent = marked(article.content);
+  const lines = html.split('\n')
+  const result = []
+  let inTable = false
+  let tableHtml = ''
+  let isFirstRow = true
 
-  return (
-    <div className="bg-paper text-ink">
-      <Navbar />
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    if (line.includes('|') && line.trim().startsWith('|')) {
+      if (!inTable) {
+        inTable = true
+        isFirstRow = true
+        tableHtml = '<div class="overflow-x-auto my-6"><table class="w-full font-pridi text-sm border-collapse">'
+      }
+      if (line.replace(/\|/g, '').replace(/-/g, '').replace(/:/g, '').trim() === '') {
+        continue
+      }
+      const cells = line.split('|').filter((_, idx, arr) => idx > 0 && idx < arr.length - 1)
+      if (isFirstRow) {
+        tableHtml += '<thead><tr class="bg-ink/80">' + cells.map(c => `<th class="p-3 text-left font-cinzel text-gold text-xs tracking-wide">${c.trim()}</th>`).join('') + '</tr></thead><tbody>'
+        isFirstRow = false
+      } else {
+        tableHtml += '<tr class="border-b border-gold/10 hover:bg-gold/5">' + cells.map(c => `<td class="p-3 text-ink/80">${c.trim()}</td>`).join('') + '</tr>'
+      }
+    } else {
+      if (inTable) {
+        tableHtml += '</tbody></table></div>'
+        result.push(tableHtml)
+        inTable = false
+        tableHtml = ''
+      }
+      if (line.startsWith('<') || line.trim() === '') {
+        result.push(line)
+      } else {
+        result.push(`<p class="font-pridi text-ink/80 leading-relaxed mb-4">${line}</p>`)
+      }
+    }
+  }
+  if (inTable) {
+    tableHtml += '</tbody></table></div>'
+    result.push(tableHtml)
+  }
+  return result.join('\n')
+}
 
-      {/* HERO */}
-      <section className="relative py-20 bg-ink overflow-hidden">
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 font-pridi text-sm text-paper/50 mb-8 flex-wrap">
-            <Link href="/" className="hover:text-gold transition-colors">
-              Home
-            </Link>
-            <span className="text-gold/40">›</span>
-            <Link href="/articles" className="hover:text-gold transition-colors">
-              บทความ
-            </Link>
-            <span className="text-gold/40">›</span>
-            <span className="text-gold truncate max-w-[200px]">{article.title}</span>
-          </nav>
-
-          <div className="text-center">
-            {article.category && (
-              <p className="font-cinzel text-xs tracking-[0.4em] uppercase text-gold-dark mb-4">
-                {categoryLabel[article.category] ?? article.category}
-              </p>
-            )}
-            <h1 className="font-cinzel text-3xl md:text-5xl text-gold mb-3 leading-tight">
-              {article.title}
-            </h1>
-            {article.titleEn && (
-              <h2 className="font-cinzel text-lg md:text-xl text-gold/70 mb-6">
-                {article.titleEn}
-              </h2>
-            )}
-            <div className="mx-auto h-px w-24 bg-gold/50 mb-6" />
-
-            {/* Meta */}
-            <div className="flex flex-wrap items-center justify-center gap-4 font-pridi text-sm text-paper/60">
-              {article.author && <span>✍️ {article.author}</span>}
-              {article.date && (
-                <span>
-                  📅{" "}
-                  {new Date(article.date).toLocaleDateString("th-TH", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
-              )}
-            </div>
-            {article.source && (
-              <p className="font-pridi text-xs text-gold/50 mt-3 italic">
-                ที่มา: {article.source}
-              </p>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* ARTICLE CONTENT */}
-      <section className="py-16 bg-paper">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Hero image */}
-          {article.image && (
-            <div className="mb-10 rounded-card overflow-hidden h-64">
-              <ArticleImage src={article.image} alt={article.title} />
-            </div>
-          )}
-
-          {/* Markdown rendered content */}
-          <div
-            className="article-content font-pridi text-ink/85 leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
-          />
-
-          {/* Tags */}
-          {article.tags && (
-            <div className="flex flex-wrap gap-2 mt-10 pt-6 border-t border-gold/20">
-              {article.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="border border-gold/30 text-gold font-cinzel text-xs px-3 py-1 rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* Back button */}
-          <div className="mt-10">
-            <Link
-              href="/articles"
-              className="inline-flex items-center gap-2 font-pridi text-sm text-ink/60 hover:text-gold transition-colors"
-            >
-              ← กลับไปยังบทความทั้งหมด
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
+export default function ArticlePage({ params }) {
+  const article = getArticleBySlug(params.slug)
+  if (!article) return notFound()
+  const htmlContent = convertMarkdownToHtml(article.content)
+  return <ArticleContent article={{ ...article, htmlContent }} />
 }

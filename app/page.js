@@ -545,13 +545,13 @@ export default function Home() {
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <span className="font-cinzel text-xs text-gold tracking-widest uppercase mb-2 block">
-                      อัลกุรอาน · Al-Azami
+                      เปรียบเทียบ · Al-Azami &amp; Metzger
                     </span>
                     <h3 className="font-cinzel text-lg text-ink font-semibold mb-2 group-hover:text-gold transition-colors leading-snug">
-                      การศึกษามุศฮัฟที่อ้างถึงอุษมาน
+                      ปฐมบทแห่งการวิจารณ์ตัวบท
                     </h3>
                     <p className="font-pridi text-ink/60 text-sm leading-relaxed line-clamp-2">
-                      วิเคราะห์มุศฮัฟ 5 ฉบับที่เชื่อว่าสืบทอดจากสำเนาทางการของเคาะลีฟะฮ์อุษมาน อ้างอิงจากงานวิจัยของ Prof. M.M. Al-Azami
+                      ทำความรู้จักศาสตร์การวิจารณ์ตัวบท วัสดุโบราณที่ใช้บันทึกคัมภีร์ และเปรียบเทียบสองเส้นทางการพิทักษ์พระวจนะระหว่างโลกอิสลามและคริสเตียน
                     </p>
                   </div>
                   <span className="text-gold/40 group-hover:text-gold transition-colors text-xl mt-1 shrink-0">→</span>

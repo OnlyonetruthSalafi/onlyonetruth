@@ -11,7 +11,12 @@ const categoryLabel = {
 };
 
 export default async function ArticlesPage() {
-  const articles = getAllArticles();
+  let articles = []
+  try {
+    articles = getAllArticles()
+  } catch (e) {
+    console.error(e)
+  }
 
   return (
     <div className="bg-paper text-ink">
