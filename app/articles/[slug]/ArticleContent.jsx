@@ -1,9 +1,15 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export default function ArticleContent({ article }) {
+  const [currentUrl, setCurrentUrl] = useState('')
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href)
+  }, [])
   return (
     <div>
       <Navbar />
@@ -65,7 +71,7 @@ export default function ArticleContent({ article }) {
 
             {/* Facebook */}
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#1877F2] hover:bg-[#0d65d9] text-white px-4 py-2 rounded-md transition-all duration-300 text-sm"
@@ -78,7 +84,7 @@ export default function ArticleContent({ article }) {
 
             {/* Line */}
             <a
-              href={`https://social-plugins.line.me/lineit/share?url=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
+              href={`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(currentUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#06C755] hover:bg-[#05b34c] text-white px-4 py-2 rounded-md transition-all duration-300"
@@ -91,7 +97,7 @@ export default function ArticleContent({ article }) {
 
             {/* X (Twitter) */}
             <a
-              href={`https://twitter.com/intent/tweet?url=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
+              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-black hover:bg-zinc-800 text-white px-4 py-2 rounded-md transition-all duration-300"
@@ -104,7 +110,7 @@ export default function ArticleContent({ article }) {
 
             {/* WhatsApp */}
             <a
-              href={`https://wa.me/?text=${typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''}`}
+              href={`https://wa.me/?text=${encodeURIComponent(currentUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white px-4 py-2 rounded-md transition-all duration-300"
@@ -118,7 +124,7 @@ export default function ArticleContent({ article }) {
             {/* Copy Link */}
             <button
               onClick={() => {
-                navigator.clipboard.writeText(window.location.href).then(() => {
+                navigator.clipboard.writeText(currentUrl).then(() => {
                   const el = document.getElementById('copy-link-btn')
                   if (el) {
                     el.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="font-pridi text-sm">คัดลอกแล้ว!</span>`
