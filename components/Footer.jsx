@@ -1,15 +1,20 @@
-const aboutLinks = [
-  { href: "#mission", label: "Our Mission" },
-  { href: "#scholars", label: "Scholars" },
-  { href: "#methodology", label: "Methodology" },
+const resourceLinks = [
+  { href: "/articles", label: "เกี่ยวกับโปรเจกต์" },
+  { href: "#privacy", label: "นโยบายความเป็นส่วนตัว" },
+  { href: "#faq", label: "คำถามที่พบบ่อย" },
+  { href: "#contact", label: "ติดต่อ" },
 ];
 
-const exploreLinks = [
-  { href: "#archive", label: "Archive" },
-  { href: "#collections", label: "Collections" },
-  { href: "#textual-history", label: "Textual History" },
-  { href: "#contact", label: "Contact" },
-];
+const linkCls = "font-pridi text-sm text-paper/80 hover:text-gold transition-colors";
+const btnCls = `${linkCls} text-left cursor-pointer`;
+
+function scrollTo(id) {
+  if (window.location.pathname !== "/") {
+    window.location.href = `/#${id}`;
+  } else {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }
+}
 
 function SocialIcon({ children, label, href }) {
   return (
@@ -35,10 +40,9 @@ export default function Footer() {
             <h3 className="font-cinzel text-xl tracking-[0.18em] text-gold mb-4">
               OnlyOneTruth
             </h3>
-            <p className="font-cinzel text-sm leading-relaxed text-paper/80 max-w-sm">
-              A scholarly archive dedicated to preserving and studying ancient
-              manuscripts — guarding the textual integrity of the documents
-              that shaped human civilization.
+            <p className="font-pridi text-sm text-paper-white/70 leading-relaxed max-w-sm">
+              เพราะการตามหาความจริงของชีวิต คือ แพสชั่น ของคณะผู้จัดทำมาช้านาน
+              อันนำมาสู่การสร้างเว็บไซต์นี้ และหวังว่าท่านผู้เข้าชมจะได้คำตอบที่ตัวเองค้นหาเช่นกัน
             </p>
             <p className="text-lg text-gold/90 mt-4" dir="rtl" lang="ar">
               الحق واحد لا يتعدد
@@ -47,32 +51,52 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <h4 className="font-cinzel text-sm tracking-[0.2em] text-gold mb-4 uppercase">
-                About
+              <h4 className="font-pridi text-sm tracking-[0.2em] text-gold mb-4 uppercase">
+                ลิงก์ด่วน
               </h4>
               <ul className="space-y-2">
-                {aboutLinks.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="font-cinzel text-sm text-paper/80 hover:text-gold transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <a href="/" className={linkCls}>หน้าแรก</a>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollTo("collections-section")}
+                    className={btnCls}
+                  >
+                    คลังเอกสาร
+                  </button>
+                </li>
+                <li>
+                  <a href="/textual-history" className={linkCls}>ประวัติศาสตร์</a>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollTo("about-project")}
+                    className={btnCls}
+                  >
+                    บทความ
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollTo("archive-cta")}
+                    className={btnCls}
+                  >
+                    วิจารณ์ตัวบท
+                  </button>
+                </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-cinzel text-sm tracking-[0.2em] text-gold mb-4 uppercase">
-                Explore
+              <h4 className="font-pridi text-sm tracking-[0.2em] text-gold mb-4 uppercase">
+                แหล่งข้อมูล
               </h4>
               <ul className="space-y-2">
-                {exploreLinks.map((link) => (
+                {resourceLinks.map((link) => (
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="font-cinzel text-sm text-paper/80 hover:text-gold transition-colors"
+                      className={linkCls}
                     >
                       {link.label}
                     </a>
@@ -83,11 +107,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-cinzel text-sm tracking-[0.2em] text-gold mb-4 uppercase">
-              Correspond
+            <h4 className="font-pridi text-sm tracking-[0.2em] text-gold mb-4 uppercase">
+              ติดต่อเรา
             </h4>
-            <p className="font-cinzel text-sm text-paper/80 mb-5">
-              For inquiries, research collaboration, or access to the archive.
+            <p className="font-pridi text-sm text-paper/80 mb-5">
+              สำหรับคำถาม ความร่วมมือด้านวิชาการ หรือการเข้าถึงคลังเอกสาร
             </p>
             <div className="flex gap-3">
               <SocialIcon href="#" label="Email">
@@ -145,10 +169,12 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gold/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs md:text-sm text-paper/70 font-cinzel tracking-wide">
-            © {new Date().getFullYear()} OnlyOneTruth. For scholarly purposes.
+          <p className="font-pridi text-xs md:text-sm text-paper/70 tracking-wide">
+            © {new Date().getFullYear()}{" "}
+            <span className="font-cinzel">OnlyOneTruth</span>{" "}
+            | เพื่อการศึกษาและเปรียบเทียบทางวิชาการ
           </p>
-          <p className="text-xs md:text-sm text-paper/60 font-cinzel tracking-[0.2em] uppercase">
+          <p className="font-pridi text-xs md:text-sm text-paper/60 tracking-[0.2em] uppercase">
             Veritas · Antiquitas · Memoria
           </p>
         </div>

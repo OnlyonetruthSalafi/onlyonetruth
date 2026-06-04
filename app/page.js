@@ -217,113 +217,87 @@ export default function Home() {
       </section>
 
       {/* INTRO / FEATURED LECTURE */}
-      <section id="intro-section" className="relative py-20 bg-ink">
-        <div className="max-w-5xl mx-auto px-gutter text-center">
+      <section id="intro-section" className="relative py-20 bg-ink overflow-hidden">
+        <div className="max-w-6xl mx-auto px-gutter">
 
-          {/* อายะห์อัลกุรอาน */}
-          <div className="mb-12">
-            <p className="font-amiri text-4xl md:text-5xl text-gold leading-loose mb-6 tracking-wide" dir="rtl">
-              إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ
-            </p>
-            <p className="font-pridi text-lg md:text-xl text-paper/80 leading-relaxed">
-              "แท้จริง เราได้ประทานอัล-ซิกร์ (อัลกุรอาน) ลงมา<br />
-              และแท้จริง เราเป็นผู้พิทักษ์รักษามันไว้"
-            </p>
-            <p className="font-pridi text-sm text-gold/60 mt-2">
-              — อัลกุรอาน สูเราะฮ์ อัล-ฮิจร์ 15:9
-            </p>
-          </div>
+          {/* === SPLIT LAYOUT: ซ้าย-ขวา === */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
 
-          {/* เส้นแบ่ง */}
-          <div className="flex items-center gap-4 mb-12 max-w-xs mx-auto">
-            <div className="flex-1 h-px bg-gold/30"></div>
-            <span className="text-gold text-xl">◆</span>
-            <div className="flex-1 h-px bg-gold/30"></div>
-          </div>
+            {/* ฝั่งซ้าย: Content */}
+            <div className="flex flex-col justify-center">
 
-          {/* วีดีโอหลัก */}
-          <div className="mb-6">
-            <h2 className="font-cinzel text-2xl md:text-3xl text-gold tracking-wide mb-2">
-              FEATURED LECTURE
-            </h2>
-            <p className="font-pridi text-paper/70 mb-8">
-              วีดีโอแนะนำการศึกษาเปรียบเทียบคัมภีร์โบราณ
-            </p>
+              {/* EST. label แบบ Hero */}
+              <p className="font-cinzel text-xs md:text-sm text-paper-white/60 tracking-[0.3em] uppercase mb-6">
+                A QUEST FOR THE PRESERVATION OF SACRED TEXTS
+              </p>
 
-            <div className="relative w-full max-w-3xl mx-auto rounded-card overflow-hidden shadow-[0_0_40px_rgba(197,160,89,0.2)] border border-gold/20">
-              <div className="relative pb-[56.25%] h-0">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/8aMU3Se2XdY?si=r4kKRsVnQhy--PxZ"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* เส้นแบ่ง */}
-          <div className="flex items-center gap-4 my-12 max-w-xs mx-auto">
-            <div className="flex-1 h-px bg-gold/30"></div>
-            <span className="text-gold text-xl">◆</span>
-            <div className="flex-1 h-px bg-gold/30"></div>
-          </div>
-
-          {/* ปุ่มวีดีโออื่นๆ */}
-          <div className="mb-4">
-            <h3 className="font-cinzel text-xl text-gold/80 tracking-wide mb-6">
-              RELATED LECTURES
-            </h3>
-            <p className="font-pridi text-paper/60 mb-8 text-sm">
-              วีดีโอพื้นฐานสำหรับการศึกษาเพิ่มเติม
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {[
-              {
-                title: "ประวัติอัลกุรอาน",
-                subtitle: "History of the Quran",
-                icon: "📜",
-                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
-              },
-              {
-                title: "ประวัติไบเบิล",
-                subtitle: "History of the Bible",
-                icon: "📖",
-                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
-              },
-              {
-                title: "การเปรียบเทียบ",
-                subtitle: "Comparative Study",
-                icon: "⚖️",
-                url: "https://www.youtube.com/watch?v=8aMU3Se2XdY"
-              },
-            ].map((video, i) => (
-              <a
-                key={i}
-                href={video.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group card-glass flex flex-col items-center gap-3 text-center hover:border-gold/60 transition-all duration-300"
-              >
-                <span className="text-4xl">{video.icon}</span>
-                <div>
-                  <p className="font-pridi text-paper-white font-semibold text-base group-hover:text-gold transition-colors">
-                    {video.title}
-                  </p>
-                  <p className="font-cinzel text-xs text-paper-white/40 tracking-wide mt-1">
-                    {video.subtitle}
-                  </p>
-                </div>
-                <span className="font-pridi text-xs text-gold/60 group-hover:text-gold transition-colors mt-1">
-                  ▶ ดูวีดีโอ
+              {/* หัวข้อใหญ่ 2 บรรทัด แบบ Hero */}
+              <h2 className="mb-6 leading-tight">
+                <span className="block font-cinzel text-4xl md:text-5xl lg:text-6xl text-paper-white font-normal tracking-wide mb-3">
+                  การศึกษาและพิสูจน์
                 </span>
-              </a>
-            ))}
+                <span
+                  className="block font-cinzel text-4xl md:text-5xl lg:text-6xl text-[#cfa45d] font-medium tracking-wider"
+                  style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(207,164,93,0.4)'}}
+                >
+                  คัมภีร์โบราณ
+                </span>
+              </h2>
+
+              {/* เส้นแบ่ง */}
+              <div className="w-16 h-0.5 bg-gold/40 mb-8"></div>
+
+              {/* เนื้อหา */}
+              <p className="font-pridi text-paper-white/80 leading-relaxed text-base md:text-lg mb-10 max-w-lg">
+                ร่วมค้นหาความจริงผ่านการศึกษาเชิงวิพากษ์และประวัติศาสตร์ของตัวบทคัมภีร์
+                เพื่อสืบค้นร่องรอยการส่งต่อ การเก็บรักษา และการเปลี่ยนแปลงของบันทึกโบราณ
+                อันนำไปสู่ความจริงเพียงหนึ่งเดียว
+              </p>
+
+              {/* ปุ่ม CTA */}
+              <div>
+                <button
+                  onClick={() => document.getElementById('video-section')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="group inline-flex items-center gap-3 border-2 border-gold/50 text-gold font-pridi font-medium px-8 py-3 rounded-md transition-all duration-300 hover:border-gold hover:bg-gold/10 hover:shadow-glow"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  รับชมวิดีโอการศึกษา
+                </button>
+              </div>
+
+            </div>
+
+            {/* ฝั่งขวา: YouTube Embed */}
+            <div id="video-section" className="relative">
+
+              {/* Decorative glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 to-gold/5 rounded-xl blur-sm"></div>
+
+              {/* Video container */}
+              <div className="relative rounded-xl overflow-hidden"
+                style={{boxShadow: '0 20px 25px -5px rgba(0,0,0,0.5), 0 0 30px rgba(197,160,89,0.15)'}}>
+
+                <div className="relative pb-[56.25%] h-0">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/8aMU3Se2XdY?si=r4kKRsVnQhy--PxZ"
+                    title="การศึกษาคัมภีร์โบราณ"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+
+              {/* Caption */}
+              <p className="font-cinzel text-xs text-gold/50 text-center mt-4 tracking-widest">
+                FEATURED LECTURE — TEXTUAL HISTORY
+              </p>
+
+            </div>
           </div>
 
         </div>
