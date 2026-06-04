@@ -13,39 +13,43 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const article = getArticleBySlug(params.slug)
-  if (!article) return {}
+  if (!article) return { title: 'ไม่พบบทความ' }
 
-  const url = `https://onlyonetruthislam.vercel.app/articles/${params.slug}`
-  const image = article.image
-    ? `https://onlyonetruthislam.vercel.app${article.image}`
-    : 'https://onlyonetruthislam.vercel.app/header.png'
+  const baseUrl = 'https://onlyonetruthislam.vercel.app'
+  const pageUrl = `${baseUrl}/articles/${params.slug}`
+  const imageUrl = article.image
+    ? `${baseUrl}${article.image}`
+    : `${baseUrl}/header.png`
+  const description = article.excerpt || article.title
 
   return {
-    title: article.title + ' | OnlyOneTruth',
-    description: article.excerpt || article.title,
+    metadataBase: new URL(baseUrl),
+    title: `${article.title} | OnlyOneTruth`,
+    description: description,
     openGraph: {
+      type: 'article',
       title: article.title,
-      description: article.excerpt || article.title,
-      url: url,
-      siteName: 'OnlyOneTruth',
+      description: description,
+      url: pageUrl,
+      siteName: 'OnlyOneTruth — สัจธรรมมีเพียงหนึ่งเดียว',
+      locale: 'th_TH',
       images: [
         {
-          url: image,
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: article.title,
+          type: 'image/jpeg',
         }
       ],
-      locale: 'th_TH',
-      type: 'article',
-      publishedTime: article.date,
-      authors: [article.author],
+      publishedTime: article.date ? new Date(article.date).toISOString() : undefined,
+      authors: article.author ? [article.author] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
-      description: article.excerpt || article.title,
-      images: [image],
+      description: description,
+      images: [imageUrl],
     },
   }
 }

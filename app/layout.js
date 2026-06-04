@@ -23,16 +23,14 @@ const amiri = Amiri({
 })
 
 export const metadata = {
-  title: "สัจธรรมมีเพียงหนึ่งเดียว",
-  description:
-    "คลังเก็บรักษาต้นฉบับโบราณ — ศึกษา เปรียบเทียบ และอนุรักษ์ตัวบทที่หล่อหลอมอารยธรรม",
-  keywords: [
-    "ต้นฉบับโบราณ",
-    "ประวัติศาสตร์ตัวบท",
-    "คลังเอกสาร",
-    "การอนุรักษ์",
-    "OnlyOneTruth",
-  ],
+  metadataBase: new URL('https://onlyonetruthislam.vercel.app'),
+  title: 'OnlyOneTruth — สัจธรรมมีเพียงหนึ่งเดียว',
+  description: 'การศึกษาเปรียบเทียบสำเนาคัมภีร์โบราณ การส่งต่อ การเก็บรักษา',
+  openGraph: {
+    siteName: 'OnlyOneTruth',
+    locale: 'th_TH',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }) {
