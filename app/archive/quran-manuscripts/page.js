@@ -87,7 +87,7 @@ const manuscripts = [
     locationTh: "ห้องสมุดคัสต์ อิหม่าม ทาชเคนต์ อุซเบกิสถาน",
     description:
       "รู้จักในนาม Mushaf Uthmān เชื่อกันว่าเป็นสำเนาที่เคาะลีฟะฮ์อุษมานสั่งจัดทำ ผ่านการทดสอบ Carbon-14 ที่มหาวิทยาลัยอ็อกซ์ฟอร์ด ได้ผลเป็นศตวรรษที่ 2 ฮ.ศ. เขียนด้วยอักษรคูฟิกบนหนังสัตว์",
-    sourceUrl: "https://www.islamic-awareness.org/quran/text/mss/",
+    sourceUrl: "https://www.islamic-awareness.org/quran/text/mss/samarqand",
     image: "/manuscripts/quran/samarqand-quran.jpg",
     tags: ["Kufic", "Uthman", "Carbon-14 Dated", "Uzbekistan"],
   },
@@ -190,6 +190,16 @@ const manuscripts = [
     tags: ["Naskh", "Timurid", "Illuminated", "Gold"],
   },
 ];
+
+const slugMap = {
+  4: "samarqand",
+  5: "topkapi",
+  6: "turkish-islamic",
+  7: "stpetersburg",
+  8: "blue-quran",
+  9: "chester-beatty",
+  10: "timurid",
+};
 
 const filters = [
   { id: "all", label: "ทั้งหมด" },
@@ -341,6 +351,21 @@ export default function QuranManuscripts() {
                         }}
                       />
                     </a>
+                  ) : slugMap[m.id] ? (
+                    <a href={`/archive/quran-manuscripts/${slugMap[m.id]}`}>
+                      <img
+                        src={m.image}
+                        alt={m.title}
+                        className="w-full h-full object-contain p-3 cursor-pointer hover:opacity-90 transition-opacity"
+                        style={{ maxHeight: '224px' }}
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "/manuscripts/quran/placeholder.jpg";
+                          e.target.className =
+                            "w-full h-full object-contain p-8 opacity-30";
+                        }}
+                      />
+                    </a>
                   ) : (
                     <img
                       src={m.image}
@@ -400,6 +425,15 @@ export default function QuranManuscripts() {
                         {m.title}
                       </h3>
                     </a>
+                  ) : slugMap[m.id] ? (
+                    <a
+                      href={`/archive/quran-manuscripts/${slugMap[m.id]}`}
+                      className="hover:text-gold transition-colors"
+                    >
+                      <h3 className="font-cinzel text-xl text-ink font-semibold mb-1">
+                        {m.title}
+                      </h3>
+                    </a>
                   ) : (
                     <h3 className="font-cinzel text-xl text-ink font-semibold mb-1">
                       {m.title}
@@ -433,14 +467,15 @@ export default function QuranManuscripts() {
                   </div>
 
                   {/* ปุ่ม */}
-                  {(m.id === "hussein" || m.id === 1 || m.id === 2 || m.id === 3) ? (
+                  {(m.id === "hussein" || m.id === 1 || m.id === 2 || m.id === 3 || slugMap[m.id]) ? (
                     <div className="flex flex-col gap-2 mt-4">
                       <Link
                         href={`/archive/quran-manuscripts/${
                           m.id === "hussein" ? "hussein"
                           : m.id === 1 ? "sanaa"
                           : m.id === 2 ? "birmingham"
-                          : "khalili"
+                          : m.id === 3 ? "khalili"
+                          : slugMap[m.id]
                         }`}
                         className="w-full btn-primary font-pridi text-sm text-center py-2.5 flex items-center justify-center gap-2"
                       >

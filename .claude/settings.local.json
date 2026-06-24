@@ -17,7 +17,9 @@
       "Bash(New-Item -ItemType File -Path \"D:\\\\onlyonetruth\\\\public\\\\manuscripts\\\\other\\\\.gitkeep\" -Force)",
       "Bash(Write-Host \"Done\")",
       "Bash(New-Item -ItemType Directory -Force \"D:\\\\onlyonetruth\\\\public\\\\articles\\\\song-of-solomon\")",
-      "Bash(New-Item -ItemType File -Force \"D:\\\\onlyonetruth\\\\public\\\\articles\\\\song-of-solomon\\\\.gitkeep\")"
+      "Bash(New-Item -ItemType File -Force \"D:\\\\onlyonetruth\\\\public\\\\articles\\\\song-of-solomon\\\\.gitkeep\")",
+      "Read(//d/d/onlyonetruth/app/archive/**)",
+      "Read(//d/d/onlyonetruth/**)"
     ]
   }
 }
