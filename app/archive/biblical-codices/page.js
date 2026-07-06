@@ -22,6 +22,7 @@ const manuscripts = [
     image: "/manuscripts/bible/codex-sinaiticus.jpg",
     tags: ["Uncial", "Complete NT", "4th Century", "Greek"],
     scholar: "Bruce M. Metzger",
+    detailPath: "/archive/biblical-codices/sinaiticus",
   },
   {
     id: 2,
@@ -39,6 +40,7 @@ const manuscripts = [
     image: "/manuscripts/bible/codex-vaticanus.jpg",
     tags: ["Uncial", "4th Century", "Vatican", "Greek"],
     scholar: "Bruce M. Metzger",
+    detailPath: "/archive/biblical-codices/vaticanus",
   },
   {
     id: 3,
@@ -56,6 +58,7 @@ const manuscripts = [
     image: "/manuscripts/bible/codex-alexandrinus.jpg",
     tags: ["Uncial", "5th Century", "British Library", "Greek"],
     scholar: "F.F. Bruce",
+    detailPath: "/archive/biblical-codices/alexandrinus",
   },
   {
     id: 4,
@@ -73,6 +76,7 @@ const manuscripts = [
     image: "/manuscripts/bible/papyrus-p52.jpg",
     tags: ["Papyrus", "2nd Century", "John", "Manchester"],
     scholar: "Daniel B. Wallace",
+    detailPath: "/archive/biblical-codices/p52",
   },
   {
     id: 5,
@@ -91,6 +95,7 @@ const manuscripts = [
     image: "/manuscripts/bible/codex-bezae.jpg",
     tags: ["Uncial", "Bilingual", "Cambridge", "Textual Variants"],
     scholar: "Bruce M. Metzger",
+    detailPath: "/archive/biblical-codices/bezae",
   },
   {
     id: 6,
@@ -108,6 +113,7 @@ const manuscripts = [
     image: "/manuscripts/bible/aleppo-codex.jpg",
     tags: ["Masoretic", "Hebrew", "Jerusalem", "10th Century"],
     scholar: "Emanuel Tov",
+    detailPath: "/archive/biblical-codices/aleppo",
   },
 ];
 
@@ -222,7 +228,10 @@ export default function BiblicalCodices() {
                 className="group bg-paper-light border border-gold/20 rounded-card overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-transform duration-300"
               >
                 {/* รูปภาพ */}
-                <div className="relative h-56 overflow-hidden bg-paper-light flex items-center justify-center">
+                <Link
+                  href={m.detailPath}
+                  className="relative h-56 overflow-hidden bg-paper-light flex items-center justify-center"
+                >
                   <img
                     src={m.image}
                     alt={m.title}
@@ -240,13 +249,15 @@ export default function BiblicalCodices() {
                       {m.categoryLabel}
                     </span>
                   </div>
-                </div>
+                </Link>
 
                 {/* เนื้อหา */}
                 <div className="p-6">
-                  <h3 className="font-cinzel text-xl text-ink font-semibold mb-1">
-                    {m.title}
-                  </h3>
+                  <Link href={m.detailPath}>
+                    <h3 className="font-cinzel text-xl text-ink font-semibold mb-1 hover:text-gold transition-colors">
+                      {m.title}
+                    </h3>
+                  </Link>
                   <p className="font-pridi text-ink-muted text-sm mb-1">
                     {m.titleTh}
                   </p>
@@ -278,14 +289,22 @@ export default function BiblicalCodices() {
                   </div>
 
                   {/* ปุ่ม */}
-                  <a
-                    href={m.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block btn-outline text-center text-sm py-2 font-pridi"
-                  >
-                    แหล่งต้นฉบับ ↗
-                  </a>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link
+                      href={m.detailPath}
+                      className="flex-1 btn-primary text-center text-sm py-2 font-pridi"
+                    >
+                      คลิกดูรายละเอียด →
+                    </Link>
+                    <a
+                      href={m.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 btn-outline text-center text-sm py-2 font-pridi"
+                    >
+                      แหล่งต้นฉบับ ↗
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
