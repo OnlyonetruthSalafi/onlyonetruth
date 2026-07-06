@@ -115,6 +115,42 @@ const manuscripts = [
     scholar: "Emanuel Tov",
     detailPath: "/archive/biblical-codices/aleppo",
   },
+  {
+    id: 7,
+    title: "Septuagint (LXX)",
+    titleTh: "ฉบับเซปตัวจินต์ — พระคัมภีร์เก่ากรีก",
+    category: "septuagint",
+    categoryLabel: "Septuagint",
+    date: "ศตวรรษที่ 3-2 ก่อนค.ศ. (แปลจากฮีบรู)",
+    script: "Greek (Koine)",
+    location: "พบใน Codex Vaticanus, Sinaiticus, Alexandrinus",
+    locationTh: "ต้นฉบับหลัก: วาติกัน, ลอนดอน, อารามไซนาย",
+    description:
+      "ฉบับแปลพระคัมภีร์ฮีบรูเป็นภาษากรีก เก่าแก่ที่สุดในโลก ตามตำนานแปลโดยนักวิชาการ 72 คนที่เมืองอเล็กซานเดรีย อียิปต์ เป็นพระคัมภีร์ที่พระเยซูและสาวกใช้อ้างอิง ต้นฉบับสมบูรณ์ที่เก่าแก่ที่สุดคือ Codex Vaticanus (ศตวรรษที่ 4)",
+    sourceUrl: "https://en.wikipedia.org/wiki/Septuagint",
+    image: "/manuscripts/bible/septuagint.jpg",
+    tags: ["Septuagint", "LXX", "Greek OT", "Alexandria"],
+    scholar: "Emanuel Tov",
+    detailPath: "/archive/biblical-codices/septuagint",
+  },
+  {
+    id: 8,
+    title: "Dead Sea Scrolls (Qumran)",
+    titleTh: "ม้วนหนังสือทะเลเดดซี",
+    category: "septuagint",
+    categoryLabel: "Septuagint",
+    date: "ศตวรรษที่ 3 ก่อนค.ศ. — ศตวรรษที่ 1 ค.ศ.",
+    script: "Hebrew, Aramaic, Greek",
+    location: "Shrine of the Book, Israel Museum, Jerusalem",
+    locationTh: "Shrine of the Book พิพิธภัณฑ์อิสราเอล เยรูซาเล็ม",
+    description:
+      "ค้นพบปี ค.ศ. 1947 ในถ้ำริมทะเลเดดซี มีชิ้นส่วนพระคัมภีร์ฮีบรูเกือบทุกเล่ม เก่ากว่าต้นฉบับ Masoretic ราว 1,000 ปี บางส่วนสอดคล้องกับฉบับ Septuagint มากกว่า Masoretic Text แสดงให้เห็นความหลากหลายของข้อความในยุคพระวิหารที่ 2",
+    sourceUrl: "https://www.deadseascrolls.org.il",
+    image: "/manuscripts/bible/dead-sea-scrolls.jpg",
+    tags: ["Dead Sea Scrolls", "Qumran", "Hebrew", "1947"],
+    scholar: "Emanuel Tov",
+    detailPath: "/archive/biblical-codices/dead-sea-scrolls",
+  },
 ];
 
 const filters = [
