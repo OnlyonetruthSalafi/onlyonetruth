@@ -314,3 +314,12 @@ html {
   margin-top: -0.75rem;
   margin-bottom: 1.5rem;
 }
+
+@keyframes travelPath {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+@keyframes fadeInMarker {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

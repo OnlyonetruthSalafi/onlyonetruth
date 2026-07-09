@@ -499,38 +499,183 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ARCHIVE CTA */}
-      <section
-        id="archive-cta"
-        className="py-section md:py-24 bg-paper border-t border-gold/20"
-      >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* MAP VISUALIZATION — PATHS OF FAITH */}
+      <section id="archive-cta" className="relative py-20 bg-ink overflow-hidden">
+        <div className="max-w-5xl mx-auto px-gutter">
+
+          <p className="font-cinzel text-xs text-gold/60 tracking-[0.3em] uppercase text-center mb-4">
+            TWO JOURNEYS, TWO FAITHS
+          </p>
+          <h2 className="font-cinzel text-3xl md:text-4xl text-paper-white text-center mb-3">
+            Paths of Propagation
+          </h2>
+          <h3 className="font-pridi text-xl text-gold text-center mb-12">
+            เส้นทางการเผยแพร่ศาสนา
+          </h3>
+
+          {/* Map Container */}
           <div
-            data-reveal
-            className="relative bg-gradient-to-br from-ink to-ink/90 text-paper-white rounded-2xl p-10 md:p-16 overflow-hidden shadow-2xl border border-gold/30"
+            className="relative mx-auto rounded-lg overflow-hidden max-w-4xl"
+            style={{
+              aspectRatio: '890/548',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+            }}
           >
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 right-0 text-[18rem] leading-none font-cinzel text-gold/30 -translate-y-12 translate-x-8 select-none">
-                ﷽
-              </div>
+            <img
+              src="/map/propagation-map.jpg"
+              alt="แผนที่เส้นทางการเผยแพร่ศาสนาอิสลามและคริสต์"
+              className="absolute inset-0 w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none'
+                e.target.nextSibling.style.display = 'flex'
+              }}
+            />
+            <div
+              style={{ display: 'none' }}
+              className="absolute inset-0 items-center justify-center bg-[#c9a876]"
+            >
+              <p className="font-pridi text-ink/60 text-sm">
+                รอไฟล์ /map/propagation-map.jpg
+              </p>
             </div>
-            <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
-              <div>
-                <h3 className="font-cinzel text-2xl md:text-4xl mb-3 leading-tight">
-                  Explore Textual Criticism
-                </h3>
-                <p className="font-pridi text-paper/80 max-w-xl leading-relaxed">
-                  ศึกษาความแตกต่างของต้นฉบับ เปรียบเทียบ Variant Readings และติดตามสายการส่งต่อของคัมภีร์โบราณ ด้วยข้อมูลที่อ้างอิงจากนักวิชาการชั้นนำ
-                </p>
-              </div>
-              <a
-                href="/textual-history"
-                className="btn-primary text-base md:text-lg hover:scale-105 whitespace-nowrap"
-              >
-                เริ่มศึกษา Textual Criticism →
-              </a>
+
+            {/* SVG overlay: marker แบบ interactive วางทับพิกัดจริงในภาพ (viewBox 890x548) */}
+            <svg
+              viewBox="0 0 890 548"
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              {/* เส้นทางอิสลาม — ทองโปร่งแสง วางชั้นล่างสุด ไม่บังจุดกระพริบ */}
+              <path
+                d="M195,248 L380,190 L360,318 L522,292 L653,300 L668,262 L705,378 L737,415"
+                fill="none"
+                stroke="#d4af37"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.35"
+                style={{ mixBlendMode: 'screen' }}
+              />
+
+              {/* เมืองอิสลาม — ทองอมเหลือง เข้ากับสไตล์ตึกจำลองในภาพ */}
+              {[
+                { name: "CORDOBA", x: 195, y: 248 },
+                { name: "ALEXANDRIA", x: 522, y: 292 },
+                { name: "JERUSALEM", x: 653, y: 300 },
+                { name: "DAMASCUS", x: 668, y: 262 },
+                { name: "MEDINA", x: 705, y: 378 },
+                { name: "MECCA", x: 737, y: 415 },
+                { name: "ROME (BYZANTINE)", x: 380, y: 190, ring: true },
+              ].map((c) => (
+                <g key={c.name} className="opacity-0" style={{ animation: 'fadeInMarker 0.6s ease forwards', animationDelay: '0.3s' }}>
+                  {c.ring ? (
+                    <circle cx={c.x} cy={c.y} r="7" fill="none" className="stroke-gold" strokeWidth="2" opacity="0.7" />
+                  ) : (
+                    <circle cx={c.x} cy={c.y} r="5" className="fill-gold" style={{ filter: 'drop-shadow(0 0 4px rgba(197,160,89,0.9))' }} />
+                  )}
+                  <circle cx={c.x} cy={c.y} r="9" fill="none" className="stroke-gold" strokeWidth="1.5" opacity="0.5">
+                    <animate attributeName="r" values="8;16;8" dur="2.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite" />
+                  </circle>
+                </g>
+              ))}
+
+              {/* ตัวละครเดินตามเส้นทางกองคาราวาน (เส้นทองในภาพ: Cordoba → Alexandria → Jerusalem/Damascus → Medina → Mecca) */}
+              <g style={{
+                offsetPath: "path('M195,248 L360,318 L522,292 L653,300 L668,262 L705,378 L737,415')",
+                offsetRotate: '0deg',
+                animation: 'travelPath 20s linear infinite'
+              }}>
+                <ellipse cx="0" cy="5" rx="3.5" ry="6" className="fill-gold" stroke="#2e2015" strokeWidth="0.8" style={{ filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.6))' }} />
+                <circle cx="0" cy="-2" r="2.6" className="fill-gold" stroke="#2e2015" strokeWidth="0.8" />
+              </g>
+              <g style={{
+                offsetPath: "path('M195,248 L360,318 L522,292 L653,300 L668,262 L705,378 L737,415')",
+                offsetRotate: '0deg',
+                animation: 'travelPath 20s linear infinite',
+                animationDelay: '-10s'
+              }} opacity="0.75">
+                <ellipse cx="0" cy="5" rx="3.5" ry="6" className="fill-gold" stroke="#2e2015" strokeWidth="0.8" style={{ filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.6))' }} />
+                <circle cx="0" cy="-2" r="2.6" className="fill-gold" stroke="#2e2015" strokeWidth="0.8" />
+              </g>
+
+              {/* ตัวละครเดินอิสลามตามเส้นทางที่ขยายไปถึง Rome */}
+              <g style={{
+                offsetPath: "path('M195,248 L380,190 L360,318 L522,292 L653,300 L668,262 L705,378 L737,415')",
+                offsetRotate: '0deg',
+                animation: 'travelPath 22s linear infinite'
+              }}>
+                <ellipse cx="0" cy="4" rx="3" ry="5" fill="#d4af37" stroke="#1a0f08" strokeWidth="0.7" opacity="0.8" />
+                <circle cx="0" cy="-2" r="2.2" fill="#d4af37" stroke="#1a0f08" strokeWidth="0.7" opacity="0.8" />
+              </g>
+
+              {/* เมืองคริสต์ — สีดำ ให้ตัดกับทองของอิสลาม */}
+              {[
+                { name: "ROME", x: 380, y: 190 },
+                { name: "CORINTH", x: 445, y: 200 },
+              ].map((c) => (
+                <g key={c.name} className="opacity-0" style={{ animation: 'fadeInMarker 0.6s ease forwards', animationDelay: '0.5s' }}>
+                  <circle cx={c.x} cy={c.y} r="5" fill="#1a1a1a" style={{ filter: 'drop-shadow(0 0 4px rgba(0,0,0,0.9))' }} />
+                  <circle cx={c.x} cy={c.y} r="9" fill="none" stroke="#1a1a1a" strokeWidth="1.5" opacity="0.5">
+                    <animate attributeName="r" values="8;16;8" dur="2.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite" />
+                  </circle>
+                </g>
+              ))}
+
+              {/* เส้นทางคริสต์ — เส้นประสีดำ */}
+              <path
+                d="M653,300 Q560,230 445,195 Q410,192 380,190"
+                fill="none"
+                stroke="#1a1a1a"
+                strokeWidth="2.5"
+                strokeDasharray="8 6"
+                strokeLinecap="round"
+                opacity="0.85"
+                style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.5))' }}
+              />
+
+              {/* ตัวละครคริสต์เดินตามเส้นทาง */}
+              <g style={{
+                offsetPath: "path('M653,300 Q560,230 445,195 Q410,192 380,190')",
+                offsetRotate: '0deg',
+                animation: 'travelPath 20s linear infinite',
+                animationDelay: '-5s'
+              }}>
+                <ellipse cx="0" cy="5" rx="3.5" ry="6" fill="#1a1a1a" stroke="#2e2015" strokeWidth="0.8" style={{ filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.6))' }} />
+                <circle cx="0" cy="-2" r="2.6" fill="#1a1a1a" stroke="#2e2015" strokeWidth="0.8" />
+              </g>
+            </svg>
+          </div>
+
+          {/* Legend */}
+          <div className="flex flex-col gap-4 max-w-2xl mx-auto mt-10">
+            <div className="flex items-start gap-3">
+              <span className="w-8 h-0.5 bg-gold inline-block mt-2 shrink-0" style={{ opacity: 0.6 }}></span>
+              <span className="font-pridi text-paper-white/80 text-sm leading-relaxed">
+                <strong className="text-gold">อิสลาม</strong> — ท่านนบีมุฮัมมัด (ซ.ล.) วางรากฐานที่มักกะฮ์และมะดีนะฮ์
+                ยุคเคาะลีฟะฮ์อาบูบักรและอุมัร ขยายสู่เยรูซาเล็ม ดามัสกัส และอเล็กซานเดรีย
+                พิชิตดินแดนโรมันตะวันออก (ไบแซนไทน์) ก่อนต่อมาขยายถึงกอร์โดบา อันดะลุส
+              </span>
+            </div>
+            <div className="flex items-start gap-3">
+              <span
+                className="w-8 h-0.5 inline-block mt-2 shrink-0"
+                style={{ backgroundImage: 'repeating-linear-gradient(90deg, #1a1a1a 0 5px, transparent 5px 9px)' }}
+              ></span>
+              <span className="font-pridi text-paper-white/80 text-sm leading-relaxed">
+                <strong className="text-[#1a1a1a] bg-paper-white/90 px-1 rounded">คริสต์</strong> — พระเยซูเริ่มพันธกิจที่เยรูซาเล็ม
+                นักบุญเปาโลเดินทางเผยแพร่สู่โครินธ์และกรุงโรม ใจกลางจักรวรรดิโรมัน
+              </span>
             </div>
           </div>
+
+          <div className="flex justify-center mt-10">
+            <a href="/textual-history" className="btn-outline font-pridi text-sm">
+              ดูเส้นทางประวัติศาสตร์แบบละเอียด →
+            </a>
+          </div>
+
         </div>
       </section>
 
