@@ -32,13 +32,30 @@ function useReveal() {
 }
 
 const condensedItems = [
-  { side: "left", year: "610–632 ค.ศ.", title: "การประทานพระวจนะ" },
-  { side: "right", year: "170 ค.ศ.", title: "Muratorian Canon" },
-  { side: "left", year: "632–634 ค.ศ.", title: "รัชสมัยอาบูบักร" },
-  { side: "right", year: "325 ค.ศ.", title: "สภานิเคีย" },
-  { side: "left", year: "644–656 ค.ศ.", title: "รัชสมัยอุษมาน" },
-  { side: "right", year: "1546 ค.ศ.", title: "สภาเทรนต์" },
+  { side: "left", year: "ค.ศ. 610-632", title: "ยุคการประทานและบันทึกวะฮีย์" },
+  { side: "right", year: "ค.ศ. 90-150", title: "ยุคปิตาจารย์ (Apostolic Fathers)" },
+  { side: "left", year: "ค.ศ. 632", title: "ท่านนบีมูฮัมหมัดเสียชีวิต — ท่านอบูบักรเป็นเคาะลีฟะฮ์" },
+  { side: "right", year: "ค.ศ. 140", title: "มาร์เชียนแห่งซิโนป — จุดหักเหสำคัญ" },
+  { side: "left", year: "ค.ศ. 633 (ยุทธการยะมามะฮ์)", title: "จุดเปลี่ยนสำคัญ: การเสียชีวิตของฮาฟิซจำนวนมาก" },
+  { side: "right", year: "ค.ศ. 150", title: "จัสติน มาร์เทอร์ ตอบโต้" },
+  { side: "left", year: "ค.ศ. 633-634", title: "การรวบรวมโดย Zayd ibn Thābit" },
+  { side: "right", year: "ค.ศ. 170-200", title: "Muratorian Canon" },
+  { side: "left", year: "ค.ศ. 634-644", title: "Suḥuf เก็บรักษาโดยเคาะลีฟะฮ์" },
+  { side: "right", year: "ค.ศ. 180", title: "อิเรเนียส — พระกิตติคุณ 4 เล่ม" },
+  { side: "left", year: "ค.ศ. 644-656", title: "ยุคเคาะลีฟะฮ์อุษมาน" },
+  { side: "right", year: "ค.ศ. 250", title: "โอริเจน — จัดหมวดหมู่ 3 กลุ่ม" },
+  { side: "left", year: "ค.ศ. 650", title: " ท่านZayd ibn Thābit เป็นแกนนำชำระอัลกรุอานอีกครั้ง " },
+  { side: "right", year: "ค.ศ. 325", title: "ยูเซบิอุส บันทึกยืนยัน" },
+  { side: "left", year: "ค.ศ. 653", title: "ส่งมาตรฐานไปทั่วอาณาจักร" },
+  { side: "right", year: "ค.ศ. 367", title: "อาธานาเซียส — รายชื่อ 27 เล่มครั้งแรก" },
+  { side: "left", year: "ค.ศ. 656 เป็นต้นไป", title: "Muṣḥaf อุษมาน กลายเป็นมาตรฐานถาวร" },
+  { side: "right", year: "ค.ศ. 382", title: "เจอโรม แปล Vulgate" },
+  { side: "left", year: "ปัจจุบัน", title: "อัลกุรอานฉบับเดียวทั่วโลก" },
+  { side: "right", year: "ค.ศ. 393 และ 397", title: "สภาฮิปโปและคาร์เธจ" },
 ];
+
+const quranCondensed = condensedItems.filter((item) => item.side === "left");
+const bibleCondensed = condensedItems.filter((item) => item.side === "right");
 
 const collections = [
   {
@@ -328,16 +345,16 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Desktop column headers */}
-          <div className="hidden md:grid grid-cols-2 mb-8">
-            <div data-reveal className="text-center pr-10 lg:pr-16">
-              <span className="font-pridi text-base tracking-[0.2em] uppercase text-gold font-bold">
+          {/* Column headers */}
+          <div className="grid grid-cols-2 mb-4 md:mb-8">
+            <div data-reveal className="text-center pr-2 md:pr-10 lg:pr-16">
+              <span className="font-pridi text-xs md:text-base tracking-[0.15em] md:tracking-[0.2em] uppercase text-gold font-bold">
                 อัลกุรอาน
               </span>
               <div className="mx-auto h-px w-12 bg-gold/40 mt-2" />
             </div>
-            <div data-reveal className="text-center pl-10 lg:pl-16">
-              <span className="font-pridi text-base tracking-[0.2em] uppercase text-ink/50 font-bold">
+            <div data-reveal className="text-center pl-2 md:pl-10 lg:pl-16">
+              <span className="font-pridi text-xs md:text-base tracking-[0.15em] md:tracking-[0.2em] uppercase text-ink/50 font-bold">
                 ไบเบิล
               </span>
               <div className="mx-auto h-px w-12 bg-ink/15 mt-2" />
@@ -345,47 +362,61 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            {/* Center line — desktop only */}
-            <div className="hidden md:block absolute left-1/2 -translate-x-1/2 inset-y-0 w-0.5 bg-gradient-to-b from-transparent via-gold/50 to-transparent" />
+            {/* Center axis */}
+            <div className="timeline-axis" />
 
-            <div className="space-y-5 md:space-y-6">
-              {condensedItems.map((item, i) => (
-                <div key={i} data-reveal className="grid md:grid-cols-2">
-                  {item.side === "left" ? (
-                    <>
-                      <div className="relative md:pr-10 lg:pr-16">
-                        <article className="bg-ink/5 border border-gold/20 rounded-card px-5 py-4 backdrop-blur-sm hover:-translate-y-1 hover:shadow-card-hover hover:border-gold/40 transition-all duration-300">
-                          <div className="text-gold font-bold text-xs mb-0.5 select-none">◆</div>
-                          <div className="font-cinzel text-gold font-bold text-xl md:text-2xl mb-1 leading-tight">
-                            {item.year}
-                          </div>
-                          <h3 className="font-pridi text-ink font-bold text-sm md:text-base">
-                            {item.title}
-                          </h3>
-                        </article>
-                        <div className="hidden md:block absolute right-0 translate-x-1/2 top-7 w-4 h-4 rounded-full bg-gold border-2 border-paper z-10" />
-                      </div>
-                      <div className="hidden md:block" />
-                    </>
-                  ) : (
-                    <>
-                      <div className="hidden md:block" />
-                      <div className="relative md:pl-10 lg:pl-16">
-                        <div className="hidden md:block absolute left-0 -translate-x-1/2 top-7 w-4 h-4 rounded-full bg-gold border-2 border-paper z-10" />
-                        <article className="bg-ink/5 border border-gold/20 rounded-card px-5 py-4 backdrop-blur-sm hover:-translate-y-1 hover:shadow-card-hover hover:border-gold/40 transition-all duration-300">
-                          <div className="text-gold font-bold text-xs mb-0.5 select-none">◆</div>
-                          <div className="font-cinzel text-gold font-bold text-xl md:text-2xl mb-1 leading-tight">
-                            {item.year}
-                          </div>
-                          <h3 className="font-pridi text-ink font-bold text-sm md:text-base">
-                            {item.title}
-                          </h3>
-                        </article>
-                      </div>
-                    </>
-                  )}
-                </div>
-              ))}
+            <div className="grid grid-cols-2 gap-3 md:gap-8">
+              {/* Left column: Quran */}
+              <div className="space-y-3 md:space-y-6">
+                {quranCondensed.map((item, i) => (
+                  <div key={i} data-reveal className="relative md:pr-10 lg:pr-16">
+                    <div className="relative">
+                      <article className="timeline-card px-3 py-3 md:px-5 md:py-4">
+                        <div className="text-gold font-bold text-xs mb-0.5 select-none">◆</div>
+                        <div
+                          className="font-cinzel text-gold font-bold text-base md:text-2xl mb-1 leading-tight"
+                          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.1)" }}
+                        >
+                          {item.year}
+                        </div>
+                        <h3 className="font-pridi text-ink font-bold text-xs md:text-base leading-snug">
+                          {item.title}
+                        </h3>
+                      </article>
+                      <div className="timeline-connector-left hidden md:block" />
+                    </div>
+                    <div className="hidden md:block absolute right-0 translate-x-1/2 top-7">
+                      <div className="timeline-node" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right column: Bible */}
+              <div className="space-y-3 md:space-y-6">
+                {bibleCondensed.map((item, i) => (
+                  <div key={i} data-reveal className="relative md:pl-10 lg:pl-16">
+                    <div className="hidden md:block absolute left-0 -translate-x-1/2 top-7">
+                      <div className="timeline-node" />
+                    </div>
+                    <div className="relative">
+                      <article className="timeline-card px-3 py-3 md:px-5 md:py-4">
+                        <div className="text-gold font-bold text-xs mb-0.5 select-none">◆</div>
+                        <div
+                          className="font-cinzel text-gold font-bold text-base md:text-2xl mb-1 leading-tight"
+                          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.1)" }}
+                        >
+                          {item.year}
+                        </div>
+                        <h3 className="font-pridi text-ink font-bold text-xs md:text-base leading-snug">
+                          {item.title}
+                        </h3>
+                      </article>
+                      <div className="timeline-connector-right hidden md:block" />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

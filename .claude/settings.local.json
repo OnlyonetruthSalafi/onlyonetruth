@@ -21,7 +21,13 @@
       "Read(//d/d/onlyonetruth/app/archive/**)",
       "Read(//d/d/onlyonetruth/**)",
       "PowerShell(foreach \\($d in 'sinaiticus','vaticanus','alexandrinus','p52','bezae','aleppo'\\) { New-Item -ItemType Directory -Force \"public/manuscripts/bible/$d\" | Out-Null }; Get-ChildItem public/manuscripts/bible | Select-Object Name)",
-      "PowerShell(npm run *)"
+      "PowerShell(npm run *)",
+      "Bash(echo \"page.js exit: $?\")",
+      "Bash(echo \"textual-history exit: $?\")",
+      "Bash(break)",
+      "Skill(run)",
+      "Bash(npx playwright *)",
+      "Bash(npm init *)"
     ]
   }
 }

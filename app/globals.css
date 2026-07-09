@@ -89,6 +89,98 @@ html {
   50% { text-shadow: 0 0 40px rgba(197,160,89,0.8), 0 0 80px rgba(197,160,89,0.4), 0 0 120px rgba(197,160,89,0.2); }
 }
 
+@keyframes nodeGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(197,160,89,0.4), 0 0 0px rgba(197,160,89,0.2); }
+  50% { box-shadow: 0 0 16px rgba(197,160,89,0.7), 0 0 24px rgba(197,160,89,0.3); }
+}
+
+@layer components {
+  /* เส้นแกนกลาง — double-line gradient แทนเส้นเดียว */
+  .timeline-axis {
+    @apply absolute left-1/2 -translate-x-1/2 h-full;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(197,160,89,0.15) 5%,
+      rgba(197,160,89,0.6) 50%,
+      rgba(197,160,89,0.15) 95%,
+      transparent 100%
+    );
+    box-shadow: 0 0 12px rgba(197,160,89,0.25);
+  }
+  .timeline-axis::before,
+  .timeline-axis::after {
+    content: '';
+    @apply absolute top-0 h-full;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(197,160,89,0.3), transparent);
+  }
+  .timeline-axis::before { left: -6px; }
+  .timeline-axis::after { right: -6px; }
+
+  @media (min-width: 768px) {
+    .timeline-axis { width: 3px; }
+  }
+
+  /* Node — เพชรทองซ้อนวงแหวน แทนวงกลมเรียบ */
+  .timeline-node {
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10;
+    width: 20px;
+    height: 20px;
+  }
+  .timeline-node::before {
+    content: '';
+    @apply absolute inset-0 border border-gold/40 rounded-full;
+    animation: nodeGlow 3s ease-in-out infinite;
+  }
+  .timeline-node::after {
+    content: '';
+    @apply absolute bg-gold;
+    width: 10px;
+    height: 10px;
+    top: 5px;
+    left: 5px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px rgba(197,160,89,0.6);
+  }
+
+  /* Connector — เส้นหักมุมจาก node ไปการ์ด แทนเส้นตรงหรือไม่มีเลย */
+  .timeline-connector-left {
+    @apply absolute top-1/2 -translate-y-1/2;
+    right: -32px;
+    width: 32px;
+    height: 1px;
+    background: linear-gradient(to left, rgba(197,160,89,0.6), transparent);
+  }
+  .timeline-connector-right {
+    @apply absolute top-1/2 -translate-y-1/2;
+    left: -32px;
+    width: 32px;
+    height: 1px;
+    background: linear-gradient(to right, rgba(197,160,89,0.6), transparent);
+  }
+
+  /* Card — frosted glass + metallic border */
+  .timeline-card {
+    @apply relative border rounded-card p-3 md:p-6;
+    background: rgba(245,230,211,0.55);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(197,160,89,0.35);
+    box-shadow:
+      0 8px 24px rgba(62,39,35,0.12),
+      0 2px 6px rgba(62,39,35,0.08);
+    transition: all 0.35s ease;
+  }
+  .timeline-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(197,160,89,0.7);
+    box-shadow:
+      0 16px 32px rgba(62,39,35,0.18),
+      0 0 20px rgba(197,160,89,0.15);
+  }
+}
+
 .text-shimmer {
   background: linear-gradient(
     90deg,
