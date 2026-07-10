@@ -27,7 +27,18 @@
       "Bash(break)",
       "Skill(run)",
       "Bash(npx playwright *)",
-      "Bash(npm init *)"
+      "Bash(npm init *)",
+      "Bash(rm app/textual-history/detailed/page.js)",
+      "Bash(rmdir app/textual-history/detailed)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://localhost:3123/?calibrate=1\" -UseBasicParsing -TimeoutSec 30; \"calibrate route: HTTP \" + $r.StatusCode } catch { \"ERR \" + $_.Exception.Message })",
+      "Bash(grep -iv \"^$\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --window-size=1300,9000 --virtual-time-budget=6000 --screenshot=pf-home.png \"http://localhost:3123/\")",
+      "Bash(ls -la pf-home.png)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1300,4200 --virtual-time-budget=6000 --screenshot=\"pf-home.png\" \"http://localhost:3123/\")",
+      "Bash(echo \"exit=$?\")",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1300,1500 --virtual-time-budget=7000 '--screenshot=C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--onlyonetruth\\\\118f76d6-cf6e-4425-824d-c48020364d8b\\\\scratchpad\\\\pf-map.png' 'http://localhost:3123/#archive-cta')",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1300,13500 --virtual-time-budget=8000 '--screenshot=C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--onlyonetruth\\\\118f76d6-cf6e-4425-824d-c48020364d8b\\\\scratchpad\\\\pf-full.png' http://localhost:3123/)",
+      "Bash(python -c \"from PIL import Image; im=Image.open\\(r'C:/Users/User/AppData/Local/Temp/claude/D--onlyonetruth/118f76d6-cf6e-4425-824d-c48020364d8b/scratchpad/pf-full.png'\\); print\\('size', im.size\\)\")"
     ]
   }
 }

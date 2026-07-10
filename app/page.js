@@ -2,9 +2,84 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
+const christianCities = [
+  { name: "ROME", x: 432, y: 240 },
+  { name: "THESSALONICA", x: 704, y: 200 },
+  { name: "PHILIPPI", x: 784, y: 130 },
+  { name: "CORINTH", x: 656, y: 340 },
+  { name: "ATHENS", x: 736, y: 340 },
+  { name: "EPHESUS", x: 912, y: 320 },
+  { name: "CONSTANTINOPLE", x: 1056, y: 210 },
+];
+
+const islamicCities = [
+  { name: "ALEXANDRIA", x: 752, y: 540 },
+  { name: "TARSUS", x: 1280, y: 300 },
+  { name: "ANTIOCH", x: 1216, y: 390 },
+  { name: "DAMASCUS", x: 1184, y: 460 },
+  { name: "JERUSALEM", x: 1120, y: 530 },
+  { name: "KHAYBAR", x: 1152, y: 610 },
+  { name: "MEDINA", x: 1248, y: 690 },
+  { name: "TAIF", x: 1312, y: 750 },
+  { name: "MECCA", x: 1312, y: 810 },
+];
+
+// ── Paths of Faith: เส้นทางเดินของผู้เผยแผ่ (subset เรียงลำดับ, พิกัดอิง viewBox 1600×1000) ──
+const christianRoute = [
+  { name: "PHILIPPI", nameTh: "ฟีลิปปี", x: 784, y: 130 },
+  { name: "THESSALONICA", nameTh: "เธสะโลนิกา", x: 704, y: 200 },
+  { name: "CORINTH", nameTh: "โครินธ์", x: 656, y: 340 },
+  { name: "EPHESUS", nameTh: "เอเฟซัส", x: 912, y: 320 },
+  { name: "CONSTANTINOPLE", nameTh: "คอนสแตนติโนเปิล", x: 1056, y: 210 },
+];
+const islamicRoute = [
+  { name: "TARSUS", nameTh: "ทาร์ซัส", x: 1280, y: 300 },
+  { name: "ANTIOCH", nameTh: "อันติออก", x: 1216, y: 390 },
+  { name: "DAMASCUS", nameTh: "ดามัสกัส", x: 1184, y: 460 },
+  { name: "JERUSALEM", nameTh: "เยรูซาเล็ม", x: 1120, y: 530 },
+  { name: "KHAYBAR", nameTh: "ค็อยบัร", x: 1152, y: 610 },
+  { name: "MEDINA", nameTh: "มะดีนะฮ์", x: 1248, y: 690 },
+  { name: "TAIF", nameTh: "ฏออิฟ", x: 1312, y: 750 },
+  { name: "MECCA", nameTh: "มักกะฮ์", x: 1312, y: 810 },
+];
+
+// โทนสีตามเส้นทาง: อิสลาม = ทอง/มรกต, คริสต์ = น้ำเงินเงิน/อำพัน
+const ROUTE_THEME = {
+  islam: { glow: "#D4AF37", accent: "#0F5132", trail: "#D4AF37", speed: 105 },
+  christian: { glow: "#7f9ecb", accent: "#B8860B", trail: "#7f9ecb", speed: 100 },
+};
+const SILHOUETTE = "#171310"; // เงาทึบ ไม่มีรายละเอียดใบหน้า (หลักการอิสลาม)
+
+function polyPath(pts) {
+  return "M " + pts.map((p) => `${p.x} ${p.y}`).join(" L ");
+}
+function polyLen(pts) {
+  let s = 0;
+  for (let i = 1; i < pts.length; i++) {
+    s += Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y);
+  }
+  return s;
+}
+
+// ฝุ่นทอง/ละอองแสงลอยช้าๆ — ค่าคงที่ (กัน hydration mismatch)
+const DUST = [
+  { x: 220, y: 180, r: 2.4, dx: 26, dy: -34, dur: 11, delay: 0, o: 0.35 },
+  { x: 520, y: 120, r: 1.8, dx: -30, dy: 22, dur: 13, delay: 2, o: 0.28 },
+  { x: 880, y: 90, r: 2.1, dx: 18, dy: 30, dur: 12, delay: 1, o: 0.32 },
+  { x: 1180, y: 160, r: 1.6, dx: -22, dy: -26, dur: 14, delay: 3, o: 0.24 },
+  { x: 360, y: 460, r: 2.6, dx: 30, dy: -20, dur: 10, delay: 4, o: 0.3 },
+  { x: 760, y: 520, r: 1.9, dx: -26, dy: -30, dur: 15, delay: 1.5, o: 0.26 },
+  { x: 1080, y: 440, r: 2.2, dx: 20, dy: 28, dur: 12, delay: 5, o: 0.3 },
+  { x: 1360, y: 520, r: 1.7, dx: -18, dy: 24, dur: 13, delay: 2.5, o: 0.24 },
+  { x: 480, y: 760, r: 2.3, dx: 28, dy: -24, dur: 11, delay: 3.5, o: 0.3 },
+  { x: 980, y: 800, r: 2.0, dx: -24, dy: -28, dur: 14, delay: 0.5, o: 0.26 },
+  { x: 1240, y: 860, r: 1.8, dx: 22, dy: 20, dur: 12, delay: 4.5, o: 0.28 },
+  { x: 140, y: 640, r: 2.1, dx: 30, dy: 26, dur: 13, delay: 6, o: 0.24 },
+];
 
 function useReveal() {
   const ref = useRef(null);
@@ -80,6 +155,305 @@ const collections = [
     href: "/archive/other-writings",
   },
 ];
+
+// ════════════════════════════════════════════════════════════════════
+//  PropagationMap — แผนที่แอนิเมชั่น "Paths of Faith"
+//  ผู้เดินทางแบบ silhouette (aniconic) + เอฟเฟกต์ arrival + กล้อง 2.5D
+// ════════════════════════════════════════════════════════════════════
+const CHRISTIAN_D = polyPath(christianRoute);
+const ISLAMIC_D = polyPath(islamicRoute);
+const CHRISTIAN_LEN = polyLen(christianRoute);
+const ISLAMIC_LEN = polyLen(islamicRoute);
+
+function renderWalker(trav, body, theme, gid, start) {
+  return (
+    <g ref={trav} transform={`translate(${start.x} ${start.y})`} style={{ pointerEvents: "none" }}>
+      {/* เงาใต้เท้า ยึดตัวกับพื้นแผนที่ */}
+      <ellipse cx="0" cy="1.5" rx="11" ry="3.4" fill="#000" opacity="0.28" style={{ filter: "blur(1.5px)" }} />
+      <g ref={body} transform="scale(1 1)">
+        {/* แสงเรืองรอบตัว (glow halo) ตามสีเส้นทาง */}
+        <circle cx="0" cy="-13" r="18" fill={`url(#${gid})`} opacity="0.5" />
+        {/* เงาผู้สวมเสื้อคลุม — ทึบ ไม่มีใบหน้า */}
+        <path d="M0,-25 C -6,-23 -8,-10 -10,0 L 10,0 C 8,-10 6,-23 0,-25 Z" fill={SILHOUETTE} />
+        <circle cx="0" cy="-25" r="5" fill={SILHOUETTE} />
+        <path d="M0,-25 C -6,-23 -8,-10 -10,0 L 10,0 C 8,-10 6,-23 0,-25 Z" fill="none" stroke={theme.glow} strokeWidth="0.7" opacity="0.55" />
+      </g>
+    </g>
+  );
+}
+
+function PropagationMap() {
+  const svgRef = useRef(null);
+  const cameraRef = useRef(null);
+  const cTrav = useRef(null), cBody = useRef(null), cTrail = useRef(null);
+  const iTrav = useRef(null), iBody = useRef(null), iTrail = useRef(null);
+  const camState = useRef({ x: 0, y: 0 });
+  const effectId = useRef(0);
+
+  const [reduced, setReduced] = useState(false);
+  const [calibrate, setCalibrate] = useState(false);
+  const [effects, setEffects] = useState([]);
+  const [activated, setActivated] = useState({});
+
+  // ตรวจ ?calibrate=1 และ prefers-reduced-motion
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setCalibrate(new URLSearchParams(window.location.search).get("calibrate") === "1");
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const onChange = (e) => setReduced(e.matches);
+    mq.addEventListener?.("change", onChange);
+    return () => mq.removeEventListener?.("change", onChange);
+  }, []);
+
+  // โหมดปกติ: walker เดินตาม path + trigger arrival + กล้อง parallax
+  useEffect(() => {
+    if (reduced) return;
+    const routes = [
+      { key: "christian", pts: christianRoute, theme: ROUTE_THEME.christian, trav: cTrav, body: cBody, trail: cTrail },
+      { key: "islam", pts: islamicRoute, theme: ROUTE_THEME.islam, trav: iTrav, body: iBody, trail: iTrail },
+    ];
+
+    const fireArrival = (routeKey, wp, glow, big) => {
+      const mapKey = `${routeKey}-${wp.name}`;
+      setActivated((a) => (a[mapKey] ? a : { ...a, [mapKey]: { ...wp, glow } }));
+      if (!big) return;
+      const id = ++effectId.current;
+      const particles = Array.from({ length: 14 }, (_, i) => {
+        const ang = (i / 14) * Math.PI * 2 + (i % 3) * 0.4;
+        const dist = 22 + ((i * 37) % 26);
+        return { dx: Math.cos(ang) * dist, dy: Math.sin(ang) * dist, r: 1 + ((i * 7) % 3) * 0.5, delay: (i % 5) * 0.03 };
+      });
+      setEffects((e) => [...e, { id, x: wp.x, y: wp.y, glow, particles }]);
+      setTimeout(() => setEffects((e) => e.filter((x) => x.id !== id)), 1500);
+    };
+
+    routes.forEach((r) => {
+      r.cum = [0];
+      r.seg = [];
+      let t = 0;
+      for (let i = 1; i < r.pts.length; i++) {
+        const l = Math.hypot(r.pts[i].x - r.pts[i - 1].x, r.pts[i].y - r.pts[i - 1].y);
+        r.seg.push(l); t += l; r.cum.push(t);
+      }
+      r.total = t; r.dist = 0; r.next = 1; r.pauseUntil = 0; r.lapHold = 0;
+      fireArrival(r.key, r.pts[0], r.theme.glow, true);
+    });
+
+    const posAt = (r) => {
+      let k = 0;
+      while (k < r.seg.length - 1 && r.dist > r.cum[k + 1]) k++;
+      const segLen = r.seg[k] || 1;
+      const lt = Math.min(1, Math.max(0, (r.dist - r.cum[k]) / segLen));
+      const a = r.pts[k], b = r.pts[k + 1] || r.pts[k];
+      return { x: a.x + (b.x - a.x) * lt, y: a.y + (b.y - a.y) * lt, dx: b.x - a.x };
+    };
+
+    let raf, last = performance.now();
+    const step = (now) => {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      let fx = 0, fy = 0, n = 0;
+      routes.forEach((r) => {
+        const atEnd = r.next >= r.pts.length;
+        if (!atEnd && now >= r.pauseUntil) {
+          r.dist += r.theme.speed * dt;
+          if (r.dist >= r.cum[r.next]) {
+            r.dist = r.cum[r.next];
+            fireArrival(r.key, r.pts[r.next], r.theme.glow, true);
+            r.pauseUntil = now + 620; // พักสั้นๆ ตอนถึงเมือง
+            r.next++;
+          }
+        } else if (atEnd) {
+          if (!r.lapHold) r.lapHold = now + 1600;
+          if (now >= r.lapHold) {
+            r.dist = 0; r.next = 1; r.pauseUntil = 0; r.lapHold = 0;
+            setActivated((a) => {
+              const c = { ...a };
+              Object.keys(c).forEach((kk) => { if (kk.startsWith(r.key + "-")) delete c[kk]; });
+              return c;
+            });
+            fireArrival(r.key, r.pts[0], r.theme.glow, false);
+          }
+        }
+        const p = posAt(r);
+        const depth = 0.82 + (p.y / 1000) * 0.34; // 2.5D: ล่าง=ใกล้=ใหญ่
+        const flip = p.dx < -0.5 ? -1 : 1;
+        const moving = now >= r.pauseUntil && !atEnd;
+        const bob = moving ? Math.sin(now / 150) * 1.7 : 0;
+        r.trav.current?.setAttribute("transform", `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) scale(${depth.toFixed(3)})`);
+        r.body.current?.setAttribute("transform", `translate(0 ${bob.toFixed(2)}) scale(${flip} 1)`);
+        const frac = r.total ? r.dist / r.total : 0;
+        if (r.trail.current) r.trail.current.style.strokeDashoffset = String((r.total * (1 - frac)).toFixed(1));
+        fx += p.x; fy += p.y; n++;
+      });
+      // กล้อง parallax เบาๆ ตามตำแหน่งเฉลี่ยของผู้เดินทาง
+      if (n && cameraRef.current) {
+        const tx = ((fx / n) / 1600 - 0.5) * -4.4;
+        const ty = ((fy / n) / 1000 - 0.5) * -3.0;
+        const cs = camState.current;
+        cs.x += (tx - cs.x) * 0.05;
+        cs.y += (ty - cs.y) * 0.05;
+        cameraRef.current.style.transform = `scale(1.06) translate(${cs.x.toFixed(3)}%, ${cs.y.toFixed(3)}%)`;
+      }
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [reduced]);
+
+  // reduced-motion: วางผู้เดินทางที่ปลายทาง เติมเส้นเต็ม โชว์ชื่อทุกเมือง (ไม่มีเอฟเฟกต์)
+  useEffect(() => {
+    if (!reduced) return;
+    const park = (pts, trav, body, trail) => {
+      const last = pts[pts.length - 1];
+      const depth = 0.82 + (last.y / 1000) * 0.34;
+      trav.current?.setAttribute("transform", `translate(${last.x} ${last.y}) scale(${depth})`);
+      body.current?.setAttribute("transform", "scale(1 1)");
+      if (trail.current) trail.current.style.strokeDashoffset = "0";
+    };
+    park(christianRoute, cTrav, cBody, cTrail);
+    park(islamicRoute, iTrav, iBody, iTrail);
+    const all = {};
+    christianRoute.forEach((w) => { all[`christian-${w.name}`] = { ...w, glow: ROUTE_THEME.christian.glow }; });
+    islamicRoute.forEach((w) => { all[`islam-${w.name}`] = { ...w, glow: ROUTE_THEME.islam.glow }; });
+    setActivated(all);
+    if (cameraRef.current) cameraRef.current.style.transform = "none";
+  }, [reduced]);
+
+  const onCalibrate = (e) => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX; pt.y = e.clientY;
+    const m = svg.getScreenCTM();
+    if (!m) return;
+    const u = pt.matrixTransform(m.inverse());
+    const xPct = ((u.x / 1600) * 100).toFixed(1);
+    const yPct = ((u.y / 1000) * 100).toFixed(1);
+    // eslint-disable-next-line no-console
+    console.log(`[calibrate] unit x=${Math.round(u.x)} y=${Math.round(u.y)}  |  % x=${xPct} y=${yPct}`);
+  };
+
+  return (
+    <div
+      className={`relative mx-auto rounded-lg overflow-hidden max-w-4xl ${calibrate ? "pf-calibrate" : ""}`}
+      style={{ aspectRatio: "890/548", boxShadow: "0 20px 60px rgba(0,0,0,0.5)" }}
+    >
+      <div ref={cameraRef} className="absolute inset-0" style={{ transformOrigin: "center", willChange: "transform" }}>
+        <img
+          src="/map/propagation-map-v2.jpg"
+          alt="แผนที่เส้นทางการเผยแพร่ศาสนาอิสลามและคริสต์"
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "flex"; }}
+        />
+        <div style={{ display: "none" }} className="absolute inset-0 items-center justify-center bg-[#c9a876]">
+          <p className="font-pridi text-ink/60 text-sm">รอไฟล์ /map/propagation-map-v2.jpg</p>
+        </div>
+
+        <svg
+          ref={svgRef}
+          viewBox="0 0 1600 1000"
+          className="absolute inset-0 w-full h-full"
+          preserveAspectRatio="xMidYMid slice"
+          style={{ pointerEvents: calibrate ? "auto" : "none" }}
+          onClick={calibrate ? onCalibrate : undefined}
+        >
+          <defs>
+            <radialGradient id="pf-glow-islam">
+              <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
+            </radialGradient>
+            <radialGradient id="pf-glow-christian">
+              <stop offset="0%" stopColor="#7f9ecb" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#7f9ecb" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+
+          {/* ฝุ่นทอง/ละอองแสง ambient */}
+          {!reduced && DUST.map((d, i) => (
+            <circle
+              key={i} cx={d.x} cy={d.y} r={d.r} fill="#D4AF37" className="pf-dust"
+              style={{ "--dx": `${d.dx}px`, "--dy": `${d.dy}px`, "--dur": `${d.dur}s`, "--delay": `${d.delay}s`, "--maxo": d.o }}
+            />
+          ))}
+
+          {/* เส้นทางฐาน (จาง) */}
+          <path d={CHRISTIAN_D} fill="none" stroke="#7f9ecb" strokeWidth="1.4" strokeOpacity="0.22" strokeDasharray="5 7" />
+          <path d={ISLAMIC_D} fill="none" stroke="#D4AF37" strokeWidth="1.4" strokeOpacity="0.22" strokeDasharray="5 7" />
+          {/* เส้นทางเรืองแสง เติมตาม progress */}
+          <path
+            ref={cTrail} d={CHRISTIAN_D} fill="none" stroke={ROUTE_THEME.christian.trail} strokeWidth="2.2" strokeLinecap="round"
+            style={{ strokeDasharray: CHRISTIAN_LEN, strokeDashoffset: CHRISTIAN_LEN, filter: "drop-shadow(0 0 3px rgba(127,158,203,0.85))" }}
+          />
+          <path
+            ref={iTrail} d={ISLAMIC_D} fill="none" stroke={ROUTE_THEME.islam.trail} strokeWidth="2.2" strokeLinecap="round"
+            style={{ strokeDasharray: ISLAMIC_LEN, strokeDashoffset: ISLAMIC_LEN, filter: "drop-shadow(0 0 3px rgba(212,175,55,0.85))" }}
+          />
+
+          {/* หมุดเมืองทั้งหมด */}
+          {christianCities.map((c) => (
+            <g key={c.name}>
+              <circle cx={c.x} cy={c.y} r="5" fill="#1a1a1a" style={{ filter: "drop-shadow(0 0 4px rgba(0,0,0,0.9))" }} />
+              {!reduced && (
+                <circle cx={c.x} cy={c.y} r="8" fill="none" stroke="#7f9ecb" strokeWidth="1.4" opacity="0.5">
+                  <animate attributeName="r" values="8;15;8" dur="2.8s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.55;0;0.55" dur="2.8s" repeatCount="indefinite" />
+                </circle>
+              )}
+            </g>
+          ))}
+          {islamicCities.map((c) => (
+            <g key={c.name}>
+              <circle cx={c.x} cy={c.y} r="5" fill="#D4AF37" style={{ filter: "drop-shadow(0 0 4px rgba(212,175,55,0.9))" }} />
+              {!reduced && (
+                <circle cx={c.x} cy={c.y} r="8" fill="none" stroke="#D4AF37" strokeWidth="1.4" opacity="0.5">
+                  <animate attributeName="r" values="8;15;8" dur="3.1s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.55;0;0.55" dur="3.1s" repeatCount="indefinite" />
+                </circle>
+              )}
+            </g>
+          ))}
+
+          {/* เมืองที่ผ่านแล้ว: glow ค้าง + ป้ายชื่อ */}
+          {Object.entries(activated).map(([k, c]) => (
+            <g key={k} style={{ pointerEvents: "none" }}>
+              <circle cx={c.x} cy={c.y} r="7.5" fill="none" stroke={c.glow} strokeWidth="2" opacity="0.9" style={{ filter: `drop-shadow(0 0 5px ${c.glow})` }} />
+              <g className="pf-name">
+                <text x={c.x} y={c.y - 20} textAnchor="middle" fill="#fff" fontFamily="var(--font-cinzel), serif" fontWeight="bold" fontSize="14" style={{ paintOrder: "stroke", stroke: "rgba(0,0,0,0.85)", strokeWidth: 3 }}>{c.name}</text>
+                <text x={c.x} y={c.y - 6} textAnchor="middle" fill={c.glow} fontFamily="var(--font-pridi), sans-serif" fontSize="11" style={{ paintOrder: "stroke", stroke: "rgba(0,0,0,0.8)", strokeWidth: 2.5 }}>{c.nameTh}</text>
+              </g>
+            </g>
+          ))}
+
+          {/* เอฟเฟกต์ arrival: ripple + particle burst */}
+          {effects.map((e) => (
+            <g key={e.id} transform={`translate(${e.x} ${e.y})`} style={{ pointerEvents: "none" }}>
+              <circle r="12" className="pf-ripple" fill="none" stroke={e.glow} strokeWidth="2" />
+              <circle r="12" className="pf-ripple" fill="none" stroke={e.glow} strokeWidth="1.2" style={{ animationDelay: "0.2s" }} />
+              {e.particles.map((p, i) => (
+                <circle key={i} r={p.r} className="pf-particle" fill={e.glow} style={{ "--dx": `${p.dx.toFixed(1)}px`, "--dy": `${p.dy.toFixed(1)}px`, animationDelay: `${p.delay}s` }} />
+              ))}
+            </g>
+          ))}
+
+          {/* ผู้เดินทาง silhouette ทั้งสองเส้นทาง */}
+          {renderWalker(cTrav, cBody, ROUTE_THEME.christian, "pf-glow-christian", christianRoute[0])}
+          {renderWalker(iTrav, iBody, ROUTE_THEME.islam, "pf-glow-islam", islamicRoute[0])}
+        </svg>
+      </div>
+
+      {/* vignette (คงที่ นอกกล้อง) */}
+      <div className="absolute inset-0" style={{ pointerEvents: "none", background: "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.45) 100%)" }} />
+
+      {calibrate && (
+        <div className="absolute top-2 left-2 px-2 py-1 rounded text-[10px] font-mono" style={{ background: "rgba(0,0,0,0.72)", color: "#D4AF37", pointerEvents: "none" }}>
+          CALIBRATE — คลิกบนแผนที่ ดูพิกัดใน console
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
   const rootRef = useReveal();
@@ -513,149 +887,16 @@ export default function Home() {
             เส้นทางการเผยแพร่ศาสนา
           </h3>
 
-          {/* Map Container */}
-          <div
-            className="relative mx-auto rounded-lg overflow-hidden max-w-4xl"
-            style={{
-              aspectRatio: '890/548',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <img
-              src="/map/propagation-map.jpg"
-              alt="แผนที่เส้นทางการเผยแพร่ศาสนาอิสลามและคริสต์"
-              className="absolute inset-0 w-full h-full object-cover"
-              onError={(e) => {
-                e.target.style.display = 'none'
-                e.target.nextSibling.style.display = 'flex'
-              }}
-            />
-            <div
-              style={{ display: 'none' }}
-              className="absolute inset-0 items-center justify-center bg-[#c9a876]"
-            >
-              <p className="font-pridi text-ink/60 text-sm">
-                รอไฟล์ /map/propagation-map.jpg
-              </p>
-            </div>
-
-            {/* SVG overlay: marker แบบ interactive วางทับพิกัดจริงในภาพ (viewBox 890x548) */}
-            <svg
-              viewBox="0 0 890 548"
-              className="absolute inset-0 w-full h-full pointer-events-none"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              {/* เส้นทางอิสลาม — ทองโปร่งแสง วางชั้นล่างสุด ไม่บังจุดกระพริบ */}
-              <path
-                d="M195,248 L380,190 L360,318 L522,292 L653,300 L668,262 L705,378 L737,415"
-                fill="none"
-                stroke="#d4af37"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                opacity="0.35"
-                style={{ mixBlendMode: 'screen' }}
-              />
-
-              {/* เมืองอิสลาม — ทองอมเหลือง เข้ากับสไตล์ตึกจำลองในภาพ */}
-              {[
-                { name: "CORDOBA", x: 195, y: 248 },
-                { name: "ALEXANDRIA", x: 522, y: 292 },
-                { name: "JERUSALEM", x: 653, y: 300 },
-                { name: "DAMASCUS", x: 668, y: 262 },
-                { name: "MEDINA", x: 705, y: 378 },
-                { name: "MECCA", x: 737, y: 415 },
-                { name: "ROME (BYZANTINE)", x: 380, y: 190, ring: true },
-              ].map((c) => (
-                <g key={c.name} className="opacity-0" style={{ animation: 'fadeInMarker 0.6s ease forwards', animationDelay: '0.3s' }}>
-                  {c.ring ? (
-                    <circle cx={c.x} cy={c.y} r="7" fill="none" className="stroke-gold" strokeWidth="2" opacity="0.7" />
-                  ) : (
-                    <circle cx={c.x} cy={c.y} r="5" className="fill-gold" style={{ filter: 'drop-shadow(0 0 4px rgba(197,160,89,0.9))' }} />
-                  )}
-                  <circle cx={c.x} cy={c.y} r="9" fill="none" className="stroke-gold" strokeWidth="1.5" opacity="0.5">
-                    <animate attributeName="r" values="8;16;8" dur="2.5s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite" />
-                  </circle>
-                </g>
-              ))}
-
-              {/* ตัวละครเดินตามเส้นทางกองคาราวาน (เส้นทองในภาพ: Cordoba → Alexandria → Jerusalem/Damascus → Medina → Mecca) */}
-              <g style={{
-                offsetPath: "path('M195,248 L360,318 L522,292 L653,300 L668,262 L705,378 L737,415')",
-                offsetRotate: '0deg',
-                animation: 'travelPath 20s linear infinite'
-              }}>
-                <ellipse cx="0" cy="5" rx="3.5" ry="6" className="fill-gold" stroke="#2e2015" strokeWidth="0.8" style={{ filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.6))' }} />
-                <circle cx="0" cy="-2" r="2.6" className="fill-gold" stroke="#2e2015" strokeWidth="0.8" />
-              </g>
-              <g style={{
-                offsetPath: "path('M195,248 L360,318 L522,292 L653,300 L668,262 L705,378 L737,415')",
-                offsetRotate: '0deg',
-                animation: 'travelPath 20s linear infinite',
-                animationDelay: '-10s'
-              }} opacity="0.75">
-                <ellipse cx="0" cy="5" rx="3.5" ry="6" className="fill-gold" stroke="#2e2015" strokeWidth="0.8" style={{ filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.6))' }} />
-                <circle cx="0" cy="-2" r="2.6" className="fill-gold" stroke="#2e2015" strokeWidth="0.8" />
-              </g>
-
-              {/* ตัวละครเดินอิสลามตามเส้นทางที่ขยายไปถึง Rome */}
-              <g style={{
-                offsetPath: "path('M195,248 L380,190 L360,318 L522,292 L653,300 L668,262 L705,378 L737,415')",
-                offsetRotate: '0deg',
-                animation: 'travelPath 22s linear infinite'
-              }}>
-                <ellipse cx="0" cy="4" rx="3" ry="5" fill="#d4af37" stroke="#1a0f08" strokeWidth="0.7" opacity="0.8" />
-                <circle cx="0" cy="-2" r="2.2" fill="#d4af37" stroke="#1a0f08" strokeWidth="0.7" opacity="0.8" />
-              </g>
-
-              {/* เมืองคริสต์ — สีดำ ให้ตัดกับทองของอิสลาม */}
-              {[
-                { name: "ROME", x: 380, y: 190 },
-                { name: "CORINTH", x: 445, y: 200 },
-              ].map((c) => (
-                <g key={c.name} className="opacity-0" style={{ animation: 'fadeInMarker 0.6s ease forwards', animationDelay: '0.5s' }}>
-                  <circle cx={c.x} cy={c.y} r="5" fill="#1a1a1a" style={{ filter: 'drop-shadow(0 0 4px rgba(0,0,0,0.9))' }} />
-                  <circle cx={c.x} cy={c.y} r="9" fill="none" stroke="#1a1a1a" strokeWidth="1.5" opacity="0.5">
-                    <animate attributeName="r" values="8;16;8" dur="2.5s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite" />
-                  </circle>
-                </g>
-              ))}
-
-              {/* เส้นทางคริสต์ — เส้นประสีดำ */}
-              <path
-                d="M653,300 Q560,230 445,195 Q410,192 380,190"
-                fill="none"
-                stroke="#1a1a1a"
-                strokeWidth="2.5"
-                strokeDasharray="8 6"
-                strokeLinecap="round"
-                opacity="0.85"
-                style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.5))' }}
-              />
-
-              {/* ตัวละครคริสต์เดินตามเส้นทาง */}
-              <g style={{
-                offsetPath: "path('M653,300 Q560,230 445,195 Q410,192 380,190')",
-                offsetRotate: '0deg',
-                animation: 'travelPath 20s linear infinite',
-                animationDelay: '-5s'
-              }}>
-                <ellipse cx="0" cy="5" rx="3.5" ry="6" fill="#1a1a1a" stroke="#2e2015" strokeWidth="0.8" style={{ filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.6))' }} />
-                <circle cx="0" cy="-2" r="2.6" fill="#1a1a1a" stroke="#2e2015" strokeWidth="0.8" />
-              </g>
-            </svg>
-          </div>
+          {/* Map — Paths of Faith animation (silhouette walkers, arrival FX, 2.5D camera) */}
+          <PropagationMap />
 
           {/* Legend */}
           <div className="flex flex-col gap-4 max-w-2xl mx-auto mt-10">
             <div className="flex items-start gap-3">
-              <span className="w-8 h-0.5 bg-gold inline-block mt-2 shrink-0" style={{ opacity: 0.6 }}></span>
+              <span className="w-8 h-0.5 bg-gold inline-block mt-2 shrink-0"></span>
               <span className="font-pridi text-paper-white/80 text-sm leading-relaxed">
-                <strong className="text-gold">อิสลาม</strong> — ท่านนบีมุฮัมมัด (ซ.ล.) วางรากฐานที่มักกะฮ์และมะดีนะฮ์
-                ยุคเคาะลีฟะฮ์อาบูบักรและอุมัร ขยายสู่เยรูซาเล็ม ดามัสกัส และอเล็กซานเดรีย
-                พิชิตดินแดนโรมันตะวันออก (ไบแซนไทน์) ก่อนต่อมาขยายถึงกอร์โดบา อันดะลุส
+                <strong className="text-gold">อิสลาม</strong> — จากมักกะฮ์และมะดีนะฮ์ สู่ตออิฟ ค็อยบัร เยรูซาเล็ม ดามัสกัส
+                อันติออก และตาร์ซุส เส้นทางการขยายตัวของอาณาจักรอิสลามยุคแรก
               </span>
             </div>
             <div className="flex items-start gap-3">
@@ -664,15 +905,15 @@ export default function Home() {
                 style={{ backgroundImage: 'repeating-linear-gradient(90deg, #1a1a1a 0 5px, transparent 5px 9px)' }}
               ></span>
               <span className="font-pridi text-paper-white/80 text-sm leading-relaxed">
-                <strong className="text-[#1a1a1a] bg-paper-white/90 px-1 rounded">คริสต์</strong> — พระเยซูเริ่มพันธกิจที่เยรูซาเล็ม
-                นักบุญเปาโลเดินทางเผยแพร่สู่โครินธ์และกรุงโรม ใจกลางจักรวรรดิโรมัน
+                <strong className="text-[#1a1a1a] bg-paper-white/90 px-1 rounded">คริสต์</strong> — เส้นทางมิชชันนารีของนักบุญเปาโล
+                ผ่านฟิลิปปี เธสะโลนิกา โครินธ์ เอเฟซัส สู่คอนสแตนติโนเปิล
               </span>
             </div>
           </div>
 
           <div className="flex justify-center mt-10">
-            <a href="/textual-history" className="btn-outline font-pridi text-sm">
-              ดูเส้นทางประวัติศาสตร์แบบละเอียด →
+            <a href="/paths-of-faith" className="btn-outline font-pridi text-sm">
+              สำรวจเส้นทางแห่งศรัทธา →
             </a>
           </div>
 
