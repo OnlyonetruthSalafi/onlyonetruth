@@ -179,6 +179,74 @@ html {
       0 16px 32px rgba(62,39,35,0.18),
       0 0 20px rgba(197,160,89,0.15);
   }
+
+  /* ── แกนกลางเรืองแสง เติมตาม scroll (--tl-progress: 0→1) ── */
+  .timeline-axis-fill {
+    @apply absolute left-1/2 top-0 -translate-x-1/2 z-[5];
+    width: 3px;
+    height: calc(var(--tl-progress, 0) * 100%);
+    border-radius: 3px;
+    background: linear-gradient(
+      to bottom,
+      rgba(212,175,55,0) 0%,
+      rgba(212,175,55,0.85) 14%,
+      #e7c766 70%,
+      #f6e6ac 100%
+    );
+    box-shadow:
+      0 0 14px rgba(212,175,55,0.65),
+      0 0 30px rgba(212,175,55,0.35);
+    /* จางหายเมื่อยังไม่เริ่ม scroll เข้าโซน */
+    opacity: clamp(0, calc(var(--tl-progress, 0) * 40), 1);
+    will-change: height;
+    pointer-events: none;
+  }
+  /* หัวดาวหางเรืองแสงนำหน้าปลายเส้น */
+  .timeline-axis-fill::after {
+    content: '';
+    @apply absolute left-1/2 -translate-x-1/2;
+    bottom: -7px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff7e0 0%, #f2dd8f 38%, rgba(212,175,55,0.55) 62%, transparent 76%);
+    box-shadow: 0 0 20px 5px rgba(212,175,55,0.8);
+    /* ซ่อนหัวเมื่อเต็มเส้นแล้ว (ถึงปลายทาง) หรือยังไม่เริ่ม */
+    opacity: clamp(0, calc(var(--tl-progress, 0) * 40), 1);
+    animation: tlHeadPulse 1.8s ease-in-out infinite;
+  }
+
+  /* ── การ์ดสไลด์เข้าแบบมีทิศทาง + blur-to-focus ── */
+  .tl-card {
+    opacity: 0;
+    filter: blur(6px);
+    transition:
+      opacity 900ms cubic-bezier(0.16, 0.84, 0.44, 1),
+      transform 900ms cubic-bezier(0.16, 0.84, 0.44, 1),
+      filter 900ms ease-out;
+    will-change: opacity, transform, filter;
+  }
+  .tl-card--left  { transform: perspective(1000px) translateX(-56px) rotateY(11deg) scale(0.94); }
+  .tl-card--right { transform: perspective(1000px) translateX(56px)  rotateY(-11deg) scale(0.94); }
+  .tl-card.tl-in {
+    opacity: 1;
+    filter: blur(0);
+    transform: perspective(1000px) translateX(0) rotateY(0) scale(1);
+  }
+
+  /* จุดเพชร (node) ติดไฟเมื่อการ์ดโผล่เข้าจอ */
+  .timeline-node::after { transition: box-shadow 0.6s ease, background 0.6s ease; }
+  .tl-card.tl-in .timeline-node::after {
+    background: #f2dd8f;
+    box-shadow:
+      0 0 16px rgba(212,175,55,0.9),
+      0 0 28px rgba(212,175,55,0.5);
+  }
+}
+
+@keyframes tlHeadPulse {
+  0%, 100% { box-shadow: 0 0 18px 4px rgba(212,175,55,0.7); }
+  50%      { box-shadow: 0 0 26px 7px rgba(212,175,55,0.95); }
 }
 
 .text-shimmer {
@@ -379,6 +447,9 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .pf-ripple, .pf-particle, .pf-dust { animation: none !important; opacity: 0 !important; }
   .pf-name { animation: none !important; opacity: 1 !important; }
+  /* timeline: แสดงทันที ไม่มีสไลด์/เบลอ/ดาวหางกระพริบ */
+  .tl-card { transition: none !important; transform: none !important; filter: none !important; opacity: 1 !important; }
+  .timeline-axis-fill::after { animation: none !important; }
 }
 
 @layer components {

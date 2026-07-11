@@ -7,9 +7,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const christianCities = [
-  { name: "ROME", x: 432, y: 240 },
-  { name: "THESSALONICA", x: 704, y: 200 },
-  { name: "PHILIPPI", x: 784, y: 130 },
+  { name: "ROME", x: 492, y: 215 },
+  { name: "THESSALONICA", x: 744, y: 160 },
+  { name: "PHILIPPI", x: 824, y: 105 },
   { name: "CORINTH", x: 656, y: 340 },
   { name: "ATHENS", x: 736, y: 340 },
   { name: "EPHESUS", x: 912, y: 320 },
@@ -30,21 +30,25 @@ const islamicCities = [
 
 // ── Paths of Faith: เส้นทางเดินของผู้เผยแผ่ (subset เรียงลำดับ, พิกัดอิง viewBox 1600×1000) ──
 const christianRoute = [
-  { name: "PHILIPPI", nameTh: "ฟีลิปปี", x: 784, y: 130 },
-  { name: "THESSALONICA", nameTh: "เธสะโลนิกา", x: 704, y: 200 },
-  { name: "CORINTH", nameTh: "โครินธ์", x: 656, y: 340 },
+  { name: "JERUSALEM", nameTh: "เยรูซาเล็ม", x: 1120, y: 530 },
+  { name: "DAMASCUS", nameTh: "ดามัสกัส", x: 1184, y: 460 },
+  { name: "ANTIOCH", nameTh: "อันติออก", x: 1216, y: 390 },
+  { name: "TARSUS", nameTh: "ทาร์ซัส", x: 1280, y: 300 },
   { name: "EPHESUS", nameTh: "เอเฟซัส", x: 912, y: 320 },
-  { name: "CONSTANTINOPLE", nameTh: "คอนสแตนติโนเปิล", x: 1056, y: 210 },
+  { name: "CORINTH", nameTh: "โครินธ์", x: 656, y: 340 },
+  { name: "THESSALONICA", nameTh: "เธสะโลนิกา", x: 744, y: 160 },
+  { name: "PHILIPPI", nameTh: "ฟีลิปปี", x: 824, y: 105 },
+  { name: "ROME", nameTh: "โรม", x: 492, y: 215 },
 ];
 const islamicRoute = [
-  { name: "TARSUS", nameTh: "ทาร์ซัส", x: 1280, y: 300 },
-  { name: "ANTIOCH", nameTh: "อันติออก", x: 1216, y: 390 },
-  { name: "DAMASCUS", nameTh: "ดามัสกัส", x: 1184, y: 460 },
-  { name: "JERUSALEM", nameTh: "เยรูซาเล็ม", x: 1120, y: 530 },
-  { name: "KHAYBAR", nameTh: "ค็อยบัร", x: 1152, y: 610 },
-  { name: "MEDINA", nameTh: "มะดีนะฮ์", x: 1248, y: 690 },
-  { name: "TAIF", nameTh: "ฏออิฟ", x: 1312, y: 750 },
   { name: "MECCA", nameTh: "มักกะฮ์", x: 1312, y: 810 },
+  { name: "TAIF", nameTh: "ฏออิฟ", x: 1312, y: 750 },
+  { name: "MEDINA", nameTh: "มะดีนะฮ์", x: 1248, y: 690 },
+  { name: "KHAYBAR", nameTh: "ค็อยบัร", x: 1152, y: 610 },
+  { name: "JERUSALEM", nameTh: "เยรูซาเล็ม", x: 1120, y: 530 },
+  { name: "DAMASCUS", nameTh: "ดามัสกัส", x: 1184, y: 460 },
+  { name: "ANTIOCH", nameTh: "อันติออก", x: 1216, y: 390 },
+  { name: "TARSUS", nameTh: "ทาร์ซัส", x: 1280, y: 300 },
 ];
 
 // โทนสีตามเส้นทาง: อิสลาม = ทอง/มรกต, คริสต์ = น้ำเงินเงิน/อำพัน
@@ -102,6 +106,64 @@ function useReveal() {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
+  }, []);
+  return ref;
+}
+
+// ── Timeline: เอฟเฟกต์ตามการเลื่อนลง ─────────────────────────────
+//  1) แกนกลางเรืองแสง "วิ่งลง" ตาม scroll (comet head นำหน้า)
+//  2) การ์ดสไลด์เข้าแบบมีทิศทาง + node ติดไฟเมื่อโผล่เข้าจอ
+function useTimelineScroll() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const cards = el.querySelectorAll(".tl-card");
+
+    if (reduced) {
+      cards.forEach((c) => c.classList.add("tl-in"));
+      el.style.setProperty("--tl-progress", "1");
+      return;
+    }
+
+    // การ์ดโผล่เข้าจอ → ติด class tl-in (สไลด์เข้า + จุดเพชรติดไฟ)
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("tl-in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25, rootMargin: "0px 0px -60px 0px" }
+    );
+    cards.forEach((c) => io.observe(c));
+
+    // ความคืบหน้าการ scroll → เติมแกนกลางเรืองแสง
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      // 0 = ขอบบนของ timeline แตะเส้นกึ่งกลางล่างของจอ, 1 = เลื่อนพ้นทั้งบล็อก
+      const p = (vh * 0.82 - rect.top) / rect.height;
+      el.style.setProperty("--tl-progress", String(Math.max(0, Math.min(1, p))));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      io.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
   return ref;
 }
@@ -165,7 +227,7 @@ const ISLAMIC_D = polyPath(islamicRoute);
 const CHRISTIAN_LEN = polyLen(christianRoute);
 const ISLAMIC_LEN = polyLen(islamicRoute);
 
-function renderWalker(trav, body, theme, gid, start) {
+function renderWalker(trav, body, theme, gid, start, bodyFill = SILHOUETTE, bodyStroke = theme.glow) {
   return (
     <g ref={trav} transform={`translate(${start.x} ${start.y})`} style={{ pointerEvents: "none" }}>
       {/* เงาใต้เท้า ยึดตัวกับพื้นแผนที่ */}
@@ -174,9 +236,9 @@ function renderWalker(trav, body, theme, gid, start) {
         {/* แสงเรืองรอบตัว (glow halo) ตามสีเส้นทาง */}
         <circle cx="0" cy="-13" r="18" fill={`url(#${gid})`} opacity="0.5" />
         {/* เงาผู้สวมเสื้อคลุม — ทึบ ไม่มีใบหน้า */}
-        <path d="M0,-25 C -6,-23 -8,-10 -10,0 L 10,0 C 8,-10 6,-23 0,-25 Z" fill={SILHOUETTE} />
-        <circle cx="0" cy="-25" r="5" fill={SILHOUETTE} />
-        <path d="M0,-25 C -6,-23 -8,-10 -10,0 L 10,0 C 8,-10 6,-23 0,-25 Z" fill="none" stroke={theme.glow} strokeWidth="0.7" opacity="0.55" />
+        <path d="M0,-25 C -6,-23 -8,-10 -10,0 L 10,0 C 8,-10 6,-23 0,-25 Z" fill={bodyFill} />
+        <circle cx="0" cy="-25" r="5" fill={bodyFill} />
+        <path d="M0,-25 C -6,-23 -8,-10 -10,0 L 10,0 C 8,-10 6,-23 0,-25 Z" fill="none" stroke={bodyStroke} strokeWidth="0.7" opacity="0.55" />
       </g>
     </g>
   );
@@ -439,7 +501,7 @@ function PropagationMap() {
 
           {/* ผู้เดินทาง silhouette ทั้งสองเส้นทาง */}
           {renderWalker(cTrav, cBody, ROUTE_THEME.christian, "pf-glow-christian", christianRoute[0])}
-          {renderWalker(iTrav, iBody, ROUTE_THEME.islam, "pf-glow-islam", islamicRoute[0])}
+          {renderWalker(iTrav, iBody, ROUTE_THEME.islam, "pf-glow-islam", islamicRoute[0], "#8b1a1a", "#3a0a0a")}
         </svg>
       </div>
 
@@ -457,6 +519,7 @@ function PropagationMap() {
 
 export default function Home() {
   const rootRef = useReveal();
+  const timelineRef = useTimelineScroll();
 
   return (
     <div ref={rootRef} className="bg-paper text-ink">
@@ -735,15 +798,21 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative">
+          <div ref={timelineRef} className="relative">
             {/* Center axis */}
             <div className="timeline-axis" />
+            {/* แกนเรืองแสงเติมตาม scroll + หัวดาวหาง */}
+            <div className="timeline-axis-fill" aria-hidden />
 
             <div className="grid grid-cols-2 gap-3 md:gap-8">
               {/* Left column: Quran */}
               <div className="space-y-3 md:space-y-6">
                 {quranCondensed.map((item, i) => (
-                  <div key={i} data-reveal className="relative md:pr-10 lg:pr-16">
+                  <div
+                    key={i}
+                    className="tl-card tl-card--left relative md:pr-10 lg:pr-16"
+                    style={{ transitionDelay: `${i * 70}ms` }}
+                  >
                     <div className="relative">
                       <article className="timeline-card px-3 py-3 md:px-5 md:py-4">
                         <div className="text-gold font-bold text-xs mb-0.5 select-none">◆</div>
@@ -769,7 +838,11 @@ export default function Home() {
               {/* Right column: Bible */}
               <div className="space-y-3 md:space-y-6">
                 {bibleCondensed.map((item, i) => (
-                  <div key={i} data-reveal className="relative md:pl-10 lg:pl-16">
+                  <div
+                    key={i}
+                    className="tl-card tl-card--right relative md:pl-10 lg:pl-16"
+                    style={{ transitionDelay: `${i * 70}ms` }}
+                  >
                     <div className="hidden md:block absolute left-0 -translate-x-1/2 top-7">
                       <div className="timeline-node" />
                     </div>
