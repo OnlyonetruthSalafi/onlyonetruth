@@ -194,6 +194,13 @@ const condensedItems = [
 const quranCondensed = condensedItems.filter((item) => item.side === "left");
 const bibleCondensed = condensedItems.filter((item) => item.side === "right");
 
+// ── ป้ายกำกับสีประจำคอลัมน์ + เลขโรมัน (ลายน้ำ) เหมือนหน้า textual-history ──
+const TL_ACCENT = {
+  quran: { label: "#8fd4a4", chipText: "#c3e8cd", chipBg: "rgba(35,110,60,0.35)", chipBorder: "rgba(63,174,90,0.4)" },
+  bible: { label: "#8fb4e8", chipText: "#c9daf5", chipBg: "rgba(43,84,140,0.35)", chipBorder: "rgba(120,160,220,0.4)" },
+};
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
+
 const collections = [
   {
     glyph: "📜",
@@ -757,26 +764,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SCRIPTURE TIMELINE — condensed */}
-      <section id="timeline-section" className="py-section md:py-24 bg-paper-light border-t border-gold/15">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* SCRIPTURE TIMELINE — condensed, สไตล์จดหมายเหตุเดียวกับ /textual-history */}
+      <section
+        id="timeline-section"
+        className="relative py-section md:py-24 overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(180deg, #3E2723 0%, #291713 45%, #221310 70%, #3E2723 100%)",
+        }}
+      >
+        {/* แสงพื้นหลังอัมเบียนต์ */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.07]">
+          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-gold-light blur-3xl" />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
             <p
               data-reveal
-              className="font-pridi text-xs tracking-[0.4em] uppercase text-gold-dark mb-4"
+              className="font-pridi text-xs tracking-[0.4em] uppercase text-gold mb-4"
             >
               Timeline เปรียบเทียบ
             </p>
             <h2
               data-reveal
-              className="font-pridi text-3xl md:text-5xl text-ink mb-5 leading-tight"
+              className="font-pridi text-3xl md:text-5xl text-paper-white mb-5 leading-tight"
             >
               ประวัติศาสตร์การรวบรวมคัมภีร์
             </h2>
             <div data-reveal className="mx-auto h-px w-24 bg-gold mb-6" />
             <p
               data-reveal
-              className="font-pridi text-base md:text-lg text-ink/75 leading-relaxed"
+              className="font-pridi text-base md:text-lg text-paper-white/70 leading-relaxed"
             >
               เปรียบเทียบกระบวนการอนุรักษ์พระวจนะศักดิ์สิทธิ์ตามลำดับเวลา
             </p>
@@ -785,16 +805,22 @@ export default function Home() {
           {/* Column headers */}
           <div className="grid grid-cols-2 mb-4 md:mb-8">
             <div data-reveal className="text-center pr-2 md:pr-10 lg:pr-16">
-              <span className="font-pridi text-xs md:text-base tracking-[0.15em] md:tracking-[0.2em] uppercase text-gold font-bold">
+              <span
+                className="font-pridi text-xs md:text-base tracking-[0.15em] md:tracking-[0.2em] uppercase font-bold"
+                style={{ color: TL_ACCENT.quran.label }}
+              >
                 อัลกุรอาน
               </span>
-              <div className="mx-auto h-px w-12 bg-gold/40 mt-2" />
+              <div className="mx-auto h-px w-12 mt-2" style={{ background: TL_ACCENT.quran.chipBorder }} />
             </div>
             <div data-reveal className="text-center pl-2 md:pl-10 lg:pl-16">
-              <span className="font-pridi text-xs md:text-base tracking-[0.15em] md:tracking-[0.2em] uppercase text-ink/50 font-bold">
+              <span
+                className="font-pridi text-xs md:text-base tracking-[0.15em] md:tracking-[0.2em] uppercase font-bold"
+                style={{ color: TL_ACCENT.bible.label }}
+              >
                 ไบเบิล
               </span>
-              <div className="mx-auto h-px w-12 bg-ink/15 mt-2" />
+              <div className="mx-auto h-px w-12 mt-2" style={{ background: TL_ACCENT.bible.chipBorder }} />
             </div>
           </div>
 
@@ -814,22 +840,30 @@ export default function Home() {
                     style={{ transitionDelay: `${i * 70}ms` }}
                   >
                     <div className="relative">
-                      <article className="timeline-card px-3 py-3 md:px-5 md:py-4">
-                        <div className="text-gold font-bold text-xs mb-0.5 select-none">◆</div>
-                        <div
-                          className="font-cinzel text-gold font-bold text-base md:text-2xl mb-1 leading-tight"
-                          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.1)" }}
+                      <article className="tl-panel rounded-card px-3 py-3 md:px-5 md:py-4">
+                        <span className="ic-corner ic-corner-tl" />
+                        <span className="ic-corner ic-corner-tr" />
+                        <span className="ic-corner ic-corner-bl" />
+                        <span className="ic-corner ic-corner-br" />
+                        <span className="ic-watermark font-amiri">{ROMAN[i]}</span>
+                        <p
+                          className="relative inline-block font-pridi text-[10px] md:text-xs px-2.5 py-0.5 md:px-3 md:py-1 rounded-full mb-1.5 md:mb-2 border"
+                          style={{
+                            color: TL_ACCENT.quran.chipText,
+                            background: TL_ACCENT.quran.chipBg,
+                            borderColor: TL_ACCENT.quran.chipBorder,
+                          }}
                         >
                           {item.year}
-                        </div>
-                        <h3 className="font-pridi text-ink font-bold text-xs md:text-base leading-snug">
+                        </p>
+                        <h3 className="relative font-pridi text-paper-white font-bold text-xs md:text-base leading-snug">
                           {item.title}
                         </h3>
                       </article>
                       <div className="timeline-connector-left hidden md:block" />
                     </div>
                     <div className="hidden md:block absolute right-0 translate-x-1/2 top-7">
-                      <div className="timeline-node" />
+                      <div className="tl-node8"><span className="tl-node8-core" /></div>
                     </div>
                   </div>
                 ))}
@@ -844,18 +878,26 @@ export default function Home() {
                     style={{ transitionDelay: `${i * 70}ms` }}
                   >
                     <div className="hidden md:block absolute left-0 -translate-x-1/2 top-7">
-                      <div className="timeline-node" />
+                      <div className="tl-node8"><span className="tl-node8-core" /></div>
                     </div>
                     <div className="relative">
-                      <article className="timeline-card px-3 py-3 md:px-5 md:py-4">
-                        <div className="text-gold font-bold text-xs mb-0.5 select-none">◆</div>
-                        <div
-                          className="font-cinzel text-gold font-bold text-base md:text-2xl mb-1 leading-tight"
-                          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.1)" }}
+                      <article className="tl-panel rounded-card px-3 py-3 md:px-5 md:py-4">
+                        <span className="ic-corner ic-corner-tl" />
+                        <span className="ic-corner ic-corner-tr" />
+                        <span className="ic-corner ic-corner-bl" />
+                        <span className="ic-corner ic-corner-br" />
+                        <span className="ic-watermark font-cinzel">{ROMAN[i]}</span>
+                        <p
+                          className="relative inline-block font-pridi text-[10px] md:text-xs px-2.5 py-0.5 md:px-3 md:py-1 rounded-full mb-1.5 md:mb-2 border"
+                          style={{
+                            color: TL_ACCENT.bible.chipText,
+                            background: TL_ACCENT.bible.chipBg,
+                            borderColor: TL_ACCENT.bible.chipBorder,
+                          }}
                         >
                           {item.year}
-                        </div>
-                        <h3 className="font-pridi text-ink font-bold text-xs md:text-base leading-snug">
+                        </p>
+                        <h3 className="relative font-pridi text-paper-white font-bold text-xs md:text-base leading-snug">
                           {item.title}
                         </h3>
                       </article>
