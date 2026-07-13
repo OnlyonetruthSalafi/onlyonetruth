@@ -444,9 +444,30 @@ html {
   75%      { opacity: var(--maxo, 0.3); }
 }
 
+/* ── FaithJourneyMap (/paths-of-faith): ป้ายชื่อซูม + การ์ดป๊อปอัป ── */
+.fjm-label-zoom {
+  /* Tailwind v4 จัดกึ่งกลางด้วย property `translate` แล้ว — keyframe นี้ต้องแตะเฉพาะ scale */
+  transform-origin: 50% 100%;
+  animation: fjmLabelZoom 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.9));
+}
+@keyframes fjmLabelZoom {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.fjm-card-in {
+  animation: fjmCardIn 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
+}
+@keyframes fjmCardIn {
+  from { opacity: 0; margin-top: 8px; }
+  to   { opacity: 1; margin-top: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pf-ripple, .pf-particle, .pf-dust { animation: none !important; opacity: 0 !important; }
   .pf-name { animation: none !important; opacity: 1 !important; }
+  .fjm-label-zoom, .fjm-card-in { animation: none !important; opacity: 1 !important; }
   /* timeline: แสดงทันที ไม่มีสไลด์/เบลอ/ดาวหางกระพริบ */
   .tl-card { transition: none !important; transform: none !important; filter: none !important; opacity: 1 !important; }
   .timeline-axis-fill::after { animation: none !important; }

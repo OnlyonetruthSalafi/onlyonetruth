@@ -181,7 +181,7 @@ const condensedItems = [
   { side: "right", year: "ค.ศ. 180", title: "อิเรเนียส — พระกิตติคุณ 4 เล่ม" },
   { side: "left", year: "ค.ศ. 644-656", title: "ยุคเคาะลีฟะฮ์อุษมาน" },
   { side: "right", year: "ค.ศ. 250", title: "โอริเจน — จัดหมวดหมู่ 3 กลุ่ม" },
-  { side: "left", year: "ค.ศ. 650", title: " ท่านZayd ibn Thābit เป็นแกนนำชำระอัลกรุอานอีกครั้ง " },
+  { side: "left", year: "ค.ศ. 650", title: " ท่าน Zayd ibn Thābit เป็นแกนนำชำระอัลกุรอานอีกครั้ง " },
   { side: "right", year: "ค.ศ. 325", title: "ยูเซบิอุส บันทึกยืนยัน" },
   { side: "left", year: "ค.ศ. 653", title: "ส่งมาตรฐานไปทั่วอาณาจักร" },
   { side: "right", year: "ค.ศ. 367", title: "อาธานาเซียส — รายชื่อ 27 เล่มครั้งแรก" },

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import FaithJourneyMap from "../../components/FaithJourneyMap";
 
 const islamicCities = [
   { city: "MECCA", th: "มักกะฮ์", year: "ค.ศ. 610", desc: "จุดกำเนิดการประทานวะฮีย์แก่ท่านนบีมุฮัมมัด (ซ.ล.)" },
@@ -77,6 +78,25 @@ export default function PathsOfFaith() {
           <h2 className="font-pridi text-xl text-gold">
             เส้นทางแห่งศรัทธา — การเดินทางของสองศาสนา
           </h2>
+        </div>
+      </section>
+
+      {/* INTERACTIVE MAP */}
+      <section className="py-16 bg-ink">
+        <div className="max-w-6xl mx-auto px-gutter">
+          <div className="text-center mb-10">
+            <p className="font-cinzel text-xs text-gold/60 tracking-[0.3em] uppercase mb-3">
+              INTERACTIVE JOURNEY MAP
+            </p>
+            <h2 className="font-cinzel text-3xl md:text-4xl text-paper-white mb-3">
+              แผนที่การเดินทาง
+            </h2>
+            <p className="font-pridi text-paper-white/60 text-sm max-w-2xl mx-auto">
+              ติดตามหมุดแสงเดินทางไปตามเส้นทางประวัติศาสตร์ — เลือกเส้นทาง เปิด/ปิดการแสดงผล
+              และคลิกหมุดเมืองเพื่ออ่านประวัติย่อของแต่ละเมือง
+            </p>
+          </div>
+          <FaithJourneyMap />
         </div>
       </section>
 
