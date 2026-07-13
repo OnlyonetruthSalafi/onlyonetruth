@@ -48,7 +48,17 @@
       "Bash(mkdir -p /d/onlyonetruth_backup)",
       "Bash(mv public/map/islam-spread-622-722.orig.png \"/c/Users/User/AppData/Local/Temp/claude/D--onlyonetruth/2673c195-5e1b-410a-a97d-10810edf60d1/scratchpad/islam-spread-622-722.orig.png\")",
       "Bash(mv public/map/islam-spread-622-722.orig.webp \"/c/Users/User/AppData/Local/Temp/claude/D--onlyonetruth/2673c195-5e1b-410a-a97d-10810edf60d1/scratchpad/islam-spread-622-722.orig.webp\")",
-      "Read(//c/Users/User/AppData/Local/Temp/claude/D--onlyonetruth/2673c195-5e1b-410a-a97d-10810edf60d1/scratchpad//**)"
+      "Read(//c/Users/User/AppData/Local/Temp/claude/D--onlyonetruth/2673c195-5e1b-410a-a97d-10810edf60d1/scratchpad//**)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(sed -i '250s/chapter: \"II\"/chapter: \"IV\"/' app/textual-history/page.js)",
+      "Bash(sed -i '264s/chapter: \"III\"/chapter: \"V\"/' app/textual-history/page.js)",
+      "Bash(sed -i '277s/chapter: \"IV\"/chapter: \"VI\"/' app/textual-history/page.js)",
+      "Bash(sed -i '291s/chapter: \"V\"/chapter: \"VII\"/' app/textual-history/page.js)",
+      "Bash(sed -i '304s/chapter: \"VI\"/chapter: \"VIII\"/' app/textual-history/page.js)",
+      "Bash(echo \"---exit $?\")"
     ]
   }
 }
