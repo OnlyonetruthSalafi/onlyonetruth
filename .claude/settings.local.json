@@ -38,7 +38,17 @@
       "Bash(echo \"exit=$?\")",
       "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1300,1500 --virtual-time-budget=7000 '--screenshot=C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--onlyonetruth\\\\118f76d6-cf6e-4425-824d-c48020364d8b\\\\scratchpad\\\\pf-map.png' 'http://localhost:3123/#archive-cta')",
       "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1300,13500 --virtual-time-budget=8000 '--screenshot=C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--onlyonetruth\\\\118f76d6-cf6e-4425-824d-c48020364d8b\\\\scratchpad\\\\pf-full.png' http://localhost:3123/)",
-      "Bash(python -c \"from PIL import Image; im=Image.open\\(r'C:/Users/User/AppData/Local/Temp/claude/D--onlyonetruth/118f76d6-cf6e-4425-824d-c48020364d8b/scratchpad/pf-full.png'\\); print\\('size', im.size\\)\")"
+      "Bash(python -c \"from PIL import Image; im=Image.open\\(r'C:/Users/User/AppData/Local/Temp/claude/D--onlyonetruth/118f76d6-cf6e-4425-824d-c48020364d8b/scratchpad/pf-full.png'\\); print\\('size', im.size\\)\")",
+      "Bash(python3 -c \"import PIL; print\\(PIL.__version__\\)\")",
+      "Bash(python -c \"import PIL; print\\(PIL.__version__\\)\")",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\"D:\\\\onlyonetruth\\\\public\\\\map\\\\islam-spread-622-722.png\"\\); \"$\\($img.Width\\) x $\\($img.Height\\)\"; $img.Dispose\\(\\))",
+      "Bash(where cwebp *)",
+      "Bash(where ffmpeg *)",
+      "Bash(where magick *)",
+      "Bash(mkdir -p /d/onlyonetruth_backup)",
+      "Bash(mv public/map/islam-spread-622-722.orig.png \"/c/Users/User/AppData/Local/Temp/claude/D--onlyonetruth/2673c195-5e1b-410a-a97d-10810edf60d1/scratchpad/islam-spread-622-722.orig.png\")",
+      "Bash(mv public/map/islam-spread-622-722.orig.webp \"/c/Users/User/AppData/Local/Temp/claude/D--onlyonetruth/2673c195-5e1b-410a-a97d-10810edf60d1/scratchpad/islam-spread-622-722.orig.webp\")",
+      "Read(//c/Users/User/AppData/Local/Temp/claude/D--onlyonetruth/2673c195-5e1b-410a-a97d-10810edf60d1/scratchpad//**)"
     ]
   }
 }
