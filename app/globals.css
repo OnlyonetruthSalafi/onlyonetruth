@@ -548,6 +548,48 @@ html {
   box-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
 }
 
+/* ── Christian Chronicle (/paths-of-faith): override โทนน้ำเงินไบแซนไทน์
+      ใช้ครอบด้วย .cc-scope — ไม่กระทบหน้าอื่นที่ใช้ ic-* โทนแดง-ทองเดิม ── */
+.cc-scope .ic-axis {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(43, 80, 150, 0.65) 6%,
+    rgba(212, 175, 55, 0.75) 50%,
+    rgba(43, 80, 150, 0.65) 94%,
+    transparent 100%
+  );
+  box-shadow: 0 0 16px rgba(143, 184, 232, 0.3);
+}
+.cc-scope .ic-node::before,
+.cc-scope .ic-node::after {
+  background: linear-gradient(135deg, #f2dd8f 0%, #c5a059 45%, #2b5096 100%);
+}
+.cc-scope .ic-panel {
+  background: linear-gradient(160deg, rgba(219, 231, 248, 0.07) 0%, rgba(43, 80, 150, 0.14) 100%);
+}
+
+/* ── Islamic Chronicle (/paths-of-faith): override โทนน้ำตาล-ทอง
+      ใช้ครอบด้วย .im-scope — แยกสีจากแถบคริสต์ศาสนา (โทนน้ำเงิน) อย่างชัดเจน ── */
+.im-scope .ic-axis {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(120, 84, 44, 0.7) 6%,
+    rgba(212, 175, 55, 0.75) 50%,
+    rgba(120, 84, 44, 0.7) 94%,
+    transparent 100%
+  );
+  box-shadow: 0 0 16px rgba(197, 160, 89, 0.35);
+}
+.im-scope .ic-node::before,
+.im-scope .ic-node::after {
+  background: linear-gradient(135deg, #f2dd8f 0%, #c5a059 45%, #6b4a2b 100%);
+}
+.im-scope .ic-panel {
+  background: linear-gradient(160deg, rgba(240, 225, 200, 0.07) 0%, rgba(107, 74, 40, 0.16) 100%);
+}
+
 /* ดาว 8 แฉก — สี่เหลี่ยมสองอันซ้อนหมุน 45° */
 .ic-node {
   position: relative;

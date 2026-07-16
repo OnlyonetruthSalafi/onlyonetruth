@@ -58,7 +58,8 @@
       "Bash(sed -i '277s/chapter: \"IV\"/chapter: \"VI\"/' app/textual-history/page.js)",
       "Bash(sed -i '291s/chapter: \"V\"/chapter: \"VII\"/' app/textual-history/page.js)",
       "Bash(sed -i '304s/chapter: \"VI\"/chapter: \"VIII\"/' app/textual-history/page.js)",
-      "Bash(echo \"---exit $?\")"
+      "Bash(echo \"---exit $?\")",
+      "Bash(dir \"D:\\\\onlyonetruth\\\\public\\\\map\")"
     ]
   }
 }

@@ -8,7 +8,7 @@
 // ════════════════════════════════════════════════════════════════════
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { JOURNEYS, HISTORICAL_NOTE } from "../lib/paths-of-faith/data";
+import { JOURNEYS } from "../lib/paths-of-faith/data";
 
 const DWELL_MS = 1800; // หยุดพักที่เมือง (หารด้วยความเร็ว)
 const SPEEDS = [0.5, 1, 2, 3];
@@ -34,8 +34,9 @@ function polyLen(pts) {
   return s;
 }
 
-export default function FaithJourneyMap() {
-  const [journeyId, setJourneyId] = useState("islam");
+export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChange } = {}) {
+  const [internalJourneyId, setInternalJourneyId] = useState("islam");
+  const journeyId = controlledId ?? internalJourneyId; // controlled ถ้ามี prop, ไม่งั้นคุม state เอง
   const journey = JOURNEYS.find((j) => j.id === journeyId);
 
   const [activeRouteId, setActiveRouteId] = useState(JOURNEYS[0].routes[0].id);
@@ -126,12 +127,14 @@ export default function FaithJourneyMap() {
     const base = journey.viewW * 0.075; // หน่วย viewBox ต่อวินาที ที่ 1×
 
     let dist = 0, next = 1, dwell = 0, done = pts.length < 2;
+    let cardDismissed = false; // ปิดการ์ดอัตโนมัติเมื่อเริ่มเดินต่อ กันการ์ดบังตัวละครระหว่างทาง
 
     const fire = (idx) => {
       setVisited((v) => ({ ...v, [`${route.id}:${idx}`]: true }));
       setCard({ routeId: route.id, stopIdx: idx });
       setCurrentIdx(idx);
       spawnEffect(pts[idx], route.color);
+      cardDismissed = false;
     };
 
     fire(0);
@@ -148,6 +151,10 @@ export default function FaithJourneyMap() {
         if (dwell > 0) {
           dwell -= dt * speedRef.current;
         } else {
+          if (!cardDismissed) {
+            cardDismissed = true;
+            setCard(null);
+          }
           dist += base * speedRef.current * dt;
           if (dist >= cum[next]) {
             dist = cum[next];
@@ -185,7 +192,8 @@ export default function FaithJourneyMap() {
   const switchJourney = (id) => {
     if (id === journeyId) return;
     const j = JOURNEYS.find((x) => x.id === id);
-    setJourneyId(id);
+    setInternalJourneyId(id);
+    onJourneyChange?.(id);
     setActiveRouteId(j.routes[0].id);
     setEffects([]);
     setPlaying(true);
@@ -625,7 +633,7 @@ export default function FaithJourneyMap() {
 
       {/* เชิงอรรถประวัติศาสตร์ */}
       <p className="max-w-3xl mx-auto mt-6 text-center font-pridi text-xs text-paper-white/50 leading-relaxed px-4">
-        {HISTORICAL_NOTE}
+        {journey.note}
       </p>
     </div>
   );

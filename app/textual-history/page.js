@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
@@ -551,7 +552,27 @@ export default function TextualHistory() {
       <Navbar />
 
       {/* PAGE HERO */}
-      <section className="relative py-20 md:py-28 bg-ink text-paper-white overflow-hidden">
+      <section className="relative py-24 md:py-36 bg-ink text-paper-white overflow-hidden">
+        {/* ภาพห้องเก็บม้วนคัมภีร์โบราณ จาง ๆ ด้านหลัง — สื่อถึงการรวบรวมและถ่ายทอดต้นฉบับ */}
+        <div className="absolute inset-0">
+          <Image
+            src="/header.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            aria-hidden="true"
+            className="object-cover object-center opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/68 to-ink/92" />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.5) 100%)",
+            }}
+          />
+        </div>
         <div className="absolute inset-0 pointer-events-none opacity-[0.07]">
           <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold blur-3xl" />
           <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-gold-light blur-3xl" />
