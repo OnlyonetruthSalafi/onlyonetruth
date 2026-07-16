@@ -1,4 +1,4 @@
-import { Pridi, Cinzel, Amiri } from 'next/font/google'
+import { Pridi, Cinzel, Cinzel_Decorative, Amiri } from 'next/font/google'
 import "./globals.css";
 
 const pridi = Pridi({
@@ -12,6 +12,13 @@ const cinzel = Cinzel({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-cinzel',
+  display: 'swap',
+})
+
+const cinzelDeco = Cinzel_Decorative({
+  weight: ['400', '700', '900'],
+  subsets: ['latin'],
+  variable: '--font-cinzel-deco',
   display: 'swap',
 })
 
@@ -37,7 +44,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="th"
-      className={`${pridi.variable} ${cinzel.variable} ${amiri.variable}`}
+      className={`${pridi.variable} ${cinzel.variable} ${cinzelDeco.variable} ${amiri.variable}`}
     >
       <body className="bg-paper text-ink font-pridi antialiased">{children}</body>
     </html>

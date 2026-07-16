@@ -7,7 +7,8 @@ const resourceLinks = [
   { href: "#contact", label: "ติดต่อ" },
 ];
 
-const linkCls = "font-pridi text-sm text-paper/80 hover:text-gold transition-colors";
+const linkCls =
+  "font-pridi text-sm text-paper/70 hover:text-gold hover:pl-1 transition-all duration-300";
 const btnCls = `${linkCls} text-left cursor-pointer`;
 
 function scrollTo(id) {
@@ -18,12 +19,22 @@ function scrollTo(id) {
   }
 }
 
+// หัวคอลัมน์พร้อมขีดทองสั้นใต้ชื่อ
+function ColumnHeading({ children }) {
+  return (
+    <h4 className="font-cinzel text-sm tracking-[0.25em] text-gold mb-2 uppercase">
+      {children}
+      <span className="block mt-2 h-px w-10 bg-gradient-to-r from-gold/70 to-transparent" />
+    </h4>
+  );
+}
+
 function SocialIcon({ children, label, href }) {
   return (
     <a
       href={href}
       aria-label={label}
-      className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gold/40 text-paper hover:text-ink hover:bg-gold hover:border-gold transition-all duration-300 hover:-translate-y-0.5"
+      className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gold/40 text-gold/80 hover:text-ink hover:bg-gradient-to-br hover:from-gold-light hover:to-gold-dark hover:border-gold hover:shadow-glow-sm transition-all duration-300 hover:-translate-y-1"
     >
       {children}
     </a>
@@ -34,29 +45,58 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="bg-ink text-paper py-16 md:py-20 border-t border-gold/20"
+      className="relative text-paper overflow-hidden"
+      style={{
+        background: "linear-gradient(180deg, #3E2723 0%, #2a1a17 55%, #1d100d 100%)",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* เส้นทองคู่ + ดาว 8 แฉก คั่นระหว่างเนื้อหากับ footer */}
+      <div className="relative flex items-center justify-center gap-4 pt-10">
+        <div className="h-px flex-1 max-w-xs bg-gradient-to-r from-transparent to-gold/60" />
+        <div className="tl-node8">
+          <span className="tl-node8-core" />
+        </div>
+        <div className="h-px flex-1 max-w-xs bg-gradient-to-l from-transparent to-gold/60" />
+      </div>
+
+      {/* ลายน้ำอาหรับจางกลางพื้นหลัง */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none select-none"
+      >
+        <span className="font-amiri text-[clamp(5rem,14vw,11rem)] leading-none text-gold/[0.05] whitespace-nowrap translate-y-1/4">
+          الحق واحد لا يتعدد
+        </span>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
+          {/* Brand */}
           <div>
-            <h3 className="font-cinzel text-xl tracking-[0.18em] text-gold mb-4">
-              OnlyOneTruth
+            <h3 className="font-cinzel-deco text-xl md:text-2xl font-bold tracking-[0.12em] mb-1 text-shimmer">
+              ONLYONETRUTH
             </h3>
+            <p className="font-pridi text-xs text-gold/60 tracking-[0.15em] mb-4">
+              เพราะสัจธรรมมีแค่หนึ่งเดียว
+            </p>
             <p className="font-pridi text-sm text-paper-white/70 leading-relaxed max-w-sm">
               เพราะการตามหาความจริงของชีวิต คือ แพสชั่น ของคณะผู้จัดทำมาช้านาน
               อันนำมาสู่การสร้างเว็บไซต์นี้ และหวังว่าท่านผู้เข้าชมจะได้คำตอบที่ตัวเองค้นหาเช่นกัน
             </p>
-            <p className="text-lg text-gold/90 mt-4" dir="rtl" lang="ar">
+            <p
+              className="font-amiri text-xl text-gold/90 mt-4 drop-shadow-[0_0_10px_rgba(212,175,55,0.25)]"
+              dir="rtl"
+              lang="ar"
+            >
               الحق واحد لا يتعدد
             </p>
           </div>
 
+          {/* Links */}
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <h4 className="font-pridi text-sm tracking-[0.2em] text-gold mb-4 uppercase">
-                ลิงก์ด่วน
-              </h4>
-              <ul className="space-y-2">
+              <ColumnHeading>ลิงก์ด่วน</ColumnHeading>
+              <ul className="space-y-2 mt-4">
                 <li>
                   <a href="/" className={linkCls}>หน้าแรก</a>
                 </li>
@@ -90,16 +130,11 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-pridi text-sm tracking-[0.2em] text-gold mb-4 uppercase">
-                แหล่งข้อมูล
-              </h4>
-              <ul className="space-y-2">
+              <ColumnHeading>แหล่งข้อมูล</ColumnHeading>
+              <ul className="space-y-2 mt-4">
                 {resourceLinks.map((link) => (
                   <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className={linkCls}
-                    >
+                    <a href={link.href} className={linkCls}>
                       {link.label}
                     </a>
                   </li>
@@ -108,11 +143,10 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Contact */}
           <div>
-            <h4 className="font-pridi text-sm tracking-[0.2em] text-gold mb-4 uppercase">
-              ติดต่อเรา
-            </h4>
-            <p className="font-pridi text-sm text-paper/80 mb-5">
+            <ColumnHeading>ติดต่อเรา</ColumnHeading>
+            <p className="font-pridi text-sm text-paper/70 mb-5 mt-4">
               สำหรับคำถาม ความร่วมมือด้านวิชาการ หรือการเข้าถึงคลังเอกสาร
             </p>
             <div className="flex gap-3">
@@ -170,13 +204,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gold/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
+        {/* Bottom bar */}
+        <div className="relative border-t border-gold/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
+          <span className="absolute -top-[5px] left-1/2 -translate-x-1/2 text-gold/50 text-[0.6rem] bg-[#241512] px-3">
+            ✦
+          </span>
           <p className="font-pridi text-xs md:text-sm text-paper/70 tracking-wide">
             © {new Date().getFullYear()}{" "}
-            <span className="font-cinzel">OnlyOneTruth</span>{" "}
+            <span className="font-cinzel-deco text-gold/90">OnlyOneTruth</span>{" "}
             | เพื่อการศึกษาและเปรียบเทียบทางวิชาการ
           </p>
-          <p className="font-pridi text-xs md:text-sm text-paper/60 tracking-[0.2em] uppercase">
+          <p className="font-cinzel text-xs md:text-sm text-gold/50 tracking-[0.3em] uppercase">
             Veritas · Antiquitas · Memoria
           </p>
         </div>

@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import SearchModal from "./SearchModal";
 
 const menuItems = [
   { en: "HOME", th: "หน้าแรก", href: "/" },
@@ -11,9 +13,38 @@ const menuItems = [
   { en: "PATHS OF FAITH", th: "เส้นทางการเผยแพร่", scrollId: "archive-cta" },
 ];
 
+// ป้ายเมนู EN/TH พร้อมเส้นทองรูดใต้ตอน hover / active
+function MenuLabel({ item, active }) {
+  return (
+    <span className="relative flex flex-col items-center gap-0.5 pb-1">
+      <span
+        className={`font-cinzel text-sm tracking-[0.15em] transition-colors duration-300 ${
+          active ? "text-gold" : "text-paper-white group-hover:text-gold"
+        }`}
+      >
+        {item.en}
+      </span>
+      <span
+        className={`font-pridi text-xs transition-colors duration-300 ${
+          active ? "text-gold/70" : "text-paper-white/50 group-hover:text-gold/70"
+        }`}
+      >
+        {item.th}
+      </span>
+      <span
+        className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-px bg-gradient-to-r from-transparent via-gold to-transparent transition-all duration-500 ${
+          active ? "w-full opacity-100" : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+        }`}
+      />
+    </span>
+  );
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -22,12 +53,32 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // คีย์ลัดค้นหา Ctrl+K / ⌘K
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setSearchOpen((v) => !v);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const goScroll = (id) => {
+    if (window.location.pathname !== "/") {
+      window.location.href = `/#${id}`;
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header
-      className={`sticky top-0 z-50 backdrop-blur-md border-b transition-colors duration-300 ${
+      className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-300 ${
         scrolled
-          ? "bg-ink/95 border-gold/30 shadow-lg shadow-black/20"
-          : "bg-ink/80 border-gold/20"
+          ? "bg-gradient-to-b from-[#241512]/98 to-[#2a1a17]/95 shadow-[0_8px_30px_rgba(0,0,0,0.45)]"
+          : "bg-gradient-to-b from-[#241512]/90 to-[#2a1a17]/80"
       }`}
     >
       <nav
@@ -35,61 +86,89 @@ export default function Navbar() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 md:h-24 flex items-center justify-between"
       >
         {/* Logo */}
-        <a href="/" className="flex flex-col gap-0.5">
-          <span className="font-cinzel text-xl text-gold font-semibold tracking-widest">
-            ONLYONETRUTH
+        <a href="/" className="group/logo flex items-center gap-3">
+          {/* ดาว 8 แฉกประจำเว็บ */}
+          <span className="tl-node8 shrink-0 scale-110 transition-transform duration-500 group-hover/logo:rotate-45">
+            <span className="tl-node8-core" />
           </span>
-          <span className="font-pridi text-xs text-gold/70 font-light tracking-wide">
-            เพราะสัจธรรมมีแค่หนึ่งเดียว
+          <span className="flex flex-col gap-0.5">
+            <span className="font-cinzel-deco text-lg md:text-2xl font-bold tracking-[0.12em] leading-none text-shimmer">
+              ONLYONETRUTH
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="hidden sm:block h-px w-5 bg-gradient-to-r from-transparent to-gold/50" />
+              <span className="font-pridi text-[0.7rem] text-gold/70 font-light tracking-[0.15em]">
+                เพราะสัจธรรมมีแค่หนึ่งเดียว
+              </span>
+              <span className="hidden sm:block h-px w-5 bg-gradient-to-l from-transparent to-gold/50" />
+            </span>
           </span>
         </a>
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center gap-8">
-          {menuItems.map((item) => (
-            <li key={item.en}>
-              {item.scrollId ? (
-                <button
-                  onClick={() => {
-                    if (window.location.pathname !== "/") {
-                      window.location.href = `/#${item.scrollId}`;
-                    } else {
-                      document.getElementById(item.scrollId)?.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
-                  className="group flex flex-col items-center gap-0.5 hover:opacity-80 transition-all duration-300"
-                >
-                  <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
-                    {item.en}
-                  </span>
-                  <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
-                    {item.th}
-                  </span>
-                </button>
-              ) : (
-                <Link
-                  href={item.href}
-                  className="group flex flex-col items-center gap-0.5 hover:opacity-80 transition-all duration-300"
-                >
-                  <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
-                    {item.en}
-                  </span>
-                  <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
-                    {item.th}
-                  </span>
-                </Link>
-              )}
-            </li>
-          ))}
+          {menuItems.map((item) => {
+            const active = item.href && pathname === item.href && item.href !== "/";
+            return (
+              <li key={item.en}>
+                {item.scrollId ? (
+                  <button onClick={() => goScroll(item.scrollId)} className="group">
+                    <MenuLabel item={item} active={false} />
+                  </button>
+                ) : (
+                  <Link href={item.href} className="group">
+                    <MenuLabel item={item} active={active} />
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
 
-        {/* CTA Button */}
+        {/* ปุ่มค้นหา */}
         <button
-          onClick={() => document.getElementById('intro-section')?.scrollIntoView({ behavior: 'smooth' })}
-          className="hidden lg:inline-flex flex-col items-center bg-gold hover:bg-gold-light text-ink px-6 py-2 rounded-btn transition-all duration-300 shadow-card hover:shadow-card-hover hover:-translate-y-0.5"
+          onClick={() => setSearchOpen(true)}
+          className="hidden lg:inline-flex items-center gap-3 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-ink px-5 py-2.5 rounded-btn transition-all duration-300 shadow-glow-sm hover:shadow-glow hover:-translate-y-0.5"
         >
-          <span className="font-cinzel text-sm tracking-wider font-semibold">EXPLORE</span>
-          <span className="font-pridi text-xs opacity-70">ค้นคว้า</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            className="w-4 h-4"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
+          <span className="flex flex-col items-start leading-tight">
+            <span className="font-cinzel text-sm tracking-[0.15em] font-semibold">SEARCH</span>
+            <span className="font-pridi text-xs opacity-70">ค้นหา</span>
+          </span>
+          <kbd className="font-cinzel text-[0.6rem] tracking-wider border border-ink/30 rounded px-1.5 py-0.5 opacity-60">
+            Ctrl K
+          </kbd>
+        </button>
+
+        {/* ปุ่มค้นหา (มือถือ) */}
+        <button
+          onClick={() => setSearchOpen(true)}
+          aria-label="ค้นหา"
+          className="lg:hidden inline-flex items-center justify-center w-10 h-10 text-gold focus:outline-none focus:ring-2 focus:ring-gold/60 rounded-btn"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            className="w-5 h-5"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
         </button>
 
         {/* Hamburger */}
@@ -121,9 +200,16 @@ export default function Navbar() {
         </button>
       </nav>
 
+      {/* เส้นทองไล่เฉดใต้ header */}
+      <div
+        className={`h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent transition-opacity duration-300 ${
+          scrolled ? "opacity-100" : "opacity-50"
+        }`}
+      />
+
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden overflow-hidden border-t border-gold/20 bg-ink/95 backdrop-blur-md transition-[max-height,opacity] duration-500 ease-out ${
+        className={`lg:hidden overflow-hidden bg-gradient-to-b from-[#2a1a17]/98 to-ink/98 backdrop-blur-md transition-[max-height,opacity] duration-500 ease-out ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -134,16 +220,13 @@ export default function Navbar() {
                 <button
                   onClick={() => {
                     setOpen(false);
-                    if (window.location.pathname !== "/") {
-                      window.location.href = `/#${item.scrollId}`;
-                    } else {
-                      document.getElementById(item.scrollId)?.scrollIntoView({ behavior: "smooth" });
-                    }
+                    goScroll(item.scrollId);
                   }}
                   className="w-full flex items-center gap-3 py-3 border-b border-gold/10 hover:bg-gold/5 px-2 rounded-btn transition-colors group"
                 >
-                  <div className="flex flex-col">
-                    <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
+                  <span className="text-gold/40 text-xs">✦</span>
+                  <div className="flex flex-col items-start">
+                    <span className="font-cinzel text-sm text-paper-white tracking-[0.15em] group-hover:text-gold transition-colors">
                       {item.en}
                     </span>
                     <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
@@ -157,8 +240,9 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-3 py-3 border-b border-gold/10 hover:bg-gold/5 px-2 rounded-btn transition-colors group"
                 >
+                  <span className="text-gold/40 text-xs">✦</span>
                   <div className="flex flex-col">
-                    <span className="font-cinzel text-sm text-paper-white tracking-wider group-hover:text-gold transition-colors">
+                    <span className="font-cinzel text-sm text-paper-white tracking-[0.15em] group-hover:text-gold transition-colors">
                       {item.en}
                     </span>
                     <span className="font-pridi text-xs text-paper-white/50 group-hover:text-gold/70 transition-colors">
@@ -171,15 +255,32 @@ export default function Navbar() {
           ))}
           <li className="pt-3">
             <button
-              onClick={() => { setOpen(false); document.getElementById('intro-section')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="w-full flex flex-col items-center bg-gold hover:bg-gold-light text-ink py-2.5 rounded-btn transition-all duration-300"
+              onClick={() => { setOpen(false); setSearchOpen(true); }}
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-ink py-2.5 rounded-btn shadow-glow-sm transition-all duration-300"
             >
-              <span className="font-cinzel text-sm tracking-wider font-semibold">EXPLORE</span>
-              <span className="font-pridi text-xs opacity-70">ค้นคว้า</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                className="w-4 h-4"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" />
+              </svg>
+              <span className="flex flex-col items-start leading-tight">
+                <span className="font-cinzel text-sm tracking-[0.15em] font-semibold">SEARCH</span>
+                <span className="font-pridi text-xs opacity-70">ค้นหา</span>
+              </span>
             </button>
           </li>
         </ul>
       </div>
+
+      {/* โมดัลค้นหาทั้งเว็บ */}
+      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

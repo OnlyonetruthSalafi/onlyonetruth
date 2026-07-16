@@ -28,6 +28,7 @@ module.exports = {
       fontFamily: {
         pridi: ['var(--font-pridi)', 'sans-serif'],
         cinzel: ['var(--font-cinzel)', 'serif'],
+        'cinzel-deco': ['var(--font-cinzel-deco)', 'serif'],
         amiri: ['var(--font-amiri)', 'serif'],
       },
       fontSize: {
