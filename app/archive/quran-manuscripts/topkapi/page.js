@@ -122,12 +122,14 @@ export default function TopkapiManuscript() {
           {/* Info Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {[
-              { label: "อายุ", value: "ปลายศตวรรษที่ 1 — ต้นศตวรรษที่ 2 ฮ.ศ." },
-              { label: "อักษร", value: "Kufic Script บนหนังสัตว์" },
-              { label: "หน้า", value: "408 หน้า ขาดเพียง 2 หน้า ครอบคลุมมากกว่า 99%" },
-              { label: "ขนาด", value: "ไม่ทราบแน่ชัด" },
+              { label: "อายุ", value: "ปลายศตวรรษที่ 1 — ต้นศตวรรษที่ 2 ฮ.ศ. (ยุคอุมัยยะฮ์)" },
+              { label: "อักษร", value: "Kufic Script — กำกับสระด้วยจุดสีแดงตามระบบของอบูอัลอัสวัด อัดดุอะลี" },
+              { label: "จำนวนหน้า", value: "408 หน้า ขาดเพียง 2 หน้า ครอบคลุมมากกว่า 99% ของข้อความ" },
+              { label: "ขนาด", value: "41 × 46 ซม. (พื้นที่ตัวบท 32 × 40 ซม.) หนา 11 ซม." },
+              { label: "วัสดุ", value: "หนังสัตว์ (Vellum)" },
+              { label: "ทะเบียน", value: "H.S. 194 (เดิม H.S. 22 และ H.S. 44/32)" },
               { label: "สถานที่", value: "Topkapi Palace Museum, Istanbul, Turkey" },
-              { label: "ฉบับตีพิมพ์", value: "Altikulaç, 2007" },
+              { label: "ฉบับตีพิมพ์", value: "Facsimile edition โดย Tayyar Altıkulaç, 2007" },
             ].map((item) => (
               <div key={item.label} className="card-glass p-5">
                 <p className="font-cinzel text-gold text-sm mb-1">{item.label}</p>
@@ -139,11 +141,73 @@ export default function TopkapiManuscript() {
           {/* เนื้อหา */}
           <div className="mb-10">
             <h3 className="font-cinzel text-xl text-ink mb-4">เนื้อหา</h3>
-            <p className="font-pridi text-ink/80 leading-relaxed">
-              มี 408 หน้า ครอบคลุมมากกว่า 99% ของข้อความอัลกุรอาน ขาดไปเพียง 2 หน้า
-              แสดงรูปแบบการเขียนและตกแต่งตัวอักษรในยุคอุมัยยะฮ์ปลายศตวรรษที่ 1
-              Islamic Awareness ระบุว่า Altikulaç ได้จัดทำ facsimile edition ปี ค.ศ. 2007
+            <p className="font-pridi text-ink/80 leading-relaxed mb-4">
+              "อัลมุศฮัฟ อัชชะรีฟ" แห่งพระราชวังท็อปกาปึ เป็นต้นฉบับอัลกุรอานที่สมบูรณ์ที่สุดเล่มหนึ่งของยุคแรก
+              มี 408 หน้า ขาดไปเพียง 2 หน้า ครอบคลุมมากกว่า 99% ของข้อความอัลกุรอาน
+              เขียนด้วยอักษรคูฟิกบนหนังสัตว์ขนาดใหญ่ 41 × 46 ซม.
+              กำกับสระด้วยจุดสีแดงตามระบบของอบูอัลอัสวัด อัดดุอะลี
+              (วางจุดไว้บน ข้าง หรือใต้ตัวอักษร) และใช้ขีดสั้นแทนจุดแยกพยัญชนะ
             </p>
+            <p className="font-pridi text-ink/80 leading-relaxed">
+              แม้ตามตำนานจะเชื่อกันว่าเป็นมุศฮัฟส่วนตัวของเคาะลีฟะฮ์อุษมาน
+              แต่นักวิชาการทั้งมุสลิมและตะวันตก — รวมถึงศ็อลาฮุดดีน อัลมุนัจญิด และ Tayyar Altıkulaç
+              ผู้จัดทำ facsimile edition ปี 2007 — ลงความเห็นว่ารูปแบบอักษร การตกแต่ง
+              และระบบกำกับสระบ่งชี้ว่าคัดลอกในยุคอุมัยยะฮ์ ปลายศตวรรษที่ 1 ถึงต้นศตวรรษที่ 2 ฮ.ศ.
+              กระนั้นสาระสำคัญคือ โครงตัวบท (rasm) ของต้นฉบับนี้ตรงตามมาตรฐานอุษมานีที่ใช้กันทั่วโลกทุกวันนี้
+            </p>
+          </div>
+
+          {/* ข้อโจมตีจากนักบูรพาคดี + คำชี้แจงจาก Al-Azami */}
+          <div className="mb-10">
+            <h3 className="font-cinzel text-xl text-ink mb-4">
+              ข้อโจมตีของนักบูรพาคดีตะวันตกเรื่อง "Variants"
+            </h3>
+            <p className="font-pridi text-ink/80 leading-relaxed mb-4">
+              นักบูรพาคดี (Orientalists) หลายท่าน อาทิ อิกนาซ โกลด์ซิเฮอร์, อัลฟองส์ มิงกานา
+              และอาร์เธอร์ เจฟฟรี (ผู้รวบรวม Materials for the History of the Text of the Qur'an, 1937)
+              พยายามนำระเบียบวิธีวิจารณ์ตัวบทไบเบิล (Biblical Textual Criticism)
+              มาใช้กับอัลกุรอาน โดยชี้ไปที่ "variants" — ความแตกต่างของการเขียนที่พบในต้นฉบับยุคแรกอย่างท็อปกาปึ
+              เช่น อักขรวิธีการเขียนอะลิฟที่ต่างจากฉบับมาตรฐาน หรือรายงานเกี่ยวกับมุศฮัฟของเศาะฮาบะฮ์บางท่าน
+              เพื่อสรุปว่าตัวบทอัลกุรอานยังไม่นิ่งและถูกแก้ไขภายหลัง
+            </p>
+
+            <h3 className="font-cinzel text-xl text-ink mb-4 mt-8">
+              คำชี้แจงจาก M.M. Al-Azami — The History of the Qur'anic Text
+            </h3>
+            <p className="font-pridi text-ink/80 leading-relaxed mb-4">
+              ศ.ดร.มุฮัมมัด มุศเฏาะฟา อัลอะอฺซอมี (M.M. Al-Azami) ตอบข้อกล่าวหาเหล่านี้ไว้ในหนังสือ
+              The History of the Qur'anic Text: From Revelation to Compilation (2003) โดยสรุปได้ดังนี้
+            </p>
+            <ul className="font-pridi text-ink/80 leading-relaxed space-y-3 list-none">
+              <li className="pl-5 relative">
+                <span className="absolute left-0 text-gold">◆</span>
+                <strong>ความต่างเกือบทั้งหมดเป็นเพียงอักขรวิธี ไม่ใช่ตัวบท</strong> —
+                สิ่งที่ถูกเรียกว่า variant ในต้นฉบับอย่างท็อปกาปึ คือธรรมเนียมการสะกดของอาลักษณ์ยุคแรก
+                เช่น การเขียนหรือละอะลิฟ (เขียน قل แทน قال ในโครงเดิม)
+                ซึ่งผู้อ่านที่ท่องจำอัลกุรอานย่อมอ่านได้ถูกต้องเสมอ ไม่กระทบความหมายแม้แต่คำเดียว
+              </li>
+              <li className="pl-5 relative">
+                <span className="absolute left-0 text-gold">◆</span>
+                <strong>อัลกุรอานไม่ได้พึ่งพาต้นฉบับลายลักษณ์เป็นหลัก</strong> —
+                ต่างจากไบเบิลที่ตัวบทต้องสืบสร้างจากการเทียบต้นฉบับ อัลกุรอานถูกรักษาด้วยการท่องจำแบบ
+                Mutawātir (การถ่ายทอดมวลชนต่อมวลชนทุกรุ่น) ควบคู่กับลายลักษณ์
+                ต้นฉบับโบราณจึงเป็นเพียงพยานสนับสนุน มิใช่แหล่งเดียวของตัวบท
+              </li>
+              <li className="pl-5 relative">
+                <span className="absolute left-0 text-gold">◆</span>
+                <strong>รายงาน "มุศฮัฟเศาะฮาบะฮ์" ที่เจฟฟรีรวบรวมนั้นอ่อนหลักฐาน</strong> —
+                จำนวนมากเป็นสายรายงานที่เชื่อถือไม่ได้ หรือแท้จริงเป็นคำอธิบายประกอบ (exegetical gloss)
+                ที่เศาะฮาบะฮ์จดไว้ข้างตัวบทเพื่อความเข้าใจส่วนตัว ไม่ใช่ตัวบทอัลกุรอานอีกฉบับ
+              </li>
+              <li className="pl-5 relative">
+                <span className="absolute left-0 text-gold">◆</span>
+                <strong>การเทียบต้นฉบับกลับยืนยันความเป็นหนึ่งเดียว</strong> —
+                เมื่อเทียบมุศฮัฟยุคแรกทั้งหมด รวมถึงท็อปกาปึ ซามาร์คันด์ และฮุสเซน
+                โครงตัวบท (rasm) ตรงกันและตรงกับฉบับมาตรฐานปัจจุบัน
+                หากใช้มาตรฐานเดียวกันที่นักบูรพาคดีใช้ตัดสินอัลกุรอานไปตัดสินไบเบิล
+                ตัวบทไบเบิลจะไม่ผ่านเกณฑ์ดังกล่าวเสียเอง
+              </li>
+            </ul>
           </div>
 
           {/* หมายเหตุสำคัญ */}
@@ -167,7 +231,7 @@ export default function TopkapiManuscript() {
           {/* ปุ่ม */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a
-              href="https://www.islamic-awareness.org/quran/text/mss/"
+              href="https://www.islamic-awareness.org/quran/text/mss/topkapi"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary font-pridi text-center"

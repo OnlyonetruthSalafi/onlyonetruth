@@ -4,7 +4,7 @@ import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
 
-export default function TimuridManuscript() {
+export default function MailManuscript() {
   return (
     <div className="bg-paper text-ink">
       <Navbar />
@@ -28,23 +28,23 @@ export default function TimuridManuscript() {
               Qur'anic Manuscripts
             </Link>
             <span className="text-gold/40">›</span>
-            <span className="text-gold">Timurid Quran Manuscript</span>
+            <span className="text-gold">Ma'il Qur'an</span>
           </nav>
 
           <div className="text-center">
             <h1 className="font-cinzel text-3xl md:text-5xl text-paper-white mb-3 leading-tight">
-              Timurid Quran Manuscript
+              Ma'il Qur'an
             </h1>
             <h2 className="font-cinzel text-xl md:text-2xl text-gold mb-6">
-              ต้นฉบับอัลกุรอานยุคติมูริด (อักโกยุนลู) — ผลงานชิ้นเอกของศิลปะอิสลาม
+              BL Or. 2165 — หนึ่งในต้นฉบับอัลกุรอานที่เก่าแก่ที่สุดของโลก
             </h2>
             <div className="mx-auto h-px w-24 bg-gold/50 mb-6" />
             <p className="font-pridi text-lg text-paper-white/80 max-w-2xl mx-auto leading-relaxed mb-4">
-              ต้นฉบับสมบูรณ์ 534 หน้า บนกระดาษย้อมสีโรยผงทองจากจีนสมัยราชวงศ์หมิง
-              ต้นฉบับอัลกุรอานที่มีราคาประมูลสูงที่สุดในโลกเมื่อปี ค.ศ. 2020
+              ต้นฉบับอักษรฮิญาซีรูปแบบ Ma'il ("เอียง") จากศตวรรษที่ 1 ฮ.ศ.
+              121 หน้า ครอบคลุมซูเราะฮ์ 5–43 เก็บรักษาที่หอสมุดแห่งชาติอังกฤษ
             </p>
             <p className="font-cinzel text-gold/70 text-sm tracking-widest">
-              ศตวรรษที่ 15 ค.ศ. | Naskh & Thuluth | Private Collection (Christie's 2020)
+              ศตวรรษที่ 1 ฮ.ศ. | Ma'il / Hijazi Script | British Library, London
             </p>
           </div>
         </div>
@@ -57,14 +57,14 @@ export default function TimuridManuscript() {
             ภาพต้นฉบับ
           </h2>
           <p className="font-pridi text-center text-ink-muted mb-10">
-            ภาพหน้าต้นฉบับติมูริดบนกระดาษโรยทองสมัยราชวงศ์หมิง (ภาพ: Wikimedia Commons / Christie's)
+            ภาพหน้าต้นฉบับ Ma'il หอสมุดแห่งชาติอังกฤษ ลอนดอน (ภาพ: Wikimedia Commons)
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
-                src="/manuscripts/quran/timurid/tim1.jpg"
-                alt="หน้าต้นฉบับติมูริด — อักษร Naskh บนกระดาษย้อมสีโรยผงทองจากจีนสมัยราชวงศ์หมิง"
+                src="/manuscripts/quran/mail/mail1.jpg"
+                alt="หน้าต้นฉบับ Ma'il — อักษรฮิญาซีเอนขวา (BL Or 2165, f.77r)"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -77,20 +77,20 @@ export default function TimuridManuscript() {
                 className="h-48 items-center justify-center bg-paper-light"
               >
                 <p className="font-pridi text-ink-muted text-sm">
-                  รอการอัปโหลดภาพ tim1.jpg
+                  รอการอัปโหลดภาพ mail1.jpg
                 </p>
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้ากระดาษโรยแผ่นทอง — อักษร Naskh พร้อมเครื่องหมายจบอายะฮ์ดอกไม้ทอง
+                  หน้าต้นฉบับอักษร Ma'il เอนขวา ไม่มีจุดกำกับเสียง (f.77r)
                 </p>
               </div>
             </div>
 
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
-                src="/manuscripts/quran/timurid/tim2.jpg"
-                alt="หน้าเปิดประดับทองอย่างวิจิตร — ซูเราะฮ์อัลฟาติหะฮ์และอัลบะเกาะเราะฮ์ หัวซูเราะฮ์อักษร Thuluth"
+                src="/manuscripts/quran/mail/mail2.jpg"
+                alt="หน้าต้นฉบับ Ma'il พร้อมเครื่องหมายจบอายะฮ์แบบจุด (BL Or 2165, f.76v)"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -103,12 +103,12 @@ export default function TimuridManuscript() {
                 className="h-48 items-center justify-center bg-paper-light"
               >
                 <p className="font-pridi text-ink-muted text-sm">
-                  รอการอัปโหลดภาพ tim2.jpg
+                  รอการอัปโหลดภาพ mail2.jpg
                 </p>
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าเปิดประดับทองอย่างวิจิตร — ซูเราะฮ์อัลฟาติหะฮ์และอัลบะเกาะเราะฮ์
+                  เครื่องหมายจบอายะฮ์เป็นกลุ่มขีดจุด (f.76v)
                 </p>
               </div>
             </div>
@@ -123,14 +123,14 @@ export default function TimuridManuscript() {
           {/* Info Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {[
-              { label: "อายุ", value: "ศตวรรษที่ 15 ค.ศ. (ผลิตในอิหร่าน)" },
-              { label: "อักษร", value: "Naskh (เนื้อหา) และ Thuluth (หัวซูเราะฮ์และญุซอ์)" },
-              { label: "จำนวนหน้า", value: "534 หน้า (สมบูรณ์)" },
-              { label: "ขนาด", value: "22.6 × 15.5 ซม." },
-              { label: "วัสดุ", value: "กระดาษย้อมสีโรยผงทอง ผลิตในจีนสมัยราชวงศ์หมิง ผสม Lead White เนื้อนุ่มดุจแพรไหม" },
-              { label: "สีของกระดาษ", value: "ชมพู ม่วง ครีม ส้ม ฟ้า และเทอร์ควอยซ์" },
-              { label: "สถานที่", value: "คอลเลกชันส่วนบุคคล (ประมูลผ่าน Christie's ลอนดอน 25 มิ.ย. 2020)" },
-              { label: "ราชวงศ์", value: "ติมูริด (Timurid) หรือ อักโกยุนลู (Aq Qoyunlu)" },
+              { label: "อายุ", value: "ศตวรรษที่ 1 ฮ.ศ. (ราว ค.ศ. 700 หรือก่อนหน้า)" },
+              { label: "อักษร", value: "Ma'il — อักษรฮิญาซียุคแรกที่ลำตัวอักษรเอนไปทางขวา" },
+              { label: "จำนวนหน้า", value: "121 หน้าที่หอสมุดแห่งชาติอังกฤษ + 6 หน้าที่ปารีส (Arabe 328e) + 2 หน้าที่คูเวต (LNS 19 CAab)" },
+              { label: "เนื้อหา", value: "ซูเราะฮ์ 5–43 ประมาณ 53% ของข้อความอัลกุรอาน" },
+              { label: "ขนาด", value: "31.5 × 21.5 ซม. หน้าละ 21–27 บรรทัด" },
+              { label: "วัสดุ", value: "หนังสัตว์ (Parchment)" },
+              { label: "สถานที่", value: "British Library, London (ทะเบียน Or. 2165)" },
+              { label: "แหล่งที่มา", value: "สันนิษฐานว่าคัดลอกในคาบสมุทรอาหรับ" },
             ].map((item) => (
               <div key={item.label} className="card-glass p-5">
                 <p className="font-cinzel text-gold text-sm mb-1">{item.label}</p>
@@ -143,23 +143,24 @@ export default function TimuridManuscript() {
           <div className="mb-10">
             <h3 className="font-cinzel text-xl text-ink mb-4">เนื้อหา</h3>
             <p className="font-pridi text-ink/80 leading-relaxed mb-4">
-              ต้นฉบับอัลกุรอานฉบับสมบูรณ์หนา 534 หน้า ขนาด 22.6 × 15.5 ซม. คัดลอกในอิหร่านช่วงศตวรรษที่ 15
-              สมัยราชวงศ์ติมูริดหรืออักโกยุนลู (จึงเรียกอีกชื่อว่า "Aqquyunlu Quran") เนื้อหาเขียนด้วยอักษร Naskh
-              ส่วนหัวซูเราะฮ์และหัวญุซอ์ทั้ง 30 ส่วนเขียนด้วยอักษร Thuluth สีทอง ไม่ปรากฏชื่อผู้คัดลอก
+              ต้นฉบับ Or. 2165 เป็นหนึ่งในต้นฉบับอัลกุรอานที่เก่าแก่ที่สุดในโลก
+              นักวิชาการจัดให้อยู่ในศตวรรษที่ 1 ฮ.ศ. เขียนบนหนังสัตว์ด้วยอักษรที่เรียกว่า
+              "Ma'il" (มาอิล — ภาษาอาหรับแปลว่า "เอียง") ซึ่งเป็นรูปแบบหนึ่งของตระกูลอักษรฮิญาซียุคแรก
+              จุดเด่นคือลำตัวอักษรแนวตั้งเอนไปทางขวาอย่างชัดเจน
+              ตามแบบฉบับการเขียนของแคว้นฮิญาซ (มักกะฮ์–มะดีนะฮ์) ก่อนที่อักษรคูฟิกทรงเหลี่ยมจะแพร่หลาย
             </p>
             <p className="font-pridi text-ink/80 leading-relaxed mb-4">
-              จุดเด่นที่ทำให้ต้นฉบับนี้เป็นเอกในโลกคือกระดาษ — เป็นกระดาษย้อมสีโรยผงทองที่ผลิตในจีนสมัยราชวงศ์หมิง
-              และนำเข้ามายังอิหร่านผ่านเส้นทางสายไหม เนื้อกระดาษผสม Lead White จึงนุ่มเนียนดุจแพรไหม
-              แต่ละหน้าย้อมสีต่างกันทั้งชมพู ม่วง ครีม ส้ม ฟ้า และเทอร์ควอยซ์
-              บางหน้ายังประดับภาพวาดทิวทัศน์ พรรณไม้ และนกด้วยสีทองตามแบบจิตรกรรมจีน
-              สะท้อนการแลกเปลี่ยนศิลปวัฒนธรรมระหว่างโลกอิสลามกับจีนในยุคนั้นอย่างงดงาม
+              ต้นฉบับเขียนแบบประหยัดเนื้อที่ หน้าละ 21–27 บรรทัด ไม่มีจุดแยกพยัญชนะ
+              ไม่มีเครื่องหมายสระ และไม่มีการประดับหัวซูเราะฮ์
+              คั่นแต่ละอายะฮ์ด้วยกลุ่มขีดจุดเรียบง่าย
+              สะท้อนยุคที่การเขียนทำหน้าที่เพียงช่วยเตือนความจำของผู้ท่องจำ (ฮาฟิซ)
+              ซึ่งเป็นผู้แบกรับตัวบทอัลกุรอานตัวจริงผ่านการสืบทอดแบบมุตะวาติร
             </p>
             <p className="font-pridi text-ink/80 leading-relaxed">
-              เมื่อวันที่ 25 มิถุนายน ค.ศ. 2020 ต้นฉบับนี้ถูกประมูลที่ Christie's กรุงลอนดอน
-              ได้ราคาสูงถึง 7,016,250 ปอนด์ — มากกว่าราคาประเมินกว่าสิบสองเท่า
-              นับเป็นต้นฉบับอัลกุรอานที่มีราคาประมูลสูงที่สุดในโลก ณ เวลานั้น
-              ปัจจุบันอยู่ในคอลเลกชันส่วนบุคคล ทั้งนี้นักวิชาการจำนวนหนึ่งได้วิจารณ์การประมูลดังกล่าว
-              ด้วยความกังวลว่ามรดกทางประวัติศาสตร์ชิ้นสำคัญจะหลุดพ้นจากการเข้าถึงของสาธารณชนและการศึกษาวิจัย
+              ชิ้นส่วนของโคเด็กซ์เดียวกันนี้กระจายอยู่สามแห่ง — 121 หน้าที่หอสมุดแห่งชาติอังกฤษ
+              6 หน้าที่หอสมุดแห่งชาติฝรั่งเศส (Arabe 328e) และ 2 หน้าในคอลเลกชันอัศเศาะบาห์ ประเทศคูเวต
+              รวมครอบคลุมซูเราะฮ์ 5 ถึง 43 หรือประมาณ 53% ของข้อความอัลกุรอาน
+              และข้อความทั้งหมดตรงตามโครงตัวบท (rasm) มาตรฐานอุษมานีที่ใช้กันทุกวันนี้
             </p>
           </div>
 
@@ -184,12 +185,12 @@ export default function TimuridManuscript() {
           {/* ปุ่ม */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a
-              href="https://en.wikipedia.org/wiki/Timurid_Quran_manuscript"
+              href="https://www.islamic-awareness.org/quran/text/mss/hijazi"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary font-pridi text-center"
             >
-              อ่านข้อมูลต้นฉบับ (Wikipedia) ↗
+              อ่านบทความต้นฉบับ (Islamic Awareness) ↗
             </a>
             <Link
               href="/archive/quran-manuscripts"

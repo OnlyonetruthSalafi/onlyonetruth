@@ -63,7 +63,7 @@ export default function StPetersburgManuscript() {
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
                 src="/manuscripts/quran/stpetersburg/stp1.jpg"
-                alt="หน้าต้นฉบับเซนต์ปีเตอร์สเบิร์ก — อักษรฮิญาซี"
+                alt="หน้าคู่ต้นฉบับ E-20 (Katta Langar) — อักษรฮิญาซี"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -81,7 +81,7 @@ export default function StPetersburgManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าต้นฉบับเซนต์ปีเตอร์สเบิร์ก — อักษรฮิญาซี
+                  หน้าคู่ต้นฉบับ E-20 (Katta Langar) — อักษรฮิญาซี
                 </p>
               </div>
             </div>

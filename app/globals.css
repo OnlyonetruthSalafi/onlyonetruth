@@ -699,6 +699,296 @@ html {
   .timeline-axis-fill::after { animation: none !important; }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   INTRO SECTION — "อลังการ" (grand featured-lecture block)
+   ══════════════════════════════════════════════════════════════ */
+
+/* ลายตารางจดหมายเหตุจางๆ ในพื้นหลัง */
+.intro-lux-grid {
+  background-image:
+    linear-gradient(rgba(197, 160, 89, 0.6) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197, 160, 89, 0.6) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 40%, transparent 100%);
+}
+
+/* ลำแสงเฉียงที่เคลื่อนไหวช้าๆ */
+.intro-lux-beam {
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.05) 42%,
+    rgba(250, 240, 230, 0.10) 50%,
+    rgba(212, 175, 55, 0.05) 58%,
+    transparent 100%
+  );
+  transform-origin: top center;
+  animation: introBeam 7s ease-in-out infinite;
+  filter: blur(6px);
+}
+@keyframes introBeam {
+  0%, 100% { opacity: 0.35; transform: rotate(-9deg) translateX(-10px); }
+  50%      { opacity: 0.8;  transform: rotate(-7deg) translateX(10px); }
+}
+
+/* ออร์นาเมนต์เพชรทองในเส้นขอบบน */
+.intro-lux-diamond {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, #f2dd8f 0%, #c5a059 50%, #b8860b 100%);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+}
+
+/* ลายน้ำอักษรประดับหลังหัวข้อ (aniconic) */
+.intro-lux-watermark {
+  position: absolute;
+  top: -3.2rem;
+  left: -1.5rem;
+  font-size: clamp(9rem, 20vw, 15rem);
+  line-height: 1;
+  color: rgba(212, 175, 55, 0.06);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* หัวข้อทองไล่เฉด + เรืองแสง */
+.intro-lux-title {
+  background: linear-gradient(92deg, #d9b978 0%, #f4e4b0 40%, #cfa45d 70%, #b8860b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 22px rgba(207, 164, 93, 0.4));
+}
+
+/* เสาหลัก 3 คำ (transmission / preservation / variation) */
+.intro-lux-pillar {
+  position: relative;
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+  border-radius: 0.6rem;
+  background: linear-gradient(160deg, rgba(245, 230, 211, 0.05) 0%, rgba(197, 160, 89, 0.06) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  box-shadow: inset 0 1px 0 rgba(245, 230, 211, 0.06);
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+.intro-lux-pillar:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(245, 230, 211, 0.1);
+}
+
+/* กรอบวิดีโอสไตล์จดหมายเหตุ */
+.intro-lux-frame {
+  background: linear-gradient(150deg, rgba(212, 175, 55, 0.16) 0%, rgba(62, 39, 35, 0.5) 45%, rgba(139, 26, 26, 0.16) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(245, 230, 211, 0.08);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   INTRO — CINEMATIC VIDEO THEATER (จอวิดีโอโรงละคร)
+   ══════════════════════════════════════════════════════════════ */
+
+/* ลำแสงโปรเจกเตอร์ สาดลงจากด้านบนสู่จอ */
+.intro-cine-projector {
+  position: absolute;
+  top: -9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130%;
+  height: 12rem;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 55% 100% at 50% 0%,
+    rgba(244, 228, 176, 0.14) 0%,
+    rgba(212, 175, 55, 0.07) 45%,
+    transparent 75%
+  );
+  filter: blur(8px);
+  animation: cineProjector 6s ease-in-out infinite;
+}
+@keyframes cineProjector {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+/* aura เรืองแสงรอบจอ — หายใจช้าๆ */
+.intro-cine-aura {
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 20%, rgba(212, 175, 55, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 75% 85%, rgba(139, 26, 26, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 80% at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  animation: cineAura 7s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes cineAura {
+  0%, 100% { opacity: 0.6; transform: scale(0.985); }
+  50%      { opacity: 1;   transform: scale(1.015); }
+}
+
+/* วงแหวนแสงทองหมุนรอบกรอบ (conic sweep) */
+@property --cine-a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.intro-cine-halo {
+  position: absolute;
+  inset: -3px;
+  border-radius: 1.15rem;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--cine-a),
+    transparent 0deg,
+    rgba(244, 228, 176, 0.9) 38deg,
+    rgba(212, 175, 55, 0.25) 80deg,
+    transparent 130deg,
+    transparent 185deg,
+    rgba(212, 175, 55, 0.55) 235deg,
+    transparent 300deg
+  );
+  filter: blur(9px);
+  opacity: 0.75;
+  animation: cineHalo 11s linear infinite;
+  z-index: 0;
+}
+@keyframes cineHalo {
+  to { --cine-a: 360deg; }
+}
+.intro-cine-frame { z-index: 1; }
+.intro-cine-frame > * { position: relative; }
+.intro-cine-frame > .intro-cine-halo,
+.intro-cine-frame > .ic-corner { position: absolute; }
+
+/* ประกายแสงกวาดผ่านหน้าปกวิดีโอ */
+.intro-cine-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(250, 240, 230, 0.1) 46%,
+    rgba(244, 228, 176, 0.2) 50%,
+    rgba(250, 240, 230, 0.1) 54%,
+    transparent 70%
+  );
+  background-size: 300% 100%;
+  animation: cineSheen 5.5s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+@keyframes cineSheen {
+  0%       { background-position: 130% 0; }
+  55%, 100% { background-position: -60% 0; }
+}
+
+/* ปุ่ม Play กลางจอ — เหรียญทองสองชั้น + คลื่นแสงกระเพื่อม */
+.intro-cine-play {
+  position: relative;
+  width: clamp(4.2rem, 9vw, 5.8rem);
+  height: clamp(4.2rem, 9vw, 5.8rem);
+  border-radius: 9999px;
+  background: linear-gradient(145deg, #f4e4b0 0%, #d4af37 45%, #b8860b 100%);
+  box-shadow:
+    0 0 0 1px rgba(244, 228, 176, 0.6),
+    0 0 35px rgba(212, 175, 55, 0.65),
+    0 14px 34px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 250, 235, 0.7);
+}
+.intro-cine-play::before,
+.intro-cine-play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.5px solid rgba(244, 228, 176, 0.75);
+  animation: cinePlayRing 2.6s ease-out infinite;
+  pointer-events: none;
+}
+.intro-cine-play::after { animation-delay: 1.3s; }
+@keyframes cinePlayRing {
+  0%   { transform: scale(1);    opacity: 0.85; }
+  100% { transform: scale(1.85); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-lux-beam { animation: none !important; }
+  .intro-cine-projector,
+  .intro-cine-aura,
+  .intro-cine-halo,
+  .intro-cine-sheen,
+  .intro-cine-play::before,
+  .intro-cine-play::after { animation: none !important; }
+  .intro-cine-sheen { opacity: 0; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TIMELINE — ลายน้ำอักษรศักดิ์สิทธิ์ (วลีเดียวต่อจุด จางมาก วางเป็นจังหวะ)
+   ══════════════════════════════════════════════════════════════ */
+.tl-scripture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  /* จางบน-ล่าง ให้กลืนกับพื้นหลังไทม์ไลน์ */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+
+/* ลายน้ำโองการ — บรรทัดเดียว ใหญ่ บางเบา ราวสลักบนพื้นผิว */
+.tl-verse {
+  position: absolute;
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+/* อาหรับ — โทนมรกต (อัลกุรอาน · ฝั่งซ้าย) */
+.tl-verse-ar {
+  direction: rtl;
+  font-weight: 400;
+  font-size: clamp(3rem, 8.5vw, 7rem);
+  color: rgba(163, 214, 178, 0.06);
+  text-shadow: 0 0 70px rgba(63, 174, 90, 0.10);
+}
+
+/* กรีก — โทนน้ำเงินไบแซนไทน์ (ไบเบิล · ฝั่งขวา) */
+.tl-verse-gr {
+  font-family: 'Cardo', Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 7.5vw, 6rem);
+  color: rgba(150, 184, 232, 0.065);
+  text-shadow: 0 0 70px rgba(70, 110, 170, 0.12);
+}
+
+/* วางสลับซ้าย-ขวา เอียงเล็กน้อย ให้ลื่นไหลไปกับการเลื่อนอ่าน */
+.tl-verse--1 { top: 4%;  left: -6%;  transform: rotate(-2.5deg); }
+.tl-verse--2 { top: 28%; right: -5%; transform: rotate(2deg); }
+.tl-verse--3 { top: 55%; left: -4%;  transform: rotate(-2deg); }
+.tl-verse--4 { top: 82%; right: -6%; transform: rotate(2.5deg); }
+
+/* แสงเรืองทองบางๆ ตามแนวแกนกลาง */
+.tl-scripture-seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 220px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 45% 55% at center, rgba(212, 175, 55, 0.10) 0%, transparent 70%);
+}
+
+@media (max-width: 767px) {
+  .tl-verse-ar { font-size: clamp(2.1rem, 11vw, 3.2rem); color: rgba(163, 214, 178, 0.05); }
+  .tl-verse-gr { font-size: clamp(1.8rem, 10vw, 2.8rem); color: rgba(150, 184, 232, 0.055); }
+}
+
 @layer components {
   .tilt-card {
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;

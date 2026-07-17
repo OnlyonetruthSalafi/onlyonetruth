@@ -28,22 +28,23 @@ export default function ChesterBeattyManuscript() {
               Qur'anic Manuscripts
             </Link>
             <span className="text-gold/40">›</span>
-            <span className="text-gold">Chester Beatty Library Quran</span>
+            <span className="text-gold">Ibn al-Bawwab Quran</span>
           </nav>
 
           <div className="text-center">
             <h1 className="font-cinzel text-3xl md:text-5xl text-paper-white mb-3 leading-tight">
-              Chester Beatty Library Quran
+              Ibn al-Bawwab Quran
             </h1>
             <h2 className="font-cinzel text-xl md:text-2xl text-gold mb-6">
-              CBL Is 1615 — Early Qur'anic Manuscript at Dublin
+              CBL Is 1431 — อัลกุรอานอักษร Naskh เล่มแรกสุดที่หลงเหลืออยู่
             </h2>
             <div className="mx-auto h-px w-24 bg-gold/50 mb-6" />
             <p className="font-pridi text-lg text-paper-white/80 max-w-2xl mx-auto leading-relaxed mb-4">
-              ต้นฉบับอัลกุรอานยุคอับบาซิด เก็บรักษาที่ห้องสมุดเชสเตอร์ บีตตี้ ดับลิน ไอร์แลนด์
+              อัลกุรอานฉบับสมบูรณ์ 286 หน้า คัดลอกโดยอิบนุลเบาวาบ นักอักษรวิจิตรผู้ยิ่งใหญ่แห่งแบกแดด
+              เก็บรักษาที่ห้องสมุดเชสเตอร์ บีตตี้ ดับลิน ไอร์แลนด์
             </p>
             <p className="font-cinzel text-gold/70 text-sm tracking-widest">
-              ศตวรรษที่ 9 ค.ศ. | Kufic Script | Dublin, Ireland
+              ค.ศ. 1000–1001 (391 ฮ.ศ.) | Naskh & Thuluth | Dublin, Ireland
             </p>
           </div>
         </div>
@@ -56,14 +57,14 @@ export default function ChesterBeattyManuscript() {
             ภาพต้นฉบับ
           </h2>
           <p className="font-pridi text-center text-ink-muted mb-10">
-            ภาพหน้าต้นฉบับเชสเตอร์ บีตตี้ ดับลิน
+            ภาพหน้าต้นฉบับอิบนุลเบาวาบ ห้องสมุดเชสเตอร์ บีตตี้ ดับลิน (ภาพ: Wikimedia Commons)
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
                 src="/manuscripts/quran/chester-beatty/chb1.jpg"
-                alt="หน้าต้นฉบับ Chester Beatty — อักษรคูฟิกยุคอับบาซิด"
+                alt="หน้าเปิดประดับทอง — หัวซูเราะฮ์อัลฟาติหะฮ์และอัลบะเกาะเราะฮ์ (CBL Is 1431, f.9b)"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -81,7 +82,7 @@ export default function ChesterBeattyManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าต้นฉบับ Chester Beatty — อักษรคูฟิกยุคอับบาซิด
+                  หน้าเปิดประดับทอง — หัวซูเราะฮ์อัลฟาติหะฮ์และอัลบะเกาะเราะฮ์ (f.9b)
                 </p>
               </div>
             </div>
@@ -89,7 +90,7 @@ export default function ChesterBeattyManuscript() {
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
                 src="/manuscripts/quran/chester-beatty/chb2.jpg"
-                alt="การตกแต่งหัวบทและเครื่องหมายพิเศษ"
+                alt="หน้าท้ายเล่มอักษร Naskh ลายมืออิบนุลเบาวาบ (CBL Is 1431, f.286a)"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -107,7 +108,7 @@ export default function ChesterBeattyManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  การตกแต่งหัวบทและเครื่องหมายพิเศษ
+                  หน้าท้ายเล่มอักษร Naskh ลายมืออิบนุลเบาวาบ (f.286a)
                 </p>
               </div>
             </div>
@@ -122,12 +123,14 @@ export default function ChesterBeattyManuscript() {
           {/* Info Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {[
-              { label: "อายุ", value: "ศตวรรษที่ 9 ค.ศ. (ศตวรรษที่ 3 ฮ.ศ.)" },
-              { label: "อักษร", value: "Kufic Script สไตล์อับบาซิด" },
-              { label: "หน้า", value: "ไม่ทราบแน่ชัด" },
-              { label: "ขนาด", value: "ไม่ทราบแน่ชัด" },
+              { label: "อายุ", value: "ค.ศ. 1000–1001 (391 ฮ.ศ.) — คัดลอกที่แบกแดด" },
+              { label: "อักษร", value: "Naskh (เนื้อหา) และ Thuluth (หน้าเปิดกับหัวซูเราะฮ์)" },
+              { label: "จำนวนหน้า", value: "286 หน้า (ฉบับสมบูรณ์)" },
+              { label: "ขนาด", value: "ประมาณ 14 × 19 ซม." },
+              { label: "วัสดุ", value: "กระดาษ — อัลกุรอานบนกระดาษเล่มแรกสุดที่หลงเหลืออยู่" },
+              { label: "ผู้คัดลอก", value: "อบุลฮะซัน อะลี อิบนุ ฮิลาล รู้จักในนาม อิบนุลเบาวาบ (เสียชีวิตราว ค.ศ. 1022)" },
               { label: "สถานที่", value: "Chester Beatty Library, Dublin, Ireland" },
-              { label: "ทะเบียน", value: "CBL Is 1615" },
+              { label: "ทะเบียน", value: "CBL Is 1431" },
             ].map((item) => (
               <div key={item.label} className="card-glass p-5">
                 <p className="font-cinzel text-gold text-sm mb-1">{item.label}</p>
@@ -139,10 +142,25 @@ export default function ChesterBeattyManuscript() {
           {/* เนื้อหา */}
           <div className="mb-10">
             <h3 className="font-cinzel text-xl text-ink mb-4">เนื้อหา</h3>
+            <p className="font-pridi text-ink/80 leading-relaxed mb-4">
+              อัลกุรอานฉบับสมบูรณ์ 286 หน้า คัดลอกที่แบกแดดในปี 391 ฮ.ศ. (ค.ศ. 1000–1001)
+              โดยอบุลฮะซัน อะลี อิบนุ ฮิลาล ที่รู้จักในนาม "อิบนุลเบาวาบ" (บุตรแห่งผู้เฝ้าประตู)
+              นักอักษรวิจิตรผู้ยิ่งใหญ่ที่สุดคนหนึ่งในประวัติศาสตร์อิสลาม
+              ผู้พัฒนาระบบสัดส่วนตัวอักษรของอิบนุ มุกละฮ์ ให้งดงามสมบูรณ์
+            </p>
+            <p className="font-pridi text-ink/80 leading-relaxed mb-4">
+              ความสำคัญของต้นฉบับนี้อยู่ที่การเป็นหมุดหมายของประวัติศาสตร์การคัดลอกอัลกุรอาน —
+              เป็นอัลกุรอานเล่มแรกสุดที่หลงเหลืออยู่ซึ่งเขียนด้วยอักษรโค้งมน (Naskh) แทนอักษรคูฟิกเหลี่ยม
+              และเขียนบนกระดาษแทนหนังสัตว์ เนื้อหาใช้อักษร Naskh
+              ส่วนหน้าเปิดและหัวซูเราะฮ์ใช้อักษร Thuluth พร้อมการประดับลวดลายทองอย่างประณีต
+              แนวทางนี้กลายเป็นแบบแผนของการคัดลอกอัลกุรอานสืบมาจนถึงปัจจุบัน
+            </p>
             <p className="font-pridi text-ink/80 leading-relaxed">
-              เก็บรักษาที่ห้องสมุดเชสเตอร์ บีตตี้ซึ่งมีคอลเลกชันต้นฉบับอิสลามที่สำคัญที่สุดแห่งหนึ่งในโลกตะวันตก
-              เขียนด้วยอักษรคูฟิกสไตล์ยุคอับบาซิด มีการตกแต่งหัวบทอย่างประณีต
-              ถือเป็นตัวอย่างชั้นเยี่ยมของศิลปะการเขียนคัมภีร์ในยุคอับบาซิด
+              บันทึกทางประวัติศาสตร์ระบุว่าอิบนุลเบาวาบคัดลอกอัลกุรอานไว้ทั้งสิ้น 64 เล่ม
+              แต่เหลือรอดมาถึงปัจจุบันเพียงเล่มเดียวที่ลงนามโดยท่าน คือเล่มนี้
+              ปัจจุบันเก็บรักษาที่ห้องสมุดเชสเตอร์ บีตตี้ กรุงดับลิน
+              ซึ่งครอบครองคอลเลกชันต้นฉบับอิสลามที่สำคัญที่สุดแห่งหนึ่งในโลกตะวันตก
+              รวมถึงชิ้นส่วนอัลกุรอานอักษรฮิญาซีจากศตวรรษที่ 1 ฮ.ศ. (CBL Is 1615 I–II) อีกด้วย
             </p>
           </div>
 
@@ -167,12 +185,12 @@ export default function ChesterBeattyManuscript() {
           {/* ปุ่ม */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a
-              href="https://www.islamic-awareness.org/quran/text/mss/"
+              href="https://en.wikipedia.org/wiki/Ibn_al-Bawwab"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary font-pridi text-center"
             >
-              อ่านบทความต้นฉบับ (Islamic Awareness) ↗
+              อ่านข้อมูลต้นฉบับ (Wikipedia) ↗
             </a>
             <Link
               href="/archive/quran-manuscripts"

@@ -524,6 +524,122 @@ function PropagationMap() {
   );
 }
 
+// ════════════════════════════════════════════════════════════════════
+//  FeaturedVideoTheater — จอวิดีโอแบบโรงละคร (click-to-play facade)
+//  โหลดเป็นภาพปกก่อน คลิกแล้วจึงฝัง iframe autoplay → เร็วและอลังการ
+// ════════════════════════════════════════════════════════════════════
+const FEATURED_VIDEO_ID = "8aMU3Se2XdY";
+
+function FeaturedVideoTheater() {
+  const [playing, setPlaying] = useState(false);
+
+  return (
+    <div id="video-section" data-reveal className="relative max-w-5xl mx-auto">
+
+      {/* ลำแสงโปรเจกเตอร์สาดลงจากด้านบนสู่จอ */}
+      <div className="intro-cine-projector" aria-hidden />
+
+      {/* แสงเรืองรอบจอ (aura ทอง-แดงเข้ม) */}
+      <div
+        className="absolute -inset-8 md:-inset-12 rounded-[2rem] blur-3xl intro-cine-aura"
+        aria-hidden
+      />
+
+      {/* กรอบจดหมายเหตุชั้นนอก + วงแหวนแสงหมุน */}
+      <div className="intro-lux-frame intro-cine-frame relative rounded-2xl p-2.5 md:p-4">
+        <span className="intro-cine-halo" aria-hidden />
+        <span className="ic-corner ic-corner-tl" />
+        <span className="ic-corner ic-corner-tr" />
+        <span className="ic-corner ic-corner-bl" />
+        <span className="ic-corner ic-corner-br" />
+
+        <div
+          className="relative rounded-xl overflow-hidden ring-1 ring-gold/30 bg-black"
+          style={{ boxShadow: "0 32px 80px -16px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(212,175,55,0.18)" }}
+        >
+          <div className="relative pb-[56.25%] h-0">
+            {playing ? (
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${FEATURED_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
+                title="การศึกษาคัมภีร์โบราณ — Featured Lecture"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setPlaying(true)}
+                className="group absolute inset-0 w-full h-full cursor-pointer"
+                aria-label="เล่นวิดีโอ: การศึกษาคัมภีร์โบราณ"
+              >
+                {/* ภาพปกจาก YouTube */}
+                <img
+                  src={`https://img.youtube.com/vi/${FEATURED_VIDEO_ID}/maxresdefault.jpg`}
+                  alt="ปกวิดีโอ การศึกษาคัมภีร์โบราณ"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
+                  onError={(e) => {
+                    e.target.src = `https://img.youtube.com/vi/${FEATURED_VIDEO_ID}/hqdefault.jpg`;
+                  }}
+                />
+                {/* ฟิล์มไล่เฉด cinematic + วิกเน็ตต์ */}
+                <span
+                  className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-80"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(10,6,4,0.35) 0%, rgba(10,6,4,0.05) 35%, rgba(10,6,4,0.15) 60%, rgba(10,6,4,0.78) 100%), radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.5) 100%)",
+                  }}
+                />
+                {/* ประกายแสงกวาดผ่านจอ */}
+                <span className="intro-cine-sheen" aria-hidden />
+
+                {/* ปุ่ม Play กลางจอ */}
+                <span className="absolute inset-0 grid place-items-center">
+                  <span className="intro-cine-play grid place-items-center transition-transform duration-500 group-hover:scale-110">
+                    <svg className="w-7 h-7 md:w-9 md:h-9 translate-x-0.5 text-ink" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </span>
+
+                {/* แถบชื่อเรื่องด้านล่างจอ */}
+                <span className="absolute inset-x-0 bottom-0 px-5 pb-5 md:px-8 md:pb-7 text-left">
+                  <span className="flex items-center gap-2 mb-2">
+                    <span className="h-px w-6 bg-gold/60" />
+                    <span className="font-cinzel text-[0.55rem] md:text-[0.65rem] text-gold/90 tracking-[0.35em] uppercase">
+                      Featured Lecture
+                    </span>
+                  </span>
+                  <span className="block font-pridi text-paper-white text-base md:text-2xl font-semibold leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                    การศึกษาและพิสูจน์คัมภีร์โบราณ
+                  </span>
+                  <span className="mt-2 inline-flex items-center gap-2 font-pridi text-xs md:text-sm text-paper-white/70">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+                    คลิกเพื่อรับชมการบรรยาย
+                  </span>
+                </span>
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Caption plate ใต้จอ */}
+      <div className="flex items-center justify-center gap-3 mt-6">
+        <span className="h-px w-8 md:w-14 bg-gradient-to-r from-transparent to-gold/50" />
+        <span className="intro-lux-diamond" style={{ width: 5, height: 5 }} />
+        <p className="font-cinzel text-[0.6rem] md:text-xs text-gold/60 text-center tracking-[0.3em] uppercase">
+          Featured Lecture — Textual History
+        </p>
+        <span className="intro-lux-diamond" style={{ width: 5, height: 5 }} />
+        <span className="h-px w-8 md:w-14 bg-gradient-to-l from-transparent to-gold/50" />
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const rootRef = useReveal();
   const timelineRef = useTimelineScroll();
@@ -678,87 +794,133 @@ export default function Home() {
       </section>
 
       {/* INTRO / FEATURED LECTURE */}
-      <section id="intro-section" className="relative py-20 bg-ink overflow-hidden">
-        <div className="max-w-6xl mx-auto px-gutter">
+      <section id="intro-section" className="intro-lux relative py-24 md:py-32 bg-ink overflow-hidden">
 
-          {/* === SPLIT LAYOUT: ซ้าย-ขวา === */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+        {/* ── ฉากหลังอลังการ: แสงเรือง + ลายเส้นทอง + ละอองแสง ── */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+          {/* แสงเรืองมุมบนซ้าย / ล่างขวา */}
+          <div className="absolute -top-32 -left-24 w-[34rem] h-[34rem] rounded-full bg-gold/[0.07] blur-[120px]" />
+          <div className="absolute -bottom-40 -right-16 w-[38rem] h-[38rem] rounded-full bg-[#8b1a1a]/[0.10] blur-[130px]" />
+          {/* เส้นตารางจาง (ลายกระดาษจดหมายเหตุ) */}
+          <div className="absolute inset-0 intro-lux-grid opacity-[0.05]" />
+          {/* ลำแสงเฉียงบางๆ */}
+          <div className="absolute -top-1/4 left-1/3 w-[42%] h-[150%] intro-lux-beam" />
+          {/* ละอองทองล่องลอย */}
+          {[...Array(10)].map((_, i) => (
+            <span
+              key={i}
+              className="absolute rounded-full"
+              style={{
+                width: i % 3 === 0 ? '3px' : '2px',
+                height: i % 3 === 0 ? '3px' : '2px',
+                top: `${(i * 47) % 100}%`,
+                left: `${(i * 71) % 100}%`,
+                backgroundColor: `rgba(212,175,55,${0.25 + (i % 4) * 0.12})`,
+                boxShadow: '0 0 6px rgba(212,175,55,0.5)',
+                animation: `dustFloat${(i % 3) + 1} ${9 + (i % 5)}s ease-in-out infinite`,
+                animationDelay: `${i * 0.7}s`,
+              }}
+            />
+          ))}
+        </div>
 
-            {/* ฝั่งซ้าย: Content */}
-            <div className="flex flex-col justify-center">
+        {/* ── เส้นขอบบนประดับ + ออร์นาเมนต์กลาง ── */}
+        <div data-reveal className="relative max-w-6xl mx-auto px-gutter mb-16 md:mb-20">
+          <div className="flex items-center justify-center gap-4 md:gap-6">
+            <span className="h-px flex-1 max-w-[10rem] md:max-w-xs bg-gradient-to-r from-transparent to-gold/50" />
+            <span className="intro-lux-diamond" />
+            <span className="font-cinzel text-[0.6rem] md:text-xs text-gold/70 tracking-[0.5em] uppercase whitespace-nowrap">
+              The Only One Truth
+            </span>
+            <span className="intro-lux-diamond" />
+            <span className="h-px flex-1 max-w-[10rem] md:max-w-xs bg-gradient-to-l from-transparent to-gold/50" />
+          </div>
+        </div>
 
-              {/* EST. label แบบ Hero */}
-              <p className="font-cinzel text-xs md:text-sm text-paper-white/60 tracking-[0.3em] uppercase mb-6">
-                A QUEST FOR THE PRESERVATION OF SACRED TEXTS
+        <div className="relative max-w-6xl mx-auto px-gutter">
+
+          {/* === CINEMATIC THEATER LAYOUT: หัวเรื่องกลาง → จอวิดีโอใหญ่ → เสาหลัก + CTA === */}
+
+          {/* หัวเรื่องกลาง */}
+          <div className="relative text-center max-w-3xl mx-auto mb-12 md:mb-16">
+
+            {/* ลายน้ำอักษรประดับด้านหลังหัวข้อ (aniconic) */}
+            <span
+              className="intro-lux-watermark font-amiri"
+              style={{ left: "50%", transform: "translateX(-50%)", top: "-4.5rem" }}
+              aria-hidden
+            >۞</span>
+
+            <div data-reveal className="flex items-center justify-center gap-3 mb-7">
+              <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold/60" />
+              <p className="font-cinzel text-[0.65rem] md:text-xs text-gold/80 tracking-[0.3em] uppercase">
+                A Visual Chronicle of the Sacred Texts
               </p>
-
-              {/* หัวข้อใหญ่ 2 บรรทัด แบบ Hero */}
-              <h2 className="mb-6 leading-tight">
-                <span className="block font-cinzel text-4xl md:text-5xl lg:text-6xl text-paper-white font-normal tracking-wide mb-3">
-                  การศึกษาและพิสูจน์
-                </span>
-                <span
-                  className="block font-cinzel text-4xl md:text-5xl lg:text-6xl text-[#cfa45d] font-medium tracking-wider"
-                  style={{textShadow: '2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(207,164,93,0.4)'}}
-                >
-                  คัมภีร์โบราณ
-                </span>
-              </h2>
-
-              {/* เส้นแบ่ง */}
-              <div className="w-16 h-0.5 bg-gold/40 mb-8"></div>
-
-              {/* เนื้อหา */}
-              <p className="font-pridi text-paper-white/80 leading-relaxed text-base md:text-lg mb-10 max-w-lg">
-                ร่วมค้นหาความจริงผ่านการศึกษาเชิงวิพากษ์และประวัติศาสตร์ของตัวบทคัมภีร์
-                เพื่อสืบค้นร่องรอยการส่งต่อ การเก็บรักษา และการเปลี่ยนแปลงของบันทึกโบราณ
-                อันนำไปสู่ความจริงเพียงหนึ่งเดียว
-              </p>
-
-              {/* ปุ่ม CTA */}
-              <div>
-                <button
-                  onClick={() => document.getElementById('video-section')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group inline-flex items-center gap-3 border-2 border-gold/50 text-gold font-pridi font-medium px-8 py-3 rounded-md transition-all duration-300 hover:border-gold hover:bg-gold/10 hover:shadow-glow"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                  รับชมวิดีโอการศึกษา
-                </button>
-              </div>
-
+              <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold/60" />
             </div>
 
-            {/* ฝั่งขวา: YouTube Embed */}
-            <div id="video-section" className="relative">
+            <h2 data-reveal className="relative mb-7 leading-[1.08]">
+              <span className="block font-cinzel text-4xl md:text-5xl lg:text-[3.9rem] text-paper-white font-normal tracking-wide mb-2">
+                รับชมการบรรยายพิเศษ
+              </span>
+              <span className="block font-cinzel text-4xl md:text-5xl lg:text-[3.9rem] font-medium tracking-wider intro-lux-title">
+                พิสูจน์คัมภีร์โบราณ
+              </span>
+            </h2>
 
-              {/* Decorative glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 to-gold/5 rounded-xl blur-sm"></div>
-
-              {/* Video container */}
-              <div className="relative rounded-xl overflow-hidden"
-                style={{boxShadow: '0 20px 25px -5px rgba(0,0,0,0.5), 0 0 30px rgba(197,160,89,0.15)'}}>
-
-                <div className="relative pb-[56.25%] h-0">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/8aMU3Se2XdY?si=r4kKRsVnQhy--PxZ"
-                    title="การศึกษาคัมภีร์โบราณ"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-
-              {/* Caption */}
-              <p className="font-cinzel text-xs text-gold/50 text-center mt-4 tracking-widest">
-                FEATURED LECTURE — TEXTUAL HISTORY
-              </p>
-
+            <div data-reveal className="flex items-center justify-center gap-2 mb-8">
+              <span className="h-0.5 w-16 bg-gradient-to-r from-gold/10 to-gold rounded-full" />
+              <span className="w-1.5 h-1.5 rotate-45 bg-gold/70" />
+              <span className="h-0.5 w-16 bg-gradient-to-l from-gold/10 to-gold rounded-full" />
             </div>
+
+            <p data-reveal className="font-pridi text-paper-white/80 leading-[1.9] text-base md:text-lg mx-auto max-w-2xl">
+              เชิญรับชมการบรรยายที่จะพาคุณย้อนรอยประวัติศาสตร์ของตัวบทคัมภีร์ทีละขั้น
+              ผ่านหลักฐานต้นฉบับโบราณที่เรียบเรียงเป็นภาพให้เข้าใจง่าย
+              ตั้งแต่การส่งต่อ การเก็บรักษา ไปจนถึงร่องรอยการเปลี่ยนแปลง
+              อันนำไปสู่ความจริงเพียงหนึ่งเดียว
+            </p>
+          </div>
+
+          {/* จอวิดีโอโรงละคร */}
+          <FeaturedVideoTheater />
+
+          {/* เสาหลัก 3 คำ ใต้จอ */}
+          <div data-reveal className="grid grid-cols-3 gap-3 md:gap-5 max-w-2xl mx-auto mt-12 md:mt-14 mb-11">
+            {[
+              { th: 'การส่งต่อ', en: 'Transmission' },
+              { th: 'การเก็บรักษา', en: 'Preservation' },
+              { th: 'การเปลี่ยนแปลง', en: 'Variation' },
+            ].map((p) => (
+              <div key={p.en} className="intro-lux-pillar">
+                <span className="block font-pridi text-sm md:text-base text-paper-white/90 font-medium">{p.th}</span>
+                <span className="block font-cinzel text-[0.55rem] md:text-[0.6rem] text-gold/60 tracking-[0.2em] uppercase mt-1">{p.en}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* ปุ่ม CTA */}
+          <div data-reveal className="flex flex-wrap items-center justify-center gap-5">
+            <a
+              href={`https://www.youtube.com/watch?v=${FEATURED_VIDEO_ID}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 bg-gold/90 hover:bg-gold text-ink font-pridi font-semibold px-8 py-3.5 rounded-md transition-all duration-300 shadow-glow hover:shadow-[0_0_28px_rgba(212,175,55,0.55)] hover:-translate-y-0.5"
+            >
+              <span className="grid place-items-center w-6 h-6 rounded-full bg-ink/15 transition-transform duration-300 group-hover:scale-110">
+                <svg className="w-3 h-3 translate-x-px" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </span>
+              รับชมบน YouTube
+            </a>
+            <Link
+              href="/textual-history"
+              className="group inline-flex items-center gap-2 font-cinzel text-xs md:text-sm text-gold/80 hover:text-gold tracking-[0.15em] uppercase transition-colors"
+            >
+              Read the Chronicle
+              <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>
+            </Link>
           </div>
 
         </div>
@@ -770,30 +932,42 @@ export default function Home() {
         className="relative py-section md:py-24 overflow-hidden"
         style={{
           background:
-            "linear-gradient(180deg, #3E2723 0%, #291713 45%, #221310 70%, #3E2723 100%)",
+            "radial-gradient(110% 55% at 50% 0%, rgba(74,44,32,0.85) 0%, rgba(74,44,32,0) 60%), radial-gradient(120% 60% at 50% 100%, rgba(62,39,35,0.9) 0%, rgba(62,39,35,0) 55%), linear-gradient(180deg, #32201a 0%, #241410 45%, #1d100c 70%, #2c1b15 100%)",
         }}
       >
-        {/* แสงพื้นหลังอัมเบียนต์ */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.07]">
-          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-gold-light blur-3xl" />
+        {/* แสงพื้นหลังอัมเบียนต์ + วิกเน็ตต์ */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold/[0.06] blur-3xl" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[46rem] h-[46rem] rounded-full bg-gold/[0.04] blur-[140px]" />
+          <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-gold-light/[0.05] blur-3xl" />
+          <div
+            className="absolute inset-0"
+            style={{ background: "radial-gradient(ellipse 90% 70% at center, transparent 55%, rgba(10,5,3,0.45) 100%)" }}
+          />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <p
-              data-reveal
-              className="font-pridi text-xs tracking-[0.4em] uppercase text-gold mb-4"
-            >
-              Timeline เปรียบเทียบ
-            </p>
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <div data-reveal className="flex items-center justify-center gap-3 md:gap-4 mb-5">
+              <span className="h-px w-10 md:w-20 bg-gradient-to-r from-transparent to-gold/60" />
+              <span className="intro-lux-diamond" />
+              <p className="font-cinzel text-[0.6rem] md:text-xs tracking-[0.45em] uppercase text-gold/80 whitespace-nowrap">
+                Chronicle of the Scriptures
+              </p>
+              <span className="intro-lux-diamond" />
+              <span className="h-px w-10 md:w-20 bg-gradient-to-l from-transparent to-gold/60" />
+            </div>
             <h2
               data-reveal
               className="font-pridi text-3xl md:text-5xl text-paper-white mb-5 leading-tight"
             >
               ประวัติศาสตร์การรวบรวมคัมภีร์
             </h2>
-            <div data-reveal className="mx-auto h-px w-24 bg-gold mb-6" />
+            <div data-reveal className="flex items-center justify-center gap-2 mb-6">
+              <span className="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-gold/70" />
+              <span className="w-1.5 h-1.5 rotate-45 bg-gold/80" />
+              <span className="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-gold/70" />
+            </div>
             <p
               data-reveal
               className="font-pridi text-base md:text-lg text-paper-white/70 leading-relaxed"
@@ -825,12 +999,21 @@ export default function Home() {
           </div>
 
           <div ref={timelineRef} className="relative">
+            {/* พื้นหลังอักษรศักดิ์สิทธิ์: อาหรับ (อัลกุรอาน · ซ้าย) ปะทะ กรีก (ไบเบิล · ขวา) กลางแกน */}
+            <div className="tl-scripture" aria-hidden>
+              <span className="tl-verse tl-verse-ar tl-verse--1 font-amiri">إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ</span>
+              <span className="tl-verse tl-verse-gr tl-verse--2">Ἐν ἀρχῇ ἦν ὁ λόγος</span>
+              <span className="tl-verse tl-verse-ar tl-verse--3 font-amiri">وَإِنَّا لَهُ لَحَافِظُونَ</span>
+              <span className="tl-verse tl-verse-gr tl-verse--4">καὶ ὁ λόγος ἦν πρὸς τὸν θεόν</span>
+              {/* แสงเรืองทองจางๆ ตามแนวแกนกลาง */}
+              <div className="tl-scripture-seam" />
+            </div>
             {/* Center axis */}
             <div className="timeline-axis" />
             {/* แกนเรืองแสงเติมตาม scroll + หัวดาวหาง */}
             <div className="timeline-axis-fill" aria-hidden />
 
-            <div className="grid grid-cols-2 gap-3 md:gap-8">
+            <div className="relative z-10 grid grid-cols-2 gap-3 md:gap-8">
               {/* Left column: Quran */}
               <div className="space-y-3 md:space-y-6">
                 {quranCondensed.map((item, i) => (

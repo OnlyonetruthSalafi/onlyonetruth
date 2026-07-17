@@ -63,7 +63,7 @@ export default function TurkishIslamicManuscript() {
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
                 src="/manuscripts/quran/turkish-islamic/tis1.jpg"
-                alt="หน้าต้นฉบับพิพิธภัณฑ์ศิลปะตุรกีและอิสลาม"
+                alt="หน้าปกประดับลวดลายทองของต้นฉบับ TIEM ŞE 457"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -81,7 +81,7 @@ export default function TurkishIslamicManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าต้นฉบับพิพิธภัณฑ์ศิลปะตุรกีและอิสลาม
+                  หน้าปกประดับลวดลายทองของต้นฉบับ (TIEM ŞE 457)
                 </p>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function TurkishIslamicManuscript() {
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
                 src="/manuscripts/quran/turkish-islamic/tis2.jpg"
-                alt="หน้าสุดท้ายที่มีข้อความระบุชื่ออุษมาน"
+                alt="หน้าอักษรคูฟิกพร้อมหัวซูเราะฮ์สีทอง (TIEM Inv. No. 458)"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -107,7 +107,7 @@ export default function TurkishIslamicManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าสุดท้ายที่มีข้อความระบุชื่ออุษมาน
+                  หน้าอักษรคูฟิกพร้อมหัวซูเราะฮ์สีทอง (TIEM Inv. No. 458)
                 </p>
               </div>
             </div>
