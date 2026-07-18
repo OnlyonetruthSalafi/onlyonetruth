@@ -7,22 +7,75 @@ import Footer from "../../../components/Footer";
 
 const manuscripts = [
   {
+    id: 11,
+    title: "The Letter of Peter to James and Its Reception",
+    titleTh: "จดหมายเปโตรถึงยากอบ และบันทึกการรับจดหมาย",
+    mark: "ΙΑΚΩΒΩ",
+    category: "jewish",
+    categoryLabel: "Jewish-Christian Texts",
+    date: "แต่งราวศตวรรษที่ 2-3 (ต้นฉบับ Paris gr. 930 ศตวรรษที่ 11-12)",
+    script: "Greek (คำนำของ Pseudo-Clementine Homilies)",
+    location: "Bibliothèque nationale de France, Paris (Codex Parisinus gr. 930)",
+    locationTh:
+      "หอสมุดแห่งชาติฝรั่งเศส ปารีส (Parisinus gr. 930) | อีกฉบับที่วาติกัน (Ottobonianus gr. 443)",
+    contents:
+      "จดหมายเปโตรถึงยากอบ + Contestatio (คำปฏิญาณการรับหนังสือ) — คำนำของ Clementine Homilies",
+    status:
+      "ไม่เคยเข้าสารบบ — เป็นเอกสารสาย Jewish-Christian ที่รอดมาในกรอบวรรณกรรม Pseudo-Clementine",
+    description:
+      "เปโตร (ในนามผู้แต่ง) เขียนถึงยากอบผู้ชอบธรรมแห่งเยรูซาเล็ม ขอให้ส่งมอบหนังสือคำเทศนาของตนเฉพาะแก่ผู้เข้าสุหนัตที่ผ่านการทดสอบแล้วเท่านั้น พร้อมโจมตี \"ศัตรูของข้าพเจ้า\" ที่สอนให้เลิกธรรมบัญญัติ — ซึ่งนักวิชาการส่วนใหญ่เห็นว่าหมายถึงเปาโล ตามด้วย Contestatio ที่เล่าว่ายากอบเรียกประชุมผู้ปกครองและวางพิธีปฏิญาณก่อนรับหนังสือ Ehrman ใช้เอกสารนี้เป็นหลักฐานแกนของกลุ่ม Jewish-Christian (Ebionite) ที่ยังถือธรรมบัญญัติและต่อต้านเปาโล ใน After the New Testament",
+    sourceUrl: "https://www.earlychristianwritings.com/homilies.html",
+    // ภาพจริง: folio 5r ของ Codex Parisinus gr. 930 (Gallica, BnF) — เห็นหัวเรื่อง ΕΠΙΣΤΟΛΗ ΠΕΤΡΟΥ ΠΡΟΣ ΙΑΚΩΒΟΝ พร้อมลายประดับ
+    image: "/manuscripts/other/peter-james/pj1.jpg",
+    tags: ["Jewish-Christian", "Ebionite", "Pseudo-Clementine", "Anti-Pauline"],
+    scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/peter-james",
+  },
+  {
+    id: 12,
+    title: "The Secret Book of John (Apocryphon of John)",
+    titleTh: "หนังสือลับของยอห์น",
+    mark: "ΑΠΟΚΡΥΦΟΝ",
+    category: "sethian",
+    categoryLabel: "Sethian Gnostics",
+    date: "แต่งก่อน ค.ศ. 180 (ต้นฉบับ Coptic ราว ค.ศ. 340-350)",
+    script: "Coptic (Sahidic) — ฉบับสั้น 2 | ฉบับยาว 2",
+    location: "Coptic Museum, Cairo (NHC II, III, IV) | Berlin (P.Berol. 8502)",
+    locationTh:
+      "พิพิธภัณฑ์คอปติก ไคโร (Nag Hammadi Codices II, III, IV) | พิพิธภัณฑ์อียิปต์ เบอร์ลิน (BG 8502)",
+    contents:
+      "นิมิตที่พระคริสต์เปิดเผยแก่ยอห์นบุตรเศเบดี — กำเนิดจักรวาล Barbelo, Sophia และ Yaldabaoth ผู้สร้างจอมปลอม",
+    status:
+      "Irenaeus โจมตีเนื้อหาแบบเดียวกันนี้ใน Against Heresies (ราว ค.ศ. 180) — ยืนยันว่าแพร่หลายก่อนหน้านั้น",
+    description:
+      "ตำราแม่บทของสาย Sethian Gnosticism — รอดมาถึงเราถึง 4 ฉบับ (มากที่สุดในบรรดางาน Gnostic) สะท้อนว่าเคยถูกอ่านอย่างกว้างขวาง เล่าการเปิดเผยลับหลังการเสด็จขึ้นสวรรค์: พระเจ้าสูงสุดที่ไม่อาจหยั่งรู้ แผ่กำเนิด Barbelo และหมู่ Aeon ก่อนความพลาดพลั้งของ Sophia จะให้กำเนิด Yaldabaoth ผู้สร้างโลกวัตถุที่หลงตนว่าเป็นพระเจ้าองค์เดียว — การอ่านปฐมกาลแบบกลับหัวที่ Ehrman จัดให้เป็นตัวแทนเทววิทยา Sethian ใน After the New Testament",
+    sourceUrl: "https://www.earlychristianwritings.com/apocryphonjohn.html",
+    // ภาพจริง: หน้าเปิด Apocryphon of John ใน Nag Hammadi Codex (Wikimedia Commons) — เห็น colophon ΑΠΟΚΡΥΦΟΝ ΚΑΤΑ ΙΩΑΝΝΗΝ
+    image: "/manuscripts/other/apocryphon-john/apj1.jpg",
+    tags: ["Sethian", "Nag Hammadi", "Barbelo", "Yaldabaoth"],
+    scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/apocryphon-john",
+  },
+  {
     id: 1,
     title: "Gospel of Thomas (Coptic)",
     titleTh: "พระกิตติคุณโทมัส",
     mark: "ΘΩΜΑΣ",
     category: "gospel",
     categoryLabel: "Gospels นอกสารบบ",
-    date: "ราว ค.ศ. 50-140 (ต้นฉบับ Coptic ค.ศ. 350)",
-    script: "Coptic (Sahidic dialect)",
-    location: "Coptic Museum, Cairo, Egypt",
-    locationTh: "พิพิธภัณฑ์คอปติก ไคโร อียิปต์",
+    date: "แต่งราวต้นศตวรรษที่ 2 (ต้นฉบับ Coptic ราว ค.ศ. 340-350)",
+    script: "Coptic (Sahidic) | ชิ้นส่วนกรีก P.Oxy. 1, 654, 655",
+    location: "Coptic Museum, Cairo (Nag Hammadi Codex II)",
+    locationTh: "พิพิธภัณฑ์คอปติก ไคโร อียิปต์ (Nag Hammadi Codex II)",
+    contents: "คำกล่าวของพระเยซู 114 logia — ไม่มีเรื่องเล่า ไม่มีการตรึงกางเขนหรือการฟื้นคืนชีพ",
+    status: "ไม่เคยเข้าใกล้สารบบ — แต่กว่าครึ่งของ logia ขนานกับ Synoptic Gospels",
     description:
-      "ค้นพบที่ Nag Hammadi อียิปต์ ปี ค.ศ. 1945 มี 114 logion (คำกล่าว) ของพระเยซู ไม่มีเรื่องการตรึงกางเขนหรือการฟื้นคืนชีพ Bart Ehrman ระบุว่าเป็นแหล่งข้อมูลสำคัญที่สุดนอกพระคัมภีร์ อาจมีคำกล่าวบางส่วนที่เก่าแก่กว่า Synoptic Gospels",
+      "ค้นพบที่ Nag Hammadi อียิปต์ ปี ค.ศ. 1945 เป็น \"Sayings Gospel\" ที่สมบูรณ์เพียงฉบับเดียวที่รู้จัก Ehrman ระบุใน After the New Testament ว่าน่าจะแต่งราวต้นศตวรรษที่ 2 และเป็นพระกิตติคุณนอกสารบบที่สำคัญที่สุดต่อการศึกษาพระเยซูในประวัติศาสตร์ นักวิชาการบางกลุ่ม (เช่น Jesus Seminar) เชื่อว่าบาง logia อาจเก่าแก่กว่า Synoptics แม้ Ehrman จะเห็นว่าส่วนใหญ่พึ่งพา Synoptics ก็ตาม",
     sourceUrl: "https://www.earlychristianwritings.com/thomas.html",
     image: "/manuscripts/other/gospel-thomas.jpg",
     tags: ["Gnostic", "Nag Hammadi", "Coptic", "Sayings Gospel"],
     scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/thomas",
   },
   {
     id: 2,
@@ -31,16 +84,19 @@ const manuscripts = [
     mark: "ΜΑΡΙΑΜ",
     category: "gospel",
     categoryLabel: "Gospels นอกสารบบ",
-    date: "ศตวรรษที่ 2 ค.ศ.",
-    script: "Coptic & Greek (fragments)",
-    location: "Berolinensis Gnosticus 8052, Berlin | Rylands Papyrus P.Ryl. 463",
-    locationTh: "พิพิธภัณฑ์ศิลปะอียิปต์ เบอร์ลิน | ห้องสมุดไรแลนด์ส แมนเชสเตอร์",
+    date: "แต่งศตวรรษที่ 2 (ต้นฉบับ Coptic ศตวรรษที่ 5)",
+    script: "Coptic (P.Berol. 8502) | ชิ้นส่วนกรีก P.Ryl. 463, P.Oxy. 3525",
+    location: "Egyptian Museum of Berlin (Papyrus Berolinensis 8502)",
+    locationTh: "พิพิธภัณฑ์อียิปต์ เบอร์ลิน (P.Berol. 8502) | ชิ้นส่วนที่แมนเชสเตอร์และอ็อกซ์ฟอร์ด",
+    contents: "เหลือ 8 จาก 18-19 หน้า — หน้า 1-6 และ 11-14 สูญหาย (มากกว่าครึ่งของหนังสือ)",
+    status: "ไม่ปรากฏในรายชื่อสารบบใดเลย — รู้จักจากต้นฉบับที่ค้นพบยุคใหม่เท่านั้น",
     description:
-      "หนึ่งในข้อความที่แสดงบทบาทของสตรีในคริสต์ศาสนายุคแรก มารีย์รับการสอนลับจากพระเยซูซึ่งสาวกชายไม่ได้รับ สูญหายกว่า 1,600 ปี ค้นพบในปลายศตวรรษที่ 19 Ehrman ระบุในหนังสือ Lost Scriptures (Oxford University Press, 2003)",
+      "งานเขียนที่แสดงบทบาทผู้นำของสตรีในคริสต์ศาสนายุคแรก มารีย์รับการสอนลับจากพระผู้ช่วยให้รอดซึ่งสาวกชายไม่ได้รับ และถูกเปโตรโต้แย้งว่า \"พระองค์จะตรัสกับผู้หญิงลับหลังพวกเราจริงหรือ\" ต้นฉบับ Coptic ถูกซื้อที่ไคโรโดย Carl Reinhardt ปี ค.ศ. 1896 แต่กว่าจะตีพิมพ์ได้คือปี ค.ศ. 1955 Ehrman ใช้ข้อความนี้ประกอบบทว่าด้วยสตรีในคริสตจักรยุคแรกใน After the New Testament",
     sourceUrl: "https://www.earlychristianwritings.com/gospelmary.html",
     image: "/manuscripts/other/gospel-mary.jpg",
     tags: ["Gnostic", "2nd Century", "Women", "Berlin"],
     scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/mary",
   },
   {
     id: 3,
@@ -49,16 +105,19 @@ const manuscripts = [
     mark: "ΠΕΤΡΟΣ",
     category: "gospel",
     categoryLabel: "Gospels นอกสารบบ",
-    date: "ศตวรรษที่ 2 ค.ศ.",
+    date: "แต่งกลางศตวรรษที่ 2 (ต้นฉบับ Akhmim ศตวรรษที่ 8-9)",
     script: "Greek",
     location: "Egyptian Museum, Cairo (P.Cair. 10759)",
-    locationTh: "พิพิธภัณฑ์อียิปต์ ไคโร อียิปต์",
+    locationTh: "พิพิธภัณฑ์อียิปต์ ไคโร (P.Cair. 10759 — โคเด็กซ์จากหลุมศพพระที่ Akhmim)",
+    contents: "เฉพาะตอน Passion-Resurrection — เริ่มและจบกลางประโยค",
+    status: "บิชอป Serapion แห่งอันทิโอกสั่งห้ามใช้ราว ค.ศ. 190 เพราะถูกกลุ่ม Docetic นำไปอ้าง",
     description:
-      "ค้นพบที่ Akhmim อียิปต์ ปี ค.ศ. 1886 มีเรื่องราวการตรึงกางเขนและการฟื้นคืนชีพที่แตกต่างจากฉบับมาตรฐาน เช่น ไม้กางเขนพูดได้และพระเยซูมีขนาดใหญ่ผิดปกติ Origen (185-254) และ Eusebius กล่าวถึงและปฏิเสธข้อความนี้",
+      "ค้นพบในหลุมศพพระที่ Akhmim อียิปต์ ฤดูหนาว ค.ศ. 1886-87 เล่าเรื่องการตรึงกางเขนที่ต่างจากฉบับมาตรฐาน — ไม้กางเขนเดินออกจากอุโมงค์และพูดตอบเสียงจากฟ้า พระเยซูสูงเลยฟ้า และผู้ตัดสินประหารคือกษัตริย์เฮโรดไม่ใช่ปีลาต Ehrman ชี้ว่าน้ำเสียงกล่าวโทษชาวยิวรุนแรงกว่าพระกิตติคุณมาตรฐาน สะท้อนบริบท Anti-Judaism ของศตวรรษที่ 2 ตามที่วิเคราะห์ใน After the New Testament",
     sourceUrl: "https://www.earlychristianwritings.com/gospelpeter.html",
-    image: "/manuscripts/other/gospel-peter.jpg",
-    tags: ["Docetic", "2nd Century", "Passion", "Cairo"],
+    image: "/manuscripts/other/peter/pet1.jpg",
+    tags: ["Docetic", "2nd Century", "Passion", "Akhmim"],
     scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/peter",
   },
   {
     id: 4,
@@ -67,34 +126,106 @@ const manuscripts = [
     mark: "ΦΙΛΙΠΠΟΣ",
     category: "gnostic",
     categoryLabel: "Gnostic Texts",
-    date: "ศตวรรษที่ 3 ค.ศ. (ต้นฉบับ Coptic ค.ศ. 350)",
+    date: "แต่งศตวรรษที่ 3 (ต้นฉบับ Coptic ราว ค.ศ. 340-350)",
     script: "Coptic (Sahidic)",
     location: "Coptic Museum, Cairo (Nag Hammadi Codex II)",
     locationTh: "พิพิธภัณฑ์คอปติก ไคโร อียิปต์ (Nag Hammadi Codex II)",
+    contents: "รวมบทคัดเทววิทยาแบบ Valentinian — ศีลศักดิ์สิทธิ์ 5 ประการ และสัญลักษณ์ห้องเจ้าสาว",
+    status: "งานเขียนสาย Valentinian — ฝ่าย Proto-orthodox จัดเป็นนอกรีต",
     description:
-      "ค้นพบที่ Nag Hammadi ปี 1945 ไม่ใช่พระกิตติคุณในความหมายทั่วไป แต่เป็นบทความเทววิทยา Gnostic มีข้อความที่กล่าวถึงความสัมพันธ์ระหว่างพระเยซูกับมารีย์ มักดาเลนา ซึ่งเป็นที่ถกเถียงในวงวิชาการ",
+      "ไม่ใช่พระกิตติคุณเชิงเรื่องเล่า แต่เป็นชุดบทคัดคำสอนสาย Valentinian ข้อความที่โด่งดังที่สุดคือประโยคที่ว่าพระผู้ช่วยให้รอดทรงจุมพิตมารีย์ มักดาเลนาบ่อยครั้ง — ทว่าตำแหน่งคำว่า \"ที่ปาก\" เป็นรูโหว่ในต้นฉบับจริง คำเติมทั้งหมดเป็นการคาดคะเนของนักวิชาการ ประเด็นที่นิยายอย่าง The Da Vinci Code นำไปขยายเกินหลักฐาน Ehrman อธิบายบริบท Valentinian ของข้อความนี้ไว้ใน After the New Testament",
     sourceUrl: "https://www.earlychristianwritings.com/gospelphilip.html",
-    image: "/manuscripts/other/gospel-philip.jpg",
-    tags: ["Gnostic", "Nag Hammadi", "Sacraments", "3rd Century"],
-    scholar: "Elaine Pagels",
+    image: "/manuscripts/other/philip/phi1.jpg",
+    tags: ["Gnostic", "Nag Hammadi", "Valentinian", "3rd Century"],
+    scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/philip",
+  },
+  {
+    id: 8,
+    title: "Gospel of Judas (Codex Tchacos)",
+    titleTh: "พระกิตติคุณยูดาส",
+    mark: "ΙΟΥΔΑΣ",
+    category: "gnostic",
+    categoryLabel: "Gnostic Texts",
+    date: "แต่งก่อน ค.ศ. 180 (ต้นฉบับ Coptic ราว ค.ศ. 280)",
+    script: "Coptic",
+    location: "Coptic Museum, Cairo (เดิม Codex Tchacos)",
+    locationTh: "พิพิธภัณฑ์คอปติก ไคโร อียิปต์",
+    contents: "บทสนทนาลับระหว่างพระเยซูกับยูดาส อิสคาริโอท ก่อนปัสกา",
+    status: "Irenaeus ประณามไว้ใน Against Heresies (ราว ค.ศ. 180) — ยืนยันว่าแต่งก่อนหน้านั้น",
+    note:
+      "Codex Tchacos เป็นหนึ่งในต้นฉบับคริสเตียนยุคแรกไม่กี่ชิ้นที่ผ่านการตรวจ Carbon-14 จริง (ราว ค.ศ. 280 ± 60 โดยห้องปฏิบัติการ University of Arizona ปี ค.ศ. 2005) — ทำได้เพราะโคเด็กซ์แตกเป็นชิ้นเล็กจำนวนมากอยู่แล้วจากการเก็บรักษาที่เลวร้าย ต่างจาก P66/P75 ของมูลนิธิ Bodmer ที่สภาพสมบูรณ์จนไม่มีเหตุให้สละชิ้นตัวอย่าง",
+    description:
+      "เอกสารสาย Sethian Gnostic ที่พลิกภาพยูดาสจากผู้ทรยศเป็นสาวกที่รับคำสั่งลับ ค้นพบราวทศวรรษ 1970 ใกล้ El Minya อียิปต์ ผ่านตลาดมืดจนเสื่อมสภาพหนัก ก่อนถูกกู้คืนและตีพิมพ์โดย National Geographic ปี ค.ศ. 2006 Ehrman ร่วมอยู่ในทีมวิชาการที่เปิดตัวข้อความนี้ และเพิ่มบทวิเคราะห์ไว้ใน After the New Testament ฉบับพิมพ์ครั้งที่ 2 (2015)",
+    sourceUrl: "https://www.earlychristianwritings.com/gospeljudas.html",
+    image: "/manuscripts/other/judas/jud1.jpg",
+    tags: ["Sethian", "Codex Tchacos", "Carbon-14", "2006"],
+    scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/judas",
+  },
+  {
+    id: 7,
+    title: "Didache (The Teaching of the Twelve Apostles)",
+    titleTh: "ดีดาเค — คำสอนของอัครทูตสิบสอง",
+    mark: "ΔΙΔΑΧΗ",
+    category: "fathers",
+    categoryLabel: "Apostolic Fathers",
+    date: "ราว ค.ศ. 50-120 (ต้นฉบับ ค.ศ. 1056)",
+    script: "Greek (Codex Hierosolymitanus)",
+    location: "Greek Orthodox Patriarchate Library, Jerusalem",
+    locationTh: "ห้องสมุดสังฆมณฑลกรีกออร์โธดอกซ์ เยรูซาเล็ม",
+    contents: "ทางสองสาย (ชีวิต-ความตาย) + คู่มือพิธีบัพติศมา ศีลมหาสนิท และการรับผู้เผยพระวจนะ",
+    status: "Eusebius และ Athanasius จัดเป็น \"หนังสือปลอม/นอกสารบบ\" แม้บางชุมชนเคยใช้อย่างแพร่หลาย",
+    description:
+      "คู่มือชีวิตคริสตจักรที่เก่าแก่ที่สุดเท่าที่รู้จัก — บางส่วนอาจร่วมสมัยกับจดหมายของเปาโล สูญหายไปกว่าพันปี จนบิชอป Philotheos Bryennios ค้นพบใน Codex Hierosolymitanus (ค.ศ. 1056) ที่คอนสแตนติโนเปิลปี ค.ศ. 1873 ให้ภาพพิธีบัพติศมา การถืออดอาหารวันพุธ-ศุกร์ และบทอธิษฐานศีลมหาสนิทยุคแรกสุด Ehrman บรรจุฉบับเต็มไว้ใน After the New Testament หมวดชีวิตพิธีกรรมของคริสตจักรยุคแรก",
+    sourceUrl: "https://www.earlychristianwritings.com/didache.html",
+    image: "/manuscripts/other/didache/did1.jpg",
+    tags: ["Apostolic Fathers", "Liturgy", "1873", "Bryennios"],
+    scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/didache",
+  },
+  {
+    id: 10,
+    title: "1 Clement (Epistle to the Corinthians)",
+    titleTh: "จดหมายเคลเมนต์ฉบับที่ 1",
+    mark: "ΚΛΗΜΗΣ",
+    category: "fathers",
+    categoryLabel: "Apostolic Fathers",
+    date: "ราว ค.ศ. 95-96",
+    script: "Greek",
+    location: "British Library (ใน Codex Alexandrinus) | Jerusalem (Codex Hierosolymitanus)",
+    locationTh: "หอสมุดบริติช ลอนดอน (ผนวกใน Codex Alexandrinus) | เยรูซาเล็ม",
+    contents: "จดหมายจากคริสตจักรโรมถึงโครินธ์ กรณีปลดผู้ปกครอง (presbyters)",
+    status: "เคยถูกอ่านเป็นพระคัมภีร์ในโครินธ์ และถูกเย็บรวมใน Codex Alexandrinus ต่อจากวิวรณ์",
+    description:
+      "งานเขียนคริสเตียนนอกพันธสัญญาใหม่ที่เก่าแก่ที่สุดที่ระบุวันเวลาได้ค่อนข้างแน่ — ร่วมสมัยกับหนังสือเล่มท้าย ๆ ของ NT เอง จดหมายอ้างอำนาจของคริสตจักรโรมเข้าไประงับข้อพิพาทในโครินธ์ จึงเป็นหลักฐานสำคัญของพัฒนาการโครงสร้างคริสตจักรยุคแรก Ehrman ใช้เป็นเอกสารหลักของหมวดโครงสร้างและอำนาจคริสตจักรใน After the New Testament และแปลไว้ใน Loeb Apostolic Fathers ของเขาเอง",
+    sourceUrl: "https://www.earlychristianwritings.com/1clement.html",
+    // cle2 = หน้าเปิด 1 Clement จริง (folio 159a ของ Codex Alexandrinus, facsimile ของ MET) — cle1 เดิมเป็นหน้าพระกิตติคุณมาระโก ไม่ตรงเนื้อหา
+    image: "/manuscripts/other/clement/cle2.jpg",
+    tags: ["Apostolic Fathers", "Rome", "Church Order", "1st Century"],
+    scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/clement",
   },
   {
     id: 5,
     title: "Shepherd of Hermas",
     titleTh: "คนเลี้ยงแกะของเฮอร์มาส",
     mark: "ΠΟΙΜΗΝ",
-    category: "epistle",
-    categoryLabel: "Epistles นอกสารบบ",
+    category: "fathers",
+    categoryLabel: "Apostolic Fathers",
     date: "ราว ค.ศ. 100-160",
     script: "Greek",
-    location: "Vatican Library (Codex Sinaiticus includes part of it)",
-    locationTh: "ห้องสมุดวาติกัน (บางส่วนใน Codex Sinaiticus)",
+    location: "British Library (ใน Codex Sinaiticus) | Mount Athos | Michigan",
+    locationTh: "หอสมุดบริติช (ใน Codex Sinaiticus) | อาราม Grigoriou เขาอาทอส | มิชิแกน",
+    contents: "นิมิต 5 | บัญญัติ 12 | อุปมา 10 — ว่าด้วยการกลับใจครั้งที่สองหลังบัพติศมา",
+    status: "Muratorian Fragment อนุญาตให้อ่านแต่ห้ามนับเป็นพระคัมภีร์ — อ้างว่าเขียน \"เมื่อไม่นานนี้\" สมัยบิชอป Pius",
     description:
-      "หนึ่งในงานเขียนยุคแรกที่ได้รับความนิยมสูงมากในคริสตจักรยุคแรก ถึงขนาดรวมอยู่ใน Codex Sinaiticus บางส่วน Muratorian Canon (ราว ค.ศ. 170) ระบุว่าให้อ่านได้แต่ไม่นับเป็นพระคัมภีร์ Metzger อธิบายในหนังสือ Canon of the New Testament (1987)",
+      "งานเขียนนอกสารบบที่ถูกคัดลอกมากที่สุดในคริสต์ศาสนายุคแรก — จำนวนชิ้นส่วนปาปิรัสก่อนศตวรรษที่ 4 มีมากกว่าหนังสือ NT หลายเล่ม และถูกเย็บรวมท้าย Codex Sinaiticus คู่กับ Epistle of Barnabas Ehrman ชี้ใน After the New Testament ว่า Hermas สะท้อนปัญหาเร่งด่วนของคริสตชนศตวรรษที่ 2: บาปหลังบัพติศมาได้รับการอภัยได้หรือไม่",
     sourceUrl: "https://www.earlychristianwritings.com/shepherd.html",
-    image: "/manuscripts/other/shepherd-hermas.jpg",
-    tags: ["Apostolic Fathers", "Apocalypse", "Popular", "2nd Century"],
-    scholar: "Bruce M. Metzger",
+    image: "/manuscripts/other/hermas/her1.jpg",
+    tags: ["Apostolic Fathers", "Apocalypse", "Sinaiticus", "2nd Century"],
+    scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/hermas",
   },
   {
     id: 6,
@@ -104,24 +235,51 @@ const manuscripts = [
     category: "apocalypse",
     categoryLabel: "Apocalypses",
     date: "ราว ค.ศ. 100-150",
-    script: "Greek & Ethiopic",
-    location: "Various (fragments at Akhmim, Bodleian Library)",
-    locationTh: "หลายแห่ง รวมถึงห้องสมุดบอดเลียน อ็อกซ์ฟอร์ด",
+    script: "Greek (Akhmim, Rainer, Bodleian) | ฉบับเต็ม: Ethiopic",
+    location: "Cairo (Akhmim codex) | Vienna | Oxford | ฉบับ Ethiopic ในเอธิโอเปีย",
+    locationTh: "ไคโร | เวียนนา (Rainer) | อ็อกซ์ฟอร์ด (Bodleian) | ฉบับเต็มภาษาเอธิโอปิก",
+    contents: "ทัวร์สวรรค์-นรก: รายการบาป 21 ประเภทพร้อมโทษจำเพาะ — ต้นแบบวรรณกรรมนรกก่อน Dante",
+    status: "Clement of Alexandria อ้างเป็นพระคัมภีร์ | Muratorian Fragment รับอย่างมีเงื่อนไข | Eusebius ปฏิเสธ",
     description:
-      "Apocalypse นอกสารบบที่ได้รับความนิยมในคริสต์ศาสนายุคแรก บรรยายสวรรค์และนรกอย่างละเอียด Clement of Alexandria ถือว่าเป็นพระคัมภีร์ แต่ Eusebius ปฏิเสธ Bart Ehrman รวมไว้ใน Lost Scriptures (2003) พร้อมบทนำโดยละเอียด",
+      "วรรณกรรม \"ทัวร์นรก\" ฉบับแรกของคริสต์ศาสนา บรรยายโทษที่จำเพาะกับบาปแต่ละประเภทอย่างละเอียด เกือบได้เข้าสารบบจริง — Muratorian Fragment ยอมรับแต่บันทึกว่า \"บางคนไม่ยอมให้อ่านในคริสตจักร\" ชิ้นส่วนกรีกพบในโคเด็กซ์เดียวกับ Gospel of Peter ที่ Akhmim ส่วนฉบับสมบูรณ์อยู่ในภาษาเอธิโอปิก Ehrman ศึกษาสายวรรณกรรมนี้ต่อเนื่องถึงหนังสือ Journeys to Heaven and Hell (2022)",
     sourceUrl: "https://www.earlychristianwritings.com/apocalypsepeter.html",
-    image: "/manuscripts/other/apocalypse-peter.jpg",
-    tags: ["Apocalypse", "Heaven & Hell", "2nd Century", "Akhmim"],
+    image: "/manuscripts/other/apocalypse-peter/apo1.png",
+    tags: ["Apocalypse", "Heaven & Hell", "Akhmim", "2nd Century"],
     scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/apocalypse-peter",
+  },
+  {
+    id: 9,
+    title: "Muratorian Fragment",
+    titleTh: "ชิ้นส่วนมูราโทรี — รายชื่อสารบบที่เก่าแก่ที่สุด",
+    mark: "CANON",
+    category: "canon",
+    categoryLabel: "Canon Lists",
+    date: "รายชื่อแต่งราว ค.ศ. 170-200 (ต้นฉบับศตวรรษที่ 7-8)",
+    script: "Latin (แปลจากกรีก — คัดลอกอย่างหละหลวม)",
+    location: "Biblioteca Ambrosiana, Milan (Cod. J 101 sup.)",
+    locationTh: "ห้องสมุดอัมโบรเซียนา มิลาน อิตาลี",
+    contents: "รายชื่อหนังสือที่รับ-ปฏิเสธ 85 บรรทัด — ขาดต้นและอาจขาดท้าย",
+    status: "รับ 22 จาก 27 เล่มของ NT ปัจจุบัน + Wisdom of Solomon + Apocalypse of Peter (มีเงื่อนไข)",
+    description:
+      "หลักฐานเก่าแก่ที่สุดของการ \"ขีดเส้น\" สารบบพันธสัญญาใหม่ ค้นพบโดย L.A. Muratori ในโคเด็กซ์จากอาราม Bobbio ตีพิมพ์ปี ค.ศ. 1740 รายชื่อไม่มีฮีบรู ยากอบ 1-2 เปโตร แต่กลับรวม Wisdom of Solomon และปฏิเสธ Shepherd of Hermas อย่างสุภาพ Ehrman ใช้เอกสารนี้เป็นหลักฐานแกนในบทว่าด้วยการก่อตัวของสารบบใน After the New Testament — ภาพของสารบบที่ยังไม่ลงตัวปลายศตวรรษที่ 2",
+    sourceUrl: "https://www.earlychristianwritings.com/muratorian.html",
+    image: "/manuscripts/other/muratorian/mur1.jpg",
+    tags: ["Canon", "Latin", "Ambrosiana", "Muratori"],
+    scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/muratorian",
   },
 ];
 
 const filters = [
   { id: "all", label: "ทั้งหมด" },
+  { id: "jewish", label: "Jewish-Christian Texts" },
+  { id: "sethian", label: "Sethian Gnostics" },
   { id: "gospel", label: "Gospels นอกสารบบ" },
   { id: "gnostic", label: "Gnostic Texts" },
-  { id: "epistle", label: "Epistles นอกสารบบ" },
+  { id: "fathers", label: "Apostolic Fathers" },
   { id: "apocalypse", label: "Apocalypses" },
+  { id: "canon", label: "Canon Lists" },
 ];
 
 const scholars = [
@@ -129,7 +287,7 @@ const scholars = [
     name: "Bart D. Ehrman",
     years: "ปัจจุบัน",
     institution: "University of North Carolina Chapel Hill",
-    work: '"Lost Scriptures" (2003), "Lost Christianities" (2003), "Misquoting Jesus" (2005) — Oxford University Press / HarperOne',
+    work: '"After the New Testament: A Reader in Early Christianity, 100-300 CE" (2nd ed., Oxford, 2015), "Lost Scriptures" (2003), "The Apostolic Fathers" (Loeb, 2003)',
   },
   {
     name: "Elaine Pagels",
@@ -239,14 +397,15 @@ export default function OtherWritings() {
               <div className="h-px w-24 bg-gradient-to-l from-transparent to-gold/60" />
             </div>
             <h2 className="font-cinzel text-xl md:text-2xl text-gold mb-4">
-              Early Christian Texts Rejected by the Church
+              Early Christian Texts Outside the New Testament
             </h2>
             <p className="font-pridi text-lg md:text-xl text-paper/80 max-w-2xl mx-auto leading-relaxed mb-3">
-              งานเขียนคริสเตียนยุคแรกที่ไม่ได้รับการยอมรับเข้าในคัมภีร์ไบเบิล
-              ศึกษาโดย Bart D. Ehrman และนักวิชาการร่วมสมัย
+              งานเขียนคริสเตียนยุคแรกนอกพันธสัญญาใหม่ — ทั้งที่ถูกปฏิเสธ ถูกลืม
+              และเกือบได้เข้าสารบบ อ้างอิงงานรวบรวมของ Bart D. Ehrman
             </p>
             <p className="font-cinzel text-sm text-gold/70">
-              1st–4th Century CE | Greek, Coptic, Latin | 50+ Known Texts
+              1st–4th Century CE | Greek, Coptic, Latin, Ethiopic | 50+ Known
+              Texts
             </p>
           </div>
         </div>
@@ -330,7 +489,13 @@ export default function OtherWritings() {
 
                   {/* รูปภาพ */}
                   <div className="relative h-64 overflow-hidden">
-                    <ManuscriptImage m={m} />
+                    {m.detailPath ? (
+                      <Link href={m.detailPath} className="block h-full">
+                        <ManuscriptImage m={m} />
+                      </Link>
+                    ) : (
+                      <ManuscriptImage m={m} />
+                    )}
                     {/* เงาไล่เฉดจากล่างขึ้นบน ให้รูปกลืนกับแผ่นการ์ด */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#2a1a17] via-transparent to-transparent pointer-events-none" />
                     {/* ป้ายหมวด */}
@@ -352,9 +517,17 @@ export default function OtherWritings() {
                       {m.mark}
                     </div>
 
-                    <h3 className="font-cinzel text-xl text-gold font-semibold mb-1 leading-snug">
-                      {m.title}
-                    </h3>
+                    {m.detailPath ? (
+                      <Link href={m.detailPath} className="group/title">
+                        <h3 className="font-cinzel text-xl text-gold font-semibold mb-1 leading-snug group-hover/title:text-gold-light transition-colors">
+                          {m.title}
+                        </h3>
+                      </Link>
+                    ) : (
+                      <h3 className="font-cinzel text-xl text-gold font-semibold mb-1 leading-snug">
+                        {m.title}
+                      </h3>
+                    )}
                     <p className="font-pridi text-paper/60 text-sm mb-1">
                       {m.titleTh}
                     </p>
@@ -379,11 +552,35 @@ export default function OtherWritings() {
                         <dt className="text-gold/70 shrink-0 w-16">สถานที่</dt>
                         <dd className="text-paper/80">{m.locationTh}</dd>
                       </div>
+                      {m.contents && (
+                        <div className="flex gap-2">
+                          <dt className="text-gold/70 shrink-0 w-16">บรรจุ</dt>
+                          <dd className="text-paper/80">{m.contents}</dd>
+                        </div>
+                      )}
+                      {m.status && (
+                        <div className="flex gap-2">
+                          <dt className="text-gold/70 shrink-0 w-16">สถานะ</dt>
+                          <dd className="text-paper/80">{m.status}</dd>
+                        </div>
+                      )}
                     </dl>
 
                     <p className="font-pridi text-sm text-paper/70 leading-relaxed mb-5">
                       {m.description}
                     </p>
+
+                    {/* หมายเหตุ */}
+                    {m.note && (
+                      <div className="border-l-2 border-gold/50 bg-gold/[0.05] rounded-r-lg px-4 py-3 mb-5">
+                        <p className="font-cinzel text-gold/80 text-[0.65rem] tracking-widest uppercase mb-1">
+                          หมายเหตุ
+                        </p>
+                        <p className="font-pridi text-xs text-paper/60 leading-relaxed italic">
+                          {m.note}
+                        </p>
+                      </div>
+                    )}
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-5">
@@ -398,14 +595,27 @@ export default function OtherWritings() {
                     </div>
 
                     {/* ปุ่ม */}
-                    <a
-                      href={m.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block border border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/70 font-pridi text-sm text-center py-2.5 rounded-btn transition-all duration-300"
-                    >
-                      แหล่งต้นฉบับ ↗
-                    </a>
+                    <div className="flex flex-col sm:flex-row gap-2.5">
+                      {m.detailPath && (
+                        <Link
+                          href={m.detailPath}
+                          className="flex-1 bg-gradient-to-r from-gold-dark via-gold to-gold-light hover:from-gold hover:to-gold-light text-ink font-pridi font-semibold text-sm text-center py-2.5 px-4 rounded-btn shadow-glow-sm hover:shadow-glow transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          <span>สำรวจงานเขียน</span>
+                          <span className="transition-transform duration-300 group-hover:translate-x-1">
+                            →
+                          </span>
+                        </Link>
+                      )}
+                      <a
+                        href={m.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 border border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/70 font-pridi text-sm text-center py-2.5 px-4 rounded-btn transition-all duration-300"
+                      >
+                        แหล่งที่มา ↗
+                      </a>
+                    </div>
                   </div>
                 </article>
               );
@@ -446,6 +656,82 @@ export default function OtherWritings() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* หมายเหตุทางวิชาการ */}
+      <section className="py-16 bg-ink">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-4 mb-10">
+            <div className="flex-1 h-px bg-gold/30"></div>
+            <h3 className="font-cinzel text-xl md:text-2xl text-gold text-center tracking-wide leading-snug px-2">
+              หมายเหตุทางวิชาการ: ความหลากหลายของคริสต์ศาสนายุคแรก
+            </h3>
+            <div className="flex-1 h-px bg-gold/30"></div>
+          </div>
+
+          <div className="card-glass p-8 mb-8 border-l-4 border-gold">
+            <div className="space-y-4 font-pridi text-paper-white/90 leading-relaxed">
+              <p>
+                Bart Ehrman เปิดหนังสือ{" "}
+                <em>After the New Testament: A Reader in Early Christianity</em>{" "}
+                ด้วยข้อสังเกตว่าคริสต์ศาสนาช่วง ค.ศ. 100-300
+                ไม่ใช่ขบวนการเดียวที่เป็นเอกภาพ แต่เป็น
+                <strong className="text-gold">
+                  {" "}
+                  &quot;ความหลากหลายของกลุ่มที่ต่างอ้างว่าตนคือคริสต์ศาสนาแท้&quot;
+                </strong>{" "}
+                — Proto-orthodox, Gnostic (Sethian/Valentinian), Marcionite,
+                Jewish-Christian (Ebionite) ต่างมีพระกิตติคุณ จดหมาย
+                และวิวรณ์ของตนเอง งานเขียนในคลังนี้คือหลักฐานชั้นต้นของการแข่งขันนั้น
+              </p>
+              <p>
+                สารบบพันธสัญญาใหม่ 27 เล่มไม่ได้ถูกกำหนดในครั้งเดียว —
+                รายชื่อแรกที่ตรงกับปัจจุบันทุกเล่มคือจดหมายอีสเตอร์ของ Athanasius
+                ปี ค.ศ. 367 กว่าสามศตวรรษหลังยุคพระเยซู
+                ระหว่างนั้นหนังสืออย่าง Shepherd of Hermas และ Apocalypse of Peter
+                เคยถูกบางคริสตจักรอ่านเป็นพระคัมภีร์
+                ขณะที่วิวรณ์ของยอห์นและฮีบรูก็เคยถูกโต้แย้ง
+                ดังที่เห็นได้จาก Muratorian Fragment และบันทึกของ Eusebius
+              </p>
+            </div>
+          </div>
+
+          <div className="border-t border-gold/20 pt-6">
+            <p className="font-cinzel text-gold/60 text-xs mb-3 tracking-widest">
+              แหล่งอ้างอิง
+            </p>
+            <ul className="font-pridi text-paper-white/50 text-xs space-y-1 leading-relaxed">
+              <li>
+                [1] B.D. Ehrman,{" "}
+                <em>
+                  After the New Testament: A Reader in Early Christianity,
+                  100-300 CE
+                </em>
+                , 2nd ed., Oxford University Press, 2015
+              </li>
+              <li>
+                [2] B.D. Ehrman, <em>Lost Scriptures: Books that Did Not Make It
+                into the New Testament</em>, Oxford University Press, 2003
+              </li>
+              <li>
+                [3] B.D. Ehrman, <em>The Apostolic Fathers</em>, 2 vols., Loeb
+                Classical Library, Harvard University Press, 2003
+              </li>
+              <li>
+                [4] J.M. Robinson (ed.), <em>The Nag Hammadi Library in
+                English</em>, 3rd ed., HarperSanFrancisco, 1988
+              </li>
+              <li>
+                [5] B.M. Metzger, <em>The Canon of the New Testament: Its
+                Origin, Development, and Significance</em>, Oxford University
+                Press, 1987
+              </li>
+              <li>
+                [6] E. Pagels, <em>The Gnostic Gospels</em>, Random House, 1979
+              </li>
+            </ul>
           </div>
         </div>
       </section>

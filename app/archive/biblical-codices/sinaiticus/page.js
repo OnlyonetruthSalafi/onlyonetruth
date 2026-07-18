@@ -82,7 +82,7 @@ export default function SinaiticusManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าต้นฉบับ Codex Sinaiticus — อักษร Greek Uncial
+                  มัทธิว 6:4–32 — อักษร Greek Uncial 4 คอลัมน์
                 </p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function SinaiticusManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าพันธสัญญาใหม่จาก Codex Sinaiticus
+                  มัทธิว 1:1–2:5 — หน้าแรกพันธสัญญาใหม่
                 </p>
               </div>
             </div>
@@ -159,6 +159,90 @@ export default function SinaiticusManuscript() {
                 ที่ Daniel Wallace ประมาณการรวมกันทั้งหมดกว่า 400,000 จุด
               </p>
             </div>
+          </div>
+
+          {/* ธรรมาจารย์และผู้แก้ไข */}
+          <div className="mb-10">
+            <h3 className="font-cinzel text-xl text-ink mb-4">
+              ธรรมาจารย์และผู้แก้ไข — ห้องคัดลอกศตวรรษที่ 4
+            </h3>
+            <div className="space-y-4">
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                การศึกษาคลาสสิกของ H.J.M. Milne และ T.C. Skeat แห่ง British Museum
+                (Scribes and Correctors of the Codex Sinaiticus, 1938)
+                จำแนกธรรมาจารย์ผู้คัดลอกได้ 3 คน เรียกว่า Scribe A, B และ D
+                — Scribe A คัดลอกพันธสัญญาใหม่เกือบทั้งหมด ส่วน Scribe D
+                เป็นมือที่ประณีตที่สุดและช่วยแก้งานของคนอื่น
+                การสะกดผิดจำนวนมากของ Scribe B ทำให้นักวิชาการเห็นภาพว่า
+                ห้องคัดลอกแห่งหนึ่งมีช่างฝีมือหลายระดับทำงานร่วมกัน
+              </p>
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                หลังคัดลอกเสร็จ ต้นฉบับถูกแก้ไขต่อเนื่องหลายศตวรรษ
+                โดยกลุ่มผู้แก้ไข (correctors) ที่สำคัญที่สุดคือกลุ่ม
+                ราวศตวรรษที่ 5-7 (เรียกรวมว่า C-group)
+                ซึ่งบันทึกท้ายเอสเธอร์ระบุว่าเทียบกับต้นฉบับโบราณที่
+                Pamphilus แห่ง Caesarea ตรวจชำระไว้
+                รวมการแก้ไขทุกยุคแล้ว Tischendorf นับได้ราว 23,000 จุด
+                ทำให้ Sinaiticus เป็นต้นฉบับที่ถูกแก้ไขมากที่สุดเล่มหนึ่งที่รู้จัก
+              </p>
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                ปี ค.ศ. 2009 โครงการ Codex Sinaiticus Project
+                รวมภาพถ่ายดิจิทัลของทุกหน้าจากทั้ง 4 สถาบันที่แยกเก็บต้นฉบับ
+                (ลอนดอน ไลพ์ซิก ไซนาย เซนต์ปีเตอร์สเบิร์ก)
+                ไว้ที่ codexsinaiticus.org พร้อมคำถอดความทุกบรรทัดและบันทึกการแก้ไขทุกจุด
+                นับเป็นการรวมต้นฉบับกลับเป็นเล่มเดียวครั้งแรกในรอบ 150 ปี — ในรูปแบบดิจิทัล
+              </p>
+            </div>
+          </div>
+
+          {/* ข้อความที่น่าสังเกต */}
+          <div className="mb-10">
+            <h3 className="font-cinzel text-xl text-ink mb-4">ข้อความที่น่าสังเกต</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="card-glass p-6">
+                <h4 className="font-cinzel text-gold text-sm font-semibold mb-3 tracking-wide">
+                  ข้อความที่ไม่มีใน Sinaiticus
+                </h4>
+                <ul className="font-pridi text-ink/80 text-sm space-y-2 leading-relaxed">
+                  <li>• ตอนจบยาวของมาระโก (16:9-20) — มาระโกจบที่ 16:8</li>
+                  <li>• เรื่องหญิงล่วงประเวณี (ยอห์น 7:53-8:11)</li>
+                  <li>• คำอธิษฐาน &quot;พระบิดาเจ้าข้า ขอโปรดอภัยโทษเขา&quot; (ลูกา 23:34) — ถูกมือแรกละไว้ก่อนผู้แก้ไขเติมกลับ</li>
+                  <li>• ยอห์น 5:4 (ทูตสวรรค์กวนน้ำ)</li>
+                </ul>
+              </div>
+              <div className="card-glass p-6">
+                <h4 className="font-cinzel text-gold text-sm font-semibold mb-3 tracking-wide">
+                  สิ่งที่มีเกินพระคัมภีร์ปัจจุบัน
+                </h4>
+                <ul className="font-pridi text-ink/80 text-sm space-y-2 leading-relaxed">
+                  <li>• Epistle of Barnabas — จดหมายยุค Apostolic Fathers</li>
+                  <li>• Shepherd of Hermas — วรรณกรรมนิมิตยุคต้นศตวรรษที่ 2</li>
+                  <li>
+                    • ทั้งสองเล่มถูกเย็บรวมต่อท้ายวิวรณ์
+                    แสดงว่าขอบเขตสารบบยังไม่ตายตัวในศตวรรษที่ 4
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* แหล่งอ้างอิง */}
+          <div className="border-t border-gold/20 pt-6 mb-10">
+            <p className="font-cinzel text-gold/60 text-xs mb-3 tracking-widest">
+              แหล่งอ้างอิง
+            </p>
+            <ul className="font-pridi text-ink/60 text-xs space-y-1 leading-relaxed">
+              <li>
+                [1] H.J.M. Milne &amp; T.C. Skeat, <em>Scribes and Correctors of the Codex Sinaiticus</em>, British Museum, 1938
+              </li>
+              <li>
+                [2] D.C. Parker, <em>Codex Sinaiticus: The Story of the World&apos;s Oldest Bible</em>, British Library, 2010
+              </li>
+              <li>
+                [3] B.M. Metzger &amp; B.D. Ehrman, <em>The Text of the New Testament</em>, 4th ed., Oxford University Press, 2005, pp. 62-67
+              </li>
+              <li>[4] Codex Sinaiticus Project, codexsinaiticus.org</li>
+            </ul>
           </div>
 
           {/* ปุ่ม */}

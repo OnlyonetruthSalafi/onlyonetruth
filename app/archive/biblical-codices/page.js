@@ -7,6 +7,119 @@ import Footer from "../../../components/Footer";
 
 const manuscripts = [
   {
+    id: 4,
+    title: "Papyrus P52 (John Rylands Papyrus)",
+    titleTh: "ปาปิรัส P52 ยอห์น ไรแลนด์ส",
+    mark: "𝔓52",
+    category: "papyrus",
+    categoryLabel: "Papyrus",
+    date: "ราว ค.ศ. 110-150",
+    script: "Greek (Koine)",
+    location: "John Rylands Library, Manchester, UK",
+    locationTh: "ห้องสมุดยอห์น ไรแลนด์ส แมนเชสเตอร์ สหราชอาณาจักร",
+    contents: "ยอห์น 18:31-33 (ด้านหน้า) และ 18:37-38 (ด้านหลัง)",
+    textType: "สอดคล้องกับสายข้อความยุคแรก",
+    description:
+      "ต้นฉบับพระคัมภีร์คริสเตียนที่เก่าแก่ที่สุดที่รู้จัก Philip Comfort และ David Barrett ใน The Text of the Earliest New Testament Greek Manuscripts กำหนดอายุราว ค.ศ. 110-125 โดยเทียบลายมือกับปาปิรัสลงวันที่ เช่น P.Fayum 110 และ P.Oxy. 2533 การมีอยู่ของสำเนายอห์นในอียิปต์ต้นศตวรรษที่ 2 ชี้ว่าพระกิตติคุณยอห์นแต่งขึ้นก่อนหน้านั้นในศตวรรษที่ 1",
+    sourceUrl: "https://www.library.manchester.ac.uk/rylands/",
+    image: "/manuscripts/bible/papyrus-p52.jpg",
+    tags: ["Papyrus", "2nd Century", "John", "Manchester"],
+    scholar: "Comfort & Barrett",
+    detailPath: "/archive/biblical-codices/p52",
+  },
+  {
+    id: 9,
+    title: "Papyrus P66 (Bodmer II)",
+    titleTh: "ปาปิรัส P66 บอดแมร์ II",
+    mark: "𝔓66",
+    category: "papyrus",
+    categoryLabel: "Papyrus",
+    date: "ราว ค.ศ. 150-200 (Comfort: กลางศตวรรษที่ 2)",
+    script: "Greek (Koine)",
+    location: "Fondation Martin Bodmer, Cologny, Geneva",
+    locationTh: "มูลนิธิมาร์ติน บอดแมร์ โคโลญี นครเจนีวา สวิตเซอร์แลนด์",
+    contents: "พระกิตติคุณยอห์นเกือบสมบูรณ์ (1:1-6:11; 6:35-14:26 และชิ้นส่วนถึงบทที่ 21)",
+    textType: "Alexandrian (ปนอิสระ)",
+    description:
+      "สำเนาพระกิตติคุณยอห์นที่เกือบสมบูรณ์ที่เก่าแก่ที่สุดในโลก Comfort วิเคราะห์ว่าธรรมาจารย์ผู้คัดลอกเป็นมืออาชีพแต่คัดลอกอย่างอิสระ และมีการแก้ไขตัวเองกว่า 400 จุด ซึ่งส่วนใหญ่ปรับเข้าหาสายข้อความ Alexandrian แสดงให้เห็นกระบวนการคัดลอกและตรวจทานจริงในห้องคัดลอกยุคแรก",
+    note:
+      "อายุของ P66 อิงการเทียบลายมือ (palaeography) เท่านั้น — ไม่เคยมีการตรวจ Carbon-14 เนื่องจากต้องตัดทำลายชิ้นตัวอย่าง ซึ่งสถาบันเจ้าของอย่างมูลนิธิ Bodmer ไม่อนุญาตกับต้นฉบับชิ้นเอกตามแนวปฏิบัติการอนุรักษ์ อีกทั้งเส้นปรับเทียบ C-14 มีช่วงราบ (plateau) ราว ค.ศ. 130-220 พอดี ผลตรวจจึงชี้ขาดข้อถกเถียงเรื่องอายุไม่ได้อยู่ดี",
+    sourceUrl: "https://fondationbodmer.ch/en/",
+    exploreUrl: "https://manuscripts.csntm.org/manuscript/View/GA_P66",
+    image: "/manuscripts/bible/papyrus-p66.jpg",
+    tags: ["Papyrus", "2nd Century", "John", "Bodmer"],
+    scholar: "Philip W. Comfort",
+    detailPath: "/archive/biblical-codices/p66",
+  },
+  {
+    id: 10,
+    title: "Papyrus P75 (Bodmer XIV–XV)",
+    titleTh: "ปาปิรัส P75 บอดแมร์ XIV-XV",
+    mark: "𝔓75",
+    category: "papyrus",
+    categoryLabel: "Papyrus",
+    date: "ราว ค.ศ. 175-225",
+    script: "Greek (Koine)",
+    location: "Biblioteca Apostolica Vaticana (Hanna Papyrus 1), Vatican City",
+    locationTh: "ห้องสมุดวาติกัน (Hanna Papyrus 1) นครรัฐวาติกัน",
+    contents: "ลูกา 3-24 และยอห์น 1-15 (ลูกาสมบูรณ์ที่สุดในบรรดาปาปิรัสยุคแรก)",
+    textType: "Alexandrian (เคร่งครัดมาก)",
+    description:
+      "พยานหลักฐานสำคัญที่สุดชิ้นหนึ่งในสายตาของ Comfort — ข้อความของ P75 แทบจะเหมือนกับ Codex Vaticanus ที่คัดลอกหลังจากนั้นราว 150 ปี พิสูจน์ว่าข้อความสาย Alexandrian ไม่ใช่ผลงานตรวจชำระของศตวรรษที่ 4 แต่สืบทอดมาจากศตวรรษที่ 2 อย่างระมัดระวัง ปัจจุบันเก็บรักษาที่ห้องสมุดวาติกันและเปิดให้ชมออนไลน์",
+    note:
+      "อายุของ P75 อิงการเทียบลายมือเท่านั้น — ไม่เคยมีการตรวจ Carbon-14 เพราะการทดสอบต้องทำลายชิ้นตัวอย่าง ซึ่งผู้ครอบครอง (มูลนิธิ Bodmer เดิม และห้องสมุดวาติกันปัจจุบัน) ไม่อนุญาตกับต้นฉบับระดับนี้ และช่วงราบของเส้นปรับเทียบ C-14 (ราว ค.ศ. 130-220) ทำให้ผลตรวจไม่สามารถชี้ขาดอายุได้แม่นกว่าการเทียบลายมือ",
+    sourceUrl: "https://www.vaticanlibrary.va",
+    exploreUrl: "https://digi.vatlib.it/view/MSS_Pap.Hanna.1(Mater.Verbi)",
+    image: "/manuscripts/bible/papyrus-p75.jpg",
+    tags: ["Papyrus", "Luke", "John", "Vatican"],
+    scholar: "Philip W. Comfort",
+    detailPath: "/archive/biblical-codices/p75",
+  },
+  {
+    id: 12,
+    title: "Papyrus P46 (Chester Beatty II)",
+    titleTh: "ปาปิรัส P46 เชสเตอร์ บีตตี II",
+    mark: "𝔓46",
+    category: "papyrus",
+    categoryLabel: "Papyrus",
+    date: "ราว ค.ศ. 175-225 (Comfort: กลางศตวรรษที่ 2)",
+    script: "Greek (Koine)",
+    location: "Chester Beatty Library, Dublin | University of Michigan",
+    locationTh: "ห้องสมุดเชสเตอร์ บีตตี ดับลิน | มหาวิทยาลัยมิชิแกน",
+    contents: "จดหมายของเปาโล 9 ฉบับ + ฮีบรู (86 จาก 104 แผ่น) — ไม่มีจดหมายศิษยาภิบาล",
+    textType: "Proto-Alexandrian",
+    description:
+      "ชุดจดหมายของเปาโลที่เก่าแก่ที่สุดในโลก น่าสังเกตว่าเรียงฮีบรูไว้ต่อจากโรมทันที แสดงว่าผู้รวบรวมยุคแรกถือว่าฮีบรูเป็นงานของเปาโล และไม่มีจดหมายศิษยาภิบาล (1-2 ทิโมธี, ทิตัส) Comfort กำหนดอายุกลางศตวรรษที่ 2 ทำให้เป็นพยานว่าจดหมายของเปาโลถูกรวบรวมเป็นชุด (corpus) เร็วกว่าที่เคยคิด",
+    sourceUrl: "https://chesterbeatty.ie/collections/",
+    exploreUrl: "https://manuscripts.csntm.org/manuscript/View/GA_P46",
+    image: "/manuscripts/bible/papyrus-p46.jpg",
+    tags: ["Papyrus", "Pauline Epistles", "Chester Beatty", "2nd Century"],
+    scholar: "Philip W. Comfort",
+    detailPath: "/archive/biblical-codices/p46",
+  },
+  {
+    id: 11,
+    title: "Papyrus P45 (Chester Beatty I)",
+    titleTh: "ปาปิรัส P45 เชสเตอร์ บีตตี I",
+    mark: "𝔓45",
+    category: "papyrus",
+    categoryLabel: "Papyrus",
+    date: "ต้นศตวรรษที่ 3 (ราว ค.ศ. 200-250)",
+    script: "Greek (Koine)",
+    location: "Chester Beatty Library, Dublin | Austrian National Library, Vienna",
+    locationTh: "ห้องสมุดเชสเตอร์ บีตตี ดับลิน | หอสมุดแห่งชาติออสเตรีย เวียนนา",
+    contents: "พระกิตติคุณทั้ง 4 + กิจการ (เหลือ 30 จากราว 220 แผ่น)",
+    textType: "อิสระ (ใกล้ Caesarean ในมาระโก)",
+    description:
+      "โคเด็กซ์เล่มแรกสุดเท่าที่รู้จักที่รวมพระกิตติคุณทั้งสี่และกิจการไว้ในเล่มเดียว เป็นหลักฐานว่าคริสตชนต้นศตวรรษที่ 3 ถือพระกิตติคุณ 4 เล่มเป็นชุดเดียวกันแล้ว Comfort วิเคราะห์ว่าธรรมาจารย์คัดลอกแบบถ่ายความหมายมากกว่าถ่ายคำต่อคำ ทำให้ข้อความมีลักษณะอิสระกว่าปาปิรัสร่วมสมัย",
+    sourceUrl: "https://chesterbeatty.ie/collections/",
+    exploreUrl: "https://manuscripts.csntm.org/manuscript/View/GA_P45",
+    image: "/manuscripts/bible/papyrus-p45.jpg",
+    tags: ["Papyrus", "Four Gospels", "Acts", "3rd Century"],
+    scholar: "Philip W. Comfort",
+    detailPath: "/archive/biblical-codices/p45",
+  },
+  {
     id: 1,
     title: "Codex Sinaiticus",
     titleTh: "โคเด็กซ์ ซีไนติกัส",
@@ -17,8 +130,10 @@ const manuscripts = [
     script: "Greek Uncial (Koine Greek)",
     location: "British Library, London | Leipzig | St. Catherine's Monastery | Vatican",
     locationTh: "หอสมุดบริติช ลอนดอน | ไลพ์ซิก | อาราม St. Catherine | วาติกัน",
+    contents: "OT (Septuagint) ส่วนใหญ่ + NT ครบ 27 เล่ม + Epistle of Barnabas + Shepherd of Hermas",
+    textType: "Alexandrian",
     description:
-      "ต้นฉบับพันธสัญญาใหม่ฉบับสมบูรณ์ที่เก่าแก่ที่สุดในโลก ค้นพบโดย Constantin von Tischendorf ที่อาราม St. Catherine ไซนาย ในปี ค.ศ. 1844 Bruce Metzger ระบุว่าเป็นหนึ่งในพยานหลักฐานสำคัญที่สุดของข้อความพันธสัญญาใหม่",
+      "ต้นฉบับพันธสัญญาใหม่ฉบับสมบูรณ์ที่เก่าแก่ที่สุดในโลก ค้นพบโดย Constantin von Tischendorf ที่อาราม St. Catherine ไซนาย ในปี ค.ศ. 1844 คัดลอกโดยธรรมาจารย์อย่างน้อย 3 คน (Scribe A, B, D) และถูกแก้ไขโดยผู้ตรวจทานหลายชั่วอายุคน — Tischendorf นับการแก้ไขได้ราว 23,000 จุดทั่วทั้งเล่ม Bruce Metzger ระบุว่าเป็นหนึ่งในพยานหลักฐานสำคัญที่สุดของข้อความพันธสัญญาใหม่",
     sourceUrl: "https://www.codexsinaiticus.org",
     image: "/manuscripts/bible/codex-sinaiticus.jpg",
     tags: ["Uncial", "Complete NT", "4th Century", "Greek"],
@@ -36,9 +151,12 @@ const manuscripts = [
     script: "Greek Uncial",
     location: "Biblioteca Apostolica Vaticana, Vatican City",
     locationTh: "ห้องสมุดอัครสาวก วาติกัน นครรัฐวาติกัน",
+    contents: "OT + NT เกือบสมบูรณ์ — ขาดฮีบรู 9:14 เป็นต้นไป, 1-2 ทิโมธี, ทิตัส, ฟีเลโมน และวิวรณ์",
+    textType: "Alexandrian",
     description:
-      "ต้นฉบับที่ครอบคลุมทั้งพันธสัญญาเก่าและใหม่เกือบสมบูรณ์ Bruce Metzger ระบุว่าเป็นหนึ่งในพยานหลักฐานสำคัญที่สุด นักวิชาการพบว่า Sinaiticus และ Vaticanus มีความแตกต่างกัน 3,036 จุด ตามการศึกษาของ Herman Hoskier",
+      "ต้นฉบับที่ครอบคลุมทั้งพันธสัญญาเก่าและใหม่เกือบสมบูรณ์ Bruce Metzger ระบุว่าเป็นหนึ่งในพยานหลักฐานสำคัญที่สุด Comfort ชี้ว่าข้อความของ Vaticanus แทบเหมือนกับ P75 จากศตวรรษที่ 2 แสดงว่าสืบทอดจากสายที่คัดลอกอย่างเคร่งครัดมาแต่ยุคแรก ขณะเดียวกัน Herman Hoskier พบว่า Sinaiticus และ Vaticanus แตกต่างกันถึง 3,036 จุดในพระกิตติคุณ",
     sourceUrl: "https://www.vatican.va/various/manuscripts/index_en.html",
+    exploreUrl: "https://digi.vatlib.it/view/MSS_Vat.gr.1209",
     image: "/manuscripts/bible/codex-vaticanus.jpg",
     tags: ["Uncial", "4th Century", "Vatican", "Greek"],
     scholar: "Bruce M. Metzger",
@@ -55,8 +173,10 @@ const manuscripts = [
     script: "Greek Uncial",
     location: "British Library, London",
     locationTh: "หอสมุดบริติช ลอนดอน สหราชอาณาจักร",
+    contents: "OT + NT (ขาดมัทธิวส่วนใหญ่, ยอห์น 2 แผ่น, 2 โครินธ์บางส่วน) + 1-2 Clement",
+    textType: "Byzantine (พระกิตติคุณ) / Alexandrian (ส่วนอื่น)",
     description:
-      "หนึ่งใน Great Uncial Codices ทั้งสี่ ครอบคลุมพระคัมภีร์ทั้งเล่มเกือบสมบูรณ์ รวมถึงหนังสือบางเล่มที่ไม่อยู่ในคัมภีร์มาตรฐานปัจจุบัน เช่น 1 Clement และ 2 Clement",
+      "หนึ่งใน Great Uncial Codices ทั้งสี่ ครอบคลุมพระคัมภีร์ทั้งเล่มเกือบสมบูรณ์ รวมถึงหนังสือบางเล่มที่ไม่อยู่ในคัมภีร์มาตรฐานปัจจุบัน เช่น 1 Clement และ 2 Clement มีลักษณะพิเศษคือข้อความพระกิตติคุณเป็นแบบ Byzantine ยุคแรกสุดเท่าที่รู้จัก ขณะที่ส่วนอื่นของ NT เป็นสาย Alexandrian — พยานว่าสายข้อความต่างกันถูกใช้ควบคู่กันในศตวรรษที่ 5",
     sourceUrl: "https://www.bl.uk/collection-items/codex-alexandrinus",
     image: "/manuscripts/bible/codex-alexandrinus.jpg",
     tags: ["Uncial", "5th Century", "British Library", "Greek"],
@@ -64,23 +184,26 @@ const manuscripts = [
     detailPath: "/archive/biblical-codices/alexandrinus",
   },
   {
-    id: 4,
-    title: "Papyrus P52 (John Rylands Papyrus)",
-    titleTh: "ปาปิรัส P52 ยอห์น ไรแลนด์ส",
-    mark: "𝔓52",
-    category: "papyrus",
-    categoryLabel: "Papyrus",
-    date: "ราว ค.ศ. 117-150",
-    script: "Greek (Koine)",
-    location: "John Rylands Library, Manchester, UK",
-    locationTh: "ห้องสมุดยอห์น ไรแลนด์ส แมนเชสเตอร์ สหราชอาณาจักร",
+    id: 13,
+    title: "Codex Ephraemi Rescriptus (C/04)",
+    titleTh: "โคเด็กซ์ เอฟราเอมี เรสคริปตัส",
+    mark: "C 04",
+    category: "uncial",
+    categoryLabel: "Uncial Codex",
+    date: "ศตวรรษที่ 5 ค.ศ.",
+    script: "Greek Uncial (Palimpsest)",
+    location: "Bibliothèque nationale de France, Paris",
+    locationTh: "หอสมุดแห่งชาติฝรั่งเศส กรุงปารีส",
+    contents: "ชิ้นส่วน OT + NT เกือบทุกเล่ม (145 จาก ~238 แผ่น NT)",
+    textType: "ผสม (Alexandrian + Byzantine)",
     description:
-      "ต้นฉบับพระคัมภีร์คริสเตียนที่เก่าแก่ที่สุดที่รู้จัก เป็นชิ้นส่วนของยอห์น 18:31-33 และ 18:37-38 Daniel Wallace ระบุว่า P52 พิสูจน์ว่าพระกิตติคุณยอห์นแต่งขึ้นในศตวรรษที่ 1 แม้ว่านักวิจารณ์บางคนจะโต้แย้งก็ตาม",
-    sourceUrl: "https://www.library.manchester.ac.uk/rylands/",
-    image: "/manuscripts/bible/papyrus-p52.jpg",
-    tags: ["Papyrus", "2nd Century", "John", "Manchester"],
-    scholar: "Daniel B. Wallace",
-    detailPath: "/archive/biblical-codices/p52",
+      "หนึ่งใน Great Uncial Codices ทั้งสี่ และเป็น Palimpsest ที่มีชื่อเสียงที่สุดของพระคัมภีร์ — ในศตวรรษที่ 12 ข้อความพระคัมภีร์ถูกขูดลบออกเพื่อนำหนังกลับมาเขียนบทเทศนาของนักบุญเอฟราเอมทับ Constantin von Tischendorf ใช้สารเคมีช่วยอ่านและถอดข้อความชั้นล่างสำเร็จในปี ค.ศ. 1840-1845 ก่อนที่เขาจะค้นพบ Codex Sinaiticus",
+    sourceUrl: "https://www.bnf.fr/en",
+    exploreUrl: "https://gallica.bnf.fr/ark:/12148/btv1b8470433r",
+    image: "/manuscripts/bible/codex-ephraemi.jpg",
+    tags: ["Uncial", "Palimpsest", "5th Century", "Paris"],
+    scholar: "Bruce M. Metzger",
+    detailPath: "/archive/biblical-codices/ephraemi",
   },
   {
     id: 5,
@@ -89,18 +212,42 @@ const manuscripts = [
     mark: "D 05",
     category: "uncial",
     categoryLabel: "Uncial Codex",
-    date: "ศตวรรษที่ 4-5 ค.ศ.",
+    date: "ราว ค.ศ. 400 (ศตวรรษที่ 4-5)",
     script: "Greek & Latin (Bilingual)",
     location: "Cambridge University Library, UK",
     locationTh: "ห้องสมุดมหาวิทยาลัยเคมบริดจ์ สหราชอาณาจักร",
+    contents: "พระกิตติคุณทั้ง 4 (เรียงแบบตะวันตก: มธ-ยน-ลก-มก) + กิจการ + 3 ยอห์นบางส่วน",
+    textType: "Western",
     description:
-      "ต้นฉบับ 2 ภาษา (Greek-Latin) ที่มีลักษณะพิเศษ มีข้อความที่แตกต่างจากฉบับมาตรฐานหลายจุด รวมถึงเรื่องราวของหญิงที่ถูกจับได้ว่าล่วงประเวณี (John 7:53-8:11) ซึ่ง Bruce Metzger ถือว่าเป็นส่วนเพิ่มเติมในภายหลัง",
+      "ต้นฉบับ 2 ภาษา (Greek-Latin) ตัวแทนสำคัญที่สุดของสายข้อความ Western — ข้อความกิจการยาวกว่าสาย Alexandrian ราว 8-10% และมีข้อความที่แตกต่างจากฉบับมาตรฐานหลายจุด รวมถึงเรื่องราวของหญิงที่ถูกจับได้ว่าล่วงประเวณี (John 7:53-8:11) ซึ่ง Bruce Metzger ถือว่าเป็นส่วนเพิ่มเติมในภายหลัง",
     sourceUrl:
       "https://www.lib.cam.ac.uk/collections/departments/manuscripts-university-archives/significant-items/codex-bezae",
     image: "/manuscripts/bible/codex-bezae.jpg",
     tags: ["Uncial", "Bilingual", "Cambridge", "Textual Variants"],
     scholar: "Bruce M. Metzger",
     detailPath: "/archive/biblical-codices/bezae",
+  },
+  {
+    id: 14,
+    title: "Codex Washingtonianus (W/032)",
+    titleTh: "โคเด็กซ์ วอชิงตัน (Freer Gospels)",
+    mark: "W 032",
+    category: "uncial",
+    categoryLabel: "Uncial Codex",
+    date: "ปลายศตวรรษที่ 4 — ต้นศตวรรษที่ 5",
+    script: "Greek Uncial",
+    location: "Smithsonian (Freer Gallery of Art), Washington, D.C.",
+    locationTh: "พิพิธภัณฑ์ Freer สถาบันสมิธโซเนียน กรุงวอชิงตัน ดี.ซี.",
+    contents: "พระกิตติคุณทั้ง 4 (เรียงแบบตะวันตก: มธ-ยน-ลก-มก)",
+    textType: "ผสมเป็นช่วง ๆ (block mixture)",
+    description:
+      "ต้นฉบับพระกิตติคุณกรีกสำคัญที่สุดที่อยู่ในสหรัฐฯ ซื้อโดย Charles Freer ที่อียิปต์ปี ค.ศ. 1906 มีลักษณะพิเศษคือข้อความเปลี่ยนตระกูลเป็นช่วง ๆ (บางตอน Alexandrian บางตอน Western/Byzantine) สะท้อนว่าคัดลอกจากต้นแบบหลายฉบับ และมีข้อความ Freer Logion ต่อท้ายมาระโก 16:14 ซึ่งไม่พบในต้นฉบับอื่นใด",
+    sourceUrl: "https://asia.si.edu",
+    exploreUrl: "https://manuscripts.csntm.org/manuscript/View/GA_032",
+    image: "/manuscripts/bible/codex-washingtonianus.jpg",
+    tags: ["Uncial", "Freer Gospels", "Washington", "5th Century"],
+    scholar: "Bruce M. Metzger",
+    detailPath: "/archive/biblical-codices/washingtonianus",
   },
   {
     id: 6,
@@ -113,13 +260,37 @@ const manuscripts = [
     script: "Hebrew (Masoretic)",
     location: "Shrine of the Book, Israel Museum, Jerusalem",
     locationTh: "Shrine of the Book พิพิธภัณฑ์อิสราเอล กรุงเยรูซาเล็ม",
+    contents: "เหลือ 294 จากเดิม 487 แผ่น — โทราห์สูญหายเกือบทั้งหมด",
+    textType: "Masoretic (สำนัก Ben Asher)",
     description:
-      "ต้นฉบับ Masoretic Text ที่เก่าแก่ที่สุดและสมบูรณ์ที่สุดของพระคัมภีร์ฮีบรู ครั้งหนึ่งเชื่อว่าสมบูรณ์ แต่สูญหายราว 40% ในจลาจลปี ค.ศ. 1947 Emanuel Tov ระบุว่าเป็นต้นฉบับ Hebrew Bible ที่สำคัญที่สุด",
+      "ต้นฉบับ Masoretic Text ที่เก่าแก่ที่สุดและแม่นยำที่สุดของพระคัมภีร์ฮีบรู ใส่สระและเครื่องหมาย Masorah โดย Aaron ben Moses ben Asher ปรมาจารย์คนสุดท้ายของตระกูล Ben Asher แห่งทิเบเรียส ครั้งหนึ่งเชื่อว่าสมบูรณ์ แต่สูญหายราว 40% ในจลาจลที่อะเลปโปปี ค.ศ. 1947 Emanuel Tov ระบุว่าเป็นต้นฉบับ Hebrew Bible ที่สำคัญที่สุด และเป็นฐานของ Hebrew University Bible Project",
     sourceUrl: "https://www.aleppocodex.org",
     image: "/manuscripts/bible/aleppo-codex.jpg",
     tags: ["Masoretic", "Hebrew", "Jerusalem", "10th Century"],
     scholar: "Emanuel Tov",
     detailPath: "/archive/biblical-codices/aleppo",
+  },
+  {
+    id: 15,
+    title: "Leningrad Codex (B19a)",
+    titleTh: "โคเด็กซ์ เลนินกราด",
+    mark: "B19a",
+    category: "masoretic",
+    categoryLabel: "Masoretic Text",
+    date: "ค.ศ. 1008",
+    script: "Hebrew (Masoretic)",
+    location: "National Library of Russia, St. Petersburg",
+    locationTh: "หอสมุดแห่งชาติรัสเซีย นครเซนต์ปีเตอร์สเบิร์ก",
+    contents: "พระคัมภีร์ฮีบรูครบทุกเล่ม (สมบูรณ์ที่สุดที่เก่าแก่ที่สุด)",
+    textType: "Masoretic (สาย Ben Asher)",
+    description:
+      "ต้นฉบับพระคัมภีร์ฮีบรูฉบับสมบูรณ์ที่เก่าแก่ที่สุดในโลกที่ยังอยู่ครบ คัดลอกที่ไคโรปี ค.ศ. 1008 โดย Samuel ben Jacob ตามสายข้อความ Ben Asher หลังจาก Aleppo Codex เสียหาย ต้นฉบับนี้จึงกลายเป็นฐานของพระคัมภีร์ฮีบรูวิชาการทุกฉบับในปัจจุบัน ทั้ง Biblia Hebraica Stuttgartensia (BHS) และ Biblia Hebraica Quinta ซึ่งเป็นฐานการแปลพันธสัญญาเดิมแทบทุกภาษาทั่วโลก",
+    sourceUrl: "https://nlr.ru/eng/",
+    exploreUrl: "https://archive.org/details/Leningrad_Codex",
+    image: "/manuscripts/bible/leningrad-codex.jpg",
+    tags: ["Masoretic", "Hebrew", "Complete", "St. Petersburg"],
+    scholar: "Emanuel Tov",
+    detailPath: "/archive/biblical-codices/leningrad",
   },
   {
     id: 7,
@@ -132,8 +303,10 @@ const manuscripts = [
     script: "Greek (Koine)",
     location: "พบใน Codex Vaticanus, Sinaiticus, Alexandrinus",
     locationTh: "ต้นฉบับหลัก: วาติกัน, ลอนดอน, อารามไซนาย",
+    contents: "พันธสัญญาเดิมภาษากรีกทั้งหมด รวมหนังสือ Deuterocanonical",
+    textType: "Greek Old Testament",
     description:
-      "ฉบับแปลพระคัมภีร์ฮีบรูเป็นภาษากรีก เก่าแก่ที่สุดในโลก ตามตำนานแปลโดยนักวิชาการ 72 คนที่เมืองอเล็กซานเดรีย อียิปต์ เป็นพระคัมภีร์ที่พระเยซูและสาวกใช้อ้างอิง ต้นฉบับสมบูรณ์ที่เก่าแก่ที่สุดคือ Codex Vaticanus (ศตวรรษที่ 4)",
+      "ฉบับแปลพระคัมภีร์ฮีบรูเป็นภาษากรีก เก่าแก่ที่สุดในโลก ตามตำนานแปลโดยนักวิชาการ 72 คนที่เมืองอเล็กซานเดรีย อียิปต์ เป็นพระคัมภีร์ที่ผู้เขียนพันธสัญญาใหม่ใช้อ้างอิงมากที่สุด — คำอ้างอิง OT ใน NT ส่วนใหญ่ตรงกับ LXX มากกว่าข้อความฮีบรู ต้นฉบับสมบูรณ์ที่เก่าแก่ที่สุดคือ Codex Vaticanus (ศตวรรษที่ 4) ฉบับวิชาการมาตรฐานปัจจุบันคือ Rahlfs-Hanhart และ Göttingen Septuagint",
     sourceUrl: "https://en.wikipedia.org/wiki/Septuagint",
     image: "/manuscripts/bible/septuagint.jpg",
     tags: ["Septuagint", "LXX", "Greek OT", "Alexandria"],
@@ -145,14 +318,16 @@ const manuscripts = [
     title: "Dead Sea Scrolls (Qumran)",
     titleTh: "ม้วนหนังสือทะเลเดดซี",
     mark: "מגילות",
-    category: "septuagint",
-    categoryLabel: "Septuagint",
+    category: "scrolls",
+    categoryLabel: "Qumran Scrolls",
     date: "ศตวรรษที่ 3 ก่อนค.ศ. — ศตวรรษที่ 1 ค.ศ.",
     script: "Hebrew, Aramaic, Greek",
     location: "Shrine of the Book, Israel Museum, Jerusalem",
     locationTh: "Shrine of the Book พิพิธภัณฑ์อิสราเอล เยรูซาเล็ม",
+    contents: "ม้วนหนังสือ ~900+ ม้วน เป็นพระคัมภีร์ราว 230 ม้วน — Great Isaiah Scroll (1QIsaᵃ) สมบูรณ์ทั้งเล่ม",
+    textType: "หลากหลาย (Proto-Masoretic, Pre-Samaritan, สาย LXX)",
     description:
-      "ค้นพบปี ค.ศ. 1947 ในถ้ำริมทะเลเดดซี มีชิ้นส่วนพระคัมภีร์ฮีบรูเกือบทุกเล่ม เก่ากว่าต้นฉบับ Masoretic ราว 1,000 ปี บางส่วนสอดคล้องกับฉบับ Septuagint มากกว่า Masoretic Text แสดงให้เห็นความหลากหลายของข้อความในยุคพระวิหารที่ 2",
+      "ค้นพบปี ค.ศ. 1947 ในถ้ำริมทะเลเดดซี มีชิ้นส่วนพระคัมภีร์ฮีบรูเกือบทุกเล่ม (ยกเว้นเอสเธอร์) เก่ากว่าต้นฉบับ Masoretic ราว 1,000 ปี ชิ้นเด่นที่สุดคือ Great Isaiah Scroll ที่มีอิสยาห์ครบทั้ง 66 บท บางม้วนสอดคล้องกับฉบับ Septuagint มากกว่า Masoretic Text แสดงให้เห็นความหลากหลายของข้อความในยุคพระวิหารที่ 2",
     sourceUrl: "https://www.deadseascrolls.org.il",
     image: "/manuscripts/bible/dead-sea-scrolls.jpg",
     tags: ["Dead Sea Scrolls", "Qumran", "Hebrew", "1947"],
@@ -167,9 +342,16 @@ const filters = [
   { id: "papyrus", label: "Papyrus" },
   { id: "septuagint", label: "Septuagint" },
   { id: "masoretic", label: "Masoretic" },
+  { id: "scrolls", label: "Dead Sea Scrolls" },
 ];
 
 const scholars = [
+  {
+    name: "Philip W. Comfort",
+    years: "1950–ปัจจุบัน",
+    institution: "Coastal Carolina University",
+    work: '"The Text of the Earliest New Testament Greek Manuscripts" (ร่วมกับ D.P. Barrett, Tyndale House, 2001)',
+  },
   {
     name: "Bruce M. Metzger",
     years: "1914–2007",
@@ -291,7 +473,7 @@ export default function BiblicalCodices() {
               ต้นฉบับคัมภีร์ไบเบิลโบราณที่สำคัญ ศึกษาเปรียบเทียบโดยนักวิชาการชั้นนำ
             </p>
             <p className="font-cinzel text-sm text-gold/70">
-              4th Century CE onwards | Greek &amp; Hebrew | 5,800+ Manuscripts
+              2nd Century CE onwards | Greek &amp; Hebrew | 5,800+ Manuscripts
             </p>
           </div>
         </div>
@@ -375,9 +557,20 @@ export default function BiblicalCodices() {
 
                   {/* รูปภาพ */}
                   <div className="relative h-64 overflow-hidden">
-                    <Link href={m.detailPath} className="block h-full">
-                      <ManuscriptImage m={m} />
-                    </Link>
+                    {m.detailPath ? (
+                      <Link href={m.detailPath} className="block h-full">
+                        <ManuscriptImage m={m} />
+                      </Link>
+                    ) : (
+                      <a
+                        href={m.exploreUrl || m.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block h-full"
+                      >
+                        <ManuscriptImage m={m} />
+                      </a>
+                    )}
                     {/* เงาไล่เฉดจากล่างขึ้นบน ให้รูปกลืนกับแผ่นการ์ด */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#2a1a17] via-transparent to-transparent pointer-events-none" />
                     {/* ป้ายหมวด */}
@@ -399,11 +592,17 @@ export default function BiblicalCodices() {
                       {m.mark}
                     </div>
 
-                    <Link href={m.detailPath} className="group/title">
-                      <h3 className="font-cinzel text-xl text-gold font-semibold mb-1 leading-snug group-hover/title:text-gold-light transition-colors">
+                    {m.detailPath ? (
+                      <Link href={m.detailPath} className="group/title">
+                        <h3 className="font-cinzel text-xl text-gold font-semibold mb-1 leading-snug group-hover/title:text-gold-light transition-colors">
+                          {m.title}
+                        </h3>
+                      </Link>
+                    ) : (
+                      <h3 className="font-cinzel text-xl text-gold font-semibold mb-1 leading-snug">
                         {m.title}
                       </h3>
-                    </Link>
+                    )}
                     <p className="font-pridi text-paper/60 text-sm mb-1">
                       {m.titleTh}
                     </p>
@@ -428,11 +627,35 @@ export default function BiblicalCodices() {
                         <dt className="text-gold/70 shrink-0 w-16">สถานที่</dt>
                         <dd className="text-paper/80">{m.locationTh}</dd>
                       </div>
+                      {m.contents && (
+                        <div className="flex gap-2">
+                          <dt className="text-gold/70 shrink-0 w-16">บรรจุ</dt>
+                          <dd className="text-paper/80">{m.contents}</dd>
+                        </div>
+                      )}
+                      {m.textType && (
+                        <div className="flex gap-2">
+                          <dt className="text-gold/70 shrink-0 w-16">ตระกูล</dt>
+                          <dd className="text-paper/80">{m.textType}</dd>
+                        </div>
+                      )}
                     </dl>
 
                     <p className="font-pridi text-sm text-paper/70 leading-relaxed mb-5">
                       {m.description}
                     </p>
+
+                    {/* หมายเหตุ */}
+                    {m.note && (
+                      <div className="border-l-2 border-gold/50 bg-gold/[0.05] rounded-r-lg px-4 py-3 mb-5">
+                        <p className="font-cinzel text-gold/80 text-[0.65rem] tracking-widest uppercase mb-1">
+                          หมายเหตุ
+                        </p>
+                        <p className="font-pridi text-xs text-paper/60 leading-relaxed italic">
+                          {m.note}
+                        </p>
+                      </div>
+                    )}
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-5">
@@ -448,15 +671,29 @@ export default function BiblicalCodices() {
 
                     {/* ปุ่ม */}
                     <div className="flex flex-col sm:flex-row gap-2.5">
-                      <Link
-                        href={m.detailPath}
-                        className="flex-1 bg-gradient-to-r from-gold-dark via-gold to-gold-light hover:from-gold hover:to-gold-light text-ink font-pridi font-semibold text-sm text-center py-2.5 px-4 rounded-btn shadow-glow-sm hover:shadow-glow transition-all duration-300 flex items-center justify-center gap-2"
-                      >
-                        <span>สำรวจต้นฉบับ</span>
-                        <span className="transition-transform duration-300 group-hover:translate-x-1">
-                          →
-                        </span>
-                      </Link>
+                      {m.detailPath ? (
+                        <Link
+                          href={m.detailPath}
+                          className="flex-1 bg-gradient-to-r from-gold-dark via-gold to-gold-light hover:from-gold hover:to-gold-light text-ink font-pridi font-semibold text-sm text-center py-2.5 px-4 rounded-btn shadow-glow-sm hover:shadow-glow transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          <span>สำรวจต้นฉบับ</span>
+                          <span className="transition-transform duration-300 group-hover:translate-x-1">
+                            →
+                          </span>
+                        </Link>
+                      ) : (
+                        <a
+                          href={m.exploreUrl || m.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 bg-gradient-to-r from-gold-dark via-gold to-gold-light hover:from-gold hover:to-gold-light text-ink font-pridi font-semibold text-sm text-center py-2.5 px-4 rounded-btn shadow-glow-sm hover:shadow-glow transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          <span>สำรวจต้นฉบับดิจิทัล</span>
+                          <span className="transition-transform duration-300 group-hover:translate-x-1">
+                            ↗
+                          </span>
+                        </a>
+                      )}
                       <a
                         href={m.sourceUrl}
                         target="_blank"
@@ -486,7 +723,7 @@ export default function BiblicalCodices() {
             </h2>
             <div className="mx-auto h-px w-20 bg-gold/40" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {scholars.map((s) => (
               <div
                 key={s.name}

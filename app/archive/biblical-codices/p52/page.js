@@ -43,7 +43,7 @@ export default function P52Manuscript() {
               ชิ้นส่วนพระคัมภีร์คริสเตียนที่เก่าแก่ที่สุดที่รู้จัก เป็นส่วนหนึ่งของพระกิตติคุณยอห์น
             </p>
             <p className="font-cinzel text-gold/70 text-sm tracking-widest">
-              ราว ค.ศ. 117-150 | Greek Papyrus | John Rylands Library, Manchester
+              ราว ค.ศ. 110-150 | Greek Papyrus | John Rylands Library, Manchester
             </p>
           </div>
         </div>
@@ -124,12 +124,12 @@ export default function P52Manuscript() {
           {/* Info Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {[
-              { label: "อายุต้นฉบับ", value: "ราว ค.ศ. 117-150 (Carbon-14 และ Palaeography)" },
+              { label: "อายุต้นฉบับ", value: "ราว ค.ศ. 110-150 (การเทียบลายมือ — Comfort & Barrett: ค.ศ. 110-125)" },
               { label: "รูปแบบอักษร", value: "Greek (Koine) บนปาปิรัส" },
               { label: "ขนาด", value: "8.9 × 6 เซนติเมตร (ชิ้นส่วนเล็กมาก)" },
               { label: "เนื้อหา", value: "ยอห์น 18:31-33 (ด้านหน้า) และ 18:37-38 (ด้านหลัง)" },
               { label: "สถานที่เก็บรักษา", value: "John Rylands Library, Manchester, UK" },
-              { label: "การค้นพบ", value: "Bernard Grenfell ปี ค.ศ. 1920 ในอียิปต์" },
+              { label: "การค้นพบ", value: "Bernard Grenfell ซื้อจากอียิปต์ปี ค.ศ. 1920 — Colin H. Roberts ระบุว่าเป็นยอห์นปี ค.ศ. 1934" },
             ].map((item) => (
               <div key={item.label} className="card-glass p-5">
                 <p className="font-cinzel text-gold text-sm mb-1">{item.label}</p>
@@ -153,9 +153,62 @@ export default function P52Manuscript() {
               </p>
               <p className="font-pridi text-ink/80 leading-relaxed">
                 อย่างไรก็ตาม ช่องว่างระหว่างเหตุการณ์จริง (ราว ค.ศ. 30)
-                กับต้นฉบับที่เก่าแก่ที่สุด (ราว ค.ศ. 117-150) ยังคงมีนัยสำคัญ
+                กับต้นฉบับที่เก่าแก่ที่สุด (ราว ค.ศ. 110-150) ยังคงมีนัยสำคัญ
               </p>
             </div>
+          </div>
+
+          {/* การกำหนดอายุ */}
+          <div className="mb-10">
+            <h3 className="font-cinzel text-xl text-ink mb-4">
+              การกำหนดอายุ — วิธีการและข้อถกเถียง
+            </h3>
+            <div className="space-y-4">
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                P52 ไม่เคยผ่านการตรวจ Carbon-14 (ชิ้นส่วนเล็กเกินกว่าจะสละเนื้อปาปิรัส)
+                อายุทั้งหมดจึงมาจากการเทียบลายมือ (palaeography)
+                Colin Roberts ผู้ตีพิมพ์ชิ้นส่วนในปี ค.ศ. 1935 กำหนดราว ค.ศ. 100-150
+                โดยเทียบกับเอกสารลงวันที่อย่าง P.Fayum 110 (ค.ศ. 94)
+                และ P.Oxy. 2533 ต่อมา Comfort &amp; Barrett ใน
+                The Text of the Earliest New Testament Greek Manuscripts
+                วิเคราะห์ซ้ำและเสนอช่วงแคบลงที่ ค.ศ. 110-125
+              </p>
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                ฝ่ายระมัดระวังนำโดย Brent Nongbri (Harvard Theological Review, 2005)
+                เตือนว่าลายมือแบบเดียวกันใช้ต่อเนื่องหลายทศวรรษ
+                ช่วงอายุที่เป็นไปได้จริงจึงกว้างถึงปลายศตวรรษที่ 2
+                กระนั้นแม้ยึดตามฝ่ายระมัดระวังที่สุด P52 ก็ยังเป็นพยานว่า
+                พระกิตติคุณยอห์นแพร่ถึงหมู่บ้านริมแม่น้ำไนล์ห่างจากเอเฟซัส
+                (สถานที่เขียนตามประเพณี) นับพันกิโลเมตร ภายในเวลาไม่กี่ทศวรรษ
+              </p>
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                ตัวบทบนชิ้นส่วนสอดคล้องกับข้อความยอห์นฉบับมาตรฐานทุกคำที่อ่านได้
+                ข้อแตกต่างเดียวที่เป็นไปได้อยู่ที่ 18:37-38
+                ซึ่งพื้นที่บรรทัดชี้ว่าอาจสะกดต่างเล็กน้อย —
+                สำหรับชิ้นส่วนขนาดบัตรเครดิต นี่คือข้อมูลมากที่สุดที่วิชาการสกัดได้
+              </p>
+            </div>
+          </div>
+
+          {/* แหล่งอ้างอิง */}
+          <div className="border-t border-gold/20 pt-6 mb-10">
+            <p className="font-cinzel text-gold/60 text-xs mb-3 tracking-widest">
+              แหล่งอ้างอิง
+            </p>
+            <ul className="font-pridi text-ink/60 text-xs space-y-1 leading-relaxed">
+              <li>
+                [1] C.H. Roberts, <em>An Unpublished Fragment of the Fourth Gospel in the John Rylands Library</em>, Manchester University Press, 1935
+              </li>
+              <li>
+                [2] P.W. Comfort &amp; D.P. Barrett, <em>The Text of the Earliest New Testament Greek Manuscripts</em>, Tyndale House, 2001, หัวข้อ P52
+              </li>
+              <li>
+                [3] B. Nongbri, &quot;The Use and Abuse of P52: Papyrological Pitfalls in the Dating of the Fourth Gospel&quot;, <em>Harvard Theological Review</em> 98 (2005)
+              </li>
+              <li>
+                [4] John Rylands Research Institute and Library, Greek P 457, library.manchester.ac.uk
+              </li>
+            </ul>
           </div>
 
           {/* ปุ่ม */}

@@ -109,7 +109,7 @@ export default function AlexandrinusManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  การตกแต่งและอักษรสไตล์ Alexandria
+                  ท้ายพระกิตติคุณลูกา (f.41v) — ลวดลายตกแต่งสไตล์ Alexandria
                 </p>
               </div>
             </div>
@@ -153,6 +153,70 @@ export default function AlexandrinusManuscript() {
                 F.F. Bruce อ้างถึงในหนังสือ The New Testament Documents (1981)
               </p>
             </div>
+          </div>
+
+          {/* การเดินทางสู่ลอนดอน */}
+          <div className="mb-10">
+            <h3 className="font-cinzel text-xl text-ink mb-4">
+              การเดินทางสู่ลอนดอน
+            </h3>
+            <div className="space-y-4">
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                ต้นฉบับเชื่อกันตามจารึกภาษาอาหรับบนหน้าแรกว่ามาจากเมืองอเล็กซานเดรีย
+                (ที่มาของชื่อ) ในปี ค.ศ. 1627 Cyril Lucar สังฆราชแห่งคอนสแตนติโนเปิล
+                ผู้เคยดำรงตำแหน่งสังฆราชแห่งอเล็กซานเดรียมาก่อน
+                ได้ถวายต้นฉบับเป็นของขวัญแด่พระเจ้าชาร์ลส์ที่ 1 แห่งอังกฤษ
+                — มาถึงช้าเกินไปสำหรับผู้แปล King James Version (1611) เพียง 16 ปี
+                ต้นฉบับเข้าสู่ British Museum เมื่อก่อตั้งในปี ค.ศ. 1753
+                และเป็นต้นฉบับพระคัมภีร์เล่มใหญ่เล่มแรกที่นักวิชาการยุโรปเข้าถึงได้จริง
+                ก่อนที่ Sinaiticus และ Vaticanus จะถูกเปิดเผยในอีกสองศตวรรษต่อมา
+              </p>
+            </div>
+          </div>
+
+          {/* ลักษณะข้อความ */}
+          <div className="mb-10">
+            <h3 className="font-cinzel text-xl text-ink mb-4">
+              ลักษณะข้อความ — ต้นฉบับสองบุคลิก
+            </h3>
+            <div className="space-y-4">
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                Alexandrinus เป็นกรณีศึกษาที่นักวิชาการเรียกว่าต้นฉบับ
+                &quot;สองบุคลิก&quot; — ในพระกิตติคุณ ข้อความเป็นแบบ Byzantine
+                ที่เก่าแก่ที่สุดเท่าที่มี ขณะที่กิจการ จดหมาย และวิวรณ์
+                เป็นสาย Alexandrian ชั้นดี โดยเฉพาะในวิวรณ์
+                นักวิชาการถือว่า A เป็นพยานที่ดีที่สุดเหนือกว่า Sinaiticus เสียอีก
+                ลักษณะเช่นนี้ชี้ว่าผู้คัดลอกใช้ต้นแบบต่างสายกันในแต่ละหมวด
+              </p>
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                ในพันธสัญญาเดิม Alexandrinus เป็นพยาน Septuagint สายหลักคู่กับ
+                Vaticanus — ฉบับพิมพ์ LXX ยุคแรก ๆ หลายฉบับใช้ A เป็นฐาน
+                และยังบรรจุ Psalms of Solomon ไว้ในสารบัญ (แม้ตัวบทสูญหายแล้ว)
+                กับบทเพลง Odes รวมทั้งจดหมายของ Athanasius ประกอบหน้าต้น
+                สะท้อนรูปเล่มพระคัมภีร์ฉบับสมบูรณ์แบบอียิปต์ศตวรรษที่ 5
+              </p>
+            </div>
+          </div>
+
+          {/* แหล่งอ้างอิง */}
+          <div className="border-t border-gold/20 pt-6 mb-10">
+            <p className="font-cinzel text-gold/60 text-xs mb-3 tracking-widest">
+              แหล่งอ้างอิง
+            </p>
+            <ul className="font-pridi text-ink/60 text-xs space-y-1 leading-relaxed">
+              <li>
+                [1] B.M. Metzger &amp; B.D. Ehrman, <em>The Text of the New Testament</em>, 4th ed., Oxford University Press, 2005, p. 67
+              </li>
+              <li>
+                [2] F.F. Bruce, <em>The New Testament Documents: Are They Reliable?</em>, 6th ed., InterVarsity Press, 1981
+              </li>
+              <li>
+                [3] F.G. Kenyon, <em>The Codex Alexandrinus in Reduced Photographic Facsimile</em>, British Museum, 1909
+              </li>
+              <li>
+                [4] British Library, Royal MS 1 D V-VIII, bl.uk
+              </li>
+            </ul>
           </div>
 
           {/* ปุ่ม */}

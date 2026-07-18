@@ -82,7 +82,7 @@ export default function BezaeManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าต้นฉบับ Codex Bezae — ภาษากรีก (ซ้าย) ละติน (ขวา)
+                  หน้าภาษากรีก — ลูกา 23:47–24:1
                 </p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function BezaeManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าที่มี Textual Variants สำคัญ
+                  หน้าภาษาละติน — ลูกา 23:47–24:1 (หน้าคู่ขนานกับฝั่งกรีก)
                 </p>
               </div>
             </div>
@@ -155,6 +155,62 @@ export default function BezaeManuscript() {
                 ทำให้นักวิชาการถือว่าเป็นพยานหลักฐานของ &quot;Western Text-type&quot;
               </p>
             </div>
+          </div>
+
+          {/* กิจการฉบับยาว */}
+          <div className="mb-10">
+            <h3 className="font-cinzel text-xl text-ink mb-4">
+              กิจการฉบับยาว — พันธสัญญาใหม่อีกสำนวนหนึ่ง
+            </h3>
+            <div className="space-y-4">
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                ข้อความกิจการอัครทูตใน Codex Bezae ยาวกว่าสาย Alexandrian ราว 8-10%
+                ด้วยรายละเอียดที่ฉบับมาตรฐานไม่มี เช่น กิจการ 19:9
+                ระบุว่าเปาโลสอนที่ห้องประชุมของตีรันนัส
+                &quot;ตั้งแต่ห้าโมงเช้าถึงบ่ายสี่โมง&quot;
+                นักวิชาการบางกลุ่ม (เช่น M.-É. Boismard) เคยเสนอด้วยซ้ำว่า
+                ลูกาอาจเขียนกิจการสองสำนวน
+                แม้มุมมองกระแสหลักปัจจุบันถือว่าสาย Western
+                เป็นการขยายความโดยผู้คัดลอกยุคศตวรรษที่ 2 ก็ตาม
+              </p>
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                Bezae ยังมีข้อความที่ไม่พบในต้นฉบับอื่นใดในโลก —
+                หลังลูกา 6:4 มีเรื่องเล่า (agraphon) ว่าพระเยซูตรัสกับ
+                ชายที่ทำงานในวันสะบาโตว่า
+                &quot;ถ้าท่านรู้ว่ากำลังทำอะไรอยู่ ท่านก็เป็นสุข
+                แต่ถ้าไม่รู้ ท่านก็ถูกสาปและเป็นผู้ละเมิดธรรมบัญญัติ&quot;
+                และเรียงพระกิตติคุณแบบตะวันตก (มัทธิว-ยอห์น-ลูกา-มาระโก)
+                เช่นเดียวกับ Codex Washingtonianus
+              </p>
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                David Parker ผู้ศึกษา Bezae ละเอียดที่สุดในยุคปัจจุบัน
+                สรุปว่าต้นฉบับน่าจะคัดลอกราว ค.ศ. 400 ในชุมชนที่ใช้ทั้งกรีกและละติน
+                (อาจเป็น Berytus/เบรุต) และคอลัมน์ละตินไม่ใช่คำแปลของคอลัมน์กรีกโดยตรง
+                แต่เป็นสายข้อความละตินโบราณ (Old Latin) ที่มีชีวิตของตัวเอง
+                — Bezae จึงเป็นพยานคู่ของสองประเพณีข้อความในเล่มเดียว
+              </p>
+            </div>
+          </div>
+
+          {/* แหล่งอ้างอิง */}
+          <div className="border-t border-gold/20 pt-6 mb-10">
+            <p className="font-cinzel text-gold/60 text-xs mb-3 tracking-widest">
+              แหล่งอ้างอิง
+            </p>
+            <ul className="font-pridi text-ink/60 text-xs space-y-1 leading-relaxed">
+              <li>
+                [1] D.C. Parker, <em>Codex Bezae: An Early Christian Manuscript and its Text</em>, Cambridge University Press, 1992
+              </li>
+              <li>
+                [2] B.M. Metzger, <em>A Textual Commentary on the Greek New Testament</em>, 2nd ed., Deutsche Bibelgesellschaft, 1994
+              </li>
+              <li>
+                [3] B.M. Metzger &amp; B.D. Ehrman, <em>The Text of the New Testament</em>, 4th ed., Oxford University Press, 2005, pp. 70-73
+              </li>
+              <li>
+                [4] Cambridge Digital Library, MS Nn.2.41 (สแกนทั้งเล่ม), cudl.lib.cam.ac.uk
+              </li>
+            </ul>
           </div>
 
           {/* ปุ่ม */}

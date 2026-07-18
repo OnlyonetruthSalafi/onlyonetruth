@@ -109,7 +109,7 @@ export default function AleppoManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  เครื่องหมาย Masoretic และการตกแต่ง
+                  หน้าโยชูวา 1:1 — พร้อมเครื่องหมาย Masoretic
                 </p>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function AleppoManuscript() {
               { label: "จำนวนหน้า", value: "ประมาณ 294 หน้าที่หลงเหลือ (สูญหายราว 40% จากจลาจลปี 1947)" },
               { label: "ขนาด", value: "ไม่ทราบแน่ชัด (ส่วนที่เหลือ)" },
               { label: "สถานที่เก็บรักษา", value: "Shrine of the Book, Israel Museum, Jerusalem" },
-              { label: "ผู้เขียน", value: "Aaron ben Moses ben Asher นักวิชาการ Masorete" },
+              { label: "ผู้จัดทำ", value: "ตัวอักษร: Shlomo ben Buya'a | สระและ Masorah: Aaron ben Moses ben Asher" },
             ].map((item) => (
               <div key={item.label} className="card-glass p-5">
                 <p className="font-cinzel text-gold text-sm mb-1">{item.label}</p>
@@ -157,6 +157,64 @@ export default function AleppoManuscript() {
                 รวมถึงโตราห์ทั้งหมดและส่วนอื่นๆ
               </p>
             </div>
+          </div>
+
+          {/* การเดินทางพันปี */}
+          <div className="mb-10">
+            <h3 className="font-cinzel text-xl text-ink mb-4">
+              การเดินทางพันปี — จากทิเบเรียสสู่เยรูซาเล็ม
+            </h3>
+            <div className="space-y-4">
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                ต้นฉบับจัดทำที่ทิเบเรียสราวปี ค.ศ. 920-930 —
+                Shlomo ben Buya&apos;a คัดตัวอักษร และ Aaron ben Moses ben Asher
+                ปรมาจารย์คนสุดท้ายแห่งตระกูล Ben Asher ใส่สระ เครื่องหมายขับร้อง
+                และ Masorah ด้วยตนเอง ต่อมาถูกชุมชนคาราอิเตแห่งเยรูซาเล็มครอบครอง
+                ถูกยึดเป็นค่าไถ่เมื่อพวกครูเสดตีเยรูซาเล็มปี ค.ศ. 1099
+                แล้วถูกไถ่ตัวไปยังชุมชนยิวไคโร ณ ที่นั่น Maimonides
+                ใช้ต้นฉบับนี้เป็นมาตรฐานกำหนดวิธีเขียนคัมภีร์โตราห์ใน Mishneh Torah
+                — การรับรองที่ทำให้ &quot;มงกุฎ&quot; เล่มนี้มีสถานะสูงสุดในโลกยิว
+              </p>
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                ปลายศตวรรษที่ 14 ลูกหลานของ Maimonides นำต้นฉบับไปยังเมืองอะเลปโป ซีเรีย
+                ชุมชนยิวที่นั่นเฝ้ารักษาไว้ในโบสถ์กลาง (Central Synagogue) กว่า 600 ปี
+                จนถึงเหตุจลาจลเดือนธันวาคม ค.ศ. 1947 หลังมติแบ่งดินแดนปาเลสไตน์ของสหประชาชาติ
+                โบสถ์ถูกเผาและต้นฉบับกระจัดกระจาย ส่วนที่รอด 294 แผ่น
+                ถูกลักลอบนำเข้าอิสราเอลในปี ค.ศ. 1958
+                ปริศนาว่าหน้าที่หายไป (รวมโตราห์เกือบทั้งหมด) ถูกเผาจริงหรือถูกเก็บซ่อน
+                ยังเป็นที่ถกเถียง — Matti Friedman เสนอหลักฐานใน The Aleppo Codex (2012)
+                ว่าหลายหน้าอาจสูญหายหลังจากถึงมือผู้เกี่ยวข้องแล้ว
+              </p>
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                ปัจจุบันนักวิชาการใช้บันทึกเทียบของ Umberto Cassuto (ผู้เห็นเล่มเต็มปี 1943)
+                และคำตอบของผู้จำข้อความได้ เพื่อกู้คืนการอ่านของส่วนที่หายไป
+                โครงการ Hebrew University Bible Project และฉบับ Keter ของ Bar-Ilan
+                ต่างยึด Aleppo Codex เป็นฐาน ส่วนภาพถ่ายความละเอียดสูงทั้งเล่ม
+                เปิดให้ชมที่ aleppocodex.org
+              </p>
+            </div>
+          </div>
+
+          {/* แหล่งอ้างอิง */}
+          <div className="border-t border-gold/20 pt-6 mb-10">
+            <p className="font-cinzel text-gold/60 text-xs mb-3 tracking-widest">
+              แหล่งอ้างอิง
+            </p>
+            <ul className="font-pridi text-ink/60 text-xs space-y-1 leading-relaxed">
+              <li>
+                [1] Emanuel Tov, <em>Textual Criticism of the Hebrew Bible</em>, 3rd ed., Fortress Press, 2012
+              </li>
+              <li>
+                [2] Yosef Ofer, &quot;The History and Authority of the Aleppo Codex&quot;, ใน <em>Jerusalem Crown: Companion Volume</em>, 2002
+              </li>
+              <li>
+                [3] Matti Friedman, <em>The Aleppo Codex</em>, Algonquin Books, 2012
+              </li>
+              <li>
+                [4] Maimonides, <em>Mishneh Torah</em>, Hilchot Sefer Torah 8:4
+              </li>
+              <li>[5] The Aleppo Codex Online, aleppocodex.org</li>
+            </ul>
           </div>
 
           {/* ปุ่ม */}

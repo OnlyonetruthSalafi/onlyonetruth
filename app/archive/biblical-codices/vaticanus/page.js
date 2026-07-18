@@ -82,7 +82,7 @@ export default function VaticanusManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าต้นฉบับ Codex Vaticanus
+                  หน้าต้นฉบับ — 2 เธสะโลนิกา 3:11-18 ถึง ฮีบรู 1:1-2:2
                 </p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function VaticanusManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  รายละเอียดอักษร Greek Uncial
+                  ท้ายพระกิตติคุณลูกา — อักษร Greek Uncial
                 </p>
               </div>
             </div>
@@ -158,10 +158,93 @@ export default function VaticanusManuscript() {
             </div>
           </div>
 
+          {/* ความเชื่อมโยงกับ P75 */}
+          <div className="mb-10">
+            <h3 className="font-cinzel text-xl text-ink mb-4">
+              ความเชื่อมโยงกับ P75 — สายข้อความที่ย้อนถึงศตวรรษที่ 2
+            </h3>
+            <div className="space-y-4">
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                การค้นพบ Papyrus P75 (ราว ค.ศ. 175-225) เปลี่ยนสถานะของ Vaticanus
+                อย่างสิ้นเชิง — การเทียบของ Carlo Martini และ Gordon Fee
+                พบว่าข้อความสองฉบับตรงกันราว 87-92% ทั้งที่ห่างกันราว 150 ปี
+                Philip Comfort สรุปใน The Text of the Earliest New Testament
+                Greek Manuscripts ว่า Vaticanus ไม่ใช่ผลงานตรวจชำระของศตวรรษที่ 4
+                ตามที่เคยเชื่อ แต่เป็นทายาทของสายการคัดลอกที่เคร่งครัด
+                ซึ่งมีอยู่แล้วตั้งแต่ศตวรรษที่ 2 เป็นอย่างช้า
+              </p>
+              <p className="font-pridi text-ink/80 leading-relaxed">
+                จุดที่นักวิชาการสนใจเป็นพิเศษคือเครื่องหมายจุดคู่ (distigmai)
+                ที่ขอบหน้ากว่า 700 แห่ง ซึ่ง Philip Payne เสนอว่าเป็นเครื่องหมาย
+                ที่ผู้ตรวจทานใช้ระบุตำแหน่งที่รู้ว่ามีข้อความแตกต่างระหว่างต้นแบบ
+                — หากถูกต้อง นี่คือหลักฐานว่าผู้คัดลอกยุคโบราณเองก็ตระหนักถึง
+                Textual Variants และบันทึกไว้อย่างเป็นระบบ
+              </p>
+            </div>
+          </div>
+
+          {/* ข้อความที่น่าสังเกต */}
+          <div className="mb-10">
+            <h3 className="font-cinzel text-xl text-ink mb-4">ข้อความที่น่าสังเกต</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="card-glass p-6">
+                <h4 className="font-cinzel text-gold text-sm font-semibold mb-3 tracking-wide">
+                  ลักษณะทางข้อความ
+                </h4>
+                <ul className="font-pridi text-ink/80 text-sm space-y-2 leading-relaxed">
+                  <li>
+                    • มาระโกจบที่ 16:8 — และผู้คัดลอกเว้นคอลัมน์ว่างไว้หนึ่งคอลัมน์
+                    ราวกับรู้ว่ามีตอนจบยาวอยู่แต่เลือกไม่คัดลอก
+                  </li>
+                  <li>• ไม่มีเรื่องหญิงล่วงประเวณี (ยอห์น 7:53-8:11)</li>
+                  <li>• พันธสัญญาเดิมเป็นพยาน Septuagint ชั้นดีที่สุดฉบับหนึ่ง</li>
+                </ul>
+              </div>
+              <div className="card-glass p-6">
+                <h4 className="font-cinzel text-gold text-sm font-semibold mb-3 tracking-wide">
+                  จากหวงห้ามสู่สาธารณะ
+                </h4>
+                <ul className="font-pridi text-ink/80 text-sm space-y-2 leading-relaxed">
+                  <li>
+                    • ศตวรรษที่ 19 วาติกันจำกัดการเข้าถึงอย่างเข้มงวด —
+                    Tregelles ถูกค้นกระเป๋าก่อนเข้าชม และ Tischendorf ถูกจำกัดชั่วโมงอ่าน
+                  </li>
+                  <li>• ฉบับ facsimile ตีพิมพ์ ค.ศ. 1868-1881 และ 1889-1890</li>
+                  <li>
+                    • ปัจจุบันสแกนความละเอียดสูงทั้งเล่มเปิดให้ชมฟรีที่ DigiVatLib
+                    (digi.vatlib.it)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* แหล่งอ้างอิง */}
+          <div className="border-t border-gold/20 pt-6 mb-10">
+            <p className="font-cinzel text-gold/60 text-xs mb-3 tracking-widest">
+              แหล่งอ้างอิง
+            </p>
+            <ul className="font-pridi text-ink/60 text-xs space-y-1 leading-relaxed">
+              <li>
+                [1] P.W. Comfort &amp; D.P. Barrett, <em>The Text of the Earliest New Testament Greek Manuscripts</em>, Tyndale House, 2001
+              </li>
+              <li>
+                [2] G.D. Fee, &quot;P75, P66, and Origen: The Myth of Early Textual Recension in Alexandria&quot;, ใน <em>Studies in the Theory and Method of NT Textual Criticism</em>, Eerdmans, 1993
+              </li>
+              <li>
+                [3] B.M. Metzger &amp; B.D. Ehrman, <em>The Text of the New Testament</em>, 4th ed., Oxford University Press, 2005, pp. 67-69
+              </li>
+              <li>
+                [4] P.B. Payne &amp; P. Canart, &quot;The Originality of Text-Critical Symbols in Codex Vaticanus&quot;, <em>Novum Testamentum</em> 42 (2000)
+              </li>
+              <li>[5] DigiVatLib, Vat.gr.1209, digi.vatlib.it/view/MSS_Vat.gr.1209</li>
+            </ul>
+          </div>
+
           {/* ปุ่ม */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://www.vatican.va/various/manuscripts/index_en.html"
+              href="https://digi.vatlib.it/view/MSS_Vat.gr.1209"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary font-pridi text-center"

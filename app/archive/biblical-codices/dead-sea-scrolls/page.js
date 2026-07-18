@@ -92,7 +92,7 @@ export default function DeadSeaScrollsManuscript() {
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
                 src="/manuscripts/bible/dead-sea-scrolls/dss2.jpg"
-                alt="Qumran Caves Dead Sea"
+                alt="Dead Sea Scrolls Psalms Fragment"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -110,7 +110,7 @@ export default function DeadSeaScrollsManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  ถ้ำ Qumran ที่ค้นพบม้วนหนังสือ
+                  ชิ้นส่วนม้วนหนังสือสดุดี (Psalms) จาก Qumran
                 </p>
               </div>
             </div>

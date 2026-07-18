@@ -65,7 +65,7 @@ export default function SeptuagintManuscript() {
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
                 src="/manuscripts/bible/septuagint/lxx1.jpg"
-                alt="Codex Vaticanus Septuagint Greek Page"
+                alt="Papyrus Rylands 458 - Oldest Septuagint Fragment (Deuteronomy)"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -83,7 +83,7 @@ export default function SeptuagintManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  หน้าจาก Codex Vaticanus — Septuagint ภาษากรีก
+                  Papyrus Rylands 458 — ชิ้นส่วน Septuagint เก่าแก่ที่สุด (เฉลยธรรมบัญญัติ ศตวรรษที่ 2 ก่อน ค.ศ.)
                 </p>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function SeptuagintManuscript() {
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
               <img
                 src="/manuscripts/bible/septuagint/lxx2.jpg"
-                alt="Septuagint Fragment from Qumran"
+                alt="Papyrus Amherst 3 - Genesis 1:1-5 in Septuagint Greek"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -110,7 +110,7 @@ export default function SeptuagintManuscript() {
               </div>
               <div className="p-4 bg-ink/5">
                 <p className="font-cinzel text-sm text-ink">
-                  ชิ้นส่วน Septuagint จาก Qumran (Dead Sea Scrolls)
+                  Papyrus Amherst 3 — ปฐมกาล 1:1-5 ภาษากรีก Septuagint (Morgan Library)
                 </p>
               </div>
             </div>
