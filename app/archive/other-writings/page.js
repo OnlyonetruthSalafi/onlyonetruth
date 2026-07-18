@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ArchiveNav from "../../../components/ArchiveNav";
 
 const manuscripts = [
   {
@@ -621,6 +622,19 @@ export default function OtherWritings() {
               );
             })}
           </div>
+
+          <ArchiveNav
+            links={[
+              {
+                href: "/archive/quran-manuscripts",
+                label: "ศึกษาต้นฉบับอัลกุรอาน",
+              },
+              {
+                href: "/archive/biblical-codices",
+                label: "ศึกษาต้นฉบับไบเบิล",
+              },
+            ]}
+          />
         </div>
       </section>
 

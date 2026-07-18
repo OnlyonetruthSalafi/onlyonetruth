@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ArchiveNav from "../../../components/ArchiveNav";
 
 const manuscripts = [
   // === หมวด: ต้นฉบับอุษมาน (ขนาดใหญ่) ===
@@ -561,6 +562,19 @@ export default function QuranManuscripts() {
               );
             })}
           </div>
+
+          <ArchiveNav
+            links={[
+              {
+                href: "/archive/biblical-codices",
+                label: "ศึกษาต้นฉบับไบเบิล",
+              },
+              {
+                href: "/archive/other-writings",
+                label: "ศึกษา Other Writings",
+              },
+            ]}
+          />
         </div>
       </section>
 
