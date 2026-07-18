@@ -1255,7 +1255,7 @@ export default function Home() {
             {/* ฝั่งขวา: 3 การ์ดบทความ */}
             <div className="space-y-4">
 
-              <a href="/articles/uthmanic-mushafs-azami"
+              <a href="/articles/introduction-to-textual-criticism"
                 className="group block bg-paper-light border border-gold/20 rounded-card p-6 hover:border-gold/50 hover:shadow-card-hover transition-all duration-300">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
