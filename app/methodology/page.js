@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import IsnadChainMap from "../../components/IsnadChainMap";
+import CanonPathMap from "../../components/CanonPathMap";
 
 function useReveal() {
   const ref = useRef(null);
@@ -103,8 +105,19 @@ const methodologies = {
         ],
       },
     ],
+    note: {
+      title: "หมายเหตุ: การบันทึกหะดีษมีมาตั้งแต่ยุคท่านนบียังมีชีวิต",
+      paragraphs: [
+        "แม้ระบบอิสนาดเต็มรูปแบบจะถูกบังคับใช้ในภายหลัง (หลังเกิดฟิตนะฮ์) แต่การบันทึกหะดีษนั้นเริ่มตั้งแต่ท่านนบีมุฮัมมัด (ซ.ล.) ยังมีชีวิตอยู่ ในรูปของบันทึกส่วนตัว (เศาะฮีฟะฮ์) ของเหล่าเศาะฮาบะฮ์ — ที่โด่งดังที่สุดคือ อัศเศาะฮีฟะฮ์ อัศศอดิเกาะฮ์ ของอับดุลลอฮ์ อิบนุ อัมร์ อิบนิ อัลอาศ ซึ่งบันทึกหะดีษราวหนึ่งพันบท โดยได้รับอนุญาตจากท่านนบีโดยตรงว่า \"จงเขียนเถิด ขอสาบานต่อผู้ที่ชีวิตฉันอยู่ในพระหัตถ์ของพระองค์ ไม่มีสิ่งใดออกจากปาก (ของฉัน) นอกจากความจริง\" (สุนันอบีดาวูด, หะดีษที่ 3646)",
+        "เหตุที่ยุคนั้นยังไม่จำเป็นต้องมีสายรายงาน ก็เพราะเศาะฮาบะฮ์สามารถตรวจสอบความถูกต้องของทุกรายงานกับท่านนบีได้ด้วยตนเองโดยตรง — ต้นทางของข้อมูลยังมีชีวิตอยู่ท่ามกลางพวกเขา อิสนาดจึงเป็น \"เครื่องมือที่ถูกสร้างขึ้นเมื่อจำเป็น\" ไม่ใช่หลักฐานว่าก่อนหน้านั้นไร้เกณฑ์ตรวจสอบ",
+        "หลักฐานเชิงประจักษ์ที่หนักแน่นที่สุดคือ เศาะฮีฟะฮ์ของฮัมมาม อิบนุ มุนับบิฮ์ (ลูกศิษย์ของอบูฮุร็อยเราะฮ์ บันทึกก่อน ฮ.ศ. 101) ซึ่งต้นฉบับตกทอดมาถึงปัจจุบันและถูกตีพิมพ์แล้ว — เมื่อนำ 138 หะดีษในนั้นเทียบกับที่ปรากฏใน มุสนัดอะห์มัด และเศาะฮีห์อัลบุคอรีที่รวบรวมหลังจากนั้นกว่าศตวรรษ พบว่าเนื้อความแทบจะตรงกันคำต่อคำ Al-Azami ได้รวบรวมรายชื่อเศาะฮาบะฮ์และตาบิอีนกว่า 50 ท่านที่มีบันทึกหะดีษเป็นลายลักษณ์อักษรไว้ในงานวิจัยของเขา — คนยุคหลังจึงมีทั้ง \"แบบอย่างการบันทึก\" และ \"เกณฑ์การตรวจสอบ\" ตกทอดมาอย่างต่อเนื่องไม่ขาดสาย",
+      ],
+    },
     refs: [
       "M.M. Al-Azami, The History of the Qur'anic Text: From Revelation to Compilation, UK Islamic Academy, 2003, pp. 203-214.",
+      "M.M. Al-Azami, Studies in Early Hadith Literature, American Trust Publications, 1978 — หลักฐานการบันทึกหะดีษยุคเศาะฮาบะฮ์และตาบิอีน.",
+      "อบูดาวูด, สุนันอบีดาวูด, หะดีษที่ 3646 — การอนุญาตให้อับดุลลอฮ์ อิบนุ อัมร์บันทึกหะดีษ.",
+      "Muhammad Hamidullah (บรรณาธิการ), Sahifah Hammam ibn Munabbih, ฉบับตีพิมพ์พร้อมการศึกษาเปรียบเทียบ.",
       "มุสลิม อิบนุ อัลฮัจญาจ, เศาะฮีห์มุสลิม, มุก็อดดิมะฮ์ (บทนำว่าด้วยการตรวจสอบรายงาน).",
       "อิบนุ อัศเศาะลาห์, มุก็อดดิมะฮ์ อิบนิ อัศเศาะลาห์ (อุลูมุลหะดีษ) — เกณฑ์ 5 ข้อของหะดีษเศาะฮีห์.",
     ],
@@ -187,12 +200,34 @@ const methodologies = {
           source: "Origen, อ้างใน Eusebius, Historia Ecclesiastica 6.25.14; ดู Metzger, The Canon of the New Testament, ch. V",
         },
       },
+      {
+        no: "VI",
+        mark: "Χρ",
+        title: "การกำหนดอายุงานเขียน: เทียบกับเอกสารที่ระบุปี",
+        paragraphs: [
+          "งานเขียนพันธสัญญาใหม่และต้นฉบับสำเนาแทบทั้งหมด \"ไม่ได้ระบุปีที่เขียน\" ไว้ในตัวเอกสาร นักวิชาการจึงต้องกำหนดอายุทางอ้อมด้วย 3 วิธีหลัก:",
+        ],
+        points: [
+          "การอ้างอิงจากภายนอก (External Attestation) — หากนักเขียนที่ทราบปีแน่ชัดยกข้อความจากหนังสือเล่มใด แสดงว่าเล่มนั้นต้องเขียนก่อนหน้านั้น (terminus ante quem) เช่น จดหมาย 1 Clement (ราว ค.ศ. 95-96) ยกข้อความจาก 1 โครินธ์ จึงยืนยันว่าจดหมายเปาโลฉบับนี้มีอยู่ก่อนปลายศตวรรษที่ 1",
+          "อักขรวิทยา (Palaeography) — เทียบรูปแบบลายมือของต้นฉบับกับเอกสารราชการหรือสัญญาที่ \"ลงวันที่ไว้\" เช่น กรณี P52 ชิ้นส่วนยอห์นที่เก่าแก่ที่สุด C.H. Roberts กำหนดอายุราว ค.ศ. 125 โดยเทียบลายมือกับปาปิรุสลงวันที่อย่าง P.Fayum 110 (ค.ศ. 94) — วิธีนี้ให้ได้เพียง \"ช่วงเวลา\" ที่มีความคลาดเคลื่อนราว ±25-50 ปี",
+          "หลักฐานภายใน (Internal Evidence) — เนื้อหาที่พาดพิงเหตุการณ์ที่ระบุปีได้ เช่น การกล่าวถึง (หรือไม่กล่าวถึง) การทำลายพระวิหารเยรูซาเล็ม ค.ศ. 70 ถูกใช้เป็นหมุดแบ่งว่างานเขียนชิ้นนั้นเกิดก่อนหรือหลังเหตุการณ์",
+        ],
+        paragraphsAfter: [
+          "ข้อสังเกตเชิงระเบียบวิธี: ทั้งสามวิธีให้ผลเป็น \"ช่วงประมาณการ\" ไม่ใช่ปีที่แน่นอน และไม่ได้ระบุตัวบุคคลผู้ส่งต่อเอกสาร — ต่างจากอิสนาดที่ผูกรายงานกับรายชื่อบุคคลจริงที่ตรวจสอบชีวประวัติได้ทุกทอด",
+        ],
+        link: {
+          href: "/archive/biblical-codices/p52",
+          label: "ดูตัวอย่างการกำหนดอายุจริง — หน้า Papyrus P52 ในคลังเอกสาร →",
+        },
+      },
     ],
     refs: [
       "Bruce M. Metzger, The Canon of the New Testament: Its Origin, Development, and Significance, Oxford: Clarendon Press, 1987 (เกณฑ์คัดเลือก: pp. 251-254).",
       "Eusebius, Historia Ecclesiastica 3.25 (การแบ่งกลุ่มหนังสือ), 3.39.4 (Papias), 6.25.14 (Origen ว่าด้วยผู้เขียนฮีบรู).",
       "Athanasius, Epistula Festalis XXXIX (จดหมายเทศกาลฉบับที่ 39), ค.ศ. 367.",
       "F.F. Bruce, The Canon of Scripture, InterVarsity Press, 1988 (ประกอบเรื่องสภาฮิปโป-คาร์เธจ).",
+      "C.H. Roberts, An Unpublished Fragment of the Fourth Gospel in the John Rylands Library, Manchester University Press, 1935 — การกำหนดอายุ P52 ด้วยการเทียบลายมือ.",
+      "B.M. Metzger & B.D. Ehrman, The Text of the New Testament, 4th ed., Oxford University Press, 2005 — ระเบียบวิธีอักขรวิทยาและการประเมินอายุต้นฉบับ.",
     ],
   },
 };
@@ -294,6 +329,15 @@ function SectionCard({ section, accent }) {
           </p>
         ))}
 
+      {section.link && (
+        <a
+          href={section.link.href}
+          className="inline-block font-pridi text-sm text-gold/90 hover:text-gold border-b border-gold/40 hover:border-gold transition-colors duration-300 mt-1"
+        >
+          {section.link.label}
+        </a>
+      )}
+
       {section.quote && (
         <blockquote
           className="relative border-l-2 border-gold/60 pl-5 py-3 mt-2 rounded-r-card"
@@ -314,7 +358,26 @@ function SectionCard({ section, accent }) {
 export default function Methodology() {
   const rootRef = useReveal();
   const [tab, setTab] = useState("islam");
+  const [copied, setCopied] = useState(false);
   const method = methodologies[tab];
+
+  // คัดลอกลิงก์หน้านี้ไว้แชร์ต่อ
+  const copyPageLink = async () => {
+    const url = `${window.location.origin}/methodology`;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      // เบราว์เซอร์เก่า / ไม่ได้เปิดผ่าน https — ใช้วิธีสำรอง
+      const ta = document.createElement("textarea");
+      ta.value = url;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   // ผูก reveal ใหม่ทุกครั้งที่สลับ Tab
   useEffect(() => {
@@ -474,12 +537,46 @@ export default function Methodology() {
             </p>
           </div>
 
+          {/* แผนภาพประจำ Tab — อยู่เหนือการ์ดทั้งหมด */}
+          <div key={`method-map-${tab}`} className="mb-10 md:mb-14">
+            {tab === "islam" ? <IsnadChainMap /> : <CanonPathMap />}
+          </div>
+
           {/* CONTENT SECTIONS */}
           <div key={`sections-${tab}`} className="space-y-8 md:space-y-10">
             {method.sections.map((section) => (
               <SectionCard key={section.no} section={section} accent={method.accent} />
             ))}
           </div>
+
+          {/* หมายเหตุพิเศษประจำ Tab */}
+          {method.note && (
+            <div
+              key={`note-${tab}`}
+              data-reveal
+              className="relative rounded-card border border-gold/50 p-6 md:p-8 mt-8 md:mt-10"
+              style={{ background: "rgba(212,175,55,0.07)" }}
+            >
+              <span className="ic-corner ic-corner-tl" />
+              <span className="ic-corner ic-corner-tr" />
+              <span className="ic-corner ic-corner-bl" />
+              <span className="ic-corner ic-corner-br" />
+              <div className="flex items-start gap-3 mb-4">
+                <span className="text-gold text-lg mt-0.5 shrink-0">✦</span>
+                <h3 className="font-pridi text-lg md:text-xl text-gold font-semibold leading-snug">
+                  {method.note.title}
+                </h3>
+              </div>
+              {method.note.paragraphs.map((p, i) => (
+                <p
+                  key={i}
+                  className="font-pridi text-sm md:text-base text-paper/85 leading-relaxed mb-4 last:mb-0"
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
+          )}
 
           {/* REFERENCES */}
           <div key={`refs-${tab}`} data-reveal className="mt-14">
@@ -497,6 +594,50 @@ export default function Methodology() {
                 </li>
               ))}
             </ol>
+          </div>
+
+          {/* แถบนำทางท้ายการ์ด — กลับขึ้นบน + คัดลอกลิงก์แชร์ */}
+          <div className="mt-16 pt-10 border-t border-gold/20">
+            <p className="font-cinzel text-xs tracking-[0.35em] uppercase text-gold/50 text-center mb-6">
+              Share &amp; Navigate
+            </p>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="border border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/70 font-pridi text-sm text-center py-2.5 px-6 rounded-btn transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <span>↑</span>
+                <span>กลับขึ้นด้านบน</span>
+              </button>
+              <button
+                onClick={copyPageLink}
+                className="bg-gradient-to-r from-gold-dark via-gold to-gold-light hover:from-gold hover:to-gold-light text-ink font-pridi font-semibold text-sm text-center py-2.5 px-6 rounded-btn shadow-glow-sm hover:shadow-glow transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                {copied ? (
+                  <>
+                    <span>✓</span>
+                    <span>คัดลอกลิงก์แล้ว</span>
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4"
+                    >
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                    </svg>
+                    <span>Copy Link — แชร์หน้านี้</span>
+                  </>
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </section>
