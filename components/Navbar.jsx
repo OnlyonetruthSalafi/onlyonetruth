@@ -9,6 +9,7 @@ const menuItems = [
   { en: "HOME", th: "หน้าแรก", href: "/" },
   { en: "ARCHIVE", th: "คลังเอกสาร", scrollId: "collections-section" },
   { en: "TEXTUAL HISTORY", th: "ประวัติศาสตร์", href: "/textual-history" },
+  { en: "METHODOLOGY", th: "ระเบียบวิธี", href: "/methodology" },
   { en: "ARTICLE", th: "บทความ", scrollId: "about-project" },
   { en: "PATHS OF FAITH", th: "เส้นทางการเผยแพร่", scrollId: "archive-cta" },
 ];
@@ -18,7 +19,7 @@ function MenuLabel({ item, active }) {
   return (
     <span className="relative flex flex-col items-center gap-0.5 pb-1">
       <span
-        className={`font-cinzel text-sm tracking-[0.15em] transition-colors duration-300 ${
+        className={`font-cinzel text-sm tracking-[0.15em] whitespace-nowrap transition-colors duration-300 ${
           active ? "text-gold" : "text-paper-white group-hover:text-gold"
         }`}
       >
@@ -106,7 +107,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Menu */}
-        <ul className="hidden lg:flex items-center gap-8">
+        <ul className="hidden lg:flex items-center gap-5 xl:gap-7 mx-8 xl:mx-12">
           {menuItems.map((item) => {
             const active = item.href && pathname === item.href && item.href !== "/";
             return (
@@ -128,7 +129,7 @@ export default function Navbar() {
         {/* ปุ่มค้นหา */}
         <button
           onClick={() => setSearchOpen(true)}
-          className="hidden lg:inline-flex items-center gap-3 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-ink px-5 py-2.5 rounded-btn transition-all duration-300 shadow-glow-sm hover:shadow-glow hover:-translate-y-0.5"
+          className="hidden lg:inline-flex items-center gap-2.5 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-ink px-6 py-2.5 rounded-btn transition-all duration-300 shadow-glow-sm hover:shadow-glow hover:-translate-y-0.5"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -142,13 +143,10 @@ export default function Navbar() {
             <circle cx="11" cy="11" r="7" />
             <path d="m20 20-3.5-3.5" />
           </svg>
-          <span className="flex flex-col items-start leading-tight">
+          <span className="flex flex-col items-center leading-tight">
             <span className="font-cinzel text-sm tracking-[0.15em] font-semibold">SEARCH</span>
             <span className="font-pridi text-xs opacity-70">ค้นหา</span>
           </span>
-          <kbd className="font-cinzel text-[0.6rem] tracking-wider border border-ink/30 rounded px-1.5 py-0.5 opacity-60">
-            Ctrl K
-          </kbd>
         </button>
 
         {/* ปุ่มค้นหา (มือถือ) */}
