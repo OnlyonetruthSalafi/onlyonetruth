@@ -7,6 +7,7 @@
 //  หลักการ aniconic: ไม่มีรูปบุคคลใด ๆ — ผู้เดินทางเป็นจุดแสงเท่านั้น
 // ════════════════════════════════════════════════════════════════════
 
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { JOURNEYS } from "../lib/paths-of-faith/data";
 
@@ -340,11 +341,11 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
           onMouseUp={calibrate ? onCalUp : undefined}
           onMouseLeave={calibrate ? onCalUp : undefined}
         >
-          <img
+          <Image
             src={journey.mapImage}
             alt={journey.mapAlt}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full"
+            fill
+            sizes="(max-width: 1024px) 100vw, 1024px"
             style={{ objectFit: "fill", background: "#c9a876" }}
           />
 

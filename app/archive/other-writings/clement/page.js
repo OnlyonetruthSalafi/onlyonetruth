@@ -14,12 +14,16 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/clement/cle2.jpg",
+      width: 1280,
+      height: 1478,
       alt: "Opening page of 1 Clement in Codex Alexandrinus (folio 159)",
       caption:
         "Folio 159 ของ Codex Alexandrinus — หน้าเปิด 1 Clement (facsimile ถ่ายภาพ ศตวรรษที่ 19, MET)",
     },
     {
       src: "/manuscripts/other/clement/cle1.jpg",
+      width: 1700,
+      height: 1276,
       alt: "Uncial gospel page of Codex Alexandrinus",
       caption:
         "หน้าพระกิตติคุณอักษร uncial สองคอลัมน์แบบ Codex Alexandrinus — โคเด็กซ์พระคัมภีร์ที่ผนวก 1-2 Clement ต่อท้ายวิวรณ์",

@@ -14,12 +14,16 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/apocalypse-peter/apo1.png",
+      width: 1280,
+      height: 1608,
       alt: "Greek page of the Apocalypse of Peter from the Akhmim codex",
       caption:
         "หน้ากรีกจากโคเด็กซ์ Akhmim (P.Cair. 10759) — ตอนเปิดเรื่องว่าด้วยผู้เผยพระวจนะเทียมและนิมิตบนภูเขา",
     },
     {
       src: "/manuscripts/other/apocalypse-peter/apo2.jpg",
+      width: 1280,
+      height: 979,
       alt: "Small Greek fragments of the Apocalypse of Peter",
       caption:
         "ชิ้นส่วนกรีกใบเล็ก (กลุ่ม Rainer-Bodleian) — พยานอิสระที่ใช้ตรวจสอบลำดับข้อความกับฉบับ Ethiopic",

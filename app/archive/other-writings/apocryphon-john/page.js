@@ -14,12 +14,16 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/apocryphon-john/apj1.jpg",
+      width: 800,
+      height: 800,
       alt: "Apocryphon of John colophon spread in Nag Hammadi Codex II",
       caption:
         "หน้าคู่ Nag Hammadi Codex II — colophon «ΑΠΟΚΡΥΦΟΝ ΚΑΤΑ ΙΩΑΝΝΗΝ» ปิดท้าย Secret Book of John",
     },
     {
       src: "/manuscripts/other/thomas/tho1.jpg",
+      width: 1280,
+      height: 2248,
       alt: "Nag Hammadi Codex II page 32 with Apocryphon of John colophon",
       caption:
         "Codex II หน้า 32 — บรรทัดจบของ Apocryphon of John (พร้อมชื่อเรื่อง) ต่อด้วยบรรทัดแรกของ Gospel of Thomas ในหน้าเดียวกัน",

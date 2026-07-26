@@ -12,11 +12,15 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/bible/washingtonianus/was1.jpg",
+      width: 847,
+      height: 732,
       alt: "Codex Washingtonianus page",
       caption: "หน้าต้นฉบับอักษร Uncial เอียงเล็กน้อยบนแผ่นหนัง — ศตวรรษที่ 4-5",
     },
     {
       src: "/manuscripts/bible/washingtonianus/was2.jpg",
+      width: 2150,
+      height: 3300,
       alt: "Codex Washingtonianus Mark 16 Freer Logion",
       caption: "มาระโก 16:12-17 — บริเวณที่มีข้อความ Freer Logion แทรกหลัง 16:14",
     },

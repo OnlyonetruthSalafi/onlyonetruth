@@ -12,6 +12,8 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/mary/mar1.jpg",
+      width: 669,
+      height: 720,
       alt: "Gospel of Mary papyrus page",
       caption: "หน้าต้นฉบับ Coptic ของ Gospel of Mary (P.Berol. 8502)",
     },

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -63,9 +64,12 @@ export default function DeadSeaScrollsManuscript() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* dss1 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/bible/dead-sea-scrolls/dss1.jpg"
                 alt="Great Isaiah Scroll 1QIsaa Dead Sea Scroll"
+                width={1920}
+                height={2183}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -90,9 +94,12 @@ export default function DeadSeaScrollsManuscript() {
 
             {/* dss2 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/bible/dead-sea-scrolls/dss2.jpg"
                 alt="Dead Sea Scrolls Psalms Fragment"
+                width={1012}
+                height={337}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {

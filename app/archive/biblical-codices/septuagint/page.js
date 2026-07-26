@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -63,9 +64,12 @@ export default function SeptuagintManuscript() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* lxx1 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/bible/septuagint/lxx1.jpg"
                 alt="Papyrus Rylands 458 - Oldest Septuagint Fragment (Deuteronomy)"
+                width={767}
+                height={599}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -90,9 +94,12 @@ export default function SeptuagintManuscript() {
 
             {/* lxx2 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/bible/septuagint/lxx2.jpg"
                 alt="Papyrus Amherst 3 - Genesis 1:1-5 in Septuagint Greek"
+                width={1732}
+                height={1388}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {

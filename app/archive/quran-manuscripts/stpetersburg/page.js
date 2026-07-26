@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -61,9 +62,12 @@ export default function StPetersburgManuscript() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/stpetersburg/stp1.jpg"
                 alt="หน้าคู่ต้นฉบับ E-20 (Katta Langar) — อักษรฮิญาซี"
+                width={1920}
+                height={1147}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -87,9 +91,12 @@ export default function StPetersburgManuscript() {
             </div>
 
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/stpetersburg/stp2.jpg"
                 alt="รายละเอียดตัวอักษรและการตกแต่ง"
+                width={1920}
+                height={637}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {

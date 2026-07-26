@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
@@ -264,14 +265,16 @@ const filters = [
 
 function ManuscriptImage({ m }) {
   return (
-    <img
+    <Image
       src={m.image}
       alt={m.title}
-      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+      fill
+      sizes="(max-width: 768px) 100vw, 50vw"
+      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
       onError={(e) => {
         e.target.onerror = null;
         e.target.src = "/manuscripts/quran/placeholder.jpg";
-        e.target.className = "w-full h-full object-contain p-8 opacity-30";
+        e.target.className = "object-contain p-8 opacity-30";
       }}
     />
   );
@@ -565,6 +568,10 @@ export default function QuranManuscripts() {
 
           <ArchiveNav
             links={[
+              {
+                href: "/archive/prophetic-letters",
+                label: "จดหมายของท่านนบี ﷺ",
+              },
               {
                 href: "/archive/biblical-codices",
                 label: "ศึกษาต้นฉบับไบเบิล",

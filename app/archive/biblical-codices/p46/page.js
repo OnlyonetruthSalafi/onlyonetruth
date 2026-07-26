@@ -12,11 +12,15 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/bible/p46/p46-1.jpg",
+      width: 580,
+      height: 819,
       alt: "Papyrus 46 folio",
       caption: "2 โครินธ์ 11:33-12:9 — ลายมือ bookhand ที่ไหลลื่นสม่ำเสมอ",
     },
     {
       src: "/manuscripts/bible/p46/p46-2.jpg",
+      width: 1280,
+      height: 858,
       alt: "Papyrus 46 bifolio Romans Philippians Colossians",
       caption:
         "Bifolio โรม / ฟีลิปปี-โคโลสี (ff.15 & 90) — Chester Beatty Library ดับลิน",

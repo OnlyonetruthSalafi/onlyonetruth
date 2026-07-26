@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -62,9 +63,12 @@ export default function MailManuscript() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/mail/mail1.jpg"
                 alt="หน้าต้นฉบับ Ma'il — อักษรฮิญาซีเอนขวา (BL Or 2165, f.77r)"
+                width={1379}
+                height={2000}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -88,9 +92,12 @@ export default function MailManuscript() {
             </div>
 
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/mail/mail2.jpg"
                 alt="หน้าต้นฉบับ Ma'il พร้อมเครื่องหมายจบอายะฮ์แบบจุด (BL Or 2165, f.76v)"
+                width={1280}
+                height={1826}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {

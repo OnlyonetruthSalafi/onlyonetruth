@@ -13,6 +13,8 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/philip/phi1.jpg",
+      width: 1280,
+      height: 2248,
       alt: "Nag Hammadi Codex II",
       caption:
         "Nag Hammadi Codex II — Gospel of Philip เป็นเรื่องที่ 3 ในโคเด็กซ์เดียวกับ Gospel of Thomas",

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -62,9 +63,12 @@ export default function BezaeManuscript() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* bez1 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/bible/bezae/bez1.jpg"
                 alt="Codex Bezae Greek-Latin Bilingual Page"
+                width={646}
+                height={768}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -89,9 +93,12 @@ export default function BezaeManuscript() {
 
             {/* bez2 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/bible/bezae/bez2.jpg"
                 alt="Codex Bezae Textual Variants Page"
+                width={562}
+                height={768}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {

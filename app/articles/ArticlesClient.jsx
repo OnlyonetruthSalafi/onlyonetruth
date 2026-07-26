@@ -1,5 +1,7 @@
 'use client'
 
+import Image from "next/image";
+
 export default function ArticlesClient({ articles }) {
   return (
     <div className="max-w-7xl mx-auto px-gutter py-16">
@@ -11,11 +13,13 @@ export default function ArticlesClient({ articles }) {
             className="group block bg-paper-light border border-gold/20 rounded-card overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
           >
             {article.image && (
-              <div className="h-48 overflow-hidden bg-paper-light flex items-center justify-center">
-                <img
+              <div className="relative h-48 overflow-hidden bg-paper-light flex items-center justify-center">
+                <Image
                   src={article.image}
                   alt={article.title}
-                  className="w-full h-full object-contain p-4"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-contain p-4"
                   onError={(e) => { e.target.style.display = 'none' }}
                 />
               </div>

@@ -14,12 +14,16 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/peter-james/pj1.jpg",
+      width: 1200,
+      height: 1686,
       alt: "Epistle of Peter to James in Codex Parisinus gr. 930",
       caption:
         "Folio 5r ของ Parisinus gr. 930 — หัวเรื่อง «ΕΠΙΣΤΟΛΗ ΠΕΤΡΟΥ ΠΡΟΣ ΙΑΚΩΒΟΝ» พร้อมลายประดับ",
     },
     {
       src: "/manuscripts/other/peter-james/pj2.jpg",
+      width: 1600,
+      height: 1205,
       alt: "Opening of the Clementine Homilies in Parisinus gr. 930",
       caption:
         "หน้าคู่เปิดเล่ม Clementine Homilies — ซ้ายคือหน้าสารบัญ ขวาคือจุดเริ่มจดหมายเปโตรถึงยากอบ",

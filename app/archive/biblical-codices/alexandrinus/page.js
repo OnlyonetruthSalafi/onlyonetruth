@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -62,9 +63,12 @@ export default function AlexandrinusManuscript() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* alx1 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/bible/alexandrinus/alx1.jpg"
                 alt="Codex Alexandrinus Manuscript Page"
+                width={562}
+                height={750}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -89,9 +93,12 @@ export default function AlexandrinusManuscript() {
 
             {/* alx2 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/bible/alexandrinus/alx2.jpg"
                 alt="Codex Alexandrinus Decoration Detail"
+                width={1318}
+                height={1698}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {

@@ -12,6 +12,8 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/peter/pet1.jpg",
+      width: 750,
+      height: 986,
       alt: "Akhmim fragment of the Gospel of Peter",
       caption: "หน้าแรกของชิ้นส่วน Akhmim — อักษรกรีกศตวรรษที่ 8-9",
     },

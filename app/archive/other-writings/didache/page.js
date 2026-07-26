@@ -14,12 +14,16 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/didache/did1.jpg",
+      width: 945,
+      height: 386,
       alt: "Opening line of the Didache with transcription",
       caption:
         "Facsimile บรรทัดเปิด «Διδαχὴ τῶν δώδεκα ἀποστόλων» พร้อมคำถ่ายถอดอักษรกรีก",
     },
     {
       src: "/manuscripts/other/didache/did2.jpg",
+      width: 980,
+      height: 1378,
       alt: "Minuscule page of Codex Hierosolymitanus",
       caption:
         "หน้าอักษร minuscule จาก Codex Hierosolymitanus — โคเด็กซ์ที่ Bryennios ค้นพบปี ค.ศ. 1873",

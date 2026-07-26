@@ -14,12 +14,16 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/hermas/her1.jpg",
+      width: 1024,
+      height: 562,
       alt: "Codex Sinaiticus double page spread",
       caption:
         "หน้าคู่ Codex Sinaiticus อักษร uncial 4 คอลัมน์ — ต้นฉบับสำคัญที่สุดที่รักษา Hermas ภาษากรีก",
     },
     {
       src: "/manuscripts/other/hermas/her2.jpg",
+      width: 760,
+      height: 746,
       alt: "Codex Sinaiticus single page",
       caption:
         "หน้าเดี่ยวจาก Codex Sinaiticus — Hermas ถูกเย็บท้ายเล่มคู่กับ Epistle of Barnabas",

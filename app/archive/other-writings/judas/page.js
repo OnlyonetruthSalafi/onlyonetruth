@@ -12,11 +12,15 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/judas/jud1.jpg",
+      width: 1314,
+      height: 2026,
       alt: "Codex Tchacos page 33",
       caption: "หน้า 33 — หน้าแรกของ Gospel of Judas ใน Codex Tchacos",
     },
     {
       src: "/manuscripts/other/judas/jud2.jpg",
+      width: 1280,
+      height: 1968,
       alt: "Codex Tchacos page 47",
       caption: "หน้า 47 — ส่วนกลางของบทสนทนาเรื่องจักรวาลวิทยา Sethian",
     },

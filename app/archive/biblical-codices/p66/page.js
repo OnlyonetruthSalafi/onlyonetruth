@@ -11,11 +11,15 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/bible/p66/p66-1.jpg",
+      width: 600,
+      height: 674,
       alt: "Papyrus 66 John 1:1-13",
       caption: "ยอห์น 1:1-13 — หน้าแรกของโคเด็กซ์ พร้อมชื่อเรื่อง ΕΥΑΓΓΕΛΙΟΝ ΚΑΤΑ ΙΩΑΝΝΗΝ",
     },
     {
       src: "/manuscripts/bible/p66/p66-2.jpg",
+      width: 1280,
+      height: 1096,
       alt: "Papyrus 66 folio 1r",
       caption: "Folio 1r — สแกนจาก Bodmer Lab มหาวิทยาลัยเจนีวา",
     },

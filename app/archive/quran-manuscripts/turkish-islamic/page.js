@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -61,9 +62,12 @@ export default function TurkishIslamicManuscript() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/turkish-islamic/tis1.jpg"
                 alt="หน้าปกประดับลวดลายทองของต้นฉบับ TIEM ŞE 457"
+                width={792}
+                height={560}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -87,9 +91,12 @@ export default function TurkishIslamicManuscript() {
             </div>
 
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/turkish-islamic/tis2.jpg"
                 alt="หน้าอักษรคูฟิกพร้อมหัวซูเราะฮ์สีทอง (TIEM Inv. No. 458)"
+                width={785}
+                height={582}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {

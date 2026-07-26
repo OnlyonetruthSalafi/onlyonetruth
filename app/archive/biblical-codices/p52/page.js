@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -62,9 +63,12 @@ export default function P52Manuscript() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* p52-1 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/bible/p52/p52-1.jpg"
                 alt="Papyrus P52 Recto - John 18:31-33"
+                width={349}
+                height={549}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -89,9 +93,12 @@ export default function P52Manuscript() {
 
             {/* p52-2 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/bible/p52/p52-2.jpg"
                 alt="Papyrus P52 Verso - John 18:37-38"
+                width={349}
+                height={549}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {

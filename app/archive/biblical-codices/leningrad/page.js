@@ -12,12 +12,16 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/bible/leningrad/len1.jpg",
+      width: 1280,
+      height: 1529,
       alt: "Leningrad Codex carpet page folio 474a",
       caption:
         "Carpet page (folio 474a) — ดาวหกแฉกประดับ Masorah ลายวิจิตร หนึ่งใน 16 หน้าประดับ",
     },
     {
       src: "/manuscripts/bible/leningrad/len2.jpg",
+      width: 1280,
+      height: 1280,
       alt: "Leningrad Codex carpet page detail",
       caption: "รายละเอียดหน้าประดับ — ตัวอักษรจิ๋วของ Masorah สานเป็นลวดลายเรขาคณิต",
     },

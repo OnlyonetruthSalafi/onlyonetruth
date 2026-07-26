@@ -12,11 +12,15 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/bible/p75/p75-1.jpg",
+      width: 1280,
+      height: 2349,
       alt: "Papyrus 75 Luke 14",
       caption: "ลูกา 14:3-14 — ลายมือแบบหนังสือ (bookhand) ที่ประณีตสม่ำเสมอ",
     },
     {
       src: "/manuscripts/bible/p75/p75-2.jpg",
+      width: 155,
+      height: 50,
       alt: "Papyrus 75 end of Luke and title of John",
       caption:
         "จุดจบลูกาและชื่อเรื่อง ΕΥΑΓΓΕΛΙΟΝ ΚΑΤΑ ΙΩΑΝΝΗΝ — ลูกาและยอห์นอยู่ในเล่มเดียวกัน",

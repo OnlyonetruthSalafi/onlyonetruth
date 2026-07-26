@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -62,9 +63,12 @@ export default function ChesterBeattyManuscript() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/chester-beatty/chb1.jpg"
                 alt="หน้าเปิดประดับทอง — หัวซูเราะฮ์อัลฟาติหะฮ์และอัลบะเกาะเราะฮ์ (CBL Is 1431, f.9b)"
+                width={1920}
+                height={2395}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -88,9 +92,12 @@ export default function ChesterBeattyManuscript() {
             </div>
 
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/chester-beatty/chb2.jpg"
                 alt="หน้าท้ายเล่มอักษร Naskh ลายมืออิบนุลเบาวาบ (CBL Is 1431, f.286a)"
+                width={1400}
+                height={1826}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {

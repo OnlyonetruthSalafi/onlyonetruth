@@ -11,12 +11,16 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/bible/ephraemi/eph1.jpg",
+      width: 508,
+      height: 621,
       alt: "Codex Ephraemi Rescriptus folio 138r",
       caption:
         "Folio 138r — เห็นข้อความพระคัมภีร์ชั้นล่างจาง ๆ ใต้บทเทศนาของเอฟราเอม",
     },
     {
       src: "/manuscripts/bible/ephraemi/eph2.jpg",
+      width: 840,
+      height: 1237,
       alt: "Codex Ephraemi Matthew 1",
       caption: "มัทธิว 1:1-18 — ข้อความชั้นล่างศตวรรษที่ 5 ที่ถูกถอดความ",
     },

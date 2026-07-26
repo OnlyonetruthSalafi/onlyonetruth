@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -62,9 +63,12 @@ export default function HusseinManuscript() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* HusseinMos1 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/hussein/HusseinMos1.jpg"
                 alt="Al-Hussein Mosque Quran folio 23a-24a"
+                width={816}
+                height={395}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -89,9 +93,12 @@ export default function HusseinManuscript() {
 
             {/* HusseinMos2 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/hussein/HusseinMos2.jpg"
                 alt="Al-Hussein Mosque Quran folio 511b-512a"
+                width={569}
+                height={379}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {

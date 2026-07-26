@@ -14,12 +14,16 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/muratorian/mur1.jpg",
+      width: 770,
+      height: 581,
       alt: "Codex Muratorianus double page with the canon list",
       caption:
         "หน้าคู่ Codex Muratorianus (ศตวรรษที่ 7-8) — ช่วงข้อความรายชื่อสารบบ",
     },
     {
       src: "/manuscripts/other/muratorian/mur2.png",
+      width: 539,
+      height: 612,
       alt: "Facsimile transcription of the Muratorian Fragment",
       caption:
         "Facsimile หน้าเดียวของชิ้นส่วน — เห็นบรรทัดว่าด้วยวิวรณ์สองเล่มและการปฏิเสธ Shepherd of Hermas",

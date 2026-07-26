@@ -223,6 +223,13 @@ const collections = [
       "งานเขียนคริสเตียนยุคแรกที่ไม่ได้รับการยอมรับเข้าในคัมภีร์ อาทิ พระวรสารนอกสารบบ จดหมายของบรรดา Church Fathers และข้อเขียน Gnostic ที่โบสถ์ปฏิเสธในภายหลัง",
     href: "/archive/other-writings",
   },
+  {
+    glyph: "✉",
+    title: "Prophetic Letters",
+    blurb:
+      "จดหมายทางการทูตของท่านนบีมุฮัมมัด ﷺ ที่ทรงส่งถึงบรรดาประมุขและกษัตริย์ต่างแดน บางฉบับมีเอกสารต้นฉบับที่อ้างว่าหลงเหลือและเก็บรักษาในพิพิธภัณฑ์ อาทิ จดหมายถึงมุก็อวกิสที่พระราชวังท็อปกาปึ อิสตันบูล",
+    href: "/archive/prophetic-letters",
+  },
 ];
 
 // ════════════════════════════════════════════════════════════════════
@@ -410,10 +417,13 @@ function PropagationMap() {
       style={{ aspectRatio: "890/548", boxShadow: "0 20px 60px rgba(0,0,0,0.5)" }}
     >
       <div ref={cameraRef} className="absolute inset-0" style={{ transformOrigin: "center", willChange: "transform" }}>
-        <img
+        <Image
           src="/map/propagation-map-v2.jpg"
           alt="แผนที่เส้นทางการเผยแพร่ศาสนาอิสลามและคริสต์"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="(max-width: 1024px) 100vw, 890px"
+          priority
+          className="object-cover"
           onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "flex"; }}
         />
         <div style={{ display: "none" }} className="absolute inset-0 items-center justify-center bg-[#c9a876]">
@@ -576,10 +586,12 @@ function FeaturedVideoTheater() {
                 aria-label="เล่นวิดีโอ: การศึกษาคัมภีร์โบราณ"
               >
                 {/* ภาพปกจาก YouTube */}
-                <img
+                <Image
                   src={`https://img.youtube.com/vi/${FEATURED_VIDEO_ID}/maxresdefault.jpg`}
                   alt="ปกวิดีโอ การศึกษาคัมภีร์โบราณ"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 960px"
+                  className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
                   onError={(e) => {
                     e.target.src = `https://img.youtube.com/vi/${FEATURED_VIDEO_ID}/hqdefault.jpg`;
                   }}
@@ -1132,7 +1144,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
             {collections.map((c, i) => (
               <article
                 key={c.title}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
 
@@ -84,9 +85,12 @@ export default function ManuscriptDetailPage({ data }) {
                 key={g.src}
                 className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full"
               >
-                <img
+                <Image
                   src={g.src}
                   alt={g.alt || `${title} Manuscript Page`}
+                  width={g.width}
+                  height={g.height}
+                  sizes="(max-width: 640px) 100vw, 50vw"
                   className="w-full h-auto object-cover block"
                   style={{
                     mixBlendMode: "multiply",

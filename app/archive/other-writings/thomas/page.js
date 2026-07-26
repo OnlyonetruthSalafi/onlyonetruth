@@ -13,11 +13,15 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/other/thomas/tho1.jpg",
+      width: 1280,
+      height: 2248,
       alt: "Nag Hammadi Codex II",
       caption: "Nag Hammadi Codex II — โคเด็กซ์หนังที่บรรจุ Gospel of Thomas เป็นเรื่องที่ 2",
     },
     {
       src: "/manuscripts/other/thomas/tho2.jpg",
+      width: 611,
+      height: 1053,
       alt: "Gospel of Thomas page from Nag Hammadi Codex II",
       caption: "หน้าข้อความ Coptic ของ Gospel of Thomas (Codex II หน้า 36)",
     },

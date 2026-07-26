@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from "next/image";
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
@@ -47,12 +48,16 @@ export default function ArticleContent({ article }) {
       <section className="py-16 bg-paper">
         <div className="max-w-4xl mx-auto px-gutter">
           {article.image && (
-            <img
-              src={article.image}
-              alt={article.title}
-              className="w-full h-64 object-contain bg-paper-light rounded-card mb-10 p-4"
-              onError={(e) => { e.target.style.display = 'none' }}
-            />
+            <div className="relative w-full h-64 bg-paper-light rounded-card mb-10">
+              <Image
+                src={article.image}
+                alt={article.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-contain p-4"
+                onError={(e) => { e.target.style.display = 'none' }}
+              />
+            </div>
           )}
           <div
             className="prose-article"

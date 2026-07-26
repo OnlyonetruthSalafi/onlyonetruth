@@ -12,11 +12,15 @@ const data = {
   gallery: [
     {
       src: "/manuscripts/bible/p45/p45-1.jpg",
+      width: 1280,
+      height: 623,
       alt: "Papyrus 45 Luke folios at Chester Beatty Library",
       caption: "ลูกา 11:50-13:24 (ff.13-14) — Chester Beatty Library ดับลิน",
     },
     {
       src: "/manuscripts/bible/p45/p45-2.jpg",
+      width: 2459,
+      height: 5328,
       alt: "Papyrus 45 Vienna leaf Matthew 25-26",
       caption:
         "มัทธิว 25:41-26:39 — แผ่นที่หอสมุดแห่งชาติออสเตรีย เวียนนา (Pap. G. 31974)",

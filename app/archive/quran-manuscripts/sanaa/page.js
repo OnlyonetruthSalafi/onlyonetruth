@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
@@ -59,9 +60,12 @@ export default function SanaaManuscript() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* รูป sana1 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/Sana/Sana1.jpg"
                 alt="Sanaa Quran Manuscript folio 1"
+                width={1372}
+                height={694}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -87,9 +91,12 @@ export default function SanaaManuscript() {
 
             {/* รูป sana2 */}
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 w-full">
-              <img
+              <Image
                 src="/manuscripts/quran/Sana/sana2.jpg"
                 alt="Sanaa Quran Manuscript folio 2"
+                width={1394}
+                height={714}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full h-auto object-cover block"
                 style={{ mixBlendMode: "multiply", backgroundColor: "transparent", maxWidth: '100%' }}
                 onError={(e) => {
@@ -151,9 +158,12 @@ export default function SanaaManuscript() {
               ภาพเปรียบเทียบ Upper Text และ Lower Text
             </h4>
             <div className="rounded-card overflow-hidden shadow-card border border-gold/20 max-w-2xl mx-auto bg-paper-light">
-              <img
+              <Image
                 src="/manuscripts/quran/Sana/sana3.jpg"
                 alt="Sanaa Palimpsest upper and lower text comparison"
+                width={445}
+                height={716}
+                sizes="(max-width: 640px) 100vw, 50vw"
                 className="w-full object-cover"
                 onError={(e) => {
                   e.target.style.display = "none";
