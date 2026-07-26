@@ -217,18 +217,18 @@ const collections = [
     href: "/archive/biblical-codices",
   },
   {
-    glyph: "⚜",
-    title: "Other Writings Outside Canon",
-    blurb:
-      "งานเขียนคริสเตียนยุคแรกที่ไม่ได้รับการยอมรับเข้าในคัมภีร์ อาทิ พระวรสารนอกสารบบ จดหมายของบรรดา Church Fathers และข้อเขียน Gnostic ที่โบสถ์ปฏิเสธในภายหลัง",
-    href: "/archive/other-writings",
-  },
-  {
     glyph: "✉",
     title: "Prophetic Letters",
     blurb:
       "จดหมายทางการทูตของท่านนบีมุฮัมมัด ﷺ ที่ทรงส่งถึงบรรดาประมุขและกษัตริย์ต่างแดน บางฉบับมีเอกสารต้นฉบับที่อ้างว่าหลงเหลือและเก็บรักษาในพิพิธภัณฑ์ อาทิ จดหมายถึงมุก็อวกิสที่พระราชวังท็อปกาปึ อิสตันบูล",
     href: "/archive/prophetic-letters",
+  },
+  {
+    glyph: "⚜",
+    title: "Other Writings Outside Canon",
+    blurb:
+      "งานเขียนคริสเตียนยุคแรกที่ไม่ได้รับการยอมรับเข้าในคัมภีร์ อาทิ พระวรสารนอกสารบบ จดหมายของบรรดา Church Fathers และข้อเขียน Gnostic ที่โบสถ์ปฏิเสธในภายหลัง",
+    href: "/archive/other-writings",
   },
 ];
 
