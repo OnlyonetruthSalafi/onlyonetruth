@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import IsnadChainMap from "../../components/IsnadChainMap";
+import QuranTawaturMap from "../../components/QuranTawaturMap";
 import CanonPathMap from "../../components/CanonPathMap";
 
 function useReveal() {
@@ -148,6 +149,12 @@ const methodologies = {
       "Jonathan A.C. Brown, Hadith: Muhammad's Legacy in the Medieval and Modern World, Oneworld, 2009 — บทบาทของวรรณกรรมริญาลและฏอบาก็อตในการวิจารณ์หะดีษ.",
       "Eerik Dickinson, The Development of Early Sunnite Ḥadīth Criticism, Leiden: Brill, 2001 — พัฒนาการของศาสตร์วิจารณ์ผู้รายงานยุคแรก.",
       "Harald Motzki, Analysing Muslim Traditions, Leiden: Brill, 2010 — ระเบียบวิธี isnad-cum-matn analysis.",
+      "อิบนุ อัลญะซะรี, อันนัชร์ ฟิลกิรออาตอัลอัชร์ — เงื่อนไขสามข้อของการอ่านที่ถูกต้อง และรายชื่อสายการอ่านของอิมามทั้งสิบพร้อมรอวี.",
+      "อิบนุ อัลญะซะรี, ฆอยะตุนนิฮายะฮ์ ฟี ฏอบาก็อตอัลกุรรออ์ — พจนานุกรมชีวประวัตินักอ่านอัลกุรอานเรียงตามชั้นรุ่น.",
+      "อิบนุ มุญาฮิด, กิตาบุสสับอะฮ์ ฟิลกิรออาต — การจัดกลุ่มการอ่านเจ็ดสายในศตวรรษที่ 4 ฮ.ศ.",
+      "เศาะฮีห์อัลบุคอรี, กิตาบ ฟะฎออิลุลกุรอาน — หะดีษที่ 4998 (การทวนทานครั้งสุดท้ายกับญิบรีล) และ 4999 (\"จงรับอัลกุรอานจากสี่คน\" — เศาะฮาบะฮ์ผู้เป็นครูสอนอ่านที่ท่านนบีระบุชื่อ); กิตาบ มะนากิบุลอันศอร หะดีษที่ 3809 (อุบัย อิบนุ กะอ์บ).",
+      "Shady Hekmat Nasser, The Transmission of the Variant Readings of the Qurʾān: The Problem of Tawātur and the Emergence of Shawādhdh, Leiden: Brill, 2013 — ทัศนะวิพากษ์ต่อสถานะมุตะวาติรของการอ่านรายจุด.",
+      "Marijn van Putten, “The Grace of God as evidence for a written Uthmanic archetype”, BSOAS 82/2 (2019), pp. 271-288 — หลักฐานจากต้นฉบับว่าสายลายลักษณ์ทั้งหมดสืบย้อนถึงต้นแบบฉบับเดียว.",
     ],
   },
   christian: {
@@ -573,7 +580,11 @@ export default function Methodology() {
           {/* CONTENT SECTIONS */}
           <div key={`sections-${tab}`} className="space-y-8 md:space-y-10">
             {method.sections.map((section) => (
-              <SectionCard key={section.no} section={section} accent={method.accent} />
+              <Fragment key={section.no}>
+                <SectionCard section={section} accent={method.accent} />
+                {/* แผนภาพมุตะวาติร — วางไว้ใต้การ์ดบทที่ V ของแท็บระบบอิสนาด */}
+                {tab === "islam" && section.no === "V" && <QuranTawaturMap />}
+              </Fragment>
             ))}
           </div>
 
