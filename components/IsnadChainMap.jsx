@@ -123,6 +123,13 @@ const NODES = {
     tabaqa: "ชั้นที่ 10 (รุ่นใหญ่) ตามตักรีบุตตะฮ์ซีบ",
     detail: "ครูโดยตรงของอัลบุคอรี และเป็นทอดที่เชื่อมสายทองคำเข้าสู่ตำรา อิบนุ ฮะญัรระบุถึงเขาว่า \"เชื่อถือได้ แม่นยำ และเป็นหนึ่งในผู้ที่มั่นคงที่สุดในการถ่ายทอดอัลมุวัฏเฏาะอ์\"",
   },
+  yahya: {
+    x: 470, y: 505, gen: 4,
+    name: "ยะห์ยา อิบนุ ยะห์ยา",
+    died: "ฮ.ศ. 142-226",
+    city: "นัยสาบูร (คุรอซาน)",
+    detail: "ยะห์ยา อิบนุ ยะห์ยา อัตตะมีมี ครูโดยตรงของอิหม่ามมุสลิม และเป็นหนึ่งในผู้ถ่ายทอดอัลมุวัฏเฏาะอ์จากมาลิก อัซซะฮะบีเรียกเขาว่า \"เชคแห่งอิสลามและปราชญ์แห่งคุรอซาน\" ส่วนอัลฮากิมกล่าวว่าเขาคือ \"อิหม่ามแห่งยุคสมัยโดยไม่มีผู้ใดโต้แย้ง\" — ทั้งบุคอรีและมุสลิมต่างรับรายงานจากเขา",
+  },
   bukhari: {
     x: 265, y: 595, gen: 5,
     name: "อิหม่ามอัลบุคอรี",
@@ -162,61 +169,110 @@ const EDGES = [
   { from: "qatada", to: "shuba" },
   { from: "malik", to: "ibnyusuf" },
   { from: "ibnyusuf", to: "bukhari" },
-  { from: "malik", to: "muslim", dashed: true },
+  { from: "malik", to: "yahya" },
+  { from: "yahya", to: "muslim" },
   { from: "mamar", to: "ahmad", dashed: true },
   { from: "hisham", to: "muslim", dashed: true },
   { from: "shuba", to: "bukhari", dashed: true },
   { from: "shuba", to: "ahmad", dashed: true },
 ];
 
-// สายรายงานทองคำ (silsilat al-dhahab) — วาดครบทุกทอดโดยไม่ย่อ
-const GOLDEN = new Set([
-  "prophet-ibnumar",
-  "ibnumar-nafi",
-  "nafi-malik",
-  "malik-ibnyusuf",
-  "ibnyusuf-bukhari",
-]);
-const GOLDEN_NODES = new Set(["prophet", "ibnumar", "nafi", "malik", "ibnyusuf", "bukhari"]);
+// ทอดร่วมของทั้งสองสาย: ท่านนบี → อิบนุ อุมัร → นาฟิอ์ → มาลิก
+const TRUNK_EDGES = ["prophet-ibnumar", "ibnumar-nafi", "nafi-malik"];
+const TRUNK_NODES = ["prophet", "ibnumar", "nafi", "malik"];
 
-// ตัวอย่างหะดีษจริงที่เดินทางมาตามสายทองคำ — เศาะฮีห์อัลบุคอรี หะดีษที่ 877
-const GOLDEN_HADITH = {
-  ref: "เศาะฮีห์อัลบุคอรี หะดีษที่ 877 — กิตาบุลญุมุอะฮ์ (บทว่าด้วยละหมาดวันศุกร์)",
-  isnadAr: "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، قَالَ أَخْبَرَنَا مَالِكٌ، عَنْ نَافِعٍ، عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ",
-  matnAr: "إِذَا جَاءَ أَحَدُكُمُ الْجُمُعَةَ فَلْيَغْتَسِلْ",
-  matnTh: "เมื่อผู้ใดในหมู่พวกท่านจะมาละหมาดวันศุกร์ ก็จงอาบน้ำชำระร่างกายเสียก่อน",
-  steps: [
-    {
-      name: "ท่านนบีมุฮัมมัด ﷺ",
-      meta: "ต้นทาง · เสียชีวิต ฮ.ศ. 11",
-      why: "ถ้อยคำต้นทางที่ทุกทอดต่อจากนี้ต้องสืบย้อนกลับมาถึงให้ได้",
+const STEP_PROPHET = {
+  name: "ท่านนบีมุฮัมมัด ﷺ",
+  meta: "ต้นทาง · เสียชีวิต ฮ.ศ. 11",
+  why: "ถ้อยคำต้นทางที่ทุกทอดต่อจากนี้ต้องสืบย้อนกลับมาถึงให้ได้",
+};
+const STEP_IBNUMAR = {
+  name: "อับดุลลอฮ์ อิบนุ อุมัร",
+  meta: "เศาะฮาบะฮ์ · เสียชีวิต ฮ.ศ. 73 · มะดีนะฮ์",
+  why: "ได้ยินจากท่านนบีโดยตรง — อยู่ร่วมยุคและร่วมเมืองอย่างไม่มีข้อกังขา",
+};
+const STEP_NAFI = {
+  name: "นาฟิอ์ เมาลา อิบนิ อุมัร",
+  meta: "ชั้นที่ 3 · เสียชีวิต ฮ.ศ. 117 · มะดีนะฮ์",
+  why: "อยู่รับใช้อิบนุ อุมัรราว 30 ปีในเมืองเดียวกัน — การพบกันไม่ต้องอนุมาน มีบันทึกชัดเจน",
+};
+const STEP_MALIK = {
+  name: "มาลิก อิบนุ อะนัส",
+  meta: "ชั้นที่ 7 · เกิดราว ฮ.ศ. 93 เสียชีวิต ฮ.ศ. 179 · มะดีนะฮ์",
+  why: "อายุราว 24 ปีตอนนาฟิอ์เสียชีวิต และเป็นชาวมะดีนะฮ์ทั้งคู่ — ช่วงเวลาและสถานที่ทับซ้อนกันเต็มที่",
+};
+
+// สองสายตัวอย่าง — ใช้ลำต้นเดียวกัน แยกกันที่ลูกศิษย์ของมาลิก
+const CHAINS = {
+  golden: {
+    tab: "สายรายงานทองคำ",
+    tabAr: "سلسلة الذهب",
+    edges: new Set([...TRUNK_EDGES, "malik-ibnyusuf", "ibnyusuf-bukhari"]),
+    nodes: new Set([...TRUNK_NODES, "ibnyusuf", "bukhari"]),
+    title: "สายรายงานทองคำ (ซิลซิละตุซซะฮับ)",
+    intro:
+      "อัลบุคอรีระบุว่าสายที่เศาะฮีห์ที่สุดคือ \"มาลิก ← นาฟิอ์ ← อิบนุ อุมัร\" ในอัลมุวัฏเฏาะอ์ของมาลิกมีรายงานผ่านสายนี้ราว 80 บท ด้านล่างคือหนึ่งในนั้นที่เดินทางต่อมาจนถึงเศาะฮีห์อัลบุคอรี — ทั้งสายมีคนกลางระหว่างอัลบุคอรีกับท่านนบีเพียง 4 ทอด ครอบคลุมช่วงเวลา 245 ปี",
+    ref: "เศาะฮีห์อัลบุคอรี หะดีษที่ 877 — กิตาบุลญุมุอะฮ์ (บทว่าด้วยละหมาดวันศุกร์)",
+    isnadAr: "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، قَالَ أَخْبَرَنَا مَالِكٌ، عَنْ نَافِعٍ، عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ",
+    matnAr: "إِذَا جَاءَ أَحَدُكُمُ الْجُمُعَةَ فَلْيَغْتَسِلْ",
+    matnTh: "เมื่อผู้ใดในหมู่พวกท่านจะมาละหมาดวันศุกร์ ก็จงอาบน้ำชำระร่างกายเสียก่อน",
+    steps: [
+      STEP_PROPHET,
+      STEP_IBNUMAR,
+      STEP_NAFI,
+      STEP_MALIK,
+      {
+        name: "อับดุลลอฮ์ อิบนุ ยูซุฟ อัตตินนีซี",
+        meta: "ชั้นที่ 10 · เสียชีวิต ฮ.ศ. 218",
+        why: "อิบนุ ฮะญัรจัดเขาเป็น \"หนึ่งในผู้ที่มั่นคงที่สุดในการถ่ายทอดอัลมุวัฏเฏาะอ์\" ของมาลิก",
+      },
+      {
+        name: "อิหม่ามอัลบุคอรี",
+        meta: "เกิด ฮ.ศ. 194 เสียชีวิต ฮ.ศ. 256 · บุคอรอ",
+        why: "อายุราว 24 ปีตอนครูเสียชีวิต บันทึกรายงานนี้ลงในเศาะฮีห์พร้อมระบุชื่อครูทุกทอด",
+      },
+    ],
+    note: "หมายเหตุ: ชั้นรุ่นที่ระบุอ้างตาม ตักรีบุตตะฮ์ซีบ ของอิบนุ ฮะญัร (ดูบทที่ VI) — และแม้อัลบุคอรีจะยกสายนี้เป็นสายที่เศาะฮีห์ที่สุด นักวิชาการท่านอื่นก็เสนอสายอื่นไว้เช่นกัน ตำราอุลูมุลหะดีษจึงรวบรวมทัศนะที่ต่างกันเหล่านี้ไว้เคียงกัน คำว่า \"ทองคำ\" จึงหมายถึงระดับความน่าเชื่อถือชั้นสูงสุดกลุ่มหนึ่ง ไม่ใช่คำตัดสินเด็ดขาดเพียงหนึ่งเดียว สายเดียวกันนี้ยังปรากฏในหะดีษบทอื่นของเศาะฮีห์อัลบุคอรี เช่น หะดีษที่ 2204 ว่าด้วยการซื้อขายต้นอินทผลัมที่ผสมเกสรแล้ว",
+  },
+  muslim: {
+    tab: "สายที่สั้นที่สุดของมุสลิม",
+    tabAr: "رباعيات مسلم",
+    edges: new Set([...TRUNK_EDGES, "malik-yahya", "yahya-muslim"]),
+    nodes: new Set([...TRUNK_NODES, "yahya", "muslim"]),
+    title: "สายที่สั้นที่สุดของอิหม่ามมุสลิม (ระดับรุบาอี)",
+    intro:
+      "นักวิชาการหะดีษระบุว่าในเศาะฮีห์มุสลิมไม่มีสาย \"ษุลาษี\" (คนกลาง 3 ทอด) แม้แต่บทเดียว ต่างจากเศาะฮีห์อัลบุคอรีที่มีอยู่จำนวนหนึ่ง สายที่สั้นที่สุดที่มุสลิมไปถึงได้จึงเป็นระดับ \"รุบาอี\" คือมีคนกลาง 4 ทอดระหว่างท่านกับท่านนบี ซึ่งมีอยู่หลายบทในตำรา — คำอธิบายที่มักให้กันคือมุสลิมเกิดหลังอัลบุคอรีราวสิบปี ครูรุ่นที่มีสายสูงที่สุดจึงเสียชีวิตไปก่อนที่ท่านจะทันเรียน",
+    ref: "เศาะฮีห์มุสลิม หะดีษที่ 844 — กิตาบุลญุมุอะฮ์",
+    isnadAr: "حَدَّثَنَا يَحْيَى بْنُ يَحْيَى، قَالَ: قَرَأْتُ عَلَى مَالِكٍ، عَنْ نَافِعٍ، عَنْ عَبْدِ اللَّهِ",
+    matnAr: "إِذَا أَرَادَ أَحَدُكُمْ أَنْ يَأْتِيَ الْجُمُعَةَ فَلْيَغْتَسِلْ",
+    matnTh: "เมื่อผู้ใดในหมู่พวกท่านประสงค์จะมาละหมาดวันศุกร์ ก็จงอาบน้ำชำระร่างกายเสียก่อน",
+    steps: [
+      STEP_PROPHET,
+      STEP_IBNUMAR,
+      STEP_NAFI,
+      STEP_MALIK,
+      {
+        name: "ยะห์ยา อิบนุ ยะห์ยา อัตตะมีมี",
+        meta: "ฮ.ศ. 142-226 · นัยสาบูร",
+        why: "ครูโดยตรงของมุสลิม และเป็นหนึ่งในผู้ถ่ายทอดอัลมุวัฏเฏาะอ์จากมาลิก — อัซซะฮะบีเรียกเขาว่า \"เชคแห่งอิสลามและปราชญ์แห่งคุรอซาน\"",
+      },
+      {
+        name: "อิหม่ามมุสลิม",
+        meta: "เกิด ฮ.ศ. 204 เสียชีวิต ฮ.ศ. 261 · นัยสาบูร",
+        why: "เรียนกับยะห์ยาในเมืองเดียวกัน อายุราว 22 ปีตอนครูเสียชีวิต",
+      },
+    ],
+    contrast: {
+      title: "จุดที่น่าสังเกตเมื่อเทียบสองสาย",
+      points: [
+        "ลำต้นเดียวกัน แยกที่ลูกศิษย์ — ทั้งบุคอรีและมุสลิมรับรายงานบทนี้ผ่าน \"มาลิก ← นาฟิอ์ ← อิบนุ อุมัร\" ชุดเดียวกัน แต่ผ่านลูกศิษย์ของมาลิกคนละคน (อิบนุ ยูซุฟ ที่อียิปต์ กับ ยะห์ยา อิบนุ ยะห์ยา ที่นัยสาบูร) — สองเส้นทางอิสระที่มาบรรจบที่ข้อความเดียวกัน",
+        "อิสนาดบันทึกแม้กระทั่ง \"วิธีรับ\" — บุคอรีใช้คำว่า أَخْبَرَنَا مَالِك (มาลิกบอกแก่เรา คือฟังจากปากครู) ส่วนมุสลิมใช้ قَرَأْتُ عَلَى مَالِك (ฉันอ่านทวนให้มาลิกฟัง) ซึ่งเป็นวิธีรับความรู้คนละแบบที่ศาสตร์หะดีษแยกแยะไว้ชัดเจน ไม่ใช่แค่บอกว่า \"ได้มาจากใคร\" แต่บอกด้วยว่า \"ได้มาอย่างไร\"",
+        "ถ้อยคำต่างกันเล็กน้อยและไม่ถูกกลบเกลื่อน — บุคอรีบันทึกว่า إِذَا جَاءَ أَحَدُكُمُ الْجُمُعَةَ (เมื่อผู้ใดมาละหมาดวันศุกร์) ส่วนมุสลิมบันทึกว่า إِذَا أَرَادَ أَحَدُكُمْ أَنْ يَأْتِيَ الْجُمُعَةَ (เมื่อผู้ใดประสงค์จะมา) ทั้งสองฉบับถูกรักษาไว้ตามที่แต่ละสายรับมา โดยไม่มีการปรับให้ตรงกันภายหลัง",
+        "ชื่อในสายเขียนไม่เท่ากัน — สายของมุสลิมระบุเพียง عَنْ عَبْدِ اللَّهِ ส่วนของบุคอรีระบุเต็มว่า عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ ทั้งสองคือคนเดียวกัน เพราะ \"อับดุลลอฮ์\" ที่นาฟิอ์รายงานจากคืออิบนุ อุมัรผู้เป็นนายของเขา",
+      ],
     },
-    {
-      name: "อับดุลลอฮ์ อิบนุ อุมัร",
-      meta: "เศาะฮาบะฮ์ · เสียชีวิต ฮ.ศ. 73 · มะดีนะฮ์",
-      why: "ได้ยินจากท่านนบีโดยตรง — อยู่ร่วมยุคและร่วมเมืองอย่างไม่มีข้อกังขา",
-    },
-    {
-      name: "นาฟิอ์ เมาลา อิบนิ อุมัร",
-      meta: "ชั้นที่ 3 · เสียชีวิต ฮ.ศ. 117 · มะดีนะฮ์",
-      why: "อยู่รับใช้อิบนุ อุมัรราว 30 ปีในเมืองเดียวกัน — การพบกันไม่ต้องอนุมาน มีบันทึกชัดเจน",
-    },
-    {
-      name: "มาลิก อิบนุ อะนัส",
-      meta: "ชั้นที่ 7 · เกิดราว ฮ.ศ. 93 เสียชีวิต ฮ.ศ. 179 · มะดีนะฮ์",
-      why: "อายุราว 24 ปีตอนนาฟิอ์เสียชีวิต และเป็นชาวมะดีนะฮ์ทั้งคู่ — ช่วงเวลาและสถานที่ทับซ้อนกันเต็มที่",
-    },
-    {
-      name: "อับดุลลอฮ์ อิบนุ ยูซุฟ อัตตินนีซี",
-      meta: "ชั้นที่ 10 · เสียชีวิต ฮ.ศ. 218",
-      why: "อิบนุ ฮะญัรจัดเขาเป็น \"หนึ่งในผู้ที่มั่นคงที่สุดในการถ่ายทอดอัลมุวัฏเฏาะอ์\" ของมาลิก",
-    },
-    {
-      name: "อิหม่ามอัลบุคอรี",
-      meta: "เกิด ฮ.ศ. 194 เสียชีวิต ฮ.ศ. 256 · บุคอรอ",
-      why: "อายุราว 24 ปีตอนครูเสียชีวิต บันทึกรายงานนี้ลงในเศาะฮีห์พร้อมระบุชื่อครูทุกทอด",
-    },
-  ],
+    note: "หมายเหตุ: \"สั้นที่สุด\" ในที่นี้หมายถึงชั้นสายที่สั้นที่สุดเท่าที่ปรากฏในเศาะฮีห์มุสลิม (ระดับรุบาอี) ไม่ได้หมายความว่าเป็นสายเดียวที่สั้นที่สุด — ยังมีบทอื่นที่สายยาวเท่ากันนี้อีก และการที่สายสั้นกว่าไม่ได้แปลว่ารายงานนั้นเศาะฮีห์กว่าโดยอัตโนมัติ เพราะเกณฑ์ตัดสินยังคงเป็นความน่าเชื่อถือของผู้รายงานทุกทอดตามที่อธิบายไว้ในบทที่ III",
+  },
 };
 
 const edgeKey = (e) => `${e.from}-${e.to}`;
@@ -245,25 +301,19 @@ function MapLegend() {
       </div>
       <p className="font-pridi text-xs text-paper/45 leading-relaxed">
         ขอบเขต: นี่คือภาพตัดขวางเพื่อการศึกษา แสดงเพียง 4 สายจากหลายพันสายที่บันทึกไว้จริง
-        และย่อบางทอดเพื่อให้แผนภาพอ่านได้ — <span className="text-gold/70">มีเพียงสายรายงานทองคำเท่านั้นที่วาดครบทุกทอดโดยไม่ย่อ</span>{" "}
-        กดปุ่มด้านบนเพื่อดูสายเต็มพร้อมตัวอย่างหะดีษจริงที่เดินทางมาตามสายนี้
+        และย่อบางทอดเพื่อให้แผนภาพอ่านได้ — <span className="text-gold/70">มีเพียงสองสายตัวอย่างที่ปุ่มด้านบนเท่านั้นที่วาดครบทุกทอดโดยไม่ย่อ</span>{" "}
+        กดปุ่มเพื่อดูสายเต็มพร้อมตัวบทหะดีษจริงที่เดินทางมาตามสายนั้น ทั้งสองสายใช้ลำต้นร่วมกันแล้วแยกที่ลูกศิษย์ของอิหม่ามมาลิก
       </p>
     </>
   );
 }
 
-// แผงสายรายงานทองคำ — ตัวอย่างหะดีษจริงพร้อมการตรวจสอบทีละทอด
-function GoldenPanel() {
+// แผงสายรายงาน — ตัวอย่างหะดีษจริงพร้อมการตรวจสอบทีละทอด
+function ChainPanel({ chain }) {
   return (
     <>
-      <p className="font-pridi text-base md:text-lg text-gold font-semibold mb-1">
-        สายรายงานทองคำ (ซิลซิละตุซซะฮับ)
-      </p>
-      <p className="font-pridi text-sm text-paper/75 leading-relaxed mb-4">
-        อัลบุคอรีระบุว่าสายที่เศาะฮีห์ที่สุดคือ &quot;มาลิก ← นาฟิอ์ ← อิบนุ อุมัร&quot; ในอัลมุวัฏเฏาะอ์ของมาลิกมีรายงานผ่านสายนี้ราว 80 บท
-        ด้านล่างคือหนึ่งในนั้นที่เดินทางต่อมาจนถึงเศาะฮีห์อัลบุคอรี — ทั้งสายมีคนกลางระหว่างอัลบุคอรีกับท่านนบีเพียง 4 ทอด
-        ครอบคลุมช่วงเวลา 245 ปี
-      </p>
+      <p className="font-pridi text-base md:text-lg text-gold font-semibold mb-1">{chain.title}</p>
+      <p className="font-pridi text-sm text-paper/75 leading-relaxed mb-4">{chain.intro}</p>
 
       {/* ตัวบทหะดีษ */}
       <div
@@ -274,18 +324,18 @@ function GoldenPanel() {
           The Hadith
         </p>
         <p dir="rtl" lang="ar" className="font-amiri text-xl md:text-2xl text-gold leading-loose mb-2">
-          {GOLDEN_HADITH.matnAr}
+          {chain.matnAr}
         </p>
         <p className="font-pridi text-sm md:text-base text-paper/85 leading-relaxed mb-3">
-          “{GOLDEN_HADITH.matnTh}”
+          “{chain.matnTh}”
         </p>
         <p className="font-cinzel text-[10px] tracking-[0.3em] uppercase text-gold/60 mb-1.5">
           The Isnad
         </p>
         <p dir="rtl" lang="ar" className="font-amiri text-base md:text-lg text-paper/70 leading-loose mb-2">
-          {GOLDEN_HADITH.isnadAr}
+          {chain.isnadAr}
         </p>
-        <p className="font-pridi text-xs text-paper/50">{GOLDEN_HADITH.ref}</p>
+        <p className="font-pridi text-xs text-paper/50">{chain.ref}</p>
       </div>
 
       {/* ไล่ตรวจทีละทอด */}
@@ -293,7 +343,7 @@ function GoldenPanel() {
         ไล่ตรวจทีละทอด — ทำไมสายนี้จึงถือว่าไม่ขาดตอน
       </p>
       <ol className="space-y-2.5 mb-4">
-        {GOLDEN_HADITH.steps.map((s, i) => (
+        {chain.steps.map((s, i) => (
           <li key={s.name} className="flex items-start gap-3">
             <span
               className="shrink-0 w-6 h-6 mt-0.5 rounded-full border border-gold/50 flex items-center justify-center font-pridi text-[11px] text-gold"
@@ -312,21 +362,36 @@ function GoldenPanel() {
         ))}
       </ol>
 
-      <p className="font-pridi text-xs text-paper/45 leading-relaxed">
-        หมายเหตุ: ชั้นรุ่นที่ระบุอ้างตาม ตักรีบุตตะฮ์ซีบ ของอิบนุ ฮะญัร (ดูบทที่ VI) — และแม้อัลบุคอรีจะยกสายนี้เป็นสายที่เศาะฮีห์ที่สุด
-        นักวิชาการท่านอื่นก็เสนอสายอื่นไว้เช่นกัน ตำราอุลูมุลหะดีษจึงรวบรวมทัศนะที่ต่างกันเหล่านี้ไว้เคียงกัน
-        คำว่า &quot;ทองคำ&quot; จึงหมายถึงระดับความน่าเชื่อถือชั้นสูงสุดกลุ่มหนึ่ง ไม่ใช่คำตัดสินเด็ดขาดเพียงหนึ่งเดียว
-        สายเดียวกันนี้ยังปรากฏในหะดีษบทอื่นของเศาะฮีห์อัลบุคอรี เช่น หะดีษที่ 2204 ว่าด้วยการซื้อขายต้นอินทผลัมที่ผสมเกสรแล้ว
-      </p>
+      {/* เทียบสองสาย (เฉพาะสายที่มีข้อมูลเปรียบเทียบ) */}
+      {chain.contrast && (
+        <div className="rounded-card border border-gold/20 px-4 py-3 mb-4">
+          <p className="font-pridi text-sm text-gold/90 font-semibold mb-2">
+            {chain.contrast.title}
+          </p>
+          <ul className="space-y-2">
+            {chain.contrast.points.map((p, i) => (
+              <li key={i} className="flex items-start gap-2.5">
+                <span className="text-gold/60 text-[10px] mt-1.5 shrink-0">✦</span>
+                <span className="font-pridi text-xs md:text-sm text-paper/70 leading-relaxed">
+                  {p}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <p className="font-pridi text-xs text-paper/45 leading-relaxed">{chain.note}</p>
     </>
   );
 }
 
 export default function IsnadChainMap() {
   const [selected, setSelected] = useState(null);
-  const [golden, setGolden] = useState(false);
+  const [highlight, setHighlight] = useState(null);
 
   const sel = selected ? NODES[selected] : null;
+  const chain = highlight ? CHAINS[highlight] : null;
 
   return (
     <div
@@ -348,20 +413,39 @@ export default function IsnadChainMap() {
             เส้นทางของหนึ่งรายงาน — จากท่านนบีถึงตำราหะดีษ
           </h3>
           <p className="font-pridi text-xs text-paper/50 mt-1">
-            คลิกที่จุดผู้รายงานเพื่อดูรายละเอียด · กดปุ่มสายรายงานทองคำเพื่อดูตัวอย่างหะดีษจริง
+            คลิกที่จุดผู้รายงานเพื่อดูรายละเอียด · เลือกแท็บด้านขวาเพื่อดูสายตัวอย่างพร้อมตัวบทหะดีษจริง
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => setGolden((v) => !v)}
-          className={`self-start sm:self-auto font-pridi text-xs md:text-sm px-4 py-2 rounded-btn border transition-all duration-300 ${
-            golden
-              ? "bg-gradient-to-r from-gold-dark via-gold to-gold-light text-ink border-gold shadow-glow-sm"
-              : "text-gold border-gold/40 hover:bg-gold/10"
-          }`}
-        >
-          ✦ สายรายงานทองคำ
-        </button>
+        <div className="flex flex-wrap gap-2 self-start sm:self-auto">
+          {Object.entries(CHAINS).map(([id, c]) => {
+            const on = highlight === id;
+            return (
+              <button
+                key={id}
+                type="button"
+                onClick={() => {
+                  // ล้างผู้รายงานที่เลือกไว้ ไม่เช่นนั้นการ์ดผู้รายงานจะบังแผงตัวอย่างหะดีษ
+                  setSelected(null);
+                  setHighlight(on ? null : id);
+                }}
+                className={`font-pridi text-xs md:text-sm px-4 py-2 rounded-btn border transition-all duration-300 text-left ${
+                  on
+                    ? "bg-gradient-to-r from-gold-dark via-gold to-gold-light text-ink border-gold shadow-glow-sm"
+                    : "text-gold border-gold/40 hover:bg-gold/10"
+                }`}
+              >
+                <span className="block">✦ {c.tab}</span>
+                <span
+                  className={`block font-amiri text-[11px] leading-tight ${
+                    on ? "text-ink/70" : "text-gold/50"
+                  }`}
+                >
+                  {c.tabAr}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* ตัวแผนภาพ — เลื่อนแนวนอนได้บนจอเล็ก */}
@@ -408,8 +492,8 @@ export default function IsnadChainMap() {
             const a = NODES[e.from];
             const b = NODES[e.to];
             const key = edgeKey(e);
-            const isGold = golden && GOLDEN.has(key);
-            const dimmed = golden && !isGold;
+            const isGold = !!chain && chain.edges.has(key);
+            const dimmed = !!chain && !isGold;
             const d = `M ${a.x} ${a.y} L ${b.x} ${b.y}`;
             return (
               <g key={key} style={{ transition: "opacity 0.4s" }} opacity={dimmed ? 0.18 : 1}>
@@ -439,8 +523,8 @@ export default function IsnadChainMap() {
           {/* โหนดผู้รายงาน */}
           {Object.entries(NODES).map(([id, n]) => {
             const active = selected === id;
-            const isGoldNode = golden && GOLDEN_NODES.has(id);
-            const dimmed = golden && !isGoldNode;
+            const isGoldNode = !!chain && chain.nodes.has(id);
+            const dimmed = !!chain && !isGoldNode;
             return (
               <g
                 key={id}
@@ -512,9 +596,18 @@ export default function IsnadChainMap() {
                 {sel.tabaqa && <span className="text-gold/70"> · {sel.tabaqa}</span>}
               </p>
               <p className="font-pridi text-sm text-paper/80 leading-relaxed">{sel.detail}</p>
+              {chain && (
+                <button
+                  type="button"
+                  onClick={() => setSelected(null)}
+                  className="mt-3 font-pridi text-xs text-gold/90 hover:text-gold border-b border-gold/40 hover:border-gold transition-colors duration-300"
+                >
+                  ← กลับไปดูตัวอย่างหะดีษของ{chain.tab}
+                </button>
+              )}
             </>
-          ) : golden ? (
-            <GoldenPanel />
+          ) : chain ? (
+            <ChainPanel chain={chain} />
           ) : (
             <MapLegend />
           )}
