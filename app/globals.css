@@ -781,6 +781,24 @@ html {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(245, 230, 211, 0.1);
 }
 
+/* การ์ดตัวอย่างวิดีโอขนาดเล็ก — ใช้กรอบเดียวกับเสาหลัก แต่ยัดจอไว้ด้านใน */
+.intro-mini-card {
+  padding: 0.5rem 0.5rem 0.85rem;
+}
+.intro-mini-play {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 9999px;
+  background: linear-gradient(145deg, #f4e4b0 0%, #d4af37 45%, #b8860b 100%);
+  box-shadow:
+    0 0 0 1px rgba(244, 228, 176, 0.55),
+    0 0 18px rgba(212, 175, 55, 0.45),
+    0 6px 16px rgba(0, 0, 0, 0.45);
+}
+@media (min-width: 768px) {
+  .intro-mini-play { width: 2.8rem; height: 2.8rem; }
+}
+
 /* กรอบวิดีโอสไตล์จดหมายเหตุ */
 .intro-lux-frame {
   background: linear-gradient(150deg, rgba(212, 175, 55, 0.16) 0%, rgba(62, 39, 35, 0.5) 45%, rgba(139, 26, 26, 0.16) 100%);

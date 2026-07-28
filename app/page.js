@@ -538,7 +538,7 @@ function PropagationMap() {
 //  FeaturedVideoTheater — จอวิดีโอแบบโรงละคร (click-to-play facade)
 //  โหลดเป็นภาพปกก่อน คลิกแล้วจึงฝัง iframe autoplay → เร็วและอลังการ
 // ════════════════════════════════════════════════════════════════════
-const FEATURED_VIDEO_ID = "8aMU3Se2XdY";
+const FEATURED_VIDEO_ID = "JrJSmEhp15o";
 
 function FeaturedVideoTheater() {
   const [playing, setPlaying] = useState(false);
@@ -648,6 +648,72 @@ function FeaturedVideoTheater() {
         <span className="intro-lux-diamond" style={{ width: 5, height: 5 }} />
         <span className="h-px w-8 md:w-14 bg-gradient-to-l from-transparent to-gold/50" />
       </div>
+    </div>
+  );
+}
+
+// ════════════════════════════════════════════════════════════════════
+//  MiniVideoCard — ตัวอย่างวิดีโอขนาดเล็ก (click-to-play facade เช่นกัน)
+//  โหลดเป็นภาพปก hqdefault ก่อน คลิกแล้วจึงฝัง iframe → ไม่ถ่วงหน้าเว็บ
+// ════════════════════════════════════════════════════════════════════
+const INTRO_SAMPLE_VIDEOS = [
+  { id: "8aMU3Se2XdY", th: "การส่งต่อ", en: "Transmission" },
+  { id: "DBhPfdDi7o4", th: "การเก็บรักษา", en: "Preservation" },
+  { id: "TFe0A8_kNcs", th: "การเปลี่ยนแปลง", en: "Variation" },
+];
+
+function MiniVideoCard({ video }) {
+  const [playing, setPlaying] = useState(false);
+
+  return (
+    <div className="intro-lux-pillar intro-mini-card">
+      <div className="relative rounded-md overflow-hidden ring-1 ring-gold/25 bg-black">
+        <div className="relative pb-[56.25%] h-0">
+          {playing ? (
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1`}
+              title={`ตัวอย่างวิดีโอ: ${video.th}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          ) : (
+            <button
+              type="button"
+              onClick={() => setPlaying(true)}
+              className="group absolute inset-0 w-full h-full cursor-pointer"
+              aria-label={`เล่นตัวอย่างวิดีโอ: ${video.th}`}
+            >
+              <Image
+                src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                alt={`ปกตัวอย่างวิดีโอ ${video.th}`}
+                fill
+                sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 300px"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+              />
+              <span
+                className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-70"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(10,6,4,0.25) 0%, rgba(10,6,4,0.05) 45%, rgba(10,6,4,0.6) 100%)",
+                }}
+              />
+              <span className="absolute inset-0 grid place-items-center">
+                <span className="intro-mini-play grid place-items-center transition-transform duration-500 group-hover:scale-110">
+                  <svg className="w-3.5 h-3.5 translate-x-px text-ink" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+              </span>
+            </button>
+          )}
+        </div>
+      </div>
+
+      <span className="block font-pridi text-sm md:text-base text-paper-white/90 font-medium mt-3">{video.th}</span>
+      <span className="block font-cinzel text-[0.55rem] md:text-[0.6rem] text-gold/60 tracking-[0.2em] uppercase mt-1">{video.en}</span>
     </div>
   );
 }
@@ -897,17 +963,10 @@ export default function Home() {
           {/* จอวิดีโอโรงละคร */}
           <FeaturedVideoTheater />
 
-          {/* เสาหลัก 3 คำ ใต้จอ */}
-          <div data-reveal className="grid grid-cols-3 gap-3 md:gap-5 max-w-2xl mx-auto mt-12 md:mt-14 mb-11">
-            {[
-              { th: 'การส่งต่อ', en: 'Transmission' },
-              { th: 'การเก็บรักษา', en: 'Preservation' },
-              { th: 'การเปลี่ยนแปลง', en: 'Variation' },
-            ].map((p) => (
-              <div key={p.en} className="intro-lux-pillar">
-                <span className="block font-pridi text-sm md:text-base text-paper-white/90 font-medium">{p.th}</span>
-                <span className="block font-cinzel text-[0.55rem] md:text-[0.6rem] text-gold/60 tracking-[0.2em] uppercase mt-1">{p.en}</span>
-              </div>
+          {/* ตัวอย่างวิดีโอ 3 หัวข้อ ใต้จอ */}
+          <div data-reveal className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 md:gap-6 max-w-sm sm:max-w-3xl lg:max-w-4xl mx-auto mt-12 md:mt-14 mb-11">
+            {INTRO_SAMPLE_VIDEOS.map((v) => (
+              <MiniVideoCard key={v.en} video={v} />
             ))}
           </div>
 
@@ -926,13 +985,6 @@ export default function Home() {
               </span>
               รับชมบน YouTube
             </a>
-            <Link
-              href="/textual-history"
-              className="group inline-flex items-center gap-2 font-cinzel text-xs md:text-sm text-gold/80 hover:text-gold tracking-[0.15em] uppercase transition-colors"
-            >
-              Read the Chronicle
-              <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>
-            </Link>
           </div>
 
         </div>
