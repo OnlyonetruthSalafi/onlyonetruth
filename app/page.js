@@ -544,7 +544,7 @@ function FeaturedVideoTheater() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div id="video-section" data-reveal className="relative max-w-5xl mx-auto">
+    <div id="video-section" data-reveal className="relative w-full max-w-3xl mx-auto">
 
       {/* ลำแสงโปรเจกเตอร์สาดลงจากด้านบนสู่จอ */}
       <div className="intro-cine-projector" aria-hidden />
@@ -590,7 +590,7 @@ function FeaturedVideoTheater() {
                   src={`https://img.youtube.com/vi/${FEATURED_VIDEO_ID}/maxresdefault.jpg`}
                   alt="ปกวิดีโอ การศึกษาคัมภีร์โบราณ"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 960px"
+                  sizes="(max-width: 768px) 100vw, 768px"
                   className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
                   onError={(e) => {
                     e.target.src = `https://img.youtube.com/vi/${FEATURED_VIDEO_ID}/hqdefault.jpg`;
@@ -690,7 +690,7 @@ function MiniVideoCard({ video }) {
                 src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
                 alt={`ปกตัวอย่างวิดีโอ ${video.th}`}
                 fill
-                sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 300px"
+                sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 250px"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
               />
               <span
@@ -964,7 +964,7 @@ export default function Home() {
           <FeaturedVideoTheater />
 
           {/* ตัวอย่างวิดีโอ 3 หัวข้อ ใต้จอ */}
-          <div data-reveal className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 md:gap-6 max-w-sm sm:max-w-3xl lg:max-w-4xl mx-auto mt-12 md:mt-14 mb-11">
+          <div data-reveal className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 md:gap-6 max-w-sm sm:max-w-3xl mx-auto mt-12 md:mt-14 mb-11">
             {INTRO_SAMPLE_VIDEOS.map((v) => (
               <MiniVideoCard key={v.en} video={v} />
             ))}

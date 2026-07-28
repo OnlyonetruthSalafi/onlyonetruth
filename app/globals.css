@@ -906,8 +906,8 @@ html {
 /* ปุ่ม Play กลางจอ — เหรียญทองสองชั้น + คลื่นแสงกระเพื่อม */
 .intro-cine-play {
   position: relative;
-  width: clamp(4.2rem, 9vw, 5.8rem);
-  height: clamp(4.2rem, 9vw, 5.8rem);
+  width: clamp(3.6rem, 7vw, 4.8rem);
+  height: clamp(3.6rem, 7vw, 4.8rem);
   border-radius: 9999px;
   background: linear-gradient(145deg, #f4e4b0 0%, #d4af37 45%, #b8860b 100%);
   box-shadow:
