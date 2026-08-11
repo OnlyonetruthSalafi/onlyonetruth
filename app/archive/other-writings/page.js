@@ -9,6 +9,33 @@ import ArchiveNav from "../../../components/ArchiveNav";
 
 const manuscripts = [
   {
+    id: 13,
+    title: "Coptic Apocalypse of Peter (NHC VII,3)",
+    titleTh: "วิวรณ์ของเปโตร ฉบับคอปติก (Nag Hammadi Codex VII เรื่องที่ 3)",
+    mark: "ΓΝΩΣΙΣ",
+    category: "internal",
+    categoryLabel: "ความขัดแย้งภายในคริสตจักร",
+    date: "แต่งราว ค.ศ. 200-250 (ต้นฉบับ Coptic ราว ค.ศ. 340-350)",
+    script: "Coptic (Sahidic) — แปลจากต้นฉบับกรีกที่สูญหายไปแล้ว",
+    location: "Coptic Museum, Cairo (Nag Hammadi Codex VII, pp. 70-84)",
+    locationTh: "พิพิธภัณฑ์คอปติก ไคโร อียิปต์ (Nag Hammadi Codex VII หน้า 70-84)",
+    contents:
+      "นิมิตที่พระผู้ช่วยให้รอดเปิดเผยแก่เปโตรในพระวิหาร + ฉากตรึงกางเขนที่ \"พระเยซูผู้ทรงพระชนม์\" หัวเราะอยู่เหนือไม้กางเขน",
+    status:
+      "ไม่ปรากฏในสารบบของคริสตจักรใดเลย รวมถึงสารบบกว้างของ Tewahedo เอธิโอเปียซึ่งกว้างที่สุดในโลกคริสต์ — ไม่มีบิดาคริสตจักรคนใดอ้างถึง และเหลือต้นฉบับเพียงฉบับเดียว | แต่ \"ความเชื่อ\" ที่ข้อความนี้สอน คือมีผู้ถูกตรึงแทนพระคริสต์ตัวจริงนั้น แพร่หลายกว้างขวางจริงในศตวรรษที่ 2-3",
+    description:
+      "เอกสารสาย Gnostic ที่ Ehrman จัดไว้ในหมวดความขัดแย้งภายในคริสตจักรของ After the New Testament (น. 260) — ไม่ใช่การโต้กับคนนอกศาสนา แต่เป็นคริสเตียนโจมตีคริสเตียนด้วยกัน ผู้เขียนเรียกฝ่าย Proto-orthodox ว่า \"คนที่เรียกตนเองว่าบิชอปและมัคนายก ราวกับว่าพวกเขาได้รับอำนาจมาจากพระเจ้า ... คนพวกนั้นคือลำรางที่เหือดแห้ง\" (Apoc. Pet. 79) และกล่าวหาว่าพวกเขา \"ยึดติดอยู่กับนามของคนตาย\" เพราะเข้าใจการตรึงกางเขนผิด แก่นของความขัดแย้งคือคริสตวิทยาแบบ Docetic: ตัวจริงของพระคริสต์ไม่อาจถูกทำร้ายได้ ผู้ที่ถูกตรึงเป็นเพียงส่วนที่เป็นเนื้อหนัง — ต้องไม่สับสนกับ Apocalypse of Peter สาย Greek/Ethiopic (ทัวร์สวรรค์-นรก) ในคลังเดียวกันนี้ ซึ่งเป็นคนละงานที่ชื่อพ้องกันเท่านั้น | ตอนที่พระเยซูตรัสกับเปโตรว่าพระองค์ไม่ใช่ผู้ถูกตรึงที่แท้จริง (Apoc. Pet. 81): เมื่อพระองค์ตรัสสิ่งเหล่านั้นแล้ว ข้าพเจ้าเห็นเหมือนว่าพระองค์กำลังถูกพวกเขาจับกุม ข้าพเจ้าจึงทูลว่า \"ข้าพเจ้าเห็นอะไรอยู่ ข้าแต่องค์พระผู้เป็นเจ้า? ผู้ที่พวกเขาจับไปนั้นคือพระองค์เองหรือ? แล้วเหตุใดพระองค์จึงยังทรงจับข้าพเจ้าไว้? หรือผู้ที่ยินดีและหัวเราะอยู่เหนือไม้กางเขนนั้นคือใคร? และผู้ที่ถูกตอกตะปูที่เท้าและที่มือเป็นอีกผู้หนึ่งหรือ?\" พระผู้ช่วยให้รอดตรัสแก่ข้าพเจ้าว่า \"ผู้ที่ท่านเห็นยินดีและหัวเราะอยู่เหนือไม้กางเขนนั้น คือพระเยซูผู้ทรงพระชนม์ ส่วนผู้ที่พวกเขาตอกตะปูลงบนมือและบนเท้านั้น คือส่วนที่เป็นเนื้อหนังของพระองค์ ซึ่งเป็นร่างแทนที่ถูกทำให้อับอาย ผู้ซึ่งบังเกิดขึ้นตามลักษณะของพระองค์ แต่จงมองดูเขา แล้วมองดูเราเถิด\" — คำแปลไทยถอดจากสำนวนอังกฤษของ Brashler และ Bullard",
+    note:
+      "นักวิชาการจัดอายุการแต่งไว้ราวต้นศตวรรษที่ 3 — ห่างจากเหตุการณ์ตรึงกางเขนเกือบสองศตวรรษ ข้อความนี้จึงเป็นงานเทววิทยาเชิงโต้แย้งของฝ่าย Gnostic ไม่ใช่บันทึกของผู้อยู่ในเหตุการณ์ ทั้งต้นฉบับที่เหลืออยู่ก็เป็นคำแปลคอปติกที่นักวิชาการเห็นว่าสำนวนไม่ประณีต หลายช่วงจึงตีความได้หลายทาง",
+    sourceUrl: "https://www.earlychristianwritings.com/nhlapocalypsepeter.html",
+    // ภาพจริง: หน้า 70 ของ Nag Hammadi Codex VII (Wikimedia Commons, สาธารณสมบัติ) — ท้ายเรื่อง Second Treatise of the Great Seth ตามด้วยหัวเรื่อง ⲁⲡⲟⲕⲁⲗⲩⲯⲓⲥ ⲡⲉⲧⲣⲟⲩ และบรรทัดเปิดของ Apocalypse of Peter
+    // cap-card.png = ภาพครอบตัดจาก cap1.png (หน้าเต็ม) ให้ได้สัดส่วนเท่ากรอบการ์ด ไม่งั้น object-cover จะตัดหัวเรื่องทิ้ง
+    image: "/manuscripts/other/coptic-apocalypse-peter/cap-card.png",
+    tags: ["Gnostic", "Nag Hammadi", "Docetic", "Anti-Orthodox"],
+    scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/coptic-apocalypse-peter",
+  },
+  {
     id: 11,
     title: "The Letter of Peter to James and Its Reception",
     titleTh: "จดหมายเปโตรถึงยากอบ และบันทึกการรับจดหมาย",
@@ -50,7 +77,7 @@ const manuscripts = [
     status:
       "Irenaeus โจมตีเนื้อหาแบบเดียวกันนี้ใน Against Heresies (ราว ค.ศ. 180) — ยืนยันว่าแพร่หลายก่อนหน้านั้น",
     description:
-      "ตำราแม่บทของสาย Sethian Gnosticism — รอดมาถึงเราถึง 4 ฉบับ (มากที่สุดในบรรดางาน Gnostic) สะท้อนว่าเคยถูกอ่านอย่างกว้างขวาง เล่าการเปิดเผยลับหลังการเสด็จขึ้นสวรรค์: พระเจ้าสูงสุดที่ไม่อาจหยั่งรู้ แผ่กำเนิด Barbelo และหมู่ Aeon ก่อนความพลาดพลั้งของ Sophia จะให้กำเนิด Yaldabaoth ผู้สร้างโลกวัตถุที่หลงตนว่าเป็นพระเจ้าองค์เดียว — การอ่านปฐมกาลแบบกลับหัวที่ Ehrman จัดให้เป็นตัวแทนเทววิทยา Sethian ใน After the New Testament",
+      "ตำราแม่บทของสาย Sethian Gnosticism — มีสำเนาเหลือรอดมาถึง 4 ฉบับ (มากที่สุดในบรรดางาน Gnostic) สะท้อนว่าเคยถูกอ่านอย่างกว้างขวาง เล่าการเปิดเผยลับหลังการเสด็จขึ้นสวรรค์: พระเจ้าสูงสุดผู้ไม่อาจหยั่งรู้ได้ ทรงแผ่ออกมาเป็น Barbelo และหมู่ Aeon ก่อนความพลาดพลั้งของ Sophia จะให้กำเนิด Yaldabaoth ผู้สร้างโลกวัตถุที่หลงตนว่าเป็นพระเจ้าองค์เดียว — การอ่านปฐมกาลแบบพลิกกลับด้านที่ Ehrman จัดให้เป็นตัวแทนเทววิทยา Sethian ใน After the New Testament",
     sourceUrl: "https://www.earlychristianwritings.com/apocryphonjohn.html",
     // ภาพจริง: หน้าเปิด Apocryphon of John ใน Nag Hammadi Codex (Wikimedia Commons) — เห็น colophon ΑΠΟΚΡΥΦΟΝ ΚΑΤΑ ΙΩΑΝΝΗΝ
     image: "/manuscripts/other/apocryphon-john/apj1.jpg",
@@ -70,7 +97,8 @@ const manuscripts = [
     location: "Coptic Museum, Cairo (Nag Hammadi Codex II)",
     locationTh: "พิพิธภัณฑ์คอปติก ไคโร อียิปต์ (Nag Hammadi Codex II)",
     contents: "คำกล่าวของพระเยซู 114 logia — ไม่มีเรื่องเล่า ไม่มีการตรึงกางเขนหรือการฟื้นคืนชีพ",
-    status: "ไม่เคยเข้าใกล้สารบบ — แต่กว่าครึ่งของ logia ขนานกับ Synoptic Gospels",
+    status:
+      "ไม่ปรากฏในรายชื่อสารบบใด — แต่ Hippolytus และ Origen รู้จักและอ้างถึงเพื่อประณาม | กว่าครึ่งของ logia ขนานกับ Synoptic Gospels",
     description:
       "ค้นพบที่ Nag Hammadi อียิปต์ ปี ค.ศ. 1945 เป็น \"Sayings Gospel\" ที่สมบูรณ์เพียงฉบับเดียวที่รู้จัก Ehrman ระบุใน After the New Testament ว่าน่าจะแต่งราวต้นศตวรรษที่ 2 และเป็นพระกิตติคุณนอกสารบบที่สำคัญที่สุดต่อการศึกษาพระเยซูในประวัติศาสตร์ นักวิชาการบางกลุ่ม (เช่น Jesus Seminar) เชื่อว่าบาง logia อาจเก่าแก่กว่า Synoptics แม้ Ehrman จะเห็นว่าส่วนใหญ่พึ่งพา Synoptics ก็ตาม",
     sourceUrl: "https://www.earlychristianwritings.com/thomas.html",
@@ -114,7 +142,7 @@ const manuscripts = [
     contents: "เฉพาะตอน Passion-Resurrection — เริ่มและจบกลางประโยค",
     status: "บิชอป Serapion แห่งอันทิโอกสั่งห้ามใช้ราว ค.ศ. 190 เพราะถูกกลุ่ม Docetic นำไปอ้าง",
     description:
-      "ค้นพบในหลุมศพพระที่ Akhmim อียิปต์ ฤดูหนาว ค.ศ. 1886-87 เล่าเรื่องการตรึงกางเขนที่ต่างจากฉบับมาตรฐาน — ไม้กางเขนเดินออกจากอุโมงค์และพูดตอบเสียงจากฟ้า พระเยซูสูงเลยฟ้า และผู้ตัดสินประหารคือกษัตริย์เฮโรดไม่ใช่ปีลาต Ehrman ชี้ว่าน้ำเสียงกล่าวโทษชาวยิวรุนแรงกว่าพระกิตติคุณมาตรฐาน สะท้อนบริบท Anti-Judaism ของศตวรรษที่ 2 ตามที่วิเคราะห์ใน After the New Testament",
+      "ค้นพบในหลุมศพพระที่ Akhmim อียิปต์ ฤดูหนาว ค.ศ. 1886-87 เล่าเรื่องการตรึงกางเขนที่ต่างจากฉบับมาตรฐาน — ไม้กางเขนเดินออกจากอุโมงค์และพูดตอบเสียงจากฟ้า พระวรกายของพระเยซูสูงพ้นฟ้าขึ้นไป และผู้ตัดสินประหารคือกษัตริย์เฮโรดไม่ใช่ปีลาต Ehrman ชี้ว่าน้ำเสียงกล่าวโทษชาวยิวรุนแรงกว่าพระกิตติคุณมาตรฐาน สะท้อนบริบท Anti-Judaism ของศตวรรษที่ 2 ตามที่วิเคราะห์ใน After the New Testament",
     sourceUrl: "https://www.earlychristianwritings.com/gospelpeter.html",
     image: "/manuscripts/other/peter/pet1.jpg",
     tags: ["Docetic", "2nd Century", "Passion", "Akhmim"],
@@ -135,7 +163,7 @@ const manuscripts = [
     contents: "รวมบทคัดเทววิทยาแบบ Valentinian — ศีลศักดิ์สิทธิ์ 5 ประการ และสัญลักษณ์ห้องเจ้าสาว",
     status: "งานเขียนสาย Valentinian — ฝ่าย Proto-orthodox จัดเป็นนอกรีต",
     description:
-      "ไม่ใช่พระกิตติคุณเชิงเรื่องเล่า แต่เป็นชุดบทคัดคำสอนสาย Valentinian ข้อความที่โด่งดังที่สุดคือประโยคที่ว่าพระผู้ช่วยให้รอดทรงจุมพิตมารีย์ มักดาเลนาบ่อยครั้ง — ทว่าตำแหน่งคำว่า \"ที่ปาก\" เป็นรูโหว่ในต้นฉบับจริง คำเติมทั้งหมดเป็นการคาดคะเนของนักวิชาการ ประเด็นที่นิยายอย่าง The Da Vinci Code นำไปขยายเกินหลักฐาน Ehrman อธิบายบริบท Valentinian ของข้อความนี้ไว้ใน After the New Testament",
+      "ไม่ใช่พระกิตติคุณเชิงเรื่องเล่า แต่เป็นชุดบทคัดคำสอนสาย Valentinian ข้อความที่โด่งดังที่สุดคือประโยคที่ว่าพระผู้ช่วยให้รอดทรงจุมพิตมารีย์ มักดาเลนาบ่อยครั้ง — ทว่าตำแหน่งคำว่า \"ที่ปาก\" เป็นช่องชำรุดในต้นฉบับจริง คำที่เติมลงไปทั้งหมดเป็นการคาดคะเนของนักวิชาการ ประเด็นที่นิยายอย่าง The Da Vinci Code นำไปขยายเกินหลักฐาน Ehrman อธิบายบริบท Valentinian ของข้อความนี้ไว้ใน After the New Testament",
     sourceUrl: "https://www.earlychristianwritings.com/gospelphilip.html",
     image: "/manuscripts/other/philip/phi1.jpg",
     tags: ["Gnostic", "Nag Hammadi", "Valentinian", "3rd Century"],
@@ -177,7 +205,8 @@ const manuscripts = [
     location: "Greek Orthodox Patriarchate Library, Jerusalem",
     locationTh: "ห้องสมุดสังฆมณฑลกรีกออร์โธดอกซ์ เยรูซาเล็ม",
     contents: "ทางสองสาย (ชีวิต-ความตาย) + คู่มือพิธีบัพติศมา ศีลมหาสนิท และการรับผู้เผยพระวจนะ",
-    status: "Eusebius และ Athanasius จัดเป็น \"หนังสือปลอม/นอกสารบบ\" แม้บางชุมชนเคยใช้อย่างแพร่หลาย",
+    status:
+      "Eusebius จัดไว้ในกลุ่ม \"หนังสือปลอม\" (νόθα) — ส่วน Athanasius ปี ค.ศ. 367 ไม่รับเข้าสารบบ แต่ระบุให้ผู้เรียนคำสอนใหม่อ่านได้",
     description:
       "คู่มือชีวิตคริสตจักรที่เก่าแก่ที่สุดเท่าที่รู้จัก — บางส่วนอาจร่วมสมัยกับจดหมายของเปาโล สูญหายไปกว่าพันปี จนบิชอป Philotheos Bryennios ค้นพบใน Codex Hierosolymitanus (ค.ศ. 1056) ที่คอนสแตนติโนเปิลปี ค.ศ. 1873 ให้ภาพพิธีบัพติศมา การถืออดอาหารวันพุธ-ศุกร์ และบทอธิษฐานศีลมหาสนิทยุคแรกสุด Ehrman บรรจุฉบับเต็มไว้ใน After the New Testament หมวดชีวิตพิธีกรรมของคริสตจักรยุคแรก",
     sourceUrl: "https://www.earlychristianwritings.com/didache.html",
@@ -231,8 +260,8 @@ const manuscripts = [
   },
   {
     id: 6,
-    title: "Apocalypse of Peter",
-    titleTh: "วิวรณ์ของเปโตร",
+    title: "Apocalypse of Peter (Greek/Ethiopic)",
+    titleTh: "วิวรณ์ของเปโตร ฉบับกรีก/เอธิโอปิก",
     mark: "ΑΠΟΚΑΛΥΨΙΣ",
     category: "apocalypse",
     categoryLabel: "Apocalypses",
@@ -243,7 +272,7 @@ const manuscripts = [
     contents: "ทัวร์สวรรค์-นรก: รายการบาป 21 ประเภทพร้อมโทษจำเพาะ — ต้นแบบวรรณกรรมนรกก่อน Dante",
     status: "Clement of Alexandria อ้างเป็นพระคัมภีร์ | Muratorian Fragment รับอย่างมีเงื่อนไข | Eusebius ปฏิเสธ",
     description:
-      "วรรณกรรม \"ทัวร์นรก\" ฉบับแรกของคริสต์ศาสนา บรรยายโทษที่จำเพาะกับบาปแต่ละประเภทอย่างละเอียด เกือบได้เข้าสารบบจริง — Muratorian Fragment ยอมรับแต่บันทึกว่า \"บางคนไม่ยอมให้อ่านในคริสตจักร\" ชิ้นส่วนกรีกพบในโคเด็กซ์เดียวกับ Gospel of Peter ที่ Akhmim ส่วนฉบับสมบูรณ์อยู่ในภาษาเอธิโอปิก Ehrman ศึกษาสายวรรณกรรมนี้ต่อเนื่องถึงหนังสือ Journeys to Heaven and Hell (2022)",
+      "วรรณกรรม \"ทัวร์นรก\" ฉบับแรกของคริสต์ศาสนา บรรยายโทษที่จำเพาะกับบาปแต่ละประเภทอย่างละเอียด เกือบได้เข้าสารบบจริง — Muratorian Fragment ยอมรับแต่บันทึกว่า \"บางคนไม่ยอมให้อ่านในคริสตจักร\" ชิ้นส่วนกรีกพบในโคเด็กซ์เดียวกับ Gospel of Peter ที่ Akhmim ส่วนฉบับสมบูรณ์อยู่ในภาษาเอธิโอปิก Ehrman ศึกษาสายวรรณกรรมนี้ต่อเนื่องถึงหนังสือ Journeys to Heaven and Hell (2022) — คนละงานกับ Coptic Apocalypse of Peter จาก Nag Hammadi ในคลังเดียวกันนี้ ซึ่งเป็นบทสนทนาเปิดเผยแบบ Gnostic ที่ชื่อพ้องกันเท่านั้น",
     sourceUrl: "https://www.earlychristianwritings.com/apocalypsepeter.html",
     image: "/manuscripts/other/apocalypse-peter/apo1.png",
     tags: ["Apocalypse", "Heaven & Hell", "Akhmim", "2nd Century"],
@@ -264,7 +293,7 @@ const manuscripts = [
     contents: "รายชื่อหนังสือที่รับ-ปฏิเสธ 85 บรรทัด — ขาดต้นและอาจขาดท้าย",
     status: "รับ 22 จาก 27 เล่มของ NT ปัจจุบัน + Wisdom of Solomon + Apocalypse of Peter (มีเงื่อนไข)",
     description:
-      "หลักฐานเก่าแก่ที่สุดของการ \"ขีดเส้น\" สารบบพันธสัญญาใหม่ ค้นพบโดย L.A. Muratori ในโคเด็กซ์จากอาราม Bobbio ตีพิมพ์ปี ค.ศ. 1740 รายชื่อไม่มีฮีบรู ยากอบ 1-2 เปโตร แต่กลับรวม Wisdom of Solomon และปฏิเสธ Shepherd of Hermas อย่างสุภาพ Ehrman ใช้เอกสารนี้เป็นหลักฐานแกนในบทว่าด้วยการก่อตัวของสารบบใน After the New Testament — ภาพของสารบบที่ยังไม่ลงตัวปลายศตวรรษที่ 2",
+      "หลักฐานเก่าแก่ที่สุดของการ \"ขีดเส้น\" สารบบพันธสัญญาใหม่ ค้นพบโดย L.A. Muratori ในโคเด็กซ์จากอาราม Bobbio ตีพิมพ์ปี ค.ศ. 1740 รายชื่อไม่มีฮีบรู ยากอบ 1-2 เปโตร และจดหมายยอห์นอีกฉบับหนึ่ง (เอกสารระบุเพียง \"จดหมายของยอห์นสองฉบับ\" ซึ่งยังถกกันว่าหมายถึงฉบับใด) แต่กลับรวม Wisdom of Solomon และปฏิเสธ Shepherd of Hermas อย่างสุภาพ Ehrman ใช้เอกสารนี้เป็นหลักฐานแกนในบทว่าด้วยการก่อตัวของสารบบใน After the New Testament — ภาพของสารบบที่ยังไม่ลงตัวปลายศตวรรษที่ 2",
     sourceUrl: "https://www.earlychristianwritings.com/muratorian.html",
     image: "/manuscripts/other/muratorian/mur1.jpg",
     tags: ["Canon", "Latin", "Ambrosiana", "Muratori"],
@@ -279,6 +308,7 @@ const filters = [
   { id: "sethian", label: "Sethian Gnostics" },
   { id: "gospel", label: "Gospels นอกสารบบ" },
   { id: "gnostic", label: "Gnostic Texts" },
+  { id: "internal", label: "ความขัดแย้งภายในคริสตจักร" },
   { id: "fathers", label: "Apostolic Fathers" },
   { id: "apocalypse", label: "Apocalypses" },
   { id: "canon", label: "Canon Lists" },
