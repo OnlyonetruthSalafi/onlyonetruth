@@ -10,8 +10,8 @@ const menuItems = [
   { en: "ARCHIVE", th: "คลังเอกสาร", scrollId: "collections-section" },
   { en: "TEXTUAL HISTORY", th: "ประวัติศาสตร์", href: "/textual-history" },
   { en: "METHODOLOGY", th: "ระเบียบวิธี", href: "/methodology" },
-  { en: "ARTICLE", th: "บทความ", scrollId: "about-project" },
-  { en: "PATHS OF FAITH", th: "เส้นทางการเผยแพร่", scrollId: "archive-cta" },
+  { en: "ARTICLE", th: "บทความ", href: "/articles" },
+  { en: "PATHS OF FAITH", th: "เส้นทางแห่งศรัทธา", href: "/paths-of-faith" },
 ];
 
 // ป้ายเมนู EN/TH พร้อมเส้นทองรูดใต้ตอน hover / active

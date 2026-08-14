@@ -112,12 +112,7 @@ export default function Footer() {
                   <a href="/textual-history" className={linkCls}>ประวัติศาสตร์</a>
                 </li>
                 <li>
-                  <button
-                    onClick={() => scrollTo("about-project")}
-                    className={btnCls}
-                  >
-                    บทความ
-                  </button>
+                  <a href="/articles" className={linkCls}>บทความ</a>
                 </li>
               </ul>
             </div>

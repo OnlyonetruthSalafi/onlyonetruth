@@ -1236,7 +1236,7 @@ export default function Home() {
       </section>
 
       {/* MAP VISUALIZATION — PATHS OF FAITH */}
-      <section id="archive-cta" className="relative py-20 bg-ink overflow-hidden">
+      <section id="paths-of-faith-section" className="relative py-20 bg-ink overflow-hidden">
         <div className="max-w-5xl mx-auto px-gutter">
 
           <p className="font-cinzel text-xs text-gold/60 tracking-[0.3em] uppercase text-center mb-4">
@@ -1283,7 +1283,7 @@ export default function Home() {
       </section>
 
       {/* ARTICLES & RESEARCH */}
-      <section id="about-project" className="py-20 bg-paper">
+      <section id="articles-section" className="py-20 bg-paper">
         <div className="max-w-7xl mx-auto px-gutter">
 
           <p className="font-cinzel text-xs text-gold tracking-[0.3em] uppercase mb-4">
