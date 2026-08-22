@@ -9,6 +9,37 @@ import ArchiveNav from "../../../components/ArchiveNav";
 
 const manuscripts = [
   {
+    id: 14,
+    title: "The Epistle of Barnabas",
+    titleTh: "จดหมายบารนาบัส",
+    mark: "ΒΑΡΝΑΒΑ",
+    category: "fathers",
+    categoryLabel: "Apostolic Fathers",
+    date: "แต่งราว ค.ศ. 130 (กรอบกว้าง ค.ศ. 70-135)",
+    script:
+      "Greek — ฉบับเต็มใน Codex Sinaiticus และ Cod. Hierosolymitanus 54 | ฉบับแปลละตินเก่ามีเฉพาะบทที่ 1-17",
+    location:
+      "British Library (ใน Codex Sinaiticus) | Jerusalem (Cod. Hieros. 54) | Florence (PSI VII 757)",
+    locationTh:
+      "หอสมุดบริติช ลอนดอน (ใน Codex Sinaiticus) | เยรูซาเล็ม (Codex Hierosolymitanus 54) | ฟลอเรนซ์ (ชิ้นส่วนปาปิรัส PSI VII 757)",
+    contents:
+      "บทที่ 1-17 อ่านพันธสัญญาเดิมใหม่ทั้งหมดให้ชี้ไปที่พระคริสต์ (เครื่องบูชา การอดอาหาร การเข้าสุหนัต อาหาร วันสะบาโต พระวิหาร) + บทที่ 18-21 คำสอน \"ทางสองสาย\"",
+    status:
+      "Clement of Alexandria อ้างเป็นพระคัมภีร์และเรียกผู้เขียนว่า \"อัครทูต\" | Origen เรียกว่า \"จดหมายสากล\" | เย็บรวมท้าย Codex Sinaiticus ต่อจากวิวรณ์ ก่อน Shepherd of Hermas — แต่ Eusebius จัดไว้ในกลุ่ม \"หนังสือปลอม\" (νόθα)",
+    description:
+      "งานโต้แย้งกับศาสนายิวที่สุดขั้วที่สุดเท่าที่เหลือรอดมาจากต้นศตวรรษที่ 2 — ผู้เขียนไม่ได้เถียงเพียงว่าคริสตจักรเข้ามารับช่วงพันธสัญญาต่อ แต่เถียงว่าชาวยิวไม่เคยได้ครอบครองพันธสัญญาเลยแม้แต่วันเดียว เพราะพันธสัญญาขาดลงตั้งแต่โมเสสเหวี่ยงแผ่นศิลาแตกที่เชิงเขาซีนาย (Barn. 4:6-8; 14:1-4) ส่วนธรรมบัญญัติที่ชาวยิวถือปฏิบัติมานั้นเป็นการอ่านผิด เพราะ \"ทูตสวรรค์ชั่วร้ายหลอกล่อพวกเขา\" (Barn. 9:4) ให้อ่านตามตัวอักษรแทนที่จะอ่านเป็นสัญลักษณ์ Ehrman จัดพิมพ์ข้อความนี้ไว้ใน After the New Testament (ฉบับพิมพ์ครั้งที่ 2, น. 114) และแปลไว้ใน Loeb Apostolic Fathers เล่ม 2 ของเขาเอง",
+    note:
+      "ตัวข้อความไม่เคยเอ่ยชื่อผู้เขียนเลย — ชื่อ \"บารนาบัส\" มาจากธรรมเนียมของอเล็กซานเดรียในภายหลัง และนักวิชาการแทบทั้งหมดเห็นว่าไม่ใช่บารนาบัสเพื่อนร่วมเดินทางของเปาโล งานชิ้นนี้จึงเป็นหลักฐานว่าคริสเตียนกลุ่มหนึ่งในต้นศตวรรษที่ 2 มองศาสนายิวอย่างไร ไม่ใช่หลักฐานว่าชาวยิวเชื่อหรือปฏิบัติอย่างไรจริง",
+    sourceUrl: "https://www.earlychristianwritings.com/barnabas.html",
+    // ภาพจริง: PSI VII 757 (BML inv. 18686) ใบจากหนังสือปาปิรัสศตวรรษที่ 4 บรรจุ Barnabas 9:1a-6
+    // เก็บที่ Biblioteca Medicea Laurenziana ฟลอเรนซ์ เผยแพร่ภาพโดยโครงการ PSIonline (psi-online.it)
+    // bar-card.jpg = ครอปจาก bar1.jpg (ด้าน verso) ให้ได้สัดส่วนกรอบการ์ด เห็นบรรทัด ΠΕΡΙΤΜΗΘΗΤΕ ... ΤΗΝ ΚΑΡΔΙΑΝ ΥΜΩΝ
+    image: "/manuscripts/other/barnabas/bar-card.jpg",
+    tags: ["Apostolic Fathers", "Alexandria", "Anti-Judaic", "Sinaiticus"],
+    scholar: "Bart D. Ehrman",
+    detailPath: "/archive/other-writings/barnabas",
+  },
+  {
     id: 13,
     title: "Coptic Apocalypse of Peter (NHC VII,3)",
     titleTh: "วิวรณ์ของเปโตร ฉบับคอปติก (Nag Hammadi Codex VII เรื่องที่ 3)",
