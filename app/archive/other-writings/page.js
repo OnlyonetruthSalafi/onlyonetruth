@@ -9,6 +9,36 @@ import ArchiveNav from "../../../components/ArchiveNav";
 
 const manuscripts = [
   {
+    id: 16,
+    title: "Acts of Barnabas",
+    titleTh: "กิจการของบารนาบัส",
+    mark: "ΠΕΡΙΟΔΟΙ",
+    category: "acts",
+    categoryLabel: "กิจการนอกสารบบ",
+    date: "แต่งราวศตวรรษที่ 5 (ต้นฉบับเก่าสุดลงปี ค.ศ. 890)",
+    script:
+      "Greek — ชื่อในต้นฉบับคือ «ΠΕΡΙΟΔΟΙ ΚΑΙ ΜΑΡΤΥΡΙΟΝ ΤΟΥ ΑΓΙΟΥ ΒΑΡΝΑΒΑ ΤΟΥ ΑΠΟΣΤΟΛΟΥ» (การเดินทางและการพลีชีพ) ไม่ใช่ ΠΡΑΞΕΙΣ",
+    location: "Bibliothèque nationale de France, Paris (Grec 1470, ค.ศ. 890)",
+    locationTh:
+      "หอสมุดแห่งชาติฝรั่งเศส ปารีส (Parisinus gr. 1470 ลงปี ค.ศ. 890 — ฟอลิโอ 55v-57v และ 66r-67r) | Tischendorf ใช้ต้นฉบับที่วาติกันเป็นพยานอีกฉบับ",
+    contents:
+      "เล่าในบุรุษที่หนึ่งโดย \"ยอห์น มาระโก\" — บัพติศมาที่อิโคนิยูม การแยกทางของเปาโลกับบารนาบัส การเดินทางรอบไซปรัส และการพลีชีพที่ซาลามิส",
+    status:
+      "ไม่เคยอยู่ในสารบบใด และไม่มีบิดาคริสตจักรยุคแรกอ้างถึง — เป็นงานที่แต่งขึ้นในนามผู้อื่น (pseudepigrapha) ราวศตวรรษที่ 5 บนเกาะไซปรัส",
+    description:
+      "งานชิ้นนี้ไม่ได้เขียนขึ้นเพื่อเล่าเรื่องเฉย ๆ แต่มีเป้าหมายทางการเมืองของคริสตจักรที่ชัดเจน คือหนุนข้ออ้างของคริสตจักรไซปรัสว่าถูกก่อตั้งโดยอัครทูตและมีหลุมศพของอัครทูตอยู่บนเกาะจริง จึงไม่ควรขึ้นกับสังฆราชแห่งอันทิโอก จุดที่ผู้เขียนทุ่มรายละเอียดมากที่สุดคือฉากปิด: มาระโกแอบนำเถ้ากระดูกของบารนาบัสไปซ่อนในถ้ำแห่งหนึ่งนอกเมืองซาลามิส พร้อมกับ \"เอกสารที่ท่านได้รับมาจากมัทธิว\" — ซึ่งกลายเป็นฉากหลังของเหตุการณ์ปี ค.ศ. 478 ที่อาร์ชบิชอป Anthemios อ้างว่าค้นพบหลุมศพนั้น และนำไปสู่การที่จักรพรรดิ Zeno รับรองเอกราชของคริสตจักรไซปรัสในปี ค.ศ. 488",
+    note:
+      "เป็นงานชิ้นที่สามที่ใช้ชื่อบารนาบัส และเป็นคนละงานกับอีกสองชิ้นในคลังนี้โดยสิ้นเชิง — Epistle of Barnabas เป็นงานต้นศตวรรษที่ 2 ที่อยู่ใน Codex Sinaiticus ส่วน Gospel of Barnabas เป็นข้อความยุคกลางตอนปลายในสมุดอิตาลีที่เวียนนา ทั้งสามเกี่ยวข้องกันเพียงชื่อเท่านั้น อนึ่ง เรื่องร่างที่ไม่เน่าเปื่อยและพระกิตติคุณมัทธิววางอยู่บนอกนั้น ไม่ได้อยู่ในข้อความฉบับนี้ แต่มาจากธรรมเนียมการค้นพบที่บันทึกไว้ในงานสรรเสริญของ Alexander the Monk ศตวรรษที่ 6",
+    sourceUrl:
+      "https://en.wikisource.org/wiki/Ante-Nicene_Fathers/Volume_VIII/Apocrypha_of_the_New_Testament/The_Acts_of_Barnabus",
+    // ภาพจริง: Paris, BnF, Grec 1470 (ค.ศ. 890) fol. 55v — Gallica / Bibliothèque nationale de France
+    // ab-card.jpg = ครอปด้วย IIIF ตรงหัวเรื่องอักษรสีแดง ΠΕΡΙΟΔΟΙ ΚΑΙ ΜΑΡΤΥΡΙΟΝ ΤΟΥ ΑΓΙΟΥ ΒΑΡΝΑΒΑ ΤΟΥ ΑΠΟΣΤ
+    image: "/manuscripts/other/acts-barnabas/ab-card.jpg",
+    tags: ["Apocryphal Acts", "Cyprus", "5th Century", "Pseudepigrapha"],
+    scholar: "Constantin von Tischendorf",
+    detailPath: "/archive/other-writings/acts-barnabas",
+  },
+  {
     id: 15,
     title: "Gospel of Barnabas (Italian)",
     titleTh: "พระวรสารบารนาบัส ฉบับภาษาอิตาลี",
@@ -369,6 +399,7 @@ const filters = [
   { id: "gnostic", label: "Gnostic Texts" },
   { id: "internal", label: "ความขัดแย้งภายในคริสตจักร" },
   { id: "fathers", label: "Apostolic Fathers" },
+  { id: "acts", label: "กิจการนอกสารบบ" },
   { id: "apocalypse", label: "Apocalypses" },
   { id: "canon", label: "Canon Lists" },
   { id: "later", label: "งานยุคหลัง" },
