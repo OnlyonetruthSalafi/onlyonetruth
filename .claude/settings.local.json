@@ -59,7 +59,22 @@
       "Bash(sed -i '291s/chapter: \"V\"/chapter: \"VII\"/' app/textual-history/page.js)",
       "Bash(sed -i '304s/chapter: \"VI\"/chapter: \"VIII\"/' app/textual-history/page.js)",
       "Bash(echo \"---exit $?\")",
-      "Bash(dir \"D:\\\\onlyonetruth\\\\public\\\\map\")"
+      "Bash(dir \"D:\\\\onlyonetruth\\\\public\\\\map\")",
+      "Bash(cd /tmp)",
+      "Bash(sed 's/<[^>]*>//g' barn.html)",
+      "Bash(sed 's/<[^>]*>/ /g' barn.html)",
+      "Bash(grep -o \"circumcised in your hearts.\\\\{0,400\\\\}\")",
+      "Bash(grep -o \"evil angel.\\\\{0,300\\\\}\")",
+      "Bash(grep -o \"Ours it is.\\\\{0,400\\\\}\")",
+      "Bash(grep -o \"circumcised in your heart.\\\\{0,500\\\\}\\\\|evil angel.\\\\{0,300\\\\}\\\\|Ours it is.\\\\{0,500\\\\}\")",
+      "Bash(grep -o \"9:1 .\\\\{0,2600\\\\}\")",
+      "Bash(grep -o \"4:6 .\\\\{0,700\\\\}\")",
+      "Bash(grep -o \"9:8 .\\\\{0,700\\\\}\")",
+      "Bash(grep -o \"18:1 .\\\\{0,500\\\\}\")",
+      "Bash(sed 's/<[^>]*>/|/g' nas.html)",
+      "Bash(grep -v '^\\\\s*$')",
+      "Bash(sed 's/&#151;/-/g;s/&nbsp;/ /g')",
+      "Bash(grep -n -o \"The Journeyings.\\\\{0,200\\\\}\" ab.txt)"
     ]
   }
 }
