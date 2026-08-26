@@ -1373,6 +1373,24 @@ export default function Home() {
                 </div>
               </a>
 
+              <a href="/articles/muhammad-non-muslim-sources"
+                className="group block bg-paper-light border border-gold/20 rounded-card p-6 hover:border-gold/50 hover:shadow-card-hover transition-all duration-300">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <span className="font-cinzel text-xs text-gold tracking-widest uppercase mb-2 block">
+                      ประวัติศาสตร์ · Non-Muslim Sources
+                    </span>
+                    <h3 className="font-cinzel text-lg text-ink font-semibold mb-2 group-hover:text-gold transition-colors leading-snug">
+                      หลักฐานนอกระบบคัมภีร์ว่าด้วยศาสดามุฮัมมัด
+                    </h3>
+                    <p className="font-pridi text-ink/60 text-sm leading-relaxed line-clamp-2">
+                      เอกสารกรีก ซีรีแอก และอาร์เมเนียในศตวรรษที่ 7 พร้อมจารึกหิน เหรียญกษาปณ์ และโดมแห่งศิลา ที่บันทึกถึงท่านโดยผู้ที่ไม่ได้นับถืออิสลาม
+                    </p>
+                  </div>
+                  <span className="text-gold/40 group-hover:text-gold transition-colors text-xl mt-1 shrink-0">→</span>
+                </div>
+              </a>
+
             </div>
           </div>
         </div>
