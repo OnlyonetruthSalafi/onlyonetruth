@@ -232,6 +232,39 @@ const collections = [
   },
 ];
 
+// ── บทความเด่นบนหน้าแรก (รายการแรก = บทความหลัก) ─────────────────
+const homeArticles = [
+  {
+    href: "/articles/muhammad-non-muslim-sources",
+    eyebrow: "ประวัติศาสตร์ · Non-Muslim Sources",
+    title: "หลักฐานนอกระบบคัมภีร์ว่าด้วยศาสดามุฮัมมัด",
+    blurb:
+      "เอกสารกรีก ซีรีแอก และอาร์เมเนียในศตวรรษที่ 7 พร้อมจารึกหิน เหรียญกษาปณ์ และโดมแห่งศิลา ที่บันทึกถึงท่านโดยผู้ที่ไม่ได้นับถืออิสลาม",
+    image: "/articles/muhammad-non-muslim-sources.jpg",
+  },
+  {
+    href: "/articles/introduction-to-textual-criticism",
+    eyebrow: "เปรียบเทียบ · Al-Azami & Metzger",
+    title: "ปฐมบทแห่งการวิจารณ์ตัวบท",
+    blurb:
+      "ทำความรู้จักศาสตร์การวิจารณ์ตัวบท วัสดุโบราณที่ใช้บันทึกคัมภีร์ และเปรียบเทียบสองเส้นทางการพิทักษ์พระวจนะระหว่างโลกอิสลามและคริสเตียน",
+  },
+  {
+    href: "/articles/intentional-changes-metzger",
+    eyebrow: "ไบเบิล · Metzger",
+    title: "การเปลี่ยนแปลงคัมภีร์โดยเจตนา",
+    blurb:
+      "Bruce Metzger จำแนกการเปลี่ยนแปลงข้อความพันธสัญญาใหม่โดยเจตนา รวมถึงการแก้ไขเพื่อให้สอดคล้องกับหลักเทววิทยา",
+  },
+  {
+    href: "/articles/prophet-in-song-of-solomon",
+    eyebrow: "เปรียบเทียบ · Song of Solomon",
+    title: "ศาสดามุฮัมมัดใน Song of Solomon",
+    blurb:
+      "การตีความ Song of Solomon 5:16 และคำว่า Navi ในภาษาฮีบรู-อาราเมอิก ตามมุมมองของนักวิชาการมุสลิม",
+  },
+];
+
 // ════════════════════════════════════════════════════════════════════
 //  PropagationMap — แผนที่แอนิเมชั่น "Paths of Faith"
 //  ผู้เดินทางแบบ silhouette (aniconic) + เอฟเฟกต์ arrival + กล้อง 2.5D
@@ -1283,116 +1316,121 @@ export default function Home() {
       </section>
 
       {/* ARTICLES & RESEARCH */}
-      <section id="articles-section" className="py-20 bg-paper">
-        <div className="max-w-7xl mx-auto px-gutter">
+      <section id="articles-section" className="py-section md:py-28 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <p className="font-cinzel text-xs text-gold tracking-[0.3em] uppercase mb-4">
-            ARTICLES & RESEARCH
-          </p>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-
-            {/* ฝั่งซ้าย */}
-            <div>
-              <h2 className="font-cinzel text-4xl md:text-5xl text-ink font-normal leading-tight mb-6">
-                Scholarly Articles on Ancient Texts
-              </h2>
-
-              <div className="w-12 h-0.5 bg-gold/50 mb-8"></div>
-
-              <p className="font-pridi text-ink/70 leading-relaxed mb-4">
-                บทความวิชาการที่ศึกษาและเปรียบเทียบต้นฉบับคัมภีร์โบราณ
-                โดยอ้างอิงจากงานของนักวิชาการชั้นนำทั้งฝ่ายมุสลิม คริสต์ และนักวิชาการอิสระ
-              </p>
-
-              <p className="font-pridi text-ink/70 leading-relaxed mb-10">
-                เราเชื่อว่าความจริง เมื่อได้รับการพิสูจน์อย่างรอบคอบ
-                จะสามารถผ่านพ้นทุกยุคสมัยได้
-              </p>
-
-              <a href="/articles" className="btn-outline font-pridi inline-flex items-center gap-2">
-                ดูบทความทั้งหมด
-                <span>→</span>
-              </a>
-            </div>
-
-            {/* ฝั่งขวา: 3 การ์ดบทความ */}
-            <div className="space-y-4">
-
-              <a href="/articles/introduction-to-textual-criticism"
-                className="group block bg-paper-light border border-gold/20 rounded-card p-6 hover:border-gold/50 hover:shadow-card-hover transition-all duration-300">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <span className="font-cinzel text-xs text-gold tracking-widest uppercase mb-2 block">
-                      เปรียบเทียบ · Al-Azami &amp; Metzger
-                    </span>
-                    <h3 className="font-cinzel text-lg text-ink font-semibold mb-2 group-hover:text-gold transition-colors leading-snug">
-                      ปฐมบทแห่งการวิจารณ์ตัวบท
-                    </h3>
-                    <p className="font-pridi text-ink/60 text-sm leading-relaxed line-clamp-2">
-                      ทำความรู้จักศาสตร์การวิจารณ์ตัวบท วัสดุโบราณที่ใช้บันทึกคัมภีร์ และเปรียบเทียบสองเส้นทางการพิทักษ์พระวจนะระหว่างโลกอิสลามและคริสเตียน
-                    </p>
-                  </div>
-                  <span className="text-gold/40 group-hover:text-gold transition-colors text-xl mt-1 shrink-0">→</span>
-                </div>
-              </a>
-
-              <a href="/articles/intentional-changes-metzger"
-                className="group block bg-paper-light border border-gold/20 rounded-card p-6 hover:border-gold/50 hover:shadow-card-hover transition-all duration-300">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <span className="font-cinzel text-xs text-gold tracking-widest uppercase mb-2 block">
-                      ไบเบิล · Metzger
-                    </span>
-                    <h3 className="font-cinzel text-lg text-ink font-semibold mb-2 group-hover:text-gold transition-colors leading-snug">
-                      การเปลี่ยนแปลงคัมภีร์โดยเจตนา
-                    </h3>
-                    <p className="font-pridi text-ink/60 text-sm leading-relaxed line-clamp-2">
-                      Bruce Metzger จำแนกการเปลี่ยนแปลงข้อความพันธสัญญาใหม่โดยเจตนา รวมถึงการแก้ไขเพื่อให้สอดคล้องกับหลักเทววิทยา
-                    </p>
-                  </div>
-                  <span className="text-gold/40 group-hover:text-gold transition-colors text-xl mt-1 shrink-0">→</span>
-                </div>
-              </a>
-
-              <a href="/articles/prophet-in-song-of-solomon"
-                className="group block bg-paper-light border border-gold/20 rounded-card p-6 hover:border-gold/50 hover:shadow-card-hover transition-all duration-300">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <span className="font-cinzel text-xs text-gold tracking-widest uppercase mb-2 block">
-                      เปรียบเทียบ · Song of Solomon
-                    </span>
-                    <h3 className="font-cinzel text-lg text-ink font-semibold mb-2 group-hover:text-gold transition-colors leading-snug">
-                      ศาสดามุฮัมมัดใน Song of Solomon
-                    </h3>
-                    <p className="font-pridi text-ink/60 text-sm leading-relaxed line-clamp-2">
-                      การตีความ Song of Solomon 5:16 และคำว่า Navi ในภาษาฮีบรู-อาราเมอิก ตามมุมมองของนักวิชาการมุสลิม
-                    </p>
-                  </div>
-                  <span className="text-gold/40 group-hover:text-gold transition-colors text-xl mt-1 shrink-0">→</span>
-                </div>
-              </a>
-
-              <a href="/articles/muhammad-non-muslim-sources"
-                className="group block bg-paper-light border border-gold/20 rounded-card p-6 hover:border-gold/50 hover:shadow-card-hover transition-all duration-300">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <span className="font-cinzel text-xs text-gold tracking-widest uppercase mb-2 block">
-                      ประวัติศาสตร์ · Non-Muslim Sources
-                    </span>
-                    <h3 className="font-cinzel text-lg text-ink font-semibold mb-2 group-hover:text-gold transition-colors leading-snug">
-                      หลักฐานนอกระบบคัมภีร์ว่าด้วยศาสดามุฮัมมัด
-                    </h3>
-                    <p className="font-pridi text-ink/60 text-sm leading-relaxed line-clamp-2">
-                      เอกสารกรีก ซีรีแอก และอาร์เมเนียในศตวรรษที่ 7 พร้อมจารึกหิน เหรียญกษาปณ์ และโดมแห่งศิลา ที่บันทึกถึงท่านโดยผู้ที่ไม่ได้นับถืออิสลาม
-                    </p>
-                  </div>
-                  <span className="text-gold/40 group-hover:text-gold transition-colors text-xl mt-1 shrink-0">→</span>
-                </div>
-              </a>
-
-            </div>
+          <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
+            <p
+              data-reveal
+              className="font-cinzel text-xs tracking-[0.4em] uppercase text-gold-dark mb-4"
+            >
+              Articles &amp; Research
+            </p>
+            <h2
+              data-reveal
+              className="font-cinzel text-3xl md:text-5xl text-ink mb-5 leading-tight"
+            >
+              Scholarly Articles on Ancient Texts
+            </h2>
+            <div data-reveal className="mx-auto h-px w-24 bg-gold mb-6" />
+            <p data-reveal className="font-pridi text-ink/70 leading-relaxed mb-4">
+              บทความวิชาการที่ศึกษาและเปรียบเทียบต้นฉบับคัมภีร์โบราณ
+              โดยอ้างอิงจากงานของนักวิชาการชั้นนำทั้งฝ่ายมุสลิม คริสต์ และนักวิชาการอิสระ
+            </p>
+            <p data-reveal className="font-pridi text-ink/70 leading-relaxed">
+              เราเชื่อว่าความจริง เมื่อได้รับการพิสูจน์อย่างรอบคอบ
+              จะสามารถผ่านพ้นทุกยุคสมัยได้
+            </p>
           </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 items-stretch">
+
+            {/* บทความหลัก */}
+            <a
+              data-reveal
+              href={homeArticles[0].href}
+              className="group lg:col-span-3 flex flex-col bg-paper-light border-2 border-gold/30 rounded-card overflow-hidden hover:border-gold hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+            >
+              <div className="relative aspect-[16/9] overflow-hidden bg-ink/5">
+                <Image
+                  src={homeArticles[0].image}
+                  alt={homeArticles[0].title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/5 to-transparent" />
+                <span className="absolute top-4 left-4 font-cinzel text-[0.65rem] tracking-[0.25em] uppercase text-paper-white bg-ink/70 border border-gold/40 rounded-btn px-3 py-1.5">
+                  บทความล่าสุด
+                </span>
+              </div>
+
+              <div className="flex flex-1 flex-col p-7 md:p-9">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="font-cinzel text-sm text-gold/60">01</span>
+                  <span className="font-cinzel text-xs text-gold tracking-widest uppercase">
+                    {homeArticles[0].eyebrow}
+                  </span>
+                </div>
+                <h3 className="font-cinzel text-2xl md:text-[1.65rem] text-ink font-semibold leading-snug mb-3 group-hover:text-gold transition-colors">
+                  {homeArticles[0].title}
+                </h3>
+                <p className="font-pridi text-ink/65 leading-relaxed line-clamp-3">
+                  {homeArticles[0].blurb}
+                </p>
+                <span className="mt-auto pt-7 inline-flex items-center gap-2 font-cinzel text-xs tracking-[0.25em] uppercase text-gold-dark group-hover:gap-3 transition-all duration-300">
+                  อ่านบทความ
+                  <span aria-hidden>→</span>
+                </span>
+              </div>
+            </a>
+
+            {/* บทความอื่น ๆ */}
+            <div
+              data-reveal
+              style={{ transitionDelay: "120ms" }}
+              className="lg:col-span-2 flex flex-col bg-paper-light border border-gold/25 rounded-card overflow-hidden divide-y divide-gold/15"
+            >
+              {homeArticles.slice(1).map((a, i) => (
+                <a
+                  key={a.href}
+                  href={a.href}
+                  className="group flex flex-1 flex-col justify-center p-6 md:p-7 hover:bg-gold/[0.06] transition-colors duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="font-cinzel text-sm text-gold/50 group-hover:text-gold transition-colors pt-0.5 shrink-0">
+                      {String(i + 2).padStart(2, "0")}
+                    </span>
+
+                    <div className="min-w-0 flex-1">
+                      <span className="font-cinzel text-[0.65rem] text-gold tracking-widest uppercase mb-1.5 block">
+                        {a.eyebrow}
+                      </span>
+                      <h3 className="font-cinzel text-base text-ink font-semibold leading-snug line-clamp-2 group-hover:text-gold transition-colors">
+                        {a.title}
+                      </h3>
+                      <p className="font-pridi text-ink/55 text-sm leading-relaxed line-clamp-2 mt-2">
+                        {a.blurb}
+                      </p>
+                    </div>
+
+                    <span className="font-cinzel text-gold/40 group-hover:text-gold group-hover:translate-x-1 transition-all duration-300 pt-0.5 shrink-0">
+                      →
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+          </div>
+
+          <div data-reveal className="text-center mt-12 md:mt-14">
+            <a href="/articles" className="btn-outline font-pridi inline-flex items-center gap-2">
+              ดูบทความทั้งหมด
+              <span aria-hidden>→</span>
+            </a>
+          </div>
+
         </div>
       </section>
 
