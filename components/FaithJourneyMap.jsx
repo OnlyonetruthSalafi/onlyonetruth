@@ -455,6 +455,7 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
             alt={journey.mapAlt}
             fill
             sizes="(max-width: 1024px) 100vw, 1024px"
+            priority
             style={{ objectFit: "fill", background: "#c9a876" }}
           />
 
