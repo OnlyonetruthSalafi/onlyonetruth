@@ -235,6 +235,14 @@ const collections = [
 // ── บทความเด่นบนหน้าแรก (รายการแรก = บทความหลัก) ─────────────────
 const homeArticles = [
   {
+    href: "/articles/arabic-palaeography-azami",
+    eyebrow: "อัลกุรอาน · Al-Azami",
+    title: "จุด สระ และลายเส้น: ประวัติอักษรอาหรับกับการสะกดคำในมุศฮัฟ",
+    blurb:
+      "อักษรอาหรับยืมมาจากซีรีแอกหรือไม่? มุศฮัฟอักษรกูฟิกต้องเป็นของศตวรรษที่ 2 ฮ.ศ. เสมอไปหรือเปล่า? Al-Azami ไล่เรียงจารึก ปาปิรุส และต้นฉบับยุคแรกเพื่อตอบทีละข้อ",
+    image: "/articles/arabic-palaeography-azami.jpg",
+  },
+  {
     href: "/articles/muhammad-non-muslim-sources",
     eyebrow: "ประวัติศาสตร์ · Non-Muslim Sources",
     title: "หลักฐานนอกระบบคัมภีร์ว่าด้วยศาสดามุฮัมมัด",
