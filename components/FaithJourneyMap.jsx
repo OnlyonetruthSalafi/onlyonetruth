@@ -10,8 +10,14 @@
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { JOURNEYS } from "../lib/paths-of-faith/data";
+import { narrationSrc } from "../lib/paths-of-faith/narration";
 
 const DWELL_MS = 1800; // หยุดพักที่เมือง (หารด้วยความเร็ว)
+const POST_NARRATION_S = 0.6; // เว้นจังหวะหลังเสียงพากษ์จบ ก่อนออกเดินต่อ
+const MAX_NARRATION_S = 90;   // กันค้าง: ถ้าเสียงไม่จบภายในนี้ให้เดินต่อ
+// เร่งเสียงพากษ์เล็กน้อยเท่านั้น — ภาษาไทยที่เร็วเกิน 1.2× ฟังไม่รู้เรื่อง
+const narrationRate = (speed) => (speed > 1 ? 1.15 : 1);
+const SILENT_WAV = "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=";
 const SPEEDS = [0.5, 1, 2, 3];
 const SILHOUETTE = "#171310"; // เงาทึบผู้เดินทาง ไม่มีรายละเอียดใบหน้า (หลักการอิสลาม — แบบเดียวกับหน้าแรก)
 
@@ -33,6 +39,21 @@ function polyLen(pts) {
   let s = 0;
   for (let i = 1; i < pts.length; i++) s += Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y);
   return s;
+}
+
+function NarrationToggle({ on, onClick }) {
+  return (
+    <button
+      aria-label={on ? "ปิดเสียงพากษ์" : "เปิดเสียงพากษ์ภาษาไทย (เริ่มเล่าจากจุดแรกของเส้นทาง)"}
+      aria-pressed={on}
+      onClick={onClick}
+      className={`font-pridi text-xs px-3 py-1.5 rounded-full border transition-all duration-base ${
+        on ? "border-gold text-gold bg-gold/10 shadow-glow-sm" : "border-paper-white/25 text-paper-white/70 hover:border-gold/60 hover:text-gold"
+      }`}
+    >
+      {on ? "🔊 เสียงพากษ์: เปิด" : "🔈 ฟังเสียงพากษ์"}
+    </button>
+  );
 }
 
 export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChange } = {}) {
@@ -58,6 +79,8 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
   const [card, setCard] = useState(null);       // { routeId, stopIdx }
   const [currentIdx, setCurrentIdx] = useState(0);
   const [effects, setEffects] = useState([]);
+  const [narrationOn, setNarrationOn] = useState(false); // ปิดไว้ก่อน — เบราว์เซอร์บล็อกเสียงจนกว่าผู้ใช้จะคลิก
+  const [narrationAvail, setNarrationAvail] = useState(false); // ซ่อนปุ่มจนกว่าจะมีไฟล์เสียงของ journey นี้จริง
 
   const mapBoxRef = useRef(null);
   const walkerRef = useRef(null);
@@ -68,9 +91,12 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
   const speedRef = useRef(speed);
   const effectId = useRef(0);
   const dragRef = useRef(null);
+  const audioRef = useRef(null);      // HTMLAudioElement เดียว ใช้ซ้ำทุกจุดแวะ (สร้างตอนผู้ใช้กดเปิดเสียง)
+  const narrationRef = useRef(false);
 
   playingRef.current = playing;
   speedRef.current = speed;
+  narrationRef.current = narrationOn;
 
   const activeRoute = journey.routes.find((r) => r.id === activeRouteId) || journey.routes[0];
   const cityByKey = useMemo(() => {
@@ -130,12 +156,39 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
     let dist = 0, next = 1, dwell = 0, done = pts.length < 2;
     let cardDismissed = false; // ปิดการ์ดอัตโนมัติเมื่อเริ่มเดินต่อ กันการ์ดบังตัวละครระหว่างทาง
 
+    // ── เสียงพากษ์: ตัวละครรอจนเสียงของจุดแวะนั้นจบ (หรือ error) ก่อนออกเดิน ──
+    const audio = audioRef.current;
+    let narrating = false, narrWait = 0;
+    const stopNarrating = () => {
+      if (!narrating) return;
+      narrating = false;
+      dwell = Math.max(dwell, POST_NARRATION_S);
+    };
+    const narrate = (idx) => {
+      if (!narrationRef.current || !audio) return;
+      narrating = true;
+      narrWait = 0;
+      audio.onended = stopNarrating;
+      audio.onerror = stopNarrating; // ไม่มีไฟล์/โหลดไม่ได้ → ใช้ dwell ปกติ
+      audio.src = narrationSrc(journey.id, route.id, idx);
+      audio.playbackRate = narrationRate(speedRef.current);
+      if (playingRef.current) {
+        audio.play().catch((err) => { if (err?.name !== "AbortError") stopNarrating(); });
+      }
+      if (idx + 1 < pts.length) {
+        const pre = new Audio();
+        pre.preload = "auto";
+        pre.src = narrationSrc(journey.id, route.id, idx + 1);
+      }
+    };
+
     const fire = (idx) => {
       setVisited((v) => ({ ...v, [`${route.id}:${idx}`]: true }));
       setCard({ routeId: route.id, stopIdx: idx });
       setCurrentIdx(idx);
       spawnEffect(pts[idx], route.color);
       cardDismissed = false;
+      narrate(idx);
     };
 
     fire(0);
@@ -149,8 +202,12 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
       if (!playingRef.current) return;
 
       if (!done) {
-        if (dwell > 0) {
-          dwell -= dt * speedRef.current;
+        if (dwell > 0 || narrating) {
+          if (dwell > 0) dwell -= dt * speedRef.current;
+          if (narrating && (narrWait += dt) > MAX_NARRATION_S) stopNarrating();
+        } else if (next >= pts.length) {
+          // จบเส้นทางหลังเสียง/การพักที่จุดสุดท้ายจบแล้ว
+          done = true; setEnded(true); setPlaying(false);
         } else {
           if (!cardDismissed) {
             cardDismissed = true;
@@ -162,7 +219,6 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
             fire(next);
             dwell = DWELL_MS / 1000;
             next++;
-            if (next >= pts.length) { done = true; setEnded(true); setPlaying(false); }
           }
         }
       }
@@ -175,7 +231,7 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
       const a = pts[k], b = pts[k + 1] || pts[k];
       const x = a.x + (b.x - a.x) * lt;
       const y = a.y + (b.y - a.y) * lt;
-      const moving = dwell <= 0 && !done;
+      const moving = dwell <= 0 && !narrating && !done && next < pts.length;
       const bob = moving ? Math.sin(now / 150) * 1.7 : 0;
       const depth = 0.82 + (y / journey.viewH) * 0.34; // 2.5D: ล่าง=ใกล้=ใหญ่
       const flip = (b.x - a.x) < -0.5 ? -1 : 1;
@@ -185,9 +241,38 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
       if (progressRef.current) progressRef.current.style.width = `${((dist / total) * 100).toFixed(1)}%`;
     };
     raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(raf);
+      if (audio) { audio.onended = null; audio.onerror = null; audio.pause(); }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [journeyId, activeRouteId, reduced, restartKey, overrides]);
+
+  // ตรวจว่ามีไฟล์เสียงของ journey นี้หรือยัง (HEAD คลิปแรกของเส้นทางแรก)
+  useEffect(() => {
+    let alive = true;
+    setNarrationAvail(false);
+    fetch(narrationSrc(journey.id, journey.routes[0].id, 0), { method: "HEAD" })
+      .then((r) => { if (alive) setNarrationAvail(r.ok); })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, [journey]);
+
+  // หยุด/เล่นต่อ → หยุด/เล่นเสียงพากษ์ตาม · ปรับความเร็วเสียงตามความเร็วการเดิน
+  useEffect(() => {
+    const a = audioRef.current;
+    if (!a || !a.src || a.ended) return;
+    if (playing && narrationOn) a.play().catch(() => {});
+    else a.pause();
+    // ปิดเสียงกลางคลิป → ส่ง ended ปลดตัวละครที่รออยู่ให้เดินต่อทันที
+    if (!narrationOn) a.dispatchEvent(new Event("ended"));
+  }, [playing, narrationOn]);
+
+  useEffect(() => {
+    if (audioRef.current) audioRef.current.playbackRate = narrationRate(speed);
+  }, [speed]);
+
+  useEffect(() => () => audioRef.current?.pause(), []);
 
   // ── handlers ───────────────────────────────────────────────────────
   const switchJourney = (id) => {
@@ -221,12 +306,36 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
 
   const restart = () => { setPlaying(true); setRestartKey((k) => k + 1); };
 
+  const toggleNarration = () => {
+    if (narrationOn) { setNarrationOn(false); return; }
+    if (!audioRef.current) audioRef.current = new Audio();
+    const a = audioRef.current;
+    // ปลดล็อก autoplay ภายใน gesture (Safari/iOS) ด้วยคลิปเงียบ — pause เฉพาะถ้ายังเป็นคลิปเงียบอยู่
+    a.src = SILENT_WAV;
+    a.play().then(() => { if (a.src === SILENT_WAV) a.pause(); }).catch(() => {});
+    setNarrationOn(true);
+    if (!reduced) restart(); // เริ่มเส้นทางใหม่ให้เสียงเล่าตั้งแต่จุดแรก
+  };
+
+  const playStopClip = (routeId, idx) => {
+    const a = audioRef.current;
+    if (!a || !narrationOn) return;
+    a.onended = null; a.onerror = null;
+    a.src = narrationSrc(journey.id, routeId, idx);
+    a.playbackRate = 1;
+    a.play().catch(() => {});
+  };
+
   const openCityCard = (cityKey) => {
     // หา stop ของเมืองนี้: เส้น active ก่อน แล้วค่อยเส้นอื่นของ journey
     const routes = [activeRoute, ...journey.routes.filter((r) => r.id !== activeRoute.id)];
     for (const r of routes) {
       const idx = r.stops.findIndex((s) => s.city === cityKey);
-      if (idx >= 0) { setCard({ routeId: r.id, stopIdx: idx }); return; }
+      if (idx >= 0) {
+        setCard({ routeId: r.id, stopIdx: idx });
+        if (reduced) playStopClip(r.id, idx); // โหมดนิ่ง: คลิกเมือง = ฟังเสียงพากษ์จุดนั้น
+        return;
+      }
     }
   };
 
@@ -494,7 +603,7 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
               >
                 <button
                   aria-label="ปิดการ์ดประวัติ"
-                  onClick={(e) => { e.stopPropagation(); setCard(null); }}
+                  onClick={(e) => { e.stopPropagation(); setCard(null); if (reduced) audioRef.current?.pause(); }}
                   className="absolute top-1.5 right-2 font-cinzel text-ink/50 hover:text-ink text-sm leading-none"
                 >
                   ✕
@@ -581,8 +690,14 @@ export default function FaithJourneyMap({ journeyId: controlledId, onJourneyChan
         </div>
 
         {/* เล่น/หยุด/เริ่มใหม่/ความเร็ว + progress */}
+        {reduced && (
+          <div className="flex justify-center">
+            {narrationAvail && <NarrationToggle on={narrationOn} onClick={toggleNarration} />}
+          </div>
+        )}
         {!reduced && (
           <div className="flex flex-wrap items-center justify-center gap-3">
+            {narrationAvail && <NarrationToggle on={narrationOn} onClick={toggleNarration} />}
             <div className="flex items-center gap-1.5">
               <button
                 aria-label={playing ? "หยุดการเดินทางชั่วคราว" : "เล่นการเดินทาง"}
