@@ -17,8 +17,9 @@ export async function generateMetadata({ params }) {
 
   const baseUrl = 'https://onlyonetruthislam.vercel.app'
   const pageUrl = `${baseUrl}/articles/${params.slug}`
-  const imageUrl = article.image
-    ? `${baseUrl}${article.image}`
+  const shareImage = article.ogImage || article.image
+  const imageUrl = shareImage
+    ? `${baseUrl}${shareImage}`
     : `${baseUrl}/header.png`
   const description = article.excerpt || article.title
 
